@@ -33,6 +33,18 @@ print("Test passed: Found MOV al, 'H'!")
 assert "ebfe" in h
 print("jmp $ found!")
 
+print("Running bootloader in qemu and testing output. This will take a few seconds:")
+import subprocess
+#global output
+t = ""
+try: 
+    output = subprocess.check_output(["qemu-system-i386","-nographic","bootloader"], stderr=subprocess.STDOUT, timeout=10)
+except subprocess.TimeoutExpired as e:
+    t = str(e.output)
+    print(t)
+assert "Hello" in t
+print("Good news! Found Hello in qemu output!")
+
 """
 [bits 16]
 mov ah, 0x0e ; tty mode
