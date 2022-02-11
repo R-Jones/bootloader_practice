@@ -16,8 +16,6 @@ print('Test passed: Bootloader ends in magic number 55aa!')
 assert h.count("cd10") == 6 
 print('Test passed: Interrupt 10 instruction found 5 times!')
 
-#f = open("bootloader2", "wb")
-
 #0x48 == 72 == ascii 'H', the first character in our "Hello"
 #B0 is one of the MOV opcodes. Moves Ib(imm8?) into al
 #imm8 stands for "immediate 8"(immediate byte?). There is also imm16(immediate word) and imm32(immediate doubleword).
