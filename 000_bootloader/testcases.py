@@ -38,7 +38,7 @@ import subprocess
 #global output
 t = ""
 try: 
-    output = subprocess.check_output(["qemu-system-i386","-nographic","bootloader"], stderr=subprocess.STDOUT, timeout=10)
+    output = subprocess.check_output(["qemu-system-i386","-nographic","bootloader"], stderr=subprocess.STDOUT, timeout=8)
 except subprocess.TimeoutExpired as e:
     t = str(e.output)
     print(t)
