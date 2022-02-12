@@ -35,7 +35,6 @@ print("jmp $ found!")
 
 print("Running bootloader in qemu and testing output. This will take a few seconds:")
 import subprocess
-#global output
 t = ""
 try: 
     output = subprocess.check_output(["qemu-system-i386","-nographic","bootloader"], stderr=subprocess.STDOUT, timeout=8)
@@ -66,3 +65,24 @@ jmp $ ; jump to current address = infinite loop
 times 510-($-$$) db 0 ;times is nasm specific. It causes the instruction to be assembled multiple times. This is filling out the necessary 512 bootloader bytes.
 dw 0xaa55 ;Bootloader magic number
 """
+
+#what's really fun about this is that we can write completely in machine code, no need for assembly, and run it. This corresponds to the above(assuming I haven't changed anything)
+h = 'b40eb048cd10b065cd10b06ccd10cd10b06fcd10b021cd10ebfe0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000055aa'
+h = h.replace("cd10cd10","cd10cd10cd10cd10") #This will cause printing l in "Hello" four times instead of two.
+h = h[:-12] + h[-4:] #We added 8 hex. We need to take away 8 so we're still at 512 bytes. Let's take away some of the 0x0.
+f = open("tempbl","wb")
+f.write(bytes.fromhex(h))
+f.close()
+bytes.fromhex(h)
+t = ""
+print("Running tempbl in qemu and testing output. This will take a few seconds:")
+try: 
+    output = subprocess.check_output(["qemu-system-i386","-nographic","tempbl"], stderr=subprocess.STDOUT, timeout=8)
+except subprocess.TimeoutExpired as e:
+    t = str(e.output)
+    print(t)
+    import os
+    os.remove("tempbl")
+
+assert "Hellllo" in t
+print("Success! Hellllo in tempbl!")
