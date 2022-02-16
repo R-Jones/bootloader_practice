@@ -1,0 +1,13 @@
+00000000  60                pusha
+00000001  BA0080            mov dx,0x8000
+00000004  0B00              or ax,[bx+si]
+00000006  8A03              mov al,[bp+di]
+00000008  B40F              mov ah,0xf
+0000000A  3C00              cmp al,0x0
+0000000C  740B              jz 0x19
+0000000E  668902            mov [bp+si],eax
+00000011  83C301            add bx,byte +0x1
+00000014  83C202            add dx,byte +0x2
+00000017  EBED              jmp short 0x6
+00000019  61                popa
+0000001A  C3                ret
