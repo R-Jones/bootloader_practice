@@ -1,0 +1,62 @@
+00000000  E80700            call 0xa
+00000003  0000              add [bx+si],al
+00000005  EBFE              jmp short 0x5
+00000007  55                push bp
+00000008  89E5              mov bp,sp
+0000000A  5D                pop bp
+0000000B  C3                ret
+0000000C  55                push bp
+0000000D  89E5              mov bp,sp
+0000000F  83EC10            sub sp,byte +0x10
+00000012  C745FC0080        mov word [di-0x4],0x8000
+00000017  0B00              or ax,[bx+si]
+00000019  8B45FC            mov ax,[di-0x4]
+0000001C  C60058            mov byte [bx+si],0x58
+0000001F  C9                leave
+00000020  C3                ret
+00000021  0000              add [bx+si],al
+00000023  0014              add [si],dl
+00000025  0000              add [bx+si],al
+00000027  0000              add [bx+si],al
+00000029  0000              add [bx+si],al
+0000002B  0001              add [bx+di],al
+0000002D  7A52              jpe 0x81
+0000002F  0001              add [bx+di],al
+00000031  7C08              jl 0x3b
+00000033  011B              add [bp+di],bx
+00000035  0C04              or al,0x4
+00000037  0488              add al,0x88
+00000039  0100              add [bx+si],ax
+0000003B  001C              add [si],bl
+0000003D  0000              add [bx+si],al
+0000003F  001C              add [si],bl
+00000041  0000              add [bx+si],al
+00000043  00C3              add bl,al
+00000045  FF                db 0xff
+00000046  FF                db 0xff
+00000047  FF05              inc word [di]
+00000049  0000              add [bx+si],al
+0000004B  0000              add [bx+si],al
+0000004D  41                inc cx
+0000004E  0E                push cs
+0000004F  08850242          or [di+0x4202],al
+00000053  0D0541            or ax,0x4105
+00000056  C50C              lds cx,[si]
+00000058  0404              add al,0x4
+0000005A  0000              add [bx+si],al
+0000005C  1C00              sbb al,0x0
+0000005E  0000              add [bx+si],al
+00000060  3C00              cmp al,0x0
+00000062  0000              add [bx+si],al
+00000064  A8FF              test al,0xff
+00000066  FF                db 0xff
+00000067  FF15              call [di]
+00000069  0000              add [bx+si],al
+0000006B  0000              add [bx+si],al
+0000006D  41                inc cx
+0000006E  0E                push cs
+0000006F  08850242          or [di+0x4202],al
+00000073  0D0551            or ax,0x5105
+00000076  C50C              lds cx,[si]
+00000078  0404              add al,0x4
+0000007A  0000              add [bx+si],al
