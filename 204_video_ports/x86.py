@@ -1,13 +1,31 @@
+
 prognibbles = iter('b40eb041cd10b02ecd10b042cd10a02e00cd10b043cd10bb2e0081c3007c8a4701cd10b044cd10a02d7ccd10ebfe585900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000055aa')
 
 foo = (nib+next(prognibbles) for nib in prognibbles)
 
 memory = {} #key = address as hex val(e.g. 0xbeef, 0xbeeg). value = contents of that memory byte(two hex)
 
-regs = {"IP":0x7000}
+regs = {"IP":0x7000, "CR0":{"PE":False},#Actually, since I'm testing this on bootloaders, I should leave PE off for now.
+        "EAX":0x0*64,"ECX":0x0*64,"EDX":0x0*64,"EBX":0x0*64,
+        "ESP":0x0*64,"EBP":0x0*64,"ESI":0x0*64,"EDI":0x0*64,
+        }
+
+import time
+def fetch():
+    while True:
+        time.sleep(1)
+        IP = regs["IP"]
+        regs["IP"] = regs["IP"] + 1
+        print(memory[IP])
+        print("fetching a byte!", hex(memory[IP]))
+        yield memory[IP]
+
+opcodes = fetch()
 
 for i, bytehex in enumerate(foo):
-    memory[0x7000+i]=bytehex
+    memory[0x7000+i]=int(bytehex,16)
+
+print(memory)
 
 #Okay, so now for some sections handling these needed functions
 #NOT_IMPLEMENTED
@@ -264,7 +282,8 @@ def XCHG(**kwargs):
     print(kwargs)
 
 def MOV(**kwargs):
-    print(kwargs)
+    kwargs["op1"](kwargs["op2"]())
+    return kwargs
 
 def LEA(**kwargs):
     print(kwargs)
@@ -404,38 +423,91 @@ def PREFIX_F3(**kwargs):
 #EAX, AX, AL, AH, CS, ES, DS, SREG, DX, EBP, ECX
 #A,C,D,B,SP,BP,SI,DI
 
+#ALAH-AX---EAX
+def AL(**kwargs):
+    def addr(v):
+        if(v):
+            regs["EAX"] = ((v & 0xff) << 24) + (regs["EAX"] & 0x00ffffff)
+        return regs["EAX"] >> 24
+    key = [x for x in ("op1","op2","op3") if x not in kwargs][0]
+    return {key: addr}
+
+def AH(**kwargs):
+    def addr(v):
+        if(v):
+            regs["EAX"] = (regs["EAX"] & 0xff000000) + ((v & 0xff) << 16) + (regs["EAX"] & 0xff)
+        return (regs["EAX"] >> 16) & 0xff
+        #Makes for a fun comparison between slicing and bit manipulation.
+        #if(v):
+        #    regs["EAX"] = regs["EAX"][:8] + v + regs["EAX"][16:]
+        #return regs["EAX"][8:16]
+    key = [x for x in ("op1","op2","op3") if x not in kwargs][0]
+    return {key: addr}
+
+def AX(**kwargs):
+    print(kwargs)
+
 def EAX(**kwargs):
+    print(kwargs)
+
+def CL(**kwargs):
+    print(kwargs)
+
+def CH(**kwargs):
+    print(kwargs)
+
+def CX(**kwargs):
     print(kwargs)
 
 def ECX(**kwargs):
     print(kwargs)
 
+def DL(**kwargs):
+    print(kwargs)
+
+def DH(**kwargs):
+    print(kwargs)
+
+def DX(**kwargs):
+    print(kwargs)
+
 def EDX(**kwargs):
+    print(kwargs)
+
+def BL(**kwargs):
+    print(kwargs)
+
+def BH(**kwargs):
+    print(kwargs)
+
+def BX(**kwargs):
     print(kwargs)
 
 def EBX(**kwargs):
     print(kwargs)
 
+def SP(**kwargs):
+    print(kwargs)
+
 def ESP(**kwargs):
+    print(kwargs)
+
+def BP(**kwargs):
     print(kwargs)
 
 def EBP(**kwargs):
     print(kwargs)
 
+def SI(**kwargs):
+    print(kwargs)
+
 def ESI(**kwargs):
     print(kwargs)
 
+def DI(**kwargs):
+    print(kwargs)
+
 def EDI(**kwargs):
-    print(kwargs)
-
-
-def AX(**kwargs):
-    print(kwargs)
-
-def AL(**kwargs):
-    print(kwargs)
-
-def AH(**kwargs):
     print(kwargs)
 
 def CS(**kwargs):
@@ -448,15 +520,6 @@ def DS(**kwargs):
     print(kwargs)
 
 def SREG(**kwargs):
-    print(kwargs)
-
-def DX(**kwargs):
-    print(kwargs)
-
-def EBP(**kwargs):
-    print(kwargs)
-
-def ECX(**kwargs):
     print(kwargs)
 
 #Addressing Modes:
@@ -477,7 +540,12 @@ def RM1632(**kwargs):
     print(kwargs)
 
 def IMM8(**kwargs):
+    def addr():
+        return next(opcodes)
+        
+    key = [x for x in ("op1","op2","op3") if x not in kwargs][0]
     print(kwargs)
+    return {key: addr}
 
 def IMM16(**kwargs):
     print(kwargs)
@@ -519,83 +587,90 @@ def MODRM(**kwargs):
 ophandlers = {}
 #So, going through this, it's pretty clear that the CPU is using some octal to parse opcodes. You can notice the similarities and repitition. Maybe I could take another stab at this later doing it that way.
 #The way I'm doing this is tossing the instruction at the end. My strategy will be to go through this, using MODRM, R8, RM8 etc. to build state. 
-ophandlers["0"] = {"0":[MODRM, RM8, R8, ADD], "1":[MODRM, RM1632, R1632, ADD], "2":[MODRM, R8, RM8, ADD], "3":[MODRM, R1632, RM1632, ADD],
-                   "4":[AL, IMM8, ADD], "5":[EAX, IMM1632, ADD], "6":[ES, PUSH], "7":[ES, POP], "8":[MODRM, RM8, R8, OR], "9":[MODRM, RM1632, R1632, OR],
-                   "a":[MODRM, R8, RM8, OR], "b":[MODRM, RM1632, R1632, OR], "c":[AL, IMM8, OR], "d":[EAX, IMM1632, OR], "e":[CS, PUSH], "f":[NOT_IMPLEMENTED]}
+ophandlers[0x0] = {0x0:[MODRM, RM8, R8, ADD], 0x1:[MODRM, RM1632, R1632, ADD], 0x2:[MODRM, R8, RM8, ADD], 0x3:[MODRM, R1632, RM1632, ADD],
+                   0x4:[AL, IMM8, ADD], 0x5:[EAX, IMM1632, ADD], 0x6:[ES, PUSH], 0x7:[ES, POP], 0x8:[MODRM, RM8, R8, OR], 0x9:[MODRM, RM1632, R1632, OR],
+                   0xa:[MODRM, R8, RM8, OR], 0xb:[MODRM, RM1632, R1632, OR], 0xc:[AL, IMM8, OR], 0xd:[EAX, IMM1632, OR], 0xe:[CS, PUSH], 0xf:[NOT_IMPLEMENTED]}
 
-ophandlers["1"] = {"0":[MODRM, RM8, R8, ADC], "1":[MODRM, RM1632, R1632, ADC], "2":[MODRM, R8, RM8, ADC], "3":[MODRM, R1632, RM1632, ADC],
-                   "4":[AL, IMM8, ADC], "5":[EAX, IMM1632, ADC], "6":[CS, PUSH], "7":[CS, POP], "8":[MODRM, RM8, R8, SBB], "9":[MODRM, RM1632, R1632, SBB],
-                   "a":[MODRM, R8, RM8, SBB], "b":[MODRM, RM1632, R1632, SBB], "c":[AL, IMM8, SBB], "d":[EAX, IMM1632, SBB], "e":[DS, PUSH], "f":[DS, POP]}
+ophandlers[0x1] = {0x0:[MODRM, RM8, R8, ADC], 0x1:[MODRM, RM1632, R1632, ADC], 0x2:[MODRM, R8, RM8, ADC], 0x3:[MODRM, R1632, RM1632, ADC],
+                   0x4:[AL, IMM8, ADC], 0x5:[EAX, IMM1632, ADC], 0x6:[CS, PUSH], 0x7:[CS, POP], 0x8:[MODRM, RM8, R8, SBB], 0x9:[MODRM, RM1632, R1632, SBB],
+                   0xa:[MODRM, R8, RM8, SBB], 0xb:[MODRM, RM1632, R1632, SBB], 0xc:[AL, IMM8, SBB], 0xd:[EAX, IMM1632, SBB], 0xe:[DS, PUSH], 0xf:[DS, POP]}
 
-ophandlers["2"] = {"0":[MODRM, RM8, R8, AND], "1":[MODRM, RM1632, R1632, AND], "2":[MODRM, R8, RM8, AND], "3":[MODRM, R1632, RM1632, AND],
-                   "4":[AL, IMM8, AND], "5":[EAX, IMM1632, AND], "6":[PREFIX_26], "7":[AL,DAA], "8":[MODRM, RM8, R8, SUB], "9":[MODRM, RM1632, R1632, SUB],
-                   "a":[MODRM, R8, RM8, SUB], "b":[MODRM, RM1632, R1632, SUB], "c":[AL, IMM8, SUB], "d":[EAX, IMM1632, SUB], "e":[PREFIX_2E], "f":[AL, DAS]}
+ophandlers[0x2] = {0x0:[MODRM, RM8, R8, AND], 0x1:[MODRM, RM1632, R1632, AND], 0x2:[MODRM, R8, RM8, AND], 0x3:[MODRM, R1632, RM1632, AND],
+                   0x4:[AL, IMM8, AND], 0x5:[EAX, IMM1632, AND], 0x6:[PREFIX_26], 0x7:[AL,DAA], 0x8:[MODRM, RM8, R8, SUB], 0x9:[MODRM, RM1632, R1632, SUB],
+                   0xa:[MODRM, R8, RM8, SUB], 0xb:[MODRM, RM1632, R1632, SUB], 0xc:[AL, IMM8, SUB], 0xd:[EAX, IMM1632, SUB], 0xe:[PREFIX_2E], 0xf:[AL, DAS]}
 
-ophandlers["3"] = {"0":[MODRM, RM8, R8, XOR], "1":[MODRM, RM1632, R1632, XOR], "2":[MODRM, R8, RM8, XOR], "3":[MODRM, R1632, RM1632, XOR],
-                   "4":[AL, IMM8, XOR], "5":[EAX, IMM1632, XOR], "6":[PREFIX_36], "7":[AL,AH,AAA], "8":[MODRM, RM8, R8, CMP], "9":[MODRM, RM1632, R1632, CMP],
-                   "a":[MODRM, R8, RM8, CMP], "b":[MODRM, RM1632, R1632, CMP], "c":[AL, IMM8, CMP], "d":[EAX, IMM1632, CMP], "e":[PREFIX_3E], "f":[AL, AH, AAS]}
+ophandlers[0x3] = {0x0:[MODRM, RM8, R8, XOR], 0x1:[MODRM, RM1632, R1632, XOR], 0x2:[MODRM, R8, RM8, XOR], 0x3:[MODRM, R1632, RM1632, XOR],
+                   0x4:[AL, IMM8, XOR], 0x5:[EAX, IMM1632, XOR], 0x6:[PREFIX_36], 0x7:[AL,AH,AAA], 0x8:[MODRM, RM8, R8, CMP], 0x9:[MODRM, RM1632, R1632, CMP],
+                   0xa:[MODRM, R8, RM8, CMP], 0xb:[MODRM, RM1632, R1632, CMP], 0xc:[AL, IMM8, CMP], 0xd:[EAX, IMM1632, CMP], 0xe:[PREFIX_3E], 0xf:[AL, AH, AAS]}
 
 #TODO:The 4s and 5s are special in that they encode the target registers in the opcode itself. Another reason why I should be parsing these as octals. For now, I'll handle them specially. (I'm pretty sure that the octal values for the registers matches what I'll need to write for the MODRM parsing anyway!
-#ophandlers["4"] = 
-#ophandlers["5"] = 
-ophandlers["6"] = {"0":[PUSHA],"1":[POPA],"2":[NOT_IMPLEMENTED],"3":[NOT_IMPLEMENTED],"4":[PREFIX_64],"5":[PREFIX_65],"6":[PREFIX_66],"7":[NOT_IMPLEMENTED],
-        "8":[IMM1632, PUSH],"9":[NOT_IMPLEMENTED_YET],"a":[IMM8, PUSH],"b":[NOT_IMPLEMENTED_YET],"c":[M8,DX,INS],"d":[M16,DX,INS],"e":[DX,M8,OUTS],"f":[DX,M16,OUTS]}
+#ophandlers[0x4] = 
+#ophandlers[0x5] = 
+ophandlers[0x6] = {0x0:[PUSHA],0x1:[POPA],0x2:[NOT_IMPLEMENTED],0x3:[NOT_IMPLEMENTED],0x4:[PREFIX_64],0x5:[PREFIX_65],0x6:[PREFIX_66],0x7:[NOT_IMPLEMENTED],
+        0x8:[IMM1632, PUSH],0x9:[NOT_IMPLEMENTED_YET],0xa:[IMM8, PUSH],0xb:[NOT_IMPLEMENTED_YET],0xc:[M8,DX,INS],0xd:[M16,DX,INS],0xe:[DX,M8,OUTS],0xf:[DX,M16,OUTS]}
 
 #TODO:The 7s are all jump instructions that vary based on various flags. This is something I can handle independently as well.
-#ophandlers["7"] =
+#ophandlers[0x7] =
 
-ophandlers["8"] = {"0":[MODRM_OPEXT_80],"1":[MODRM_OPEXT_81],"2":[MODRM_OPEXT_82], "3":[MODRM_OPEXT_83], "4":[MODRM, RM8, R8, TEST], "5":[MODRM, RM1632, R1632, TEST], 
-                 "6":[MODRM, R8, RM8, XCHG], "7":[MODRM, R1632, RM1632, XCHG], "8":[MODRM, RM8, R8, MOV], "9":[MODRM, RM1632, R1632, MOV], "a":[MODRM, R8, RM8, MOV], 
-                 "b":[MODRM, R1632, RM1632, MOV], "c":[MODRM, M16, MOV], "d":[MODRM, R1632, M, LEA], "e":[MODRM, SREG, RM16, MOV], "f":[MODRM, RM1632, POP]} #eh
+ophandlers[0x8] = {0x0:[MODRM_OPEXT_80],0x1:[MODRM_OPEXT_81],0x2:[MODRM_OPEXT_82], 0x3:[MODRM_OPEXT_83], 0x4:[MODRM, RM8, R8, TEST], 0x5:[MODRM, RM1632, R1632, TEST], 
+                 0x6:[MODRM, R8, RM8, XCHG], 0x7:[MODRM, R1632, RM1632, XCHG], 0x8:[MODRM, RM8, R8, MOV], 0x9:[MODRM, RM1632, R1632, MOV], 0xa:[MODRM, R8, RM8, MOV], 
+                 0xb:[MODRM, R1632, RM1632, MOV], 0xc:[MODRM, M16, MOV], 0xd:[MODRM, R1632, M, LEA], 0xe:[MODRM, SREG, RM16, MOV], 0xf:[MODRM, RM1632, POP]} #eh
 
 #TODO:The lower portion of this next one is a series of instructions. So let's handle this one separately too.
 #ophandlers[9] = 
 
-ophandlers["a"] = {"0":[AL, MOFFS8, MOV], "1":[EAX, MOFFS1632, MOV], "2":[MOFFS8, AL, MOV], "3":[MOFFS1632, EAX, MOV], "4":[M8, M8, MOVS], "5":[M16, M16, MOVS],
-                   "6":[M8, M8, CMPS], "7":[M16, M16, CMPS], "8":[AL, IMM8, TEST], "9":[EAX, IMM1632, TEST], "a":[M8, AL, STOS], "b":[M16, AX, STOS],
-                   "c":[AL, M8, LODS], "d":[AX, M16, LODS], "e":[M8, AL, SCAS], "f":[M8, AL, SCAS]}
+ophandlers[0xa] = {0x0:[AL, MOFFS8, MOV], 0x1:[EAX, MOFFS1632, MOV], 0x2:[MOFFS8, AL, MOV], 0x3:[MOFFS1632, EAX, MOV], 0x4:[M8, M8, MOVS], 0x5:[M16, M16, MOVS],
+                   0x6:[M8, M8, CMPS], 0x7:[M16, M16, CMPS], 0x8:[AL, IMM8, TEST], 0x9:[EAX, IMM1632, TEST], 0xa:[M8, AL, STOS], 0xb:[M16, AX, STOS],
+                   0xc:[AL, M8, LODS], 0xd:[AX, M16, LODS], 0xe:[M8, AL, SCAS], 0xf:[M8, AL, SCAS]}
 
-#ophandlers["b"] = 
+#ophandlers[0xb] = 
 
-ophandlers["c"] = {"0":[MODRM_OPEXT_C0], "1":[MODRM_OPEXT_C1], "2":[IMM16, RET], "3": [RET], "4":[MODRM, ES, R1632, M161632], "5":[MODRM, DS, R1632, M161632],
-                   "6":[MODRM, RM8, IMM8, MOV], "7":[MODRM, RM1632, IMM1632, MOV], "8":[EBP, IMM16, IMM8, ENTER], "9":[EBP, LEAVE], 
-                   "a":[IMM16, RETF], "b":[RETF], "c":[INT3], "d":[IMM8, INT], "e":[INTO], "f":[IRET]}
+ophandlers[0xc] = {0x0:[MODRM_OPEXT_C0], 0x1:[MODRM_OPEXT_C1], 0x2:[IMM16, RET], 0x3: [RET], 0x4:[MODRM, ES, R1632, M161632], 0x5:[MODRM, DS, R1632, M161632],
+                   0x6:[MODRM, RM8, IMM8, MOV], 0x7:[MODRM, RM1632, IMM1632, MOV], 0x8:[EBP, IMM16, IMM8, ENTER], 0x9:[EBP, LEAVE], 
+                   0xa:[IMM16, RETF], 0xb:[RETF], 0xc:[INT3], 0xd:[IMM8, INT], 0xe:[INTO], 0xf:[IRET]}
 
 #All the floating point stuff is in the upper nibble of this one. Going to skip on that for now.
-ophandlers["d"] = {"0":[MODRM_OPEXT_D0], "1":[MODRM_OPEXT_D1], "2":[MODRM_OPEXT_D2], "3":[MODRM_OPEXT_D3], "4":[NOT_IMPLEMENTED], "5":[NOT_IMPLEMENTED], 
-                   "6":[NOT_IMPLEMENTED], "7":[AL, M8, XLAT], "8":[NOT_IMPLEMENTED_YET], "9":[NOT_IMPLEMENTED_YET], "a":[NOT_IMPLEMENTED_YET],
-                   "b":[NOT_IMPLEMENTED_YET], "c":[NOT_IMPLEMENTED_YET], "d":[NOT_IMPLEMENTED_YET], "e":[NOT_IMPLEMENTED_YET], "f":[NOT_IMPLEMENTED_YET]}
+ophandlers[0xd] = {0x0:[MODRM_OPEXT_D0], 0x1:[MODRM_OPEXT_D1], 0x2:[MODRM_OPEXT_D2], 0x3:[MODRM_OPEXT_D3], 0x4:[NOT_IMPLEMENTED], 0x5:[NOT_IMPLEMENTED], 
+                   0x6:[NOT_IMPLEMENTED], 0x7:[AL, M8, XLAT], 0x8:[NOT_IMPLEMENTED_YET], 0x9:[NOT_IMPLEMENTED_YET], 0xa:[NOT_IMPLEMENTED_YET],
+                   0xb:[NOT_IMPLEMENTED_YET], 0xc:[NOT_IMPLEMENTED_YET], 0xd:[NOT_IMPLEMENTED_YET], 0xe:[NOT_IMPLEMENTED_YET], 0xf:[NOT_IMPLEMENTED_YET]}
                  
-ophandlers["e"] = {"0":[ECX, REL8, LOOPNZ], "1":[ECX, REL8, LOOPZ], "2":[ECX, REL8, LOOP], "3":[REL8, ECX, JECXZ], "4":[AL, IMM8, IN], "5":[EAX, IMM8, IN], 
-                   "6":[IMM8, AL, OUT], "7":[IMM8, EAX, OUT], "8":[REL1632, CALL], "9":[REL1632, JMP], "a":[PTR161632, JMP], "b":[REL8, JMP], "c":[AL, DX, IN],
-                   "d":[EAX, DX, IN], "e":[DX, AL, OUT], "f":[DX, EAX, OUT]}
+ophandlers[0xe] = {0x0:[ECX, REL8, LOOPNZ], 0x1:[ECX, REL8, LOOPZ], 0x2:[ECX, REL8, LOOP], 0x3:[REL8, ECX, JECXZ], 0x4:[AL, IMM8, IN], 0x5:[EAX, IMM8, IN], 
+                   0x6:[IMM8, AL, OUT], 0x7:[IMM8, EAX, OUT], 0x8:[REL1632, CALL], 0x9:[REL1632, JMP], 0xa:[PTR161632, JMP], 0xb:[REL8, JMP], 0xc:[AL, DX, IN],
+                   0xd:[EAX, DX, IN], 0xe:[DX, AL, OUT], 0xf:[DX, EAX, OUT]}
 
-ophandlers["f"] = {"0":[PREFIX_F0],"1":[NOT_IMPLEMENTED],"2":[PREFIX_F2],"3":[PREFIX_F3],"4":[HLT],"5":[CMC],"6":[MODRM_OPEXT_F6],"7":[MODRM_OPEXT_F7],"8":[CLC],
-                   "9":[STC],"a":[CLI],"b":[STI],"c":[CLD],"d":[STD],"e":[MODRM_OPEXT_FE], "f":[MODRM_OPEXT_FF]}
+ophandlers[0xf] = {0x0:[PREFIX_F0],0x1:[NOT_IMPLEMENTED],0x2:[PREFIX_F2],0x3:[PREFIX_F3],0x4:[HLT],0x5:[CMC],0x6:[MODRM_OPEXT_F6],0x7:[MODRM_OPEXT_F7],0x8:[CLC],
+                   0x9:[STC],0xa:[CLI],0xb:[STI],0xc:[CLD],0xd:[STD],0xe:[MODRM_OPEXT_FE], 0xf:[MODRM_OPEXT_FF]}
 
 #parse modrm
 #addressing modes
 #Finally, feed op1, op2, ... operand pointers into the main instruction function. 
 #def MOV(op1, op2):
 #    op1(op2())
-regmap = [EAX, ECX, EDX, EBX, ESP, EBP, ESI, EDI]
+regmap8 = [AL, CL, DL, BL, AH, CH, DH, BH] #A bit of trivia. In long mode with REX prefix, the latter four change.
+regmap16 = [AX, CX, DX, BX, SP, BP, SI, DI]
+regmap32 = [EAX, ECX, EDX, EBX, ESP, EBP, ESI, EDI]
 
 #A,C,D,B,SP,BP,SI,DI
 def B_OP(opcode):
-    val = int(opcode[1],16)
-    reg = regmap[val%8]
-    addressing = [R1632, IMM1632] if val // 8 else [R8, IMM8] 
+    val = opcode & 0x0f
+    if val // 8:
+        reg = regmap32[val%8] if regs["CR0"]["PE"] else regmap16[val%8]#hardcoded to 32bit for now
+        addressing = [reg, IMM1632] 
+    else:#R8, IMM8
+        reg = regmap8[val%8]
+        addressing = [reg, IMM8]
+
     execute([*addressing, MOV])
 
 def FOUR_OP(opcode):
     val = int(opcode[1],16)
-    reg = regmap[val%8]
+    reg = regmap32[val%8] if regs["CR0"]["PE"] else regmap16[val%8]#hardcoded to 32bit for now
     op = DEC if val // 8 else INC
     execute([R1632, op])
 
 def FIVE_OP(opcode):
     val = int(opcode[1],16)
-    reg = regmap[val%8]
+    reg = regmap32[val%8] if regs["CR0"]["PE"] else regmap16[val%8]#hardcoded to 32bit for now
     op = POP if val // 8 else PUSH
     execute([R1632, op])
 
@@ -618,29 +693,27 @@ def SEVEN_OP(opcode):
 def execute(mnemonic, state={}):
     state["mnemonic"] = mnemonic
     for piece in mnemonic:
+        print("Now Playing:",piece)
         retval = piece(**state)
+        print("retval",retval)
         if(retval):
             state = {**state, **retval}
     return state
 
-import time
-def fetch():
-    while True:
-        time.sleep(0.5)
-        IP = regs["IP"]
-        regs["IP"] = regs["IP"] + 1
-        yield memory[IP]
-opcodes = fetch()
+#ok, yeah. This is gonna get really tough if I try to stick with strings
 
 for opcode in opcodes:
     print(opcode)
-    if(opcode[0]=="b"):
+    print(regs)
+    nibble = opcode >> 4
+    
+    if(nibble==0xb):
         B_OP(opcode)
-    elif(opcode[0]=="4"):
+    elif(nibble==4):
         FOUR_OP(opcode)
-    elif(opcode[0]=="5"):
+    elif(nibble==5):
         FIVE_OP(opcode)
-    elif(opcode[0]=="7"):
+    elif(nibble==7):
         SEVEN_OP(opcode)
     else:
-        execute(ophandlers[opcode[0]][opcode[1]])
+        execute(ophandlers[nibble][opcode & 0x0f])
