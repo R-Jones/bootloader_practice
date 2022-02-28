@@ -1,7 +1,5 @@
----main-0x7, but why?---
 00000000  E802000000        call 0x7
 00000005  EBFE              jmp short 0x5
----main---
 00000007  8D4C2404          lea ecx,[esp+0x4]
 0000000B  83E4F0            and esp,byte -0x10
 0000000E  FF71FC            push dword [ecx-0x4]
@@ -12,11 +10,11 @@
 00000018  83EC08            sub esp,byte +0x8
 0000001B  6A0E              push byte +0xe
 0000001D  68D4030000        push dword 0x3d4
-00000022  E890000000        call 0xb7 #port_byte_out
+00000022  E890000000        call 0xb7
 00000027  83C410            add esp,byte +0x10
 0000002A  83EC0C            sub esp,byte +0xc
 0000002D  68D5030000        push dword 0x3d5
-00000032  E865000000        call 0x9c #port_byte_in
+00000032  E865000000        call 0x9c
 00000037  83C410            add esp,byte +0x10
 0000003A  0FB6C0            movzx eax,al
 0000003D  8945F4            mov [ebp-0xc],eax
@@ -24,18 +22,18 @@
 00000044  83EC08            sub esp,byte +0x8
 00000047  6A0F              push byte +0xf
 00000049  68D4030000        push dword 0x3d4
-0000004E  E864000000        call 0xb7 #port_byte_out
+0000004E  E864000000        call 0xb7
 00000053  83C410            add esp,byte +0x10
 00000056  83EC0C            sub esp,byte +0xc
 00000059  68D5030000        push dword 0x3d5
-0000005E  E839000000        call 0x9c #port_byte_in
+0000005E  E839000000        call 0x9c
 00000063  83C410            add esp,byte +0x10
 00000066  0FB6C0            movzx eax,al
 00000069  0145F4            add [ebp-0xc],eax
 0000006C  8B45F4            mov eax,[ebp-0xc]
 0000006F  01C0              add eax,eax
 00000071  8945F0            mov [ebp-0x10],eax
-00000074  C745EC00800B00    mov dword [ebp-0x14],0xb8000 #vga = 0xb8000
+00000074  C745EC00800B00    mov dword [ebp-0x14],0xb8000
 0000007B  8B55F0            mov edx,[ebp-0x10]
 0000007E  8B45EC            mov eax,[ebp-0x14]
 00000081  01D0              add eax,edx
@@ -49,7 +47,6 @@
 00000097  C9                leave
 00000098  8D61FC            lea esp,[ecx-0x4]
 0000009B  C3                ret
----port_byte_in---
 0000009C  55                push ebp
 0000009D  89E5              mov ebp,esp
 0000009F  83EC14            sub esp,byte +0x14
@@ -62,7 +59,6 @@
 000000B2  8A45FF            mov al,[ebp-0x1]
 000000B5  C9                leave
 000000B6  C3                ret
----port_byte_out---
 000000B7  55                push ebp
 000000B8  89E5              mov ebp,esp
 000000BA  83EC08            sub esp,byte +0x8
@@ -75,7 +71,6 @@
 000000D0  EE                out dx,al
 000000D1  C9                leave
 000000D2  C3                ret
----port_word_in---
 000000D3  55                push ebp
 000000D4  89E5              mov ebp,esp
 000000D6  83EC14            sub esp,byte +0x14
@@ -88,7 +83,6 @@
 000000EB  668B45FE          mov ax,[ebp-0x2]
 000000EF  C9                leave
 000000F0  C3                ret
----port_word_out---
 000000F1  55                push ebp
 000000F2  89E5              mov ebp,esp
 000000F4  83EC08            sub esp,byte +0x8
@@ -101,7 +95,6 @@
 0000010B  66EF              out dx,ax
 0000010D  C9                leave
 0000010E  C3                ret
----.eh_frame--
 0000010F  001400            add [eax+eax],dl
 00000112  0000              add [eax],al
 00000114  0000              add [eax],al
@@ -199,4 +192,3 @@
 000001E6  C50C04            lds ecx,[esp+eax]
 000001E9  0400              add al,0x0
 000001EB  00                db 0x00
----end .eh_frame---

@@ -92,6 +92,7 @@ def readelf(fname, verbose=False):
     
     shstrhex = h[shstrtaboff:shstrtaboff+shstrtabsize]
     strtabhex = h[strtaboff:strtaboff+strtabsize]
+    shex = {} #A dictionary to store the actual code for relevant sections.
     
     vprint("\n\nSheaders:")
     vprint('shoff:','0x'+unendian(elf_header["shoff"]).lstrip('0'),*('\n'+hexheader for hexheader in shexheaders))
@@ -101,6 +102,11 @@ def readelf(fname, verbose=False):
         inx = int(sheader["name"],16)
         name = shstrhex[inx*2:].split('00',1)[0] #Again, we need inx*2 to reference into shstr because we're looking through a hex string, not bytes.
         sheader["name"] = bytearray.fromhex(name).decode() or '<null>'
+        if sheader["name"] in (".data",".text"):
+            offset = int(sheader["offset"],16)*2
+            shex[sheader["name"]]=h[offset:offset+int(sheader["size"], 16)*2]
+            print(shex[sheader["name"]],sheader["name"])
+
         vals = ((v.lstrip('0') or '0') for v in sheader.values())
         vprint(("{: <16}"* 10).format(*vals))
     
@@ -132,8 +138,11 @@ def readelf(fname, verbose=False):
     vprint(*('\n'+hexent for hexent in symtabhexents))
     vprint(("{: <23}"*6).format(*symtabents[0].keys()))
     for symtabent in symtabents:
+        if symtabent["info"][-1] in ("3","2","0"):
+            symtabent["sheadername"] = sheaders[int(symtabent["shndx"], 16)]["name"]
         if symtabent["info"][-1] == "3":
-            symtabent["name"] = sheaders[int(symtabent["shndx"], 16)]["name"]
+            #symtabent["name"] = sheaders[int(symtabent["shndx"], 16)]["name"]
+            symtabent["name"] = symtabent["sheadername"]
         else:
            inx = int(symtabent["name"],16)
            name = strtabhex[inx*2:].split('00',1)[0]
@@ -179,7 +188,7 @@ def readelf(fname, verbose=False):
     
     vprint(relentss)
 
-    return {"fname":fname, "relentss":relentss, "sheaders":sheaders, "elf_header":elf_header, "symtabents":symtabents}
+    return {"h":h, "shex": shex, "fname":fname, "relentss":relentss, "sheaders":sheaders, "elf_header":elf_header, "symtabents":symtabents}
 
 def printrelentss(relentss):
     for relsec, relents in relentss.items():
@@ -193,7 +202,13 @@ def printsymtabents(symtabents):
     for symtabent in symtabents:
         vals = ((v.strip('0') or '0') for v in symtabent.values())
         print(("{: <23}" + "{: <23}"*5).format(*vals))
-    
+
+def printsheaders(sheaders):
+    print("\n\nSheaders:")
+    print(("{: <16}"*10).format(*sheaders[0].keys()))
+    for sheader in sheaders:
+        vals = ((v.lstrip('0') or '0') for v in sheader.values())
+        print(("{: <16}"* 10).format(*vals))
 
 if __name__ == "__main__":
     import sys
@@ -201,11 +216,61 @@ if __name__ == "__main__":
     args = iter(sys.argv[1:])
     parsedargs = [(arg,next(args)) if "--" in arg else arg for arg in args]
     import pprint
+    retvals = {}
+    offset = 0
+    globalsymbols = {}
+    elfs = {}
+    relocationtargets = []
+    shexess = []
+
     for fname in (x for x in parsedargs if type(x) is not tuple):
         print('-'*20 + '\n' + fname + '\n' + '-'*20)
         #retval = readelf(fname, True)
-        retval = readelf(fname)
-        printrelentss(retval["relentss"])
-        printsymtabents(retval["symtabents"])
-        #print(retval)
-    #pprint.pprint(retval)
+        elf = readelf(fname)
+        shexess.append(elf["shex"])
+        elfs[fname] = elf
+        
+
+        if ".rel.text" in elf["relentss"]:
+            print(".text relent:",elf["relentss"][".rel.text"])
+            #TODO: This works when I'm only using .text, but will need to be improved(moved up to the "for sheader" block) if I wanted to have this work with other sections
+            relocationtargets.extend([(rel["sym"], int(rel["offset"], 16) + offset) for rel in elf["relentss"][".rel.text"]])
+
+        printrelentss(elf["relentss"])
+        for sheader in (e for e in elf["sheaders"] if e["name"] in (".text",".data")): #TODO:going to try to omit eh_frame for now.
+            sheader["absoluteoffset"] = offset
+            print(sheader)
+            offset = offset + int(sheader["size"],16) #TODO: The way I have this set up, if it's getting size from things other than .text, things will probably break.
+        #for e in [e for e in elf["symtabents"] if e["info"][-1]=='2']: #'2' is 
+        
+        for symtabent in elf["symtabents"]:
+            if symtabent["info"][0] == '1' and int(symtabent["shndx"], 16) == 1: #0x1 means Global in the first nibble of info.
+                symtabent["absoluteoffset"] = int(symtabent["value"], 16) + int(elf["sheaders"][int(symtabent["shndx"],16)]["absoluteoffset"])
+                print(symtabent)
+                globalsymbols[symtabent["name"]] = symtabent["absoluteoffset"] #TODO: What happens if two files have identically named functions?
+
+        
+        print(globalsymbols)
+        
+        #printsymtabents(elf["symtabents"])
+        #printsheaders(elf["sheaders"])
+    print("section hex data", shexess)
+    print("section symbol data", globalsymbols)
+    print("relocation targets", relocationtargets)
+    text = ''.join(s[".text"] for s in shexess)
+    for sym,dest in relocationtargets:
+        source = globalsymbols[sym]
+        print("before:",text[dest*2-12:dest*2+12])
+        print("source:",source,", dest:",dest)
+        off = source - (dest + 4) #Note, the +4 is because the offset needs to be from AFTER the address for the call instruction
+        bytesoff = off.to_bytes(4,"little",signed=True)#yes, yes, this entire file should be in bytes. I'm still getting my mojo back.
+        hexoff = bytesoff.hex()
+        print(hexoff)
+        text = text[:dest*2] + hexoff + text[dest*2+8:]
+
+    #moment of truth!
+
+    print(text)
+    f = open("kernel.bin","wb")
+    f.write(bytearray.fromhex(text))
+    f.close()
