@@ -1,305 +1,336 @@
-
 prognibbles = iter('b40eb041cd10b02ecd10b042cd10a02e00cd10b043cd10bb2e0081c3007c8a4701cd10b044cd10a02d7ccd10ebfe585900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000055aa')
 
 foo = (nib+next(prognibbles) for nib in prognibbles)
 
 memory = {} #key = address as hex val(e.g. 0xbeef, 0xbeeg). value = contents of that memory byte(two hex)
 
-regs = {"IP":0x7000, "CR0":{"PE":False},#Actually, since I'm testing this on bootloaders, I should leave PE off for now.
+regs = {"DS":0x0, "IP":0x0, "CR0":{"PE":False},#Actually, since I'm testing this on bootloaders, I should leave PE off for now.
+#regs = {"DS":0x7000, "IP":0x7000, "CR0":{"PE":False},#Actually, since I'm testing this on bootloaders, I should leave PE off for now.
         "EAX":0x0*64,"ECX":0x0*64,"EDX":0x0*64,"EBX":0x0*64,
         "ESP":0x0*64,"EBP":0x0*64,"ESI":0x0*64,"EDI":0x0*64,
         }
 
+for i, bytehex in enumerate(foo):
+    #memory[0x7000+i]=int(bytehex,16)
+    memory[i]=int(bytehex,16)
+
+#The most complicated possible addressing mode we can have is "Base with Scaled Index + Displacement"
+# LA = (SR) + (I)xS + (B) + A
+#Linear Address, Segment Register, Index Register, Scaling factor, Base Register, Address
+#youtu.be/XOnzjEd_dLg
+#He gives the following example of a line of assembly that uses all of that: mov eax, [ebx * 4 + ecx + myArray]
+#The Segment Register is implicit(And I'm just hardcoding DS, but there are prefixes that override this. But no hurry implementing that)
+def setMem(addr, data, bytecount=1):
+    addr = addr + regs["DS"] #We add our data segment offset. I set it to 0x7000 above just.
+    if bytecount > 1:
+        for i, d in enumerate(data):
+            memory[addr+i] = d
+    else:
+        memory[addr] = data
+
+def getMem(addr, bytecount=1):
+    addr = addr + regs["DS"] #We add our data segment offset.
+    if bytecount > 1:
+        data = ((memory[addr+i] if ((addr + i) in memory) else 0xff) for i in range(bytecount))
+
+debug = False
+def dprint(*foo):
+    if debug:
+        print(foo)
+def vprint(*foo):
+    if debug:
+        print(foo)
+    else:
+        raise Exception("Not Implemented")
+
 import time
 def fetch():
     while True:
-        time.sleep(1)
+        #time.sleep(0.5)
         IP = regs["IP"]
         regs["IP"] = regs["IP"] + 1
-        print(memory[IP])
+        dprint(memory[IP])
+        print("fetching a byte!", hex(memory[IP]))
         print("fetching a byte!", hex(memory[IP]))
         yield memory[IP]
 
 opcodes = fetch()
 
-for i, bytehex in enumerate(foo):
-    memory[0x7000+i]=int(bytehex,16)
 
-print(memory)
+dprint(memory)
 
 #Okay, so now for some sections handling these needed functions
 #NOT_IMPLEMENTED
 def NOT_IMPLEMENTED(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def NOT_IMPLEMENTED_YET(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #MODRM_EXTENSIONS!!
 
 #Branching:
 #Jumps(But most of these I'm handling separately), LOOPNZ, LOOPZ, LOOP, JECXZ
 def LOOPNZ(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def LOOPZ(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def LOOP(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def JECXZ(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def CONDITIONAL_JMP(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #Control Flow:
 #CALL, JMP, HLT, CALLF, WAIT, RET, RETN, RETF, INT3/INT/INTO/IRET
 def CALL(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def JMP(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def JMPF(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def HLT(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def CALLF(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def WAIT(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def RET(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def RETN(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def RETF(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def INT3(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def INT(**kwargs):
-    print(kwargs)
+    val = kwargs["op1"]()
+    if val == 0x10:
+        print(chr(regs["EAX"] >> 24)) #Print AL
 
 def INTO(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def IRET(**kwargs):
-    print(kwargs)
-
-def INT(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #Status control
 #CMC, CLC, STC, CLI, STI, CLD, STD, SAHF, LAHF
 
 def CMC(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def CLC(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def STC(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def CLI(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def STI(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def CLD(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def STD(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def SAHF(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def LAHF(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #Decimal Arithmetic(I can probably skip these? I think this was a 70s programmer thing)
 #DAA, AAS, AAA, DAA
 
 def DAA(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def AAS(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def AAA(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def DAA(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #Bit operations
 #TEST
 
 def TEST(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def ROL(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def ROR(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def RCL(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def RCR(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def SHL(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def SHR(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def SAL(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def SAR(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #LOGIC
 #AND, OR, XOR
 
 def AND(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def OR(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def XOR(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #Arithmetic
 #ADD, ADC, SBB, SUB, INC, DEC, IMUL
 
 def ADD(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def ADC(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def SBB(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def SUB(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def INC(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def DEC(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def IMUL(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #Compare
 #CMP
 
 def CMP(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #Input/Output
 #IN, OUT, INS, OUTs
 
 def IN(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def OUT(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def INS(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def OUTS(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #Strings #Why is this a thing?
 #MOVS, CMPS, STOS, LODS, SCAS
 
 def MOVS(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def CMPS(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def STOS(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def LODS(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def SCAS(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #Stack Access
 #PUSH, PUSHA, POP, POPA, PUSHF, POPF, ENTER, LEAVE
 
 def PUSH(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def PUSHA(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def POP(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def POPA(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def PUSHF(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def POPF(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def ENTER(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def LEAVE(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #Moving Data
 #XCHG, MOV, LEA, LDS, LES, XLAT
 
 def XCHG(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def MOV(**kwargs):
     kwargs["op1"](kwargs["op2"]())
     return kwargs
 
 def LEA(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def LDS(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def LES(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def XLAT(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #Miscellaneous
 def DAS(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 #Prefixes
 
 #MODRM_OPTEXT
@@ -346,78 +377,78 @@ MODRM_OPEXT["FE"] = [INC, DEC]
 MODRM_OPEXT["FF"] = [INC, DEC, CALL, CALLF, JMP, JMPF, PUSH]
 
 def MODRM_OPEXT_80(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def MODRM_OPEXT_81(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def MODRM_OPEXT_82(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def MODRM_OPEXT_83(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def MODRM_OPEXT_C0(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def MODRM_OPEXT_C1(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def MODRM_OPEXT_D0(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def MODRM_OPEXT_D1(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def MODRM_OPEXT_D2(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def MODRM_OPEXT_D3(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def MODRM_OPEXT_F6(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def MODRM_OPEXT_F7(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def MODRM_OPEXT_FE(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def MODRM_OPEXT_FF(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #Prefixes
 #26, 2E, 36, 3E, 64, 65, 66, 
 def PREFIX_26(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def PREFIX_2E(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def PREFIX_36(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def PREFIX_3E(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def PREFIX_64(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def PREFIX_65(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def PREFIX_66(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def PREFIX_F0(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def PREFIX_F2(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def PREFIX_F3(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #Regs and Constants
 #EAX, AX, AL, AH, CS, ES, DS, SREG, DX, EBP, ECX
@@ -425,15 +456,15 @@ def PREFIX_F3(**kwargs):
 
 #ALAH-AX---EAX
 def AL(**kwargs):
-    def addr(v):
+    def addr(v=False):
         if(v):
             regs["EAX"] = ((v & 0xff) << 24) + (regs["EAX"] & 0x00ffffff)
         return regs["EAX"] >> 24
-    key = [x for x in ("op1","op2","op3") if x not in kwargs][0]
-    return {key: addr}
+    #key = [x for x in ("op1","op2","op3") if x not in kwargs][0]
+    return addr
 
 def AH(**kwargs):
-    def addr(v):
+    def addr(v=False):
         if(v):
             regs["EAX"] = (regs["EAX"] & 0xff000000) + ((v & 0xff) << 16) + (regs["EAX"] & 0xff)
         return (regs["EAX"] >> 16) & 0xff
@@ -441,148 +472,171 @@ def AH(**kwargs):
         #if(v):
         #    regs["EAX"] = regs["EAX"][:8] + v + regs["EAX"][16:]
         #return regs["EAX"][8:16]
-    key = [x for x in ("op1","op2","op3") if x not in kwargs][0]
-    return {key: addr}
+    #key = [x for x in ("op1","op2","op3") if x not in kwargs][0]
+    return addr
 
 def AX(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def EAX(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def CL(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def CH(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def CX(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def ECX(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def DL(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def DH(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def DX(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def EDX(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def BL(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def BH(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def BX(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def EBX(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def SP(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def ESP(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def BP(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def EBP(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def SI(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def ESI(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def DI(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def EDI(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def CS(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def ES(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def DS(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def SREG(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #Addressing Modes:
 #MODRM, R8, R1632, RM8, RM16, RM1632, IMM8, IMM16, IMM1632, M8, M16, M, MOFFS8, MOFFS1632, REL8, REL1632, PTR161632
 def R8(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def R1632(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def RM8(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def RM16(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def RM1632(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def IMM8(**kwargs):
     def addr():
         return next(opcodes)
+        #return next(opcodes)
         
-    key = [x for x in ("op1","op2","op3") if x not in kwargs][0]
-    print(kwargs)
-    return {key: addr}
+    #key = [x for x in ("op1","op2","op3") if x not in kwargs][0]
+    dprint(kwargs)
+    return addr
 
 def IMM16(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def IMM1632(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def M8(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def M16(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def M161632(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def M(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
+#MOFFS8 is a no-MODRM straight up reference
+#The number of bytes to read is based on the mode we're in! In 16 bit mode, you read 2 bytes. In 32, you'd read 4.
+#TODO:I am somewhat puzzled why this is called MOFFS8. I think it's because this is only paired with operations that move 8 bits?(e.g. from/to AL/AH)
 def MOFFS8(**kwargs):
-    print(kwargs)
+    def addr(v=False):
+        width = 4 if regs["CR0"]["PE"] else 2
+        address = sum(next(opcodes) << (i*8) for i in range(width))
+        #address = next(opcodes)
+        #print(memory)
+        if v:
+            setMem(address, v)
+            #memory[address] = v
+        else:
+            return getMem(address, v)
+        #return memory[address]#just grabbing one byte. This will be more complicated next time.
+    #key = [x for x in ("op1","op2","op3") if x not in kwargs][0]
+    return addr
+    vprint(kwargs)
 
 def MOFFS1632(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def REL8(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def REL1632(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 def PTR161632(**kwargs):
-    print(kwargs)
+    vprint(kwargs)
 
 #And finally MODRM
 def MODRM(**kwargs):
-    print(kwargs)
+    modrmbyte = next(opcodes)
+    mod = modrmbyte >> 6
+    reg = (modrmbyte >> 3) & 0x07
+    rm = modrmbyte & 0x07
+    print(mod,reg,rm,hex(modrmbyte))
+    dprint(kwargs)
+    return {"mod":mod,"reg":reg,"rm":rm}
 
 ophandlers = {}
 #So, going through this, it's pretty clear that the CPU is using some octal to parse opcodes. You can notice the similarities and repitition. Maybe I could take another stab at this later doing it that way.
@@ -663,13 +717,13 @@ def B_OP(opcode):
     execute([*addressing, MOV])
 
 def FOUR_OP(opcode):
-    val = int(opcode[1],16)
+    val = opcode & 0x0f
     reg = regmap32[val%8] if regs["CR0"]["PE"] else regmap16[val%8]#hardcoded to 32bit for now
     op = DEC if val // 8 else INC
     execute([R1632, op])
 
 def FIVE_OP(opcode):
-    val = int(opcode[1],16)
+    val = opcode & 0x0f
     reg = regmap32[val%8] if regs["CR0"]["PE"] else regmap16[val%8]#hardcoded to 32bit for now
     op = POP if val // 8 else PUSH
     execute([R1632, op])
@@ -691,20 +745,32 @@ def SEVEN_OP(opcode):
     execute([REL8, CONDITIONAL_JMP])
     
 def execute(mnemonic, state={}):
+    #print("executestart",state)
+    print(mnemonic)
     state["mnemonic"] = mnemonic
+    i = 1
     for piece in mnemonic:
-        print("Now Playing:",piece)
+        dprint("Now Playing:",piece)
         retval = piece(**state)
-        print("retval",retval)
-        if(retval):
+        dprint("retval",retval)
+        if isinstance(retval, dict):
             state = {**state, **retval}
+        elif callable(retval):
+            state["op" + str(i)]=retval
+            i = i + 1
+
+        print("executeloop", state)
+        #key = [x for x in ("op1","op2","op3") if x not in state][0]
+        #state[key]=retval
+
     return state
 
 #ok, yeah. This is gonna get really tough if I try to stick with strings
 
 for opcode in opcodes:
-    print(opcode)
-    print(regs)
+    input()
+    dprint(opcode)
+    dprint([hex(regs[x]) for x in regs if x not in ("CR0")])
     nibble = opcode >> 4
     
     if(nibble==0xb):
