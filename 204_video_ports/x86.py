@@ -1,5 +1,6 @@
-prognibbles = iter('b40eb041cd10b02ecd10b042cd10a02e00cd10b043cd10bb2e0081c3007c8a4701cd10b044cd10a02d7ccd10ebfe585900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000055aa')
+#prognibbles = iter('b40eb041cd10b02ecd10b042cd10a02e00cd10b043cd10bb2e0081c3007c8a4701cd10b044cd10a02d7ccd10ebfe585900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000055aa')
 
+prognibbles = iter('b40eb041cd10b02dcd10b042cd10a02d00cd10b043cd10bb2d0081c3007c8a07cd10b044cd10a02d7ccd10ebfe58000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000055aa')
 foo = (nib+next(prognibbles) for nib in prognibbles)
 
 memory = {} #key = address as hex val(e.g. 0xbeef, 0xbeeg). value = contents of that memory byte(two hex)
@@ -20,7 +21,7 @@ for i, bytehex in enumerate(foo):
 #youtu.be/XOnzjEd_dLg
 #He gives the following example of a line of assembly that uses all of that: mov eax, [ebx * 4 + ecx + myArray]
 #The Segment Register is implicit(And I'm just hardcoding DS, but there are prefixes that override this. But no hurry implementing that)
-def setMem(addr, data, bytecount=1):
+def setMem(addr, data, bytecount=1, state={}):
     addr = addr + regs["DS"] #We add our data segment offset. I set it to 0x7000 above just.
     if bytecount > 1:
         for i, d in enumerate(data):
@@ -28,7 +29,7 @@ def setMem(addr, data, bytecount=1):
     else:
         memory[addr] = data
 
-def getMem(addr, bytecount=1):
+def getMem(addr, bytecount=1, state={}):
     addr = addr + regs["DS"] #We add our data segment offset.
     if bytecount > 1:
         data = ((memory[addr+i] if ((addr + i) in memory) else 0xff) for i in range(bytecount))
@@ -41,6 +42,7 @@ def vprint(*foo):
     if debug:
         print(foo)
     else:
+        print(foo)
         raise Exception("Not Implemented")
 
 import time
@@ -51,7 +53,7 @@ def fetch():
         regs["IP"] = regs["IP"] + 1
         dprint(memory[IP])
         print("fetching a byte!", hex(memory[IP]))
-        print("fetching a byte!", hex(memory[IP]))
+        dprint("fetching a byte!", hex(memory[IP]))
         yield memory[IP]
 
 opcodes = fetch()
@@ -61,276 +63,280 @@ dprint(memory)
 
 #Okay, so now for some sections handling these needed functions
 #NOT_IMPLEMENTED
-def NOT_IMPLEMENTED(**kwargs):
-    vprint(kwargs)
+def NOT_IMPLEMENTED(state):
+    vprint(state)
 
-def NOT_IMPLEMENTED_YET(**kwargs):
-    vprint(kwargs)
+def NOT_IMPLEMENTED_YET(state):
+    vprint(state)
 
 #MODRM_EXTENSIONS!!
 
 #Branching:
 #Jumps(But most of these I'm handling separately), LOOPNZ, LOOPZ, LOOP, JECXZ
-def LOOPNZ(**kwargs):
-    vprint(kwargs)
+def LOOPNZ(state):
+    vprint(state)
 
-def LOOPZ(**kwargs):
-    vprint(kwargs)
+def LOOPZ(state):
+    vprint(state)
 
-def LOOP(**kwargs):
-    vprint(kwargs)
+def LOOP(state):
+    vprint(state)
 
-def JECXZ(**kwargs):
-    vprint(kwargs)
+def JECXZ(state):
+    vprint(state)
 
-def CONDITIONAL_JMP(**kwargs):
-    vprint(kwargs)
+def CONDITIONAL_JMP(state):
+    vprint(state)
 
 #Control Flow:
 #CALL, JMP, HLT, CALLF, WAIT, RET, RETN, RETF, INT3/INT/INTO/IRET
-def CALL(**kwargs):
-    vprint(kwargs)
+def CALL(state):
+    vprint(state)
 
-def JMP(**kwargs):
-    vprint(kwargs)
+def JMP(state):
+    target = state["op1"]()
+    dprint("JUMP, JUMP, JUMP, JUMP,",target, state)
+    regs["IP"] = target
+    #vprint(state)
 
-def JMPF(**kwargs):
-    vprint(kwargs)
+def JMPF(state):
+    vprint(state)
 
-def HLT(**kwargs):
-    vprint(kwargs)
+def HLT(state):
+    vprint(state)
 
-def CALLF(**kwargs):
-    vprint(kwargs)
+def CALLF(state):
+    vprint(state)
 
-def WAIT(**kwargs):
-    vprint(kwargs)
+def WAIT(state):
+    vprint(state)
 
-def RET(**kwargs):
-    vprint(kwargs)
+def RET(state):
+    vprint(state)
 
-def RETN(**kwargs):
-    vprint(kwargs)
+def RETN(state):
+    vprint(state)
 
-def RETF(**kwargs):
-    vprint(kwargs)
+def RETF(state):
+    vprint(state)
 
-def INT3(**kwargs):
-    vprint(kwargs)
+def INT3(state):
+    vprint(state)
 
-def INT(**kwargs):
-    val = kwargs["op1"]()
+def INT(state):
+    val = state["op1"]()
     if val == 0x10:
         print(chr(regs["EAX"] >> 24)) #Print AL
 
-def INTO(**kwargs):
-    vprint(kwargs)
+def INTO(state):
+    vprint(state)
 
-def IRET(**kwargs):
-    vprint(kwargs)
+def IRET(state):
+    vprint(state)
 
 #Status control
 #CMC, CLC, STC, CLI, STI, CLD, STD, SAHF, LAHF
 
-def CMC(**kwargs):
-    vprint(kwargs)
+def CMC(state):
+    vprint(state)
 
-def CLC(**kwargs):
-    vprint(kwargs)
+def CLC(state):
+    vprint(state)
 
-def STC(**kwargs):
-    vprint(kwargs)
+def STC(state):
+    vprint(state)
 
-def CLI(**kwargs):
-    vprint(kwargs)
+def CLI(state):
+    vprint(state)
 
-def STI(**kwargs):
-    vprint(kwargs)
+def STI(state):
+    vprint(state)
 
-def CLD(**kwargs):
-    vprint(kwargs)
+def CLD(state):
+    vprint(state)
 
-def STD(**kwargs):
-    vprint(kwargs)
+def STD(state):
+    vprint(state)
 
-def SAHF(**kwargs):
-    vprint(kwargs)
+def SAHF(state):
+    vprint(state)
 
-def LAHF(**kwargs):
-    vprint(kwargs)
+def LAHF(state):
+    vprint(state)
 
 #Decimal Arithmetic(I can probably skip these? I think this was a 70s programmer thing)
 #DAA, AAS, AAA, DAA
 
-def DAA(**kwargs):
-    vprint(kwargs)
+def DAA(state):
+    vprint(state)
 
-def AAS(**kwargs):
-    vprint(kwargs)
+def AAS(state):
+    vprint(state)
 
-def AAA(**kwargs):
-    vprint(kwargs)
+def AAA(state):
+    vprint(state)
 
-def DAA(**kwargs):
-    vprint(kwargs)
+def DAA(state):
+    vprint(state)
 
 #Bit operations
 #TEST
 
-def TEST(**kwargs):
-    vprint(kwargs)
+def TEST(state):
+    vprint(state)
 
-def ROL(**kwargs):
-    vprint(kwargs)
+def ROL(state):
+    vprint(state)
 
-def ROR(**kwargs):
-    vprint(kwargs)
+def ROR(state):
+    vprint(state)
 
-def RCL(**kwargs):
-    vprint(kwargs)
+def RCL(state):
+    vprint(state)
 
-def RCR(**kwargs):
-    vprint(kwargs)
+def RCR(state):
+    vprint(state)
 
-def SHL(**kwargs):
-    vprint(kwargs)
+def SHL(state):
+    vprint(state)
 
-def SHR(**kwargs):
-    vprint(kwargs)
+def SHR(state):
+    vprint(state)
 
-def SAL(**kwargs):
-    vprint(kwargs)
+def SAL(state):
+    vprint(state)
 
-def SAR(**kwargs):
-    vprint(kwargs)
+def SAR(state):
+    vprint(state)
 
 #LOGIC
 #AND, OR, XOR
 
-def AND(**kwargs):
-    vprint(kwargs)
+def AND(state):
+    vprint(state)
 
-def OR(**kwargs):
-    vprint(kwargs)
+def OR(state):
+    vprint(state)
 
-def XOR(**kwargs):
-    vprint(kwargs)
+def XOR(state):
+    vprint(state)
 
 #Arithmetic
 #ADD, ADC, SBB, SUB, INC, DEC, IMUL
 
-def ADD(**kwargs):
-    vprint(kwargs)
+def ADD(state):
+    state["op1"](state["op1"]() + state["op2"]())
+    dprint(state)
 
-def ADC(**kwargs):
-    vprint(kwargs)
+def ADC(state):
+    vprint(state)
 
-def SBB(**kwargs):
-    vprint(kwargs)
+def SBB(state):
+    vprint(state)
 
-def SUB(**kwargs):
-    vprint(kwargs)
+def SUB(state):
+    vprint(state)
 
-def INC(**kwargs):
-    vprint(kwargs)
+def INC(state):
+    vprint(state)
 
-def DEC(**kwargs):
-    vprint(kwargs)
+def DEC(state):
+    vprint(state)
 
-def IMUL(**kwargs):
-    vprint(kwargs)
+def IMUL(state):
+    vprint(state)
 
 #Compare
 #CMP
 
-def CMP(**kwargs):
-    vprint(kwargs)
+def CMP(state):
+    vprint(state)
 
 #Input/Output
 #IN, OUT, INS, OUTs
 
-def IN(**kwargs):
-    vprint(kwargs)
+def IN(state):
+    vprint(state)
 
-def OUT(**kwargs):
-    vprint(kwargs)
+def OUT(state):
+    vprint(state)
 
-def INS(**kwargs):
-    vprint(kwargs)
+def INS(state):
+    vprint(state)
 
-def OUTS(**kwargs):
-    vprint(kwargs)
+def OUTS(state):
+    vprint(state)
 
 #Strings #Why is this a thing?
 #MOVS, CMPS, STOS, LODS, SCAS
 
-def MOVS(**kwargs):
-    vprint(kwargs)
+def MOVS(state):
+    vprint(state)
 
-def CMPS(**kwargs):
-    vprint(kwargs)
+def CMPS(state):
+    vprint(state)
 
-def STOS(**kwargs):
-    vprint(kwargs)
+def STOS(state):
+    vprint(state)
 
-def LODS(**kwargs):
-    vprint(kwargs)
+def LODS(state):
+    vprint(state)
 
-def SCAS(**kwargs):
-    vprint(kwargs)
+def SCAS(state):
+    vprint(state)
 
 #Stack Access
 #PUSH, PUSHA, POP, POPA, PUSHF, POPF, ENTER, LEAVE
 
-def PUSH(**kwargs):
-    vprint(kwargs)
+def PUSH(state):
+    vprint(state)
 
-def PUSHA(**kwargs):
-    vprint(kwargs)
+def PUSHA(state):
+    vprint(state)
 
-def POP(**kwargs):
-    vprint(kwargs)
+def POP(state):
+    vprint(state)
 
-def POPA(**kwargs):
-    vprint(kwargs)
+def POPA(state):
+    vprint(state)
 
-def PUSHF(**kwargs):
-    vprint(kwargs)
+def PUSHF(state):
+    vprint(state)
 
-def POPF(**kwargs):
-    vprint(kwargs)
+def POPF(state):
+    vprint(state)
 
-def ENTER(**kwargs):
-    vprint(kwargs)
+def ENTER(state):
+    vprint(state)
 
-def LEAVE(**kwargs):
-    vprint(kwargs)
+def LEAVE(state):
+    vprint(state)
 
 #Moving Data
 #XCHG, MOV, LEA, LDS, LES, XLAT
 
-def XCHG(**kwargs):
-    vprint(kwargs)
+def XCHG(state):
+    vprint(state)
 
-def MOV(**kwargs):
-    kwargs["op1"](kwargs["op2"]())
-    return kwargs
+def MOV(state):
+    state["op1"](state["op2"]())
+    return state
 
-def LEA(**kwargs):
-    vprint(kwargs)
+def LEA(state):
+    vprint(state)
 
-def LDS(**kwargs):
-    vprint(kwargs)
+def LDS(state):
+    vprint(state)
 
-def LES(**kwargs):
-    vprint(kwargs)
+def LES(state):
+    vprint(state)
 
-def XLAT(**kwargs):
-    vprint(kwargs)
+def XLAT(state):
+    vprint(state)
 
 #Miscellaneous
-def DAS(**kwargs):
-    vprint(kwargs)
+def DAS(state):
+    vprint(state)
 #Prefixes
 
 #MODRM_OPTEXT
@@ -376,94 +382,104 @@ MODRM_OPEXT["FE"] = [INC, DEC]
 #Alternately RM1632 and M161632
 MODRM_OPEXT["FF"] = [INC, DEC, CALL, CALLF, JMP, JMPF, PUSH]
 
-def MODRM_OPEXT_80(**kwargs):
-    vprint(kwargs)
+def MODRM_OPEXT_80(state):
+    vprint(state)
 
-def MODRM_OPEXT_81(**kwargs):
-    vprint(kwargs)
+def MODRM_OPEXT_81(state):
+    dprint(state)
+    state = MODRM(state)
+    op = MODRM_OPEXT["81"][state["reg"]]
+    oplist = [RM1632, IMM1632, op]
+    execute(oplist, state)
 
-def MODRM_OPEXT_82(**kwargs):
-    vprint(kwargs)
+def MODRM_OPEXT_82(state):
+    vprint(state)
 
-def MODRM_OPEXT_83(**kwargs):
-    vprint(kwargs)
+def MODRM_OPEXT_83(state):
+    vprint(state)
 
-def MODRM_OPEXT_C0(**kwargs):
-    vprint(kwargs)
+def MODRM_OPEXT_C0(state):
+    vprint(state)
 
-def MODRM_OPEXT_C1(**kwargs):
-    vprint(kwargs)
+def MODRM_OPEXT_C1(state):
+    vprint(state)
 
-def MODRM_OPEXT_D0(**kwargs):
-    vprint(kwargs)
+def MODRM_OPEXT_D0(state):
+    vprint(state)
 
-def MODRM_OPEXT_D1(**kwargs):
-    vprint(kwargs)
+def MODRM_OPEXT_D1(state):
+    vprint(state)
 
-def MODRM_OPEXT_D2(**kwargs):
-    vprint(kwargs)
+def MODRM_OPEXT_D2(state):
+    vprint(state)
 
-def MODRM_OPEXT_D3(**kwargs):
-    vprint(kwargs)
+def MODRM_OPEXT_D3(state):
+    vprint(state)
 
-def MODRM_OPEXT_F6(**kwargs):
-    vprint(kwargs)
+def MODRM_OPEXT_F6(state):
+    vprint(state)
 
-def MODRM_OPEXT_F7(**kwargs):
-    vprint(kwargs)
+def MODRM_OPEXT_F7(state):
+    vprint(state)
 
-def MODRM_OPEXT_FE(**kwargs):
-    vprint(kwargs)
+def MODRM_OPEXT_FE(state):
+    vprint(state)
 
-def MODRM_OPEXT_FF(**kwargs):
-    vprint(kwargs)
+def MODRM_OPEXT_FF(state):
+    vprint(state)
 
 #Prefixes
 #26, 2E, 36, 3E, 64, 65, 66, 
-def PREFIX_26(**kwargs):
-    vprint(kwargs)
+def PREFIX_26(state):
+    vprint(state)
 
-def PREFIX_2E(**kwargs):
-    vprint(kwargs)
+def PREFIX_2E(state):
+    vprint(state)
 
-def PREFIX_36(**kwargs):
-    vprint(kwargs)
+def PREFIX_36(state):
+    vprint(state)
 
-def PREFIX_3E(**kwargs):
-    vprint(kwargs)
+def PREFIX_3E(state):
+    vprint(state)
 
-def PREFIX_64(**kwargs):
-    vprint(kwargs)
+def PREFIX_64(state):
+    vprint(state)
 
-def PREFIX_65(**kwargs):
-    vprint(kwargs)
+def PREFIX_65(state):
+    vprint(state)
 
-def PREFIX_66(**kwargs):
-    vprint(kwargs)
+def PREFIX_66(state):
+    vprint(state)
 
-def PREFIX_F0(**kwargs):
-    vprint(kwargs)
+def PREFIX_F0(state):
+    vprint(state)
 
-def PREFIX_F2(**kwargs):
-    vprint(kwargs)
+def PREFIX_F2(state):
+    vprint(state)
 
-def PREFIX_F3(**kwargs):
-    vprint(kwargs)
+def PREFIX_F3(state):
+    vprint(state)
 
 #Regs and Constants
 #EAX, AX, AL, AH, CS, ES, DS, SREG, DX, EBP, ECX
 #A,C,D,B,SP,BP,SI,DI
 
+#Defining a word size to be the width according to the processor mode(real or protected)
+def readWordFromInstructionPointer():
+    width = 4 if regs["CR0"]["PE"] else 2
+    val = sum(next(opcodes) << (i*8) for i in range(width)) 
+    return val
+
 #ALAH-AX---EAX
-def AL(**kwargs):
+def AL(state):
     def addr(v=False):
         if(v):
             regs["EAX"] = ((v & 0xff) << 24) + (regs["EAX"] & 0x00ffffff)
         return regs["EAX"] >> 24
-    #key = [x for x in ("op1","op2","op3") if x not in kwargs][0]
+    #key = [x for x in ("op1","op2","op3") if x not in state][0]
     return addr
 
-def AH(**kwargs):
+def AH(state):
     def addr(v=False):
         if(v):
             regs["EAX"] = (regs["EAX"] & 0xff000000) + ((v & 0xff) << 16) + (regs["EAX"] & 0xff)
@@ -472,170 +488,238 @@ def AH(**kwargs):
         #if(v):
         #    regs["EAX"] = regs["EAX"][:8] + v + regs["EAX"][16:]
         #return regs["EAX"][8:16]
-    #key = [x for x in ("op1","op2","op3") if x not in kwargs][0]
+    #key = [x for x in ("op1","op2","op3") if x not in state][0]
     return addr
 
-def AX(**kwargs):
-    vprint(kwargs)
+def AX(state):
+    vprint(state)
 
-def EAX(**kwargs):
-    vprint(kwargs)
+def EAX(state):
+    vprint(state)
 
-def CL(**kwargs):
-    vprint(kwargs)
+def CL(state):
+    vprint(state)
 
-def CH(**kwargs):
-    vprint(kwargs)
+def CH(state):
+    vprint(state)
 
-def CX(**kwargs):
-    vprint(kwargs)
+def CX(state):
+    vprint(state)
 
-def ECX(**kwargs):
-    vprint(kwargs)
+def ECX(state):
+    vprint(state)
 
-def DL(**kwargs):
-    vprint(kwargs)
+def DL(state):
+    vprint(state)
 
-def DH(**kwargs):
-    vprint(kwargs)
+def DH(state):
+    vprint(state)
 
-def DX(**kwargs):
-    vprint(kwargs)
+def DX(state):
+    vprint(state)
 
-def EDX(**kwargs):
-    vprint(kwargs)
+def EDX(state):
+    vprint(state)
 
-def BL(**kwargs):
-    vprint(kwargs)
+def BL(state):
+    vprint(state)
 
-def BH(**kwargs):
-    vprint(kwargs)
+def BH(state):
+    def addr(v=False):
+        if(v):
+            regs["EBX"] = (regs["EBX"] & 0xff000000) + ((v & 0xff) << 16) + (regs["EBX"] & 0xff)
+        return (regs["EBX"] >> 16) & 0xff
+    return addr
+    #vprint(state)
 
-def BX(**kwargs):
-    vprint(kwargs)
+def BX(state):
+    def addr(v=False):
+        if(v):
+            regs["EBX"] = (v << 16) + (regs["EAX"] & 0x0000ffff)
+        return regs["EBX"] >> 16
+    return addr
+    vprint(state)
 
-def EBX(**kwargs):
-    vprint(kwargs)
+def EBX(state):
+    vprint(state)
 
-def SP(**kwargs):
-    vprint(kwargs)
+def SP(state):
+    vprint(state)
 
-def ESP(**kwargs):
-    vprint(kwargs)
+def ESP(state):
+    vprint(state)
 
-def BP(**kwargs):
-    vprint(kwargs)
+def BP(state):
+    vprint(state)
 
-def EBP(**kwargs):
-    vprint(kwargs)
+def EBP(state):
+    vprint(state)
 
-def SI(**kwargs):
-    vprint(kwargs)
+def SI(state):
+    vprint(state)
 
-def ESI(**kwargs):
-    vprint(kwargs)
+def ESI(state):
+    vprint(state)
 
-def DI(**kwargs):
-    vprint(kwargs)
+def DI(state):
+    vprint(state)
 
-def EDI(**kwargs):
-    vprint(kwargs)
+def EDI(state):
+    vprint(state)
 
-def CS(**kwargs):
-    vprint(kwargs)
+def CS(state):
+    vprint(state)
 
-def ES(**kwargs):
-    vprint(kwargs)
+def ES(state):
+    vprint(state)
 
-def DS(**kwargs):
-    vprint(kwargs)
+def DS(state):
+    vprint(state)
 
-def SREG(**kwargs):
-    vprint(kwargs)
+def SREG(state):
+    vprint(state)
+
+regmap8 = [AL, CL, DL, BL, AH, CH, DH, BH] #A bit of trivia. In long mode with REX prefix, the latter four change.
+regmap16 = [AX, CX, DX, BX, SP, BP, SI, DI]
+regmap32 = [EAX, ECX, EDX, EBX, ESP, EBP, ESI, EDI]
 
 #Addressing Modes:
 #MODRM, R8, R1632, RM8, RM16, RM1632, IMM8, IMM16, IMM1632, M8, M16, M, MOFFS8, MOFFS1632, REL8, REL1632, PTR161632
-def R8(**kwargs):
-    vprint(kwargs)
+def R8(state):
+    reg = regmap8[state["rm"]]
+    state["rm"] = state["reg"] 
+    return reg(state)
+    #vprint(state)
 
-def R1632(**kwargs):
-    vprint(kwargs)
+def R1632(state):
+    vprint(state)
 
-def RM8(**kwargs):
-    vprint(kwargs)
+def RM8(state):
+    dprint("RM8:",state)
+    if state["mod"] == 0b11: #register-direct
+        #reg = regmap32[state["rm"]] if regs["CR0"]["PE"] else regmap16[state["rm"]]
+        reg = regmap8[state["rm"]]
+        state["rm"] = state["reg"] 
+        return reg(state)
+    elif state["mod"]==0b00:#register-indirect addressing, no disp. (i.e. the register stores a memory address)
+        reg_wrapper = regmap8[state["rm"]]
+        reg = reg_wrapper(state)
+        address = reg()#Explanation: I set up my register functions to work with my main execute pipeline. So it looks a little clumsy here.
+        def addr(v=False):
+            if(v):
+                setMem(address, v, state=state)
+            return getMem(address,1)
+        state["rm"] = state["reg"]
+        return addr
+    elif state["mod"]==0b01: #register-indirect addressing with disp8(
+        reg_wrapper = regmap8[state["rm"]] 
+        reg = reg(state) #01 indicates that this is register-indirect addressing.
+        address = reg()
+        disp = next(opcodes)
+        def addr(v=False):
+            if(v):
+                setMem(address, v, state=state, disp=disp)
+            return getMem(address,1)
+        state["rm"] = state["reg"] 
+        return addr
+    else:
+        vprint(state)
+    
+    dprint(state)
+    vprint(state)
 
-def RM16(**kwargs):
-    vprint(kwargs)
+def RM16(state):
+    vprint(state)
 
-def RM1632(**kwargs):
-    vprint(kwargs)
+        #When there are two registers encoded in the MODRM byte, the MOD value is used for the second one. I don't want these functions to be keeping track of if their first or second so instead I simply update state.
+def RM1632(state):
+    if state["mod"] == 0b11: #If this is true, then we know we're referencing a register.
+        reg = regmap32[state["rm"]] if regs["CR0"]["PE"] else regmap16[state["rm"]]
+        state["rm"] = state["mod"] 
+        return reg(state)
+    else:
+        vprint(state)
+    dprint(state)
 
-def IMM8(**kwargs):
+def IMM8(state):
     def addr():
         return next(opcodes)
         #return next(opcodes)
         
-    #key = [x for x in ("op1","op2","op3") if x not in kwargs][0]
-    dprint(kwargs)
+    #key = [x for x in ("op1","op2","op3") if x not in state][0]
+    dprint(state)
     return addr
 
-def IMM16(**kwargs):
-    vprint(kwargs)
+def IMM16(state):
+    vprint(state)
 
-def IMM1632(**kwargs):
-    vprint(kwargs)
+def IMM1632(state):
+    dprint("barbarbar")
+    #def imm():
+    #    return readWordFromInstructionPointer()
+    #return imm
+    return readWordFromInstructionPointer
+    #vprint(state)
 
-def M8(**kwargs):
-    vprint(kwargs)
+def M8(state):
+    vprint(state)
 
-def M16(**kwargs):
-    vprint(kwargs)
+def M16(state):
+    vprint(state)
 
-def M161632(**kwargs):
-    vprint(kwargs)
+def M161632(state):
+    vprint(state)
 
-def M(**kwargs):
-    vprint(kwargs)
+def M(state):
+    vprint(state)
 
 #MOFFS8 is a no-MODRM straight up reference
 #The number of bytes to read is based on the mode we're in! In 16 bit mode, you read 2 bytes. In 32, you'd read 4.
 #TODO:I am somewhat puzzled why this is called MOFFS8. I think it's because this is only paired with operations that move 8 bits?(e.g. from/to AL/AH)
-def MOFFS8(**kwargs):
+def MOFFS8(state):
     def addr(v=False):
-        width = 4 if regs["CR0"]["PE"] else 2
-        address = sum(next(opcodes) << (i*8) for i in range(width))
         #address = next(opcodes)
+        address = readWordFromInstructionPointer()
         #print(memory)
         if v:
-            setMem(address, v)
+            setMem(address, v, state=state)
             #memory[address] = v
         else:
-            return getMem(address, v)
+            return getMem(address, v, state=state)
         #return memory[address]#just grabbing one byte. This will be more complicated next time.
-    #key = [x for x in ("op1","op2","op3") if x not in kwargs][0]
+    #key = [x for x in ("op1","op2","op3") if x not in state][0]
     return addr
-    vprint(kwargs)
+    vprint(state)
 
-def MOFFS1632(**kwargs):
-    vprint(kwargs)
+def MOFFS1632(state):
+    vprint(state)
 
-def REL8(**kwargs):
-    vprint(kwargs)
+def REL8(state):
+    def addr():
+        instruction_pointer = regs["IP"]#Note IP quietly increments during next(opcodes)
+        unsigned= next(opcodes)
+        signed = -(unsigned ^ 0b11111111) if (unsigned >> 7) else unsigned
+        return instruction_pointer + signed
+    return addr
+    #vprint(state)
 
-def REL1632(**kwargs):
-    vprint(kwargs)
+def REL1632(state):
+    vprint(state)
 
-def PTR161632(**kwargs):
-    vprint(kwargs)
+def PTR161632(state):
+    vprint(state)
 
 #And finally MODRM
-def MODRM(**kwargs):
+#A critical thing to understand about MODRM is that the final field(the RM field) is always the FIRST register to be used.
+#When the MODRM field is describing two registers, then the REG field is used for the second register.
+#And while it took a bit of looking around to confirm this, a mod value of 11 ALWAYS indicates that you're using modrm for registers.
+def MODRM(state):
     modrmbyte = next(opcodes)
-    mod = modrmbyte >> 6
+    mod = modrmbyte >> 6 #When Mod is 11, then we have direct addressing. Other values indicate indirect(displaced) addressing.
     reg = (modrmbyte >> 3) & 0x07
     rm = modrmbyte & 0x07
-    print(mod,reg,rm,hex(modrmbyte))
-    dprint(kwargs)
+    dprint(mod,reg,rm,hex(modrmbyte))
+    dprint(state)
     return {"mod":mod,"reg":reg,"rm":rm}
 
 ophandlers = {}
@@ -667,8 +751,8 @@ ophandlers[0x6] = {0x0:[PUSHA],0x1:[POPA],0x2:[NOT_IMPLEMENTED],0x3:[NOT_IMPLEME
 #ophandlers[0x7] =
 
 ophandlers[0x8] = {0x0:[MODRM_OPEXT_80],0x1:[MODRM_OPEXT_81],0x2:[MODRM_OPEXT_82], 0x3:[MODRM_OPEXT_83], 0x4:[MODRM, RM8, R8, TEST], 0x5:[MODRM, RM1632, R1632, TEST], 
-                 0x6:[MODRM, R8, RM8, XCHG], 0x7:[MODRM, R1632, RM1632, XCHG], 0x8:[MODRM, RM8, R8, MOV], 0x9:[MODRM, RM1632, R1632, MOV], 0xa:[MODRM, R8, RM8, MOV], 
-                 0xb:[MODRM, R1632, RM1632, MOV], 0xc:[MODRM, M16, MOV], 0xd:[MODRM, R1632, M, LEA], 0xe:[MODRM, SREG, RM16, MOV], 0xf:[MODRM, RM1632, POP]} #eh
+                   0x6:[MODRM, R8, RM8, XCHG], 0x7:[MODRM, R1632, RM1632, XCHG], 0x8:[MODRM, RM8, R8, MOV], 0x9:[MODRM, RM1632, R1632, MOV], 0xa:[MODRM, R8, RM8, MOV], 
+                   0xb:[MODRM, R1632, RM1632, MOV], 0xc:[MODRM, M16, MOV], 0xd:[MODRM, R1632, M, LEA], 0xe:[MODRM, SREG, RM16, MOV], 0xf:[MODRM, RM1632, POP]} #eh
 
 #TODO:The lower portion of this next one is a series of instructions. So let's handle this one separately too.
 #ophandlers[9] = 
@@ -700,9 +784,6 @@ ophandlers[0xf] = {0x0:[PREFIX_F0],0x1:[NOT_IMPLEMENTED],0x2:[PREFIX_F2],0x3:[PR
 #Finally, feed op1, op2, ... operand pointers into the main instruction function. 
 #def MOV(op1, op2):
 #    op1(op2())
-regmap8 = [AL, CL, DL, BL, AH, CH, DH, BH] #A bit of trivia. In long mode with REX prefix, the latter four change.
-regmap16 = [AX, CX, DX, BX, SP, BP, SI, DI]
-regmap32 = [EAX, ECX, EDX, EBX, ESP, EBP, ESI, EDI]
 
 #A,C,D,B,SP,BP,SI,DI
 def B_OP(opcode):
@@ -746,12 +827,12 @@ def SEVEN_OP(opcode):
     
 def execute(mnemonic, state={}):
     #print("executestart",state)
-    print(mnemonic)
+    dprint(mnemonic)
     state["mnemonic"] = mnemonic
     i = 1
     for piece in mnemonic:
         dprint("Now Playing:",piece)
-        retval = piece(**state)
+        retval = piece(state)
         dprint("retval",retval)
         if isinstance(retval, dict):
             state = {**state, **retval}
@@ -759,13 +840,12 @@ def execute(mnemonic, state={}):
             state["op" + str(i)]=retval
             i = i + 1
 
-        print("executeloop", state)
+        dprint("executeloop", state)
         #key = [x for x in ("op1","op2","op3") if x not in state][0]
         #state[key]=retval
 
-    return state
-
-#ok, yeah. This is gonna get really tough if I try to stick with strings
+    #return state
+    state = {} #when this execute loop finishes, then we are -done-. Clear state.
 
 for opcode in opcodes:
     input()
