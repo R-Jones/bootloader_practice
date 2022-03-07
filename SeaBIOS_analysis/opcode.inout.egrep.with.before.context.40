@@ -1,0 +1,894 @@
+apm.o.objdump.d-1-
+apm.o.objdump.d-2-./apm.o:     file format elf32-i386
+apm.o.objdump.d-3-
+apm.o.objdump.d-4-
+apm.o.objdump.d-5-Disassembly of section .text.apm_shutdown:
+apm.o.objdump.d-6-
+apm.o.objdump.d-7-00000000 <apm_shutdown>:
+apm.o.objdump.d-8-   0:	a1 00 00 00 00       	mov    0x0,%eax
+apm.o.objdump.d-9-   5:	89 c2                	mov    %eax,%edx
+apm.o.objdump.d-10-   7:	66 85 c0             	test   %ax,%ax
+apm.o.objdump.d-11-   a:	74 07                	je     13 <apm_shutdown+0x13>
+apm.o.objdump.d-12-   c:	b8 00 20 00 00       	mov    $0x2000,%eax
+apm.o.objdump.d:13:  11:	66 ef                	out    %ax,(%dx)
+--
+clock.o.objdump.d-259- 2ac:	66 83 63 24 fe       	andw   $0xfffe,0x24(%ebx)
+clock.o.objdump.d-260- 2b1:	58                   	pop    %eax
+clock.o.objdump.d-261- 2b2:	5b                   	pop    %ebx
+clock.o.objdump.d-262- 2b3:	5e                   	pop    %esi
+clock.o.objdump.d-263- 2b4:	c3                   	ret    
+clock.o.objdump.d-264- 2b5:	b9 00 00 00 00       	mov    $0x0,%ecx
+clock.o.objdump.d-265- 2ba:	ba 02 01 00 00       	mov    $0x102,%edx
+clock.o.objdump.d-266- 2bf:	89 d8                	mov    %ebx,%eax
+clock.o.objdump.d-267- 2c1:	5b                   	pop    %ebx
+clock.o.objdump.d-268- 2c2:	5b                   	pop    %ebx
+clock.o.objdump.d-269- 2c3:	5e                   	pop    %esi
+clock.o.objdump.d-270- 2c4:	e9 fc ff ff ff       	jmp    2c5 <handle_1a+0x2c5>
+clock.o.objdump.d-271-
+clock.o.objdump.d-272-Disassembly of section .text.handle_08:
+clock.o.objdump.d-273-
+clock.o.objdump.d-274-00000000 <handle_08>:
+clock.o.objdump.d-275-   0:	83 ec 28             	sub    $0x28,%esp
+clock.o.objdump.d-276-   3:	b8 00 00 00 00       	mov    $0x0,%eax
+clock.o.objdump.d-277-   8:	e8 fc ff ff ff       	call   9 <handle_08+0x9>
+clock.o.objdump.d-278-   d:	a1 6c 04 00 00       	mov    0x46c,%eax
+clock.o.objdump.d-279-  12:	40                   	inc    %eax
+clock.o.objdump.d-280-  13:	3d af 00 18 00       	cmp    $0x1800af,%eax
+clock.o.objdump.d-281-  18:	76 08                	jbe    22 <handle_08+0x22>
+clock.o.objdump.d-282-  1a:	fe 05 70 04 00 00    	incb   0x470
+clock.o.objdump.d-283-  20:	31 c0                	xor    %eax,%eax
+clock.o.objdump.d-284-  22:	a3 6c 04 00 00       	mov    %eax,0x46c
+clock.o.objdump.d-285-  27:	e8 fc ff ff ff       	call   28 <handle_08+0x28>
+clock.o.objdump.d-286-  2c:	e8 fc ff ff ff       	call   2d <handle_08+0x2d>
+clock.o.objdump.d-287-  31:	e8 fc ff ff ff       	call   32 <handle_08+0x32>
+clock.o.objdump.d-288-  36:	e8 fc ff ff ff       	call   37 <handle_08+0x37>
+clock.o.objdump.d-289-  3b:	b9 26 00 00 00       	mov    $0x26,%ecx
+clock.o.objdump.d-290-  40:	31 d2                	xor    %edx,%edx
+clock.o.objdump.d-291-  42:	8d 44 24 02          	lea    0x2(%esp),%eax
+clock.o.objdump.d-292-  46:	e8 fc ff ff ff       	call   47 <handle_08+0x47>
+clock.o.objdump.d-293-  4b:	66 c7 44 24 26 00 02 	movw   $0x200,0x26(%esp)
+clock.o.objdump.d-294-  52:	ba 00 00 00 00       	mov    $0x0,%edx
+clock.o.objdump.d-295-  57:	0f b7 d2             	movzwl %dx,%edx
+clock.o.objdump.d-296-  5a:	8d 44 24 02          	lea    0x2(%esp),%eax
+clock.o.objdump.d-297-  5e:	e8 fc ff ff ff       	call   5f <handle_08+0x5f>
+clock.o.objdump.d-298-  63:	b0 20                	mov    $0x20,%al
+clock.o.objdump.d:299:  65:	e6 20                	out    %al,$0x20
+--
+clock.o.objdump.d-425-   1:	53                   	push   %ebx
+clock.o.objdump.d-426-   2:	83 ec 28             	sub    $0x28,%esp
+clock.o.objdump.d-427-   5:	b8 00 00 00 00       	mov    $0x0,%eax
+clock.o.objdump.d-428-   a:	e8 fc ff ff ff       	call   b <handle_70+0xb>
+clock.o.objdump.d-429-   f:	b8 0b 00 00 00       	mov    $0xb,%eax
+clock.o.objdump.d-430-  14:	e8 fc ff ff ff       	call   15 <handle_70+0x15>
+clock.o.objdump.d-431-  19:	89 c6                	mov    %eax,%esi
+clock.o.objdump.d-432-  1b:	b8 0c 00 00 00       	mov    $0xc,%eax
+clock.o.objdump.d-433-  20:	e8 fc ff ff ff       	call   21 <handle_70+0x21>
+clock.o.objdump.d-434-  25:	83 e6 60             	and    $0x60,%esi
+clock.o.objdump.d-435-  28:	74 73                	je     9d <handle_70+0x9d>
+clock.o.objdump.d-436-  2a:	88 c3                	mov    %al,%bl
+clock.o.objdump.d-437-  2c:	a8 20                	test   $0x20,%al
+clock.o.objdump.d-438-  2e:	74 28                	je     58 <handle_70+0x58>
+clock.o.objdump.d-439-  30:	b9 26 00 00 00       	mov    $0x26,%ecx
+clock.o.objdump.d-440-  35:	31 d2                	xor    %edx,%edx
+clock.o.objdump.d-441-  37:	8d 44 24 02          	lea    0x2(%esp),%eax
+clock.o.objdump.d-442-  3b:	e8 fc ff ff ff       	call   3c <handle_70+0x3c>
+clock.o.objdump.d-443-  40:	66 c7 44 24 26 00 02 	movw   $0x200,0x26(%esp)
+clock.o.objdump.d-444-  47:	ba 00 00 00 00       	mov    $0x0,%edx
+clock.o.objdump.d-445-  4c:	0f b7 d2             	movzwl %dx,%edx
+clock.o.objdump.d-446-  4f:	8d 44 24 02          	lea    0x2(%esp),%eax
+clock.o.objdump.d-447-  53:	e8 fc ff ff ff       	call   54 <handle_70+0x54>
+clock.o.objdump.d-448-  58:	80 e3 40             	and    $0x40,%bl
+clock.o.objdump.d-449-  5b:	74 40                	je     9d <handle_70+0x9d>
+clock.o.objdump.d-450-  5d:	e8 fc ff ff ff       	call   5e <handle_70+0x5e>
+clock.o.objdump.d-451-  62:	80 3d a0 04 00 00 00 	cmpb   $0x0,0x4a0
+clock.o.objdump.d-452-  69:	74 32                	je     9d <handle_70+0x9d>
+clock.o.objdump.d-453-  6b:	a1 9c 04 00 00       	mov    0x49c,%eax
+clock.o.objdump.d-454-  70:	3d d0 03 00 00       	cmp    $0x3d0,%eax
+clock.o.objdump.d-455-  75:	77 1c                	ja     93 <handle_70+0x93>
+clock.o.objdump.d-456-  77:	0f b7 05 9a 04 00 00 	movzwl 0x49a,%eax
+clock.o.objdump.d-457-  7e:	c1 e0 04             	shl    $0x4,%eax
+clock.o.objdump.d-458-  81:	0f b7 15 98 04 00 00 	movzwl 0x498,%edx
+clock.o.objdump.d-459-  88:	80 0c 10 80          	orb    $0x80,(%eax,%edx,1)
+clock.o.objdump.d-460-  8c:	e8 fc ff ff ff       	call   8d <handle_70+0x8d>
+clock.o.objdump.d-461-  91:	eb 0a                	jmp    9d <handle_70+0x9d>
+clock.o.objdump.d-462-  93:	2d d1 03 00 00       	sub    $0x3d1,%eax
+clock.o.objdump.d-463-  98:	a3 9c 04 00 00       	mov    %eax,0x49c
+clock.o.objdump.d-464-  9d:	b0 20                	mov    $0x20,%al
+clock.o.objdump.d:465:  9f:	e6 a0                	out    %al,$0xa0
+clock.o.objdump.d:466:  a1:	e6 20                	out    %al,$0x20
+--
+disk.o.objdump.d-618-  39:	75 07                	jne    42 <handle_13+0x42>
+disk.o.objdump.d-619-  3b:	c6 05 01 00 00 00 00 	movb   $0x0,0x1
+disk.o.objdump.d-620-  42:	b9 00 00 00 00       	mov    $0x0,%ecx
+disk.o.objdump.d-621-  47:	ba 00 b4 02 00       	mov    $0x2b400,%edx
+disk.o.objdump.d-622-  4c:	89 d8                	mov    %ebx,%eax
+disk.o.objdump.d-623-  4e:	5b                   	pop    %ebx
+disk.o.objdump.d-624-  4f:	e9 fc ff ff ff       	jmp    50 <handle_13+0x50>
+disk.o.objdump.d-625-  54:	80 3d 01 00 00 00 00 	cmpb   $0x0,0x1
+disk.o.objdump.d-626-  5b:	74 3a                	je     97 <handle_13+0x97>
+disk.o.objdump.d-627-  5d:	a0 02 00 00 00       	mov    0x2,%al
+disk.o.objdump.d-628-  62:	38 c2                	cmp    %al,%dl
+disk.o.objdump.d-629-  64:	75 25                	jne    8b <handle_13+0x8b>
+disk.o.objdump.d-630-  66:	8b 15 00 00 00 00    	mov    0x0,%edx
+disk.o.objdump.d-631-  6c:	80 f9 16             	cmp    $0x16,%cl
+disk.o.objdump.d-632-  6f:	76 12                	jbe    83 <handle_13+0x83>
+disk.o.objdump.d-633-  71:	b9 00 00 00 00       	mov    $0x0,%ecx
+disk.o.objdump.d-634-  76:	ba 01 69 02 00       	mov    $0x26901,%edx
+disk.o.objdump.d-635-  7b:	89 d8                	mov    %ebx,%eax
+disk.o.objdump.d-636-  7d:	5b                   	pop    %ebx
+disk.o.objdump.d-637-  7e:	e9 fc ff ff ff       	jmp    7f <handle_13+0x7f>
+disk.o.objdump.d-638-  83:	89 d8                	mov    %ebx,%eax
+disk.o.objdump.d-639-  85:	5b                   	pop    %ebx
+disk.o.objdump.d-640-  86:	e9 fc ff ff ff       	jmp    87 <handle_13+0x87>
+disk.o.objdump.d-641-  8b:	80 fa df             	cmp    $0xdf,%dl
+disk.o.objdump.d-642-  8e:	77 07                	ja     97 <handle_13+0x97>
+disk.o.objdump.d-643-  90:	31 d0                	xor    %edx,%eax
+disk.o.objdump.d-644-  92:	3c 80                	cmp    $0x80,%al
+disk.o.objdump.d-645-  94:	80 da 00             	sbb    $0x0,%dl
+disk.o.objdump.d-646-  97:	0f b6 d2             	movzbl %dl,%edx
+disk.o.objdump.d-647-  9a:	89 d8                	mov    %ebx,%eax
+disk.o.objdump.d-648-  9c:	5b                   	pop    %ebx
+disk.o.objdump.d-649-  9d:	e9 fc ff ff ff       	jmp    9e <handle_13+0x9e>
+disk.o.objdump.d-650-
+disk.o.objdump.d-651-Disassembly of section .text.handle_76:
+disk.o.objdump.d-652-
+disk.o.objdump.d-653-00000000 <handle_76>:
+disk.o.objdump.d-654-   0:	b8 00 00 00 00       	mov    $0x0,%eax
+disk.o.objdump.d-655-   5:	e8 fc ff ff ff       	call   6 <handle_76+0x6>
+disk.o.objdump.d-656-   a:	c6 05 8e 04 00 00 ff 	movb   $0xff,0x48e
+disk.o.objdump.d-657-  11:	b0 20                	mov    $0x20,%al
+disk.o.objdump.d:658:  13:	e6 a0                	out    %al,$0xa0
+disk.o.objdump.d:659:  15:	e6 20                	out    %al,$0x20
+--
+misc.o.objdump.d-30-   3:	ba 00 00 00 00       	mov    $0x0,%edx
+misc.o.objdump.d-31-   8:	e8 fc ff ff ff       	call   9 <handle_11+0x9>
+misc.o.objdump.d-32-   d:	a1 10 04 00 00       	mov    0x410,%eax
+misc.o.objdump.d-33-  12:	66 89 43 1c          	mov    %ax,0x1c(%ebx)
+misc.o.objdump.d-34-  16:	5b                   	pop    %ebx
+misc.o.objdump.d-35-  17:	c3                   	ret    
+misc.o.objdump.d-36-
+misc.o.objdump.d-37-Disassembly of section .text.handle_05:
+misc.o.objdump.d-38-
+misc.o.objdump.d-39-00000000 <handle_05>:
+misc.o.objdump.d-40-   0:	ba 00 00 00 00       	mov    $0x0,%edx
+misc.o.objdump.d-41-   5:	e9 fc ff ff ff       	jmp    6 <handle_05+0x6>
+misc.o.objdump.d-42-
+misc.o.objdump.d-43-Disassembly of section .text.handle_02:
+misc.o.objdump.d-44-
+misc.o.objdump.d-45-00000000 <handle_02>:
+misc.o.objdump.d-46-   0:	b8 00 00 00 00       	mov    $0x0,%eax
+misc.o.objdump.d-47-   5:	e9 fc ff ff ff       	jmp    6 <handle_02+0x6>
+misc.o.objdump.d-48-
+misc.o.objdump.d-49-Disassembly of section .text.mathcp_setup:
+misc.o.objdump.d-50-
+misc.o.objdump.d-51-00000000 <mathcp_setup>:
+misc.o.objdump.d-52-   0:	68 00 00 00 00       	push   $0x0
+misc.o.objdump.d-53-   5:	e8 fc ff ff ff       	call   6 <mathcp_setup+0x6>
+misc.o.objdump.d-54-   a:	66 83 0d 10 04 00 00 	orw    $0x2,0x410
+misc.o.objdump.d-55-  11:	02 
+misc.o.objdump.d-56-  12:	ba 00 00 00 00       	mov    $0x0,%edx
+misc.o.objdump.d-57-  17:	0f b7 d2             	movzwl %dx,%edx
+misc.o.objdump.d-58-  1a:	81 ca 00 00 00 f0    	or     $0xf0000000,%edx
+misc.o.objdump.d-59-  20:	58                   	pop    %eax
+misc.o.objdump.d-60-  21:	b8 0d 00 00 00       	mov    $0xd,%eax
+misc.o.objdump.d-61-  26:	e9 fc ff ff ff       	jmp    27 <mathcp_setup+0x27>
+misc.o.objdump.d-62-
+misc.o.objdump.d-63-Disassembly of section .text.handle_75:
+misc.o.objdump.d-64-
+misc.o.objdump.d-65-00000000 <handle_75>:
+misc.o.objdump.d-66-   0:	83 ec 28             	sub    $0x28,%esp
+misc.o.objdump.d-67-   3:	b8 00 00 00 00       	mov    $0x0,%eax
+misc.o.objdump.d-68-   8:	e8 fc ff ff ff       	call   9 <handle_75+0x9>
+misc.o.objdump.d-69-   d:	31 c0                	xor    %eax,%eax
+misc.o.objdump.d:70:   f:	e6 f0                	out    %al,$0xf0
+misc.o.objdump.d-71-  11:	b0 20                	mov    $0x20,%al
+misc.o.objdump.d:72:  13:	e6 a0                	out    %al,$0xa0
+misc.o.objdump.d:73:  15:	e6 20                	out    %al,$0x20
+--
+objdumpallthethings.sh:1:for file in ./*.o
+--
+sercon.o.objdump.d-26-  1c:	84 d2                	test   %dl,%dl
+sercon.o.objdump.d-27-  1e:	74 0c                	je     2c <sercon_lazy_lf+0x2c>
+sercon.o.objdump.d-28-  20:	4a                   	dec    %edx
+sercon.o.objdump.d-29-  21:	88 15 00 00 00 00    	mov    %dl,0x0
+sercon.o.objdump.d-30-  27:	eb 03                	jmp    2c <sercon_lazy_lf+0x2c>
+sercon.o.objdump.d-31-  29:	0f b6 c2             	movzbl %dl,%eax
+sercon.o.objdump.d-32-  2c:	0f b6 15 50 04 00 00 	movzbl 0x450,%edx
+sercon.o.objdump.d-33-  33:	e9 fc ff ff ff       	jmp    34 <sercon_lazy_lf+0x34>
+sercon.o.objdump.d-34-
+sercon.o.objdump.d-35-Disassembly of section .text.shiftbuf:
+sercon.o.objdump.d-36-
+sercon.o.objdump.d-37-00000000 <shiftbuf>:
+sercon.o.objdump.d-38-   0:	0f b6 0d 00 00 00 00 	movzbl 0x0,%ecx
+sercon.o.objdump.d-39-   7:	29 c1                	sub    %eax,%ecx
+sercon.o.objdump.d-40-   9:	88 0d 00 00 00 00    	mov    %cl,0x0
+sercon.o.objdump.d-41-   f:	31 d2                	xor    %edx,%edx
+sercon.o.objdump.d-42-  11:	39 ca                	cmp    %ecx,%edx
+sercon.o.objdump.d-43-  13:	7c 01                	jl     16 <shiftbuf+0x16>
+sercon.o.objdump.d-44-  15:	c3                   	ret    
+sercon.o.objdump.d-45-  16:	53                   	push   %ebx
+sercon.o.objdump.d-46-  17:	8a 9c 10 00 00 00 00 	mov    0x0(%eax,%edx,1),%bl
+sercon.o.objdump.d-47-  1e:	88 9a 00 00 00 00    	mov    %bl,0x0(%edx)
+sercon.o.objdump.d-48-  24:	42                   	inc    %edx
+sercon.o.objdump.d-49-  25:	39 ca                	cmp    %ecx,%edx
+sercon.o.objdump.d-50-  27:	7c ee                	jl     17 <shiftbuf+0x17>
+sercon.o.objdump.d-51-  29:	5b                   	pop    %ebx
+sercon.o.objdump.d-52-  2a:	c3                   	ret    
+sercon.o.objdump.d-53-
+sercon.o.objdump.d-54-Disassembly of section .text.sercon_putchar:
+sercon.o.objdump.d-55-
+sercon.o.objdump.d-56-00000000 <sercon_putchar>:
+sercon.o.objdump.d-57-   0:	57                   	push   %edi
+sercon.o.objdump.d-58-   1:	56                   	push   %esi
+sercon.o.objdump.d-59-   2:	53                   	push   %ebx
+sercon.o.objdump.d-60-   3:	89 c6                	mov    %eax,%esi
+sercon.o.objdump.d-61-   5:	66 8b 3d 00 00 00 00 	mov    0x0,%di
+sercon.o.objdump.d-62-   c:	b8 0a 00 00 00       	mov    $0xa,%eax
+sercon.o.objdump.d-63-  11:	e8 fc ff ff ff       	call   12 <sercon_putchar+0x12>
+sercon.o.objdump.d-64-  16:	89 c3                	mov    %eax,%ebx
+sercon.o.objdump.d-65-  18:	8d 57 05             	lea    0x5(%edi),%edx
+sercon.o.objdump.d:66:  1b:	ec                   	in     (%dx),%al
+sercon.o.objdump.d-67-  1c:	83 e0 60             	and    $0x60,%eax
+sercon.o.objdump.d-68-  1f:	3c 60                	cmp    $0x60,%al
+sercon.o.objdump.d-69-  21:	75 07                	jne    2a <sercon_putchar+0x2a>
+sercon.o.objdump.d-70-  23:	89 f0                	mov    %esi,%eax
+sercon.o.objdump.d-71-  25:	89 fa                	mov    %edi,%edx
+sercon.o.objdump.d:72:  27:	ee                   	out    %al,(%dx)
+--
+sercon.o.objdump.d-575-  1d:	0f b7 c0             	movzwl %ax,%eax
+sercon.o.objdump.d-576-  20:	50                   	push   %eax
+sercon.o.objdump.d-577-  21:	68 10 00 00 00       	push   $0x10
+sercon.o.objdump.d-578-  26:	e8 fc ff ff ff       	call   27 <sercon_setup+0x27>
+sercon.o.objdump.d-579-  2b:	0f b7 15 40 00 00 00 	movzwl 0x40,%edx
+sercon.o.objdump.d-580-  32:	89 d7                	mov    %edx,%edi
+sercon.o.objdump.d-581-  34:	0f b7 0d 42 00 00 00 	movzwl 0x42,%ecx
+sercon.o.objdump.d-582-  3b:	89 ce                	mov    %ecx,%esi
+sercon.o.objdump.d-583-  3d:	bd 00 00 00 00       	mov    $0x0,%ebp
+sercon.o.objdump.d-584-  42:	89 c8                	mov    %ecx,%eax
+sercon.o.objdump.d-585-  44:	c1 e0 10             	shl    $0x10,%eax
+sercon.o.objdump.d-586-  47:	09 c2                	or     %eax,%edx
+sercon.o.objdump.d-587-  49:	0f b7 c5             	movzwl %bp,%eax
+sercon.o.objdump.d-588-  4c:	0d 00 00 00 f0       	or     $0xf0000000,%eax
+sercon.o.objdump.d-589-  51:	83 c4 08             	add    $0x8,%esp
+sercon.o.objdump.d-590-  54:	39 c2                	cmp    %eax,%edx
+sercon.o.objdump.d-591-  56:	74 29                	je     81 <sercon_setup+0x81>
+sercon.o.objdump.d-592-  58:	0f b7 c7             	movzwl %di,%eax
+sercon.o.objdump.d-593-  5b:	50                   	push   %eax
+sercon.o.objdump.d-594-  5c:	51                   	push   %ecx
+sercon.o.objdump.d-595-  5d:	68 2b 00 00 00       	push   $0x2b
+sercon.o.objdump.d-596-  62:	e8 fc ff ff ff       	call   63 <sercon_setup+0x63>
+sercon.o.objdump.d-597-  67:	66 89 3d 00 00 00 00 	mov    %di,0x0
+sercon.o.objdump.d-598-  6e:	66 89 35 02 00 00 00 	mov    %si,0x2
+sercon.o.objdump.d-599-  75:	c6 05 00 00 00 00 01 	movb   $0x1,0x0
+sercon.o.objdump.d-600-  7c:	83 c4 0c             	add    $0xc,%esp
+sercon.o.objdump.d-601-  7f:	eb 1b                	jmp    9c <sercon_setup+0x9c>
+sercon.o.objdump.d-602-  81:	68 61 00 00 00       	push   $0x61
+sercon.o.objdump.d-603-  86:	e8 fc ff ff ff       	call   87 <sercon_setup+0x87>
+sercon.o.objdump.d-604-  8b:	66 89 2d 00 00 00 00 	mov    %bp,0x0
+sercon.o.objdump.d-605-  92:	66 c7 05 02 00 00 00 	movw   $0xf000,0x2
+sercon.o.objdump.d-606-  99:	00 f0 
+sercon.o.objdump.d-607-  9b:	58                   	pop    %eax
+sercon.o.objdump.d-608-  9c:	b8 00 00 00 00       	mov    $0x0,%eax
+sercon.o.objdump.d-609-  a1:	66 a3 40 00 00 00    	mov    %ax,0x40
+sercon.o.objdump.d-610-  a7:	66 c7 05 42 00 00 00 	movw   $0xf000,0x42
+sercon.o.objdump.d-611-  ae:	00 f0 
+sercon.o.objdump.d-612-  b0:	66 89 1d 00 00 00 00 	mov    %bx,0x0
+sercon.o.objdump.d-613-  b7:	8d 53 03             	lea    0x3(%ebx),%edx
+sercon.o.objdump.d-614-  ba:	b0 03                	mov    $0x3,%al
+sercon.o.objdump.d:615:  bc:	ee                   	out    %al,(%dx)
+sercon.o.objdump.d-616-  bd:	8d 53 02             	lea    0x2(%ebx),%edx
+sercon.o.objdump.d-617-  c0:	b0 01                	mov    $0x1,%al
+sercon.o.objdump.d:618:  c2:	ee                   	out    %al,(%dx)
+sercon.o.objdump.d-619-  c3:	5b                   	pop    %ebx
+sercon.o.objdump.d-620-  c4:	5e                   	pop    %esi
+sercon.o.objdump.d-621-  c5:	5f                   	pop    %edi
+sercon.o.objdump.d-622-  c6:	5d                   	pop    %ebp
+sercon.o.objdump.d-623-  c7:	c3                   	ret    
+sercon.o.objdump.d-624-
+sercon.o.objdump.d-625-Disassembly of section .text.sercon_check_event:
+sercon.o.objdump.d-626-
+sercon.o.objdump.d-627-00000000 <sercon_check_event>:
+sercon.o.objdump.d-628-   0:	55                   	push   %ebp
+sercon.o.objdump.d-629-   1:	57                   	push   %edi
+sercon.o.objdump.d-630-   2:	56                   	push   %esi
+sercon.o.objdump.d-631-   3:	53                   	push   %ebx
+sercon.o.objdump.d-632-   4:	83 ec 08             	sub    $0x8,%esp
+sercon.o.objdump.d-633-   7:	66 8b 1d 00 00 00 00 	mov    0x0,%bx
+sercon.o.objdump.d-634-   e:	66 85 db             	test   %bx,%bx
+sercon.o.objdump.d-635-  11:	0f 84 fc 00 00 00    	je     113 <sercon_check_event+0x113>
+sercon.o.objdump.d-636-  17:	8d 7b 05             	lea    0x5(%ebx),%edi
+sercon.o.objdump.d-637-  1a:	89 fa                	mov    %edi,%edx
+sercon.o.objdump.d:638:  1c:	ec                   	in     (%dx),%al
+sercon.o.objdump.d-639-  1d:	fe c0                	inc    %al
+sercon.o.objdump.d-640-  1f:	0f 84 ee 00 00 00    	je     113 <sercon_check_event+0x113>
+sercon.o.objdump.d-641-  25:	e8 fc ff ff ff       	call   26 <sercon_check_event+0x26>
+sercon.o.objdump.d-642-  2a:	a0 00 00 00 00       	mov    0x0,%al
+sercon.o.objdump.d-643-  2f:	88 44 24 03          	mov    %al,0x3(%esp)
+sercon.o.objdump.d-644-  33:	31 f6                	xor    %esi,%esi
+sercon.o.objdump.d-645-  35:	31 ed                	xor    %ebp,%ebp
+sercon.o.objdump.d-646-  37:	8a 44 24 03          	mov    0x3(%esp),%al
+sercon.o.objdump.d-647-  3b:	8d 4c 05 00          	lea    0x0(%ebp,%eax,1),%ecx
+sercon.o.objdump.d-648-  3f:	89 fa                	mov    %edi,%edx
+sercon.o.objdump.d:649:  41:	ec                   	in     (%dx),%al
+sercon.o.objdump.d-650-  42:	a8 01                	test   $0x1,%al
+sercon.o.objdump.d-651-  44:	74 19                	je     5f <sercon_check_event+0x5f>
+sercon.o.objdump.d-652-  46:	89 da                	mov    %ebx,%edx
+sercon.o.objdump.d:653:  48:	ec                   	in     (%dx),%al
+--
+serial.o.objdump.d-23-  34:	ba 44 00 00 00       	mov    $0x44,%edx
+serial.o.objdump.d-24-  39:	e8 fc ff ff ff       	call   3a <getComAddr+0x3a>
+serial.o.objdump.d-25-  3e:	89 d8                	mov    %ebx,%eax
+serial.o.objdump.d-26-  40:	5b                   	pop    %ebx
+serial.o.objdump.d-27-  41:	c3                   	ret    
+serial.o.objdump.d-28-
+serial.o.objdump.d-29-Disassembly of section .text.getLptAddr:
+serial.o.objdump.d-30-
+serial.o.objdump.d-31-00000000 <getLptAddr>:
+serial.o.objdump.d-32-   0:	53                   	push   %ebx
+serial.o.objdump.d-33-   1:	66 8b 50 14          	mov    0x14(%eax),%dx
+serial.o.objdump.d-34-   5:	66 83 fa 02          	cmp    $0x2,%dx
+serial.o.objdump.d-35-   9:	76 13                	jbe    1e <getLptAddr+0x1e>
+serial.o.objdump.d-36-   b:	b9 00 00 00 00       	mov    $0x0,%ecx
+serial.o.objdump.d-37-  10:	ba e0 00 00 00       	mov    $0xe0,%edx
+serial.o.objdump.d-38-  15:	e8 fc ff ff ff       	call   16 <getLptAddr+0x16>
+serial.o.objdump.d-39-  1a:	31 db                	xor    %ebx,%ebx
+serial.o.objdump.d-40-  1c:	eb 20                	jmp    3e <getLptAddr+0x3e>
+serial.o.objdump.d-41-  1e:	66 81 c2 04 02       	add    $0x204,%dx
+serial.o.objdump.d-42-  23:	0f b7 d2             	movzwl %dx,%edx
+serial.o.objdump.d-43-  26:	66 8b 1c 12          	mov    (%edx,%edx,1),%bx
+serial.o.objdump.d-44-  2a:	66 85 db             	test   %bx,%bx
+serial.o.objdump.d-45-  2d:	75 0f                	jne    3e <getLptAddr+0x3e>
+serial.o.objdump.d-46-  2f:	b9 00 00 00 00       	mov    $0x0,%ecx
+serial.o.objdump.d-47-  34:	ba e5 00 00 00       	mov    $0xe5,%edx
+serial.o.objdump.d-48-  39:	e8 fc ff ff ff       	call   3a <getLptAddr+0x3a>
+serial.o.objdump.d-49-  3e:	89 d8                	mov    %ebx,%eax
+serial.o.objdump.d-50-  40:	5b                   	pop    %ebx
+serial.o.objdump.d-51-  41:	c3                   	ret    
+serial.o.objdump.d-52-
+serial.o.objdump.d-53-Disassembly of section .text.detect_serial.constprop.0:
+serial.o.objdump.d-54-
+serial.o.objdump.d-55-00000000 <detect_serial.constprop.0>:
+serial.o.objdump.d-56-   0:	56                   	push   %esi
+serial.o.objdump.d-57-   1:	53                   	push   %ebx
+serial.o.objdump.d-58-   2:	89 c3                	mov    %eax,%ebx
+serial.o.objdump.d-59-   4:	89 d1                	mov    %edx,%ecx
+serial.o.objdump.d-60-   6:	8d 70 01             	lea    0x1(%eax),%esi
+serial.o.objdump.d-61-   9:	b0 02                	mov    $0x2,%al
+serial.o.objdump.d-62-   b:	89 f2                	mov    %esi,%edx
+serial.o.objdump.d:63:   d:	ee                   	out    %al,(%dx)
+serial.o.objdump.d:64:   e:	ec                   	in     (%dx),%al
+serial.o.objdump.d-65-   f:	3c 02                	cmp    $0x2,%al
+serial.o.objdump.d-66-  11:	75 2c                	jne    3f <detect_serial.constprop.0+0x3f>
+serial.o.objdump.d-67-  13:	8d 53 02             	lea    0x2(%ebx),%edx
+serial.o.objdump.d:68:  16:	ec                   	in     (%dx),%al
+serial.o.objdump.d-69-  17:	83 e0 3f             	and    $0x3f,%eax
+serial.o.objdump.d-70-  1a:	88 c2                	mov    %al,%dl
+serial.o.objdump.d-71-  1c:	31 c0                	xor    %eax,%eax
+serial.o.objdump.d-72-  1e:	80 fa 02             	cmp    $0x2,%dl
+serial.o.objdump.d-73-  21:	75 1e                	jne    41 <detect_serial.constprop.0+0x41>
+serial.o.objdump.d-74-  23:	89 f2                	mov    %esi,%edx
+serial.o.objdump.d:75:  25:	ee                   	out    %al,(%dx)
+--
+serial.o.objdump.d-110-  49:	50                   	push   %eax
+serial.o.objdump.d-111-  4a:	68 0d 00 00 00       	push   $0xd
+serial.o.objdump.d-112-  4f:	e8 fc ff ff ff       	call   50 <serial_setup+0x50>
+serial.o.objdump.d-113-  54:	a1 10 04 00 00       	mov    0x410,%eax
+serial.o.objdump.d-114-  59:	80 e4 f1             	and    $0xf1,%ah
+serial.o.objdump.d-115-  5c:	c1 e3 09             	shl    $0x9,%ebx
+serial.o.objdump.d-116-  5f:	09 d8                	or     %ebx,%eax
+serial.o.objdump.d-117-  61:	66 a3 10 04 00 00    	mov    %ax,0x410
+serial.o.objdump.d-118-  67:	83 c4 0c             	add    $0xc,%esp
+serial.o.objdump.d-119-  6a:	5b                   	pop    %ebx
+serial.o.objdump.d-120-  6b:	c3                   	ret    
+serial.o.objdump.d-121-
+serial.o.objdump.d-122-Disassembly of section .text.handle_14:
+serial.o.objdump.d-123-
+serial.o.objdump.d-124-00000000 <handle_14>:
+serial.o.objdump.d-125-   0:	55                   	push   %ebp
+serial.o.objdump.d-126-   1:	57                   	push   %edi
+serial.o.objdump.d-127-   2:	56                   	push   %esi
+serial.o.objdump.d-128-   3:	53                   	push   %ebx
+serial.o.objdump.d-129-   4:	56                   	push   %esi
+serial.o.objdump.d-130-   5:	89 c3                	mov    %eax,%ebx
+serial.o.objdump.d-131-   7:	ba 00 00 00 00       	mov    $0x0,%edx
+serial.o.objdump.d-132-   c:	e8 fc ff ff ff       	call   d <handle_14+0xd>
+serial.o.objdump.d-133-  11:	8a 43 1d             	mov    0x1d(%ebx),%al
+serial.o.objdump.d-134-  14:	3c 02                	cmp    $0x2,%al
+serial.o.objdump.d-135-  16:	0f 84 c4 00 00 00    	je     e0 <handle_14+0xe0>
+serial.o.objdump.d-136-  1c:	77 06                	ja     24 <handle_14+0x24>
+serial.o.objdump.d-137-  1e:	84 c0                	test   %al,%al
+serial.o.objdump.d-138-  20:	75 73                	jne    95 <handle_14+0x95>
+serial.o.objdump.d-139-  22:	eb 0d                	jmp    31 <handle_14+0x31>
+serial.o.objdump.d-140-  24:	3c 03                	cmp    $0x3,%al
+serial.o.objdump.d-141-  26:	0f 84 04 01 00 00    	je     130 <handle_14+0x130>
+serial.o.objdump.d-142-  2c:	e9 22 01 00 00       	jmp    153 <handle_14+0x153>
+serial.o.objdump.d-143-  31:	89 d8                	mov    %ebx,%eax
+serial.o.objdump.d-144-  33:	e8 fc ff ff ff       	call   34 <handle_14+0x34>
+serial.o.objdump.d-145-  38:	89 c6                	mov    %eax,%esi
+serial.o.objdump.d-146-  3a:	66 85 c0             	test   %ax,%ax
+serial.o.objdump.d-147-  3d:	0f 84 26 01 00 00    	je     169 <handle_14+0x169>
+serial.o.objdump.d-148-  43:	8d 7e 03             	lea    0x3(%esi),%edi
+serial.o.objdump.d-149-  46:	89 fa                	mov    %edi,%edx
+serial.o.objdump.d:150:  48:	ec                   	in     (%dx),%al
+serial.o.objdump.d-151-  49:	83 c8 80             	or     $0xffffff80,%eax
+serial.o.objdump.d:152:  4c:	ee                   	out    %al,(%dx)
+serial.o.objdump.d-153-  4d:	8a 43 1c             	mov    0x1c(%ebx),%al
+serial.o.objdump.d-154-  50:	88 44 24 03          	mov    %al,0x3(%esp)
+serial.o.objdump.d-155-  54:	8d 6e 01             	lea    0x1(%esi),%ebp
+serial.o.objdump.d-156-  57:	a8 e0                	test   $0xe0,%al
+serial.o.objdump.d-157-  59:	75 09                	jne    64 <handle_14+0x64>
+serial.o.objdump.d-158-  5b:	b0 17                	mov    $0x17,%al
+serial.o.objdump.d-159-  5d:	89 f2                	mov    %esi,%edx
+serial.o.objdump.d:160:  5f:	ee                   	out    %al,(%dx)
+serial.o.objdump.d-161-  60:	b0 04                	mov    $0x4,%al
+serial.o.objdump.d-162-  62:	eb 15                	jmp    79 <handle_14+0x79>
+serial.o.objdump.d-163-  64:	8a 4c 24 03          	mov    0x3(%esp),%cl
+serial.o.objdump.d-164-  68:	c0 e9 05             	shr    $0x5,%cl
+serial.o.objdump.d-165-  6b:	b8 00 06 00 00       	mov    $0x600,%eax
+serial.o.objdump.d-166-  70:	d3 f8                	sar    %cl,%eax
+serial.o.objdump.d-167-  72:	89 f2                	mov    %esi,%edx
+serial.o.objdump.d:168:  74:	ee                   	out    %al,(%dx)
+serial.o.objdump.d-169-  75:	66 c1 e8 08          	shr    $0x8,%ax
+serial.o.objdump.d-170-  79:	89 ea                	mov    %ebp,%edx
+serial.o.objdump.d:171:  7b:	ee                   	out    %al,(%dx)
+serial.o.objdump.d-172-  7c:	8a 44 24 03          	mov    0x3(%esp),%al
+serial.o.objdump.d-173-  80:	83 e0 1f             	and    $0x1f,%eax
+serial.o.objdump.d-174-  83:	89 fa                	mov    %edi,%edx
+serial.o.objdump.d:175:  85:	ee                   	out    %al,(%dx)
+serial.o.objdump.d-176-  86:	8d 56 05             	lea    0x5(%esi),%edx
+serial.o.objdump.d:177:  89:	ec                   	in     (%dx),%al
+serial.o.objdump.d-178-  8a:	88 43 1d             	mov    %al,0x1d(%ebx)
+serial.o.objdump.d-179-  8d:	8d 56 06             	lea    0x6(%esi),%edx
+serial.o.objdump.d-180-  90:	e9 b3 00 00 00       	jmp    148 <handle_14+0x148>
+serial.o.objdump.d-181-  95:	89 d8                	mov    %ebx,%eax
+serial.o.objdump.d-182-  97:	e8 fc ff ff ff       	call   98 <handle_14+0x98>
+serial.o.objdump.d-183-  9c:	89 c7                	mov    %eax,%edi
+serial.o.objdump.d-184-  9e:	66 85 c0             	test   %ax,%ax
+serial.o.objdump.d-185-  a1:	0f 84 c2 00 00 00    	je     169 <handle_14+0x169>
+serial.o.objdump.d-186-  a7:	0f b7 43 14          	movzwl 0x14(%ebx),%eax
+serial.o.objdump.d-187-  ab:	0f b6 80 7c 04 00 00 	movzbl 0x47c(%eax),%eax
+serial.o.objdump.d-188-  b2:	e8 fc ff ff ff       	call   b3 <handle_14+0xb3>
+serial.o.objdump.d-189-  b7:	89 c5                	mov    %eax,%ebp
+serial.o.objdump.d-190-  b9:	8d 57 05             	lea    0x5(%edi),%edx
+serial.o.objdump.d:191:  bc:	ec                   	in     (%dx),%al
+serial.o.objdump.d-192-  bd:	89 c6                	mov    %eax,%esi
+serial.o.objdump.d-193-  bf:	83 e0 60             	and    $0x60,%eax
+serial.o.objdump.d-194-  c2:	3c 60                	cmp    $0x60,%al
+serial.o.objdump.d-195-  c4:	75 08                	jne    ce <handle_14+0xce>
+serial.o.objdump.d-196-  c6:	8a 43 1c             	mov    0x1c(%ebx),%al
+serial.o.objdump.d-197-  c9:	89 fa                	mov    %edi,%edx
+serial.o.objdump.d:198:  cb:	ee                   	out    %al,(%dx)
+serial.o.objdump.d-199-  cc:	eb 5b                	jmp    129 <handle_14+0x129>
+serial.o.objdump.d-200-  ce:	89 e8                	mov    %ebp,%eax
+serial.o.objdump.d-201-  d0:	e8 fc ff ff ff       	call   d1 <handle_14+0xd1>
+serial.o.objdump.d-202-  d5:	85 c0                	test   %eax,%eax
+serial.o.objdump.d-203-  d7:	75 44                	jne    11d <handle_14+0x11d>
+serial.o.objdump.d-204-  d9:	e8 fc ff ff ff       	call   da <handle_14+0xda>
+serial.o.objdump.d-205-  de:	eb d9                	jmp    b9 <handle_14+0xb9>
+serial.o.objdump.d-206-  e0:	89 d8                	mov    %ebx,%eax
+serial.o.objdump.d-207-  e2:	e8 fc ff ff ff       	call   e3 <handle_14+0xe3>
+serial.o.objdump.d-208-  e7:	89 c7                	mov    %eax,%edi
+serial.o.objdump.d-209-  e9:	66 85 c0             	test   %ax,%ax
+serial.o.objdump.d-210-  ec:	74 7b                	je     169 <handle_14+0x169>
+serial.o.objdump.d-211-  ee:	0f b7 43 14          	movzwl 0x14(%ebx),%eax
+serial.o.objdump.d-212-  f2:	0f b6 80 7c 04 00 00 	movzbl 0x47c(%eax),%eax
+serial.o.objdump.d-213-  f9:	e8 fc ff ff ff       	call   fa <handle_14+0xfa>
+serial.o.objdump.d-214-  fe:	89 c5                	mov    %eax,%ebp
+serial.o.objdump.d-215- 100:	8d 57 05             	lea    0x5(%edi),%edx
+serial.o.objdump.d:216: 103:	ec                   	in     (%dx),%al
+serial.o.objdump.d-217- 104:	89 c6                	mov    %eax,%esi
+serial.o.objdump.d-218- 106:	a8 01                	test   $0x1,%al
+serial.o.objdump.d-219- 108:	74 08                	je     112 <handle_14+0x112>
+serial.o.objdump.d-220- 10a:	89 fa                	mov    %edi,%edx
+serial.o.objdump.d:221: 10c:	ec                   	in     (%dx),%al
+serial.o.objdump.d-222- 10d:	88 43 1c             	mov    %al,0x1c(%ebx)
+serial.o.objdump.d-223- 110:	eb 17                	jmp    129 <handle_14+0x129>
+serial.o.objdump.d-224- 112:	89 e8                	mov    %ebp,%eax
+serial.o.objdump.d-225- 114:	e8 fc ff ff ff       	call   115 <handle_14+0x115>
+serial.o.objdump.d-226- 119:	85 c0                	test   %eax,%eax
+serial.o.objdump.d-227- 11b:	74 05                	je     122 <handle_14+0x122>
+serial.o.objdump.d-228- 11d:	83 ce 80             	or     $0xffffff80,%esi
+serial.o.objdump.d-229- 120:	eb 07                	jmp    129 <handle_14+0x129>
+serial.o.objdump.d-230- 122:	e8 fc ff ff ff       	call   123 <handle_14+0x123>
+serial.o.objdump.d-231- 127:	eb d7                	jmp    100 <handle_14+0x100>
+serial.o.objdump.d-232- 129:	89 f0                	mov    %esi,%eax
+serial.o.objdump.d-233- 12b:	88 43 1d             	mov    %al,0x1d(%ebx)
+serial.o.objdump.d-234- 12e:	eb 1c                	jmp    14c <handle_14+0x14c>
+serial.o.objdump.d-235- 130:	89 d8                	mov    %ebx,%eax
+serial.o.objdump.d-236- 132:	e8 fc ff ff ff       	call   133 <handle_14+0x133>
+serial.o.objdump.d-237- 137:	89 c1                	mov    %eax,%ecx
+serial.o.objdump.d-238- 139:	66 85 c0             	test   %ax,%ax
+serial.o.objdump.d-239- 13c:	74 2b                	je     169 <handle_14+0x169>
+serial.o.objdump.d-240- 13e:	8d 51 05             	lea    0x5(%ecx),%edx
+serial.o.objdump.d:241: 141:	ec                   	in     (%dx),%al
+serial.o.objdump.d-242- 142:	88 43 1d             	mov    %al,0x1d(%ebx)
+serial.o.objdump.d-243- 145:	8d 51 06             	lea    0x6(%ecx),%edx
+serial.o.objdump.d:244: 148:	ec                   	in     (%dx),%al
+serial.o.objdump.d-245- 149:	88 43 1c             	mov    %al,0x1c(%ebx)
+serial.o.objdump.d-246- 14c:	66 83 63 24 fe       	andw   $0xfffe,0x24(%ebx)
+serial.o.objdump.d-247- 151:	eb 16                	jmp    169 <handle_14+0x169>
+serial.o.objdump.d-248- 153:	b9 00 00 00 00       	mov    $0x0,%ecx
+serial.o.objdump.d-249- 158:	ba a2 00 00 00       	mov    $0xa2,%edx
+serial.o.objdump.d-250- 15d:	89 d8                	mov    %ebx,%eax
+serial.o.objdump.d-251- 15f:	5b                   	pop    %ebx
+serial.o.objdump.d-252- 160:	5b                   	pop    %ebx
+serial.o.objdump.d-253- 161:	5e                   	pop    %esi
+serial.o.objdump.d-254- 162:	5f                   	pop    %edi
+serial.o.objdump.d-255- 163:	5d                   	pop    %ebp
+serial.o.objdump.d-256- 164:	e9 fc ff ff ff       	jmp    165 <handle_14+0x165>
+serial.o.objdump.d-257- 169:	58                   	pop    %eax
+serial.o.objdump.d-258- 16a:	5b                   	pop    %ebx
+serial.o.objdump.d-259- 16b:	5e                   	pop    %esi
+serial.o.objdump.d-260- 16c:	5f                   	pop    %edi
+serial.o.objdump.d-261- 16d:	5d                   	pop    %ebp
+serial.o.objdump.d-262- 16e:	c3                   	ret    
+serial.o.objdump.d-263-
+serial.o.objdump.d-264-Disassembly of section .text.lpt_setup:
+serial.o.objdump.d-265-
+serial.o.objdump.d-266-00000000 <lpt_setup>:
+serial.o.objdump.d-267-   0:	53                   	push   %ebx
+serial.o.objdump.d-268-   1:	68 24 00 00 00       	push   $0x24
+serial.o.objdump.d-269-   6:	e8 fc ff ff ff       	call   7 <lpt_setup+0x7>
+serial.o.objdump.d-270-   b:	ba 7a 03 00 00       	mov    $0x37a,%edx
+serial.o.objdump.d:271:  10:	ec                   	in     (%dx),%al
+serial.o.objdump.d-272-  11:	83 e0 df             	and    $0xffffffdf,%eax
+serial.o.objdump.d:273:  14:	ee                   	out    %al,(%dx)
+serial.o.objdump.d-274-  15:	ba 78 03 00 00       	mov    $0x378,%edx
+serial.o.objdump.d-275-  1a:	b0 aa                	mov    $0xaa,%al
+serial.o.objdump.d:276:  1c:	ee                   	out    %al,(%dx)
+serial.o.objdump.d:277:  1d:	ec                   	in     (%dx),%al
+serial.o.objdump.d-278-  1e:	59                   	pop    %ecx
+serial.o.objdump.d-279-  1f:	31 c9                	xor    %ecx,%ecx
+serial.o.objdump.d-280-  21:	3c aa                	cmp    $0xaa,%al
+serial.o.objdump.d-281-  23:	75 15                	jne    3a <lpt_setup+0x3a>
+serial.o.objdump.d-282-  25:	66 c7 05 08 04 00 00 	movw   $0x378,0x408
+serial.o.objdump.d-283-  2c:	78 03 
+serial.o.objdump.d-284-  2e:	c6 05 78 04 00 00 14 	movb   $0x14,0x478
+serial.o.objdump.d-285-  35:	b9 01 00 00 00       	mov    $0x1,%ecx
+serial.o.objdump.d-286-  3a:	ba 7a 02 00 00       	mov    $0x27a,%edx
+serial.o.objdump.d:287:  3f:	ec                   	in     (%dx),%al
+serial.o.objdump.d-288-  40:	83 e0 df             	and    $0xffffffdf,%eax
+serial.o.objdump.d:289:  43:	ee                   	out    %al,(%dx)
+serial.o.objdump.d-290-  44:	ba 78 02 00 00       	mov    $0x278,%edx
+serial.o.objdump.d-291-  49:	b0 aa                	mov    $0xaa,%al
+serial.o.objdump.d:292:  4b:	ee                   	out    %al,(%dx)
+serial.o.objdump.d:293:  4c:	ec                   	in     (%dx),%al
+--
+serial.o.objdump.d-306-  77:	e8 fc ff ff ff       	call   78 <lpt_setup+0x78>
+serial.o.objdump.d-307-  7c:	a1 10 04 00 00       	mov    0x410,%eax
+serial.o.objdump.d-308-  81:	66 25 ff 3f          	and    $0x3fff,%ax
+serial.o.objdump.d-309-  85:	c1 e3 0e             	shl    $0xe,%ebx
+serial.o.objdump.d-310-  88:	09 d8                	or     %ebx,%eax
+serial.o.objdump.d-311-  8a:	66 a3 10 04 00 00    	mov    %ax,0x410
+serial.o.objdump.d-312-  90:	58                   	pop    %eax
+serial.o.objdump.d-313-  91:	5a                   	pop    %edx
+serial.o.objdump.d-314-  92:	5b                   	pop    %ebx
+serial.o.objdump.d-315-  93:	c3                   	ret    
+serial.o.objdump.d-316-
+serial.o.objdump.d-317-Disassembly of section .text.handle_17:
+serial.o.objdump.d-318-
+serial.o.objdump.d-319-00000000 <handle_17>:
+serial.o.objdump.d-320-   0:	55                   	push   %ebp
+serial.o.objdump.d-321-   1:	57                   	push   %edi
+serial.o.objdump.d-322-   2:	56                   	push   %esi
+serial.o.objdump.d-323-   3:	53                   	push   %ebx
+serial.o.objdump.d-324-   4:	56                   	push   %esi
+serial.o.objdump.d-325-   5:	89 c3                	mov    %eax,%ebx
+serial.o.objdump.d-326-   7:	ba 00 00 00 00       	mov    $0x0,%edx
+serial.o.objdump.d-327-   c:	e8 fc ff ff ff       	call   d <handle_17+0xd>
+serial.o.objdump.d-328-  11:	8a 43 1d             	mov    0x1d(%ebx),%al
+serial.o.objdump.d-329-  14:	3c 01                	cmp    $0x1,%al
+serial.o.objdump.d-330-  16:	0f 84 87 00 00 00    	je     a3 <handle_17+0xa3>
+serial.o.objdump.d-331-  1c:	3c 02                	cmp    $0x2,%al
+serial.o.objdump.d-332-  1e:	0f 84 b2 00 00 00    	je     d6 <handle_17+0xd6>
+serial.o.objdump.d-333-  24:	84 c0                	test   %al,%al
+serial.o.objdump.d-334-  26:	0f 85 c7 00 00 00    	jne    f3 <handle_17+0xf3>
+serial.o.objdump.d-335-  2c:	89 d8                	mov    %ebx,%eax
+serial.o.objdump.d-336-  2e:	e8 fc ff ff ff       	call   2f <handle_17+0x2f>
+serial.o.objdump.d-337-  33:	89 c7                	mov    %eax,%edi
+serial.o.objdump.d-338-  35:	66 85 c0             	test   %ax,%ax
+serial.o.objdump.d-339-  38:	0f 84 cb 00 00 00    	je     109 <handle_17+0x109>
+serial.o.objdump.d-340-  3e:	0f b7 43 14          	movzwl 0x14(%ebx),%eax
+serial.o.objdump.d-341-  42:	0f b6 80 78 04 00 00 	movzbl 0x478(%eax),%eax
+serial.o.objdump.d-342-  49:	e8 fc ff ff ff       	call   4a <handle_17+0x4a>
+serial.o.objdump.d-343-  4e:	89 c5                	mov    %eax,%ebp
+serial.o.objdump.d-344-  50:	8a 43 1c             	mov    0x1c(%ebx),%al
+serial.o.objdump.d-345-  53:	89 fa                	mov    %edi,%edx
+serial.o.objdump.d:346:  55:	ee                   	out    %al,(%dx)
+serial.o.objdump.d-347-  56:	8d 57 02             	lea    0x2(%edi),%edx
+serial.o.objdump.d:348:  59:	ec                   	in     (%dx),%al
+serial.o.objdump.d-349-  5a:	89 c6                	mov    %eax,%esi
+serial.o.objdump.d-350-  5c:	83 c8 01             	or     $0x1,%eax
+serial.o.objdump.d:351:  5f:	ee                   	out    %al,(%dx)
+serial.o.objdump.d-352-  60:	89 14 24             	mov    %edx,(%esp)
+serial.o.objdump.d-353-  63:	b8 05 00 00 00       	mov    $0x5,%eax
+serial.o.objdump.d-354-  68:	e8 fc ff ff ff       	call   69 <handle_17+0x69>
+serial.o.objdump.d-355-  6d:	89 f0                	mov    %esi,%eax
+serial.o.objdump.d-356-  6f:	83 e0 fe             	and    $0xfffffffe,%eax
+serial.o.objdump.d-357-  72:	8b 14 24             	mov    (%esp),%edx
+serial.o.objdump.d:358:  75:	ee                   	out    %al,(%dx)
+serial.o.objdump.d-359-  76:	8d 57 01             	lea    0x1(%edi),%edx
+serial.o.objdump.d:360:  79:	ec                   	in     (%dx),%al
+serial.o.objdump.d-361-  7a:	89 c6                	mov    %eax,%esi
+serial.o.objdump.d-362-  7c:	a8 40                	test   $0x40,%al
+serial.o.objdump.d-363-  7e:	75 05                	jne    85 <handle_17+0x85>
+serial.o.objdump.d-364-  80:	83 f6 48             	xor    $0x48,%esi
+serial.o.objdump.d-365-  83:	eb 1a                	jmp    9f <handle_17+0x9f>
+serial.o.objdump.d-366-  85:	89 e8                	mov    %ebp,%eax
+serial.o.objdump.d-367-  87:	e8 fc ff ff ff       	call   88 <handle_17+0x88>
+serial.o.objdump.d-368-  8c:	85 c0                	test   %eax,%eax
+serial.o.objdump.d-369-  8e:	74 08                	je     98 <handle_17+0x98>
+serial.o.objdump.d-370-  90:	83 f6 48             	xor    $0x48,%esi
+serial.o.objdump.d-371-  93:	83 ce 01             	or     $0x1,%esi
+serial.o.objdump.d-372-  96:	eb 07                	jmp    9f <handle_17+0x9f>
+serial.o.objdump.d-373-  98:	e8 fc ff ff ff       	call   99 <handle_17+0x99>
+serial.o.objdump.d-374-  9d:	eb d7                	jmp    76 <handle_17+0x76>
+serial.o.objdump.d-375-  9f:	89 f0                	mov    %esi,%eax
+serial.o.objdump.d-376-  a1:	eb 46                	jmp    e9 <handle_17+0xe9>
+serial.o.objdump.d-377-  a3:	89 d8                	mov    %ebx,%eax
+serial.o.objdump.d-378-  a5:	e8 fc ff ff ff       	call   a6 <handle_17+0xa6>
+serial.o.objdump.d-379-  aa:	89 c6                	mov    %eax,%esi
+serial.o.objdump.d-380-  ac:	66 85 c0             	test   %ax,%ax
+serial.o.objdump.d-381-  af:	74 58                	je     109 <handle_17+0x109>
+serial.o.objdump.d-382-  b1:	8d 56 02             	lea    0x2(%esi),%edx
+serial.o.objdump.d:383:  b4:	ec                   	in     (%dx),%al
+serial.o.objdump.d-384-  b5:	89 c7                	mov    %eax,%edi
+serial.o.objdump.d-385-  b7:	83 e0 fb             	and    $0xfffffffb,%eax
+serial.o.objdump.d:386:  ba:	ee                   	out    %al,(%dx)
+serial.o.objdump.d-387-  bb:	89 14 24             	mov    %edx,(%esp)
+serial.o.objdump.d-388-  be:	b8 05 00 00 00       	mov    $0x5,%eax
+serial.o.objdump.d-389-  c3:	e8 fc ff ff ff       	call   c4 <handle_17+0xc4>
+serial.o.objdump.d-390-  c8:	89 f8                	mov    %edi,%eax
+serial.o.objdump.d-391-  ca:	83 c8 04             	or     $0x4,%eax
+serial.o.objdump.d-392-  cd:	8b 14 24             	mov    (%esp),%edx
+serial.o.objdump.d:393:  d0:	ee                   	out    %al,(%dx)
+serial.o.objdump.d-394-  d1:	8d 56 01             	lea    0x1(%esi),%edx
+serial.o.objdump.d-395-  d4:	eb 0f                	jmp    e5 <handle_17+0xe5>
+serial.o.objdump.d-396-  d6:	89 d8                	mov    %ebx,%eax
+serial.o.objdump.d-397-  d8:	e8 fc ff ff ff       	call   d9 <handle_17+0xd9>
+serial.o.objdump.d-398-  dd:	66 85 c0             	test   %ax,%ax
+serial.o.objdump.d-399-  e0:	74 27                	je     109 <handle_17+0x109>
+serial.o.objdump.d-400-  e2:	8d 50 01             	lea    0x1(%eax),%edx
+serial.o.objdump.d:401:  e5:	ec                   	in     (%dx),%al
+--
+stacks.o.objdump.d-17-  13:	89 20                	mov    %esp,(%eax)
+stacks.o.objdump.d-18-  15:	8b 21                	mov    (%ecx),%esp
+stacks.o.objdump.d-19-  17:	5d                   	pop    %ebp
+stacks.o.objdump.d-20-  18:	c3                   	ret    
+stacks.o.objdump.d-21-  19:	5b                   	pop    %ebx
+stacks.o.objdump.d-22-  1a:	5e                   	pop    %esi
+stacks.o.objdump.d-23-  1b:	5f                   	pop    %edi
+stacks.o.objdump.d-24-  1c:	c3                   	ret    
+stacks.o.objdump.d-25-  1d:	c3                   	ret    
+stacks.o.objdump.d-26-
+stacks.o.objdump.d-27-Disassembly of section .text.call16:
+stacks.o.objdump.d-28-
+stacks.o.objdump.d-29-00000000 <call16>:
+stacks.o.objdump.d-30-   0:	55                   	push   %ebp
+stacks.o.objdump.d-31-   1:	57                   	push   %edi
+stacks.o.objdump.d-32-   2:	56                   	push   %esi
+stacks.o.objdump.d-33-   3:	53                   	push   %ebx
+stacks.o.objdump.d-34-   4:	89 c6                	mov    %eax,%esi
+stacks.o.objdump.d-35-   6:	89 e0                	mov    %esp,%eax
+stacks.o.objdump.d-36-   8:	3d 00 00 10 00       	cmp    $0x100000,%eax
+stacks.o.objdump.d-37-   d:	76 0a                	jbe    19 <call16+0x19>
+stacks.o.objdump.d-38-   f:	68 00 00 00 00       	push   $0x0
+stacks.o.objdump.d-39-  14:	e8 fc ff ff ff       	call   15 <call16+0x15>
+stacks.o.objdump.d-40-  19:	89 d3                	mov    %edx,%ebx
+stacks.o.objdump.d-41-  1b:	a0 00 00 00 00       	mov    0x0,%al
+stacks.o.objdump.d-42-  20:	8d b9 00 00 f1 ff    	lea    -0xf0000(%ecx),%edi
+stacks.o.objdump.d-43-  26:	3c 02                	cmp    $0x2,%al
+stacks.o.objdump.d-44-  28:	75 38                	jne    62 <call16+0x62>
+stacks.o.objdump.d-45-  2a:	52                   	push   %edx
+stacks.o.objdump.d-46-  2b:	56                   	push   %esi
+stacks.o.objdump.d-47-  2c:	57                   	push   %edi
+stacks.o.objdump.d-48-  2d:	68 1b 00 00 00       	push   $0x1b
+stacks.o.objdump.d-49-  32:	e8 fc ff ff ff       	call   33 <call16+0x33>
+stacks.o.objdump.d-50-  37:	0f b7 2d 04 00 00 00 	movzwl 0x4,%ebp
+stacks.o.objdump.d-51-  3e:	c1 e5 04             	shl    $0x4,%ebp
+stacks.o.objdump.d-52-  41:	89 da                	mov    %ebx,%edx
+stacks.o.objdump.d-53-  43:	29 ec                	sub    %ebp,%esp
+stacks.o.objdump.d-54-  45:	b8 b5 00 00 00       	mov    $0xb5,%eax
+stacks.o.objdump.d-55-  4a:	b9 78 56 00 00       	mov    $0x5678,%ecx
+stacks.o.objdump.d-56-  4f:	bb 00 00 f1 ff       	mov    $0xfff10000,%ebx
+stacks.o.objdump.d:57:  54:	e6 b2                	out    %al,$0xb2
+--
+stacks.o.objdump.d-59-  58:	f4                   	hlt    
+stacks.o.objdump.d-60-  59:	01 ec                	add    %ebp,%esp
+stacks.o.objdump.d-61-  5b:	83 c4 10             	add    $0x10,%esp
+stacks.o.objdump.d-62-  5e:	89 f0                	mov    %esi,%eax
+stacks.o.objdump.d-63-  60:	eb 2d                	jmp    8f <call16+0x8f>
+stacks.o.objdump.d-64-  62:	fe c8                	dec    %al
+stacks.o.objdump.d-65-  64:	75 07                	jne    6d <call16+0x6d>
+stacks.o.objdump.d-66-  66:	b9 00 00 00 00       	mov    $0x0,%ecx
+stacks.o.objdump.d-67-  6b:	eb 0e                	jmp    7b <call16+0x7b>
+stacks.o.objdump.d-68-  6d:	e8 fc ff ff ff       	call   6e <call16+0x6e>
+stacks.o.objdump.d-69-  72:	85 c0                	test   %eax,%eax
+stacks.o.objdump.d-70-  74:	75 f0                	jne    66 <call16+0x66>
+stacks.o.objdump.d-71-  76:	b9 00 00 00 00       	mov    $0x0,%ecx
+stacks.o.objdump.d-72-  7b:	0f b7 15 04 00 00 00 	movzwl 0x4,%edx
+stacks.o.objdump.d-73-  82:	89 f0                	mov    %esi,%eax
+stacks.o.objdump.d-74-  84:	89 d6                	mov    %edx,%esi
+stacks.o.objdump.d-75-  86:	ba 00 00 f1 ff       	mov    $0xfff10000,%edx
+stacks.o.objdump.d-76-  8b:	ff e1                	jmp    *%ecx
+stacks.o.objdump.d-77-  8d:	01 f4                	add    %esi,%esp
+stacks.o.objdump.d-78-  8f:	5b                   	pop    %ebx
+stacks.o.objdump.d-79-  90:	5e                   	pop    %esi
+stacks.o.objdump.d-80-  91:	5f                   	pop    %edi
+stacks.o.objdump.d-81-  92:	5d                   	pop    %ebp
+stacks.o.objdump.d-82-  93:	c3                   	ret    
+stacks.o.objdump.d-83-
+stacks.o.objdump.d-84-Disassembly of section .text.32fseg.src/stacks.c.215:
+stacks.o.objdump.d-85-
+stacks.o.objdump.d-86-00000000 <.text.32fseg.src/stacks.c.215>:
+stacks.o.objdump.d-87-   0:	66 89 f0             	mov    %si,%ax
+stacks.o.objdump.d-88-   3:	66 89 f9             	mov    %di,%cx
+stacks.o.objdump.d-89-   6:	66 e8 fc ff          	callw  6 <.text.32fseg.src/stacks.c.215+0x6>
+stacks.o.objdump.d-90-   a:	ff                   	(bad)  
+stacks.o.objdump.d-91-   b:	ff 66 89             	jmp    *-0x77(%esi)
+stacks.o.objdump.d-92-   e:	c6                   	(bad)  
+stacks.o.objdump.d-93-   f:	66 b8 b5 00          	mov    $0xb5,%ax
+stacks.o.objdump.d-94-  13:	00 00                	add    %al,(%eax)
+stacks.o.objdump.d-95-  15:	66 b9 34 12          	mov    $0x1234,%cx
+stacks.o.objdump.d-96-  19:	00 00                	add    %al,(%eax)
+stacks.o.objdump.d-97-  1b:	66 bb 59 00          	mov    $0x59,%bx
+stacks.o.objdump.d-98-  1f:	00 00                	add    %al,(%eax)
+stacks.o.objdump.d:99:  21:	e6 b2                	out    %al,$0xb2
+--
+stacks.o.objdump.d-146-   0:	52                   	push   %edx
+stacks.o.objdump.d-147-   1:	8b 50 04             	mov    0x4(%eax),%edx
+stacks.o.objdump.d-148-   4:	8b 48 08             	mov    0x8(%eax),%ecx
+stacks.o.objdump.d-149-   7:	89 11                	mov    %edx,(%ecx)
+stacks.o.objdump.d-150-   9:	85 d2                	test   %edx,%edx
+stacks.o.objdump.d-151-   b:	74 03                	je     10 <__end_thread+0x10>
+stacks.o.objdump.d-152-   d:	89 4a 04             	mov    %ecx,0x4(%edx)
+stacks.o.objdump.d-153-  10:	50                   	push   %eax
+stacks.o.objdump.d-154-  11:	89 44 24 04          	mov    %eax,0x4(%esp)
+stacks.o.objdump.d-155-  15:	68 54 00 00 00       	push   $0x54
+stacks.o.objdump.d-156-  1a:	e8 fc ff ff ff       	call   1b <__end_thread+0x1b>
+stacks.o.objdump.d-157-  1f:	8b 44 24 08          	mov    0x8(%esp),%eax
+stacks.o.objdump.d-158-  23:	e8 fc ff ff ff       	call   24 <__end_thread+0x24>
+stacks.o.objdump.d-159-  28:	59                   	pop    %ecx
+stacks.o.objdump.d-160-  29:	58                   	pop    %eax
+stacks.o.objdump.d-161-  2a:	81 3d 04 00 00 00 04 	cmpl   $0x4,0x4
+stacks.o.objdump.d-162-  31:	00 00 00 
+stacks.o.objdump.d-163-  34:	75 0b                	jne    41 <__end_thread+0x41>
+stacks.o.objdump.d-164-  36:	68 67 00 00 00       	push   $0x67
+stacks.o.objdump.d-165-  3b:	e8 fc ff ff ff       	call   3c <__end_thread+0x3c>
+stacks.o.objdump.d-166-  40:	5a                   	pop    %edx
+stacks.o.objdump.d-167-  41:	58                   	pop    %eax
+stacks.o.objdump.d-168-  42:	c3                   	ret    
+stacks.o.objdump.d-169-
+stacks.o.objdump.d-170-Disassembly of section .text.call16_helper:
+stacks.o.objdump.d-171-
+stacks.o.objdump.d-172-00000000 <call16_helper>:
+stacks.o.objdump.d-173-   0:	57                   	push   %edi
+stacks.o.objdump.d-174-   1:	56                   	push   %esi
+stacks.o.objdump.d-175-   2:	53                   	push   %ebx
+stacks.o.objdump.d-176-   3:	83 ec 08             	sub    $0x8,%esp
+stacks.o.objdump.d-177-   6:	89 c6                	mov    %eax,%esi
+stacks.o.objdump.d-178-   8:	8a 1d 00 00 00 00    	mov    0x0,%bl
+stacks.o.objdump.d-179-   e:	c6 05 00 00 00 00 00 	movb   $0x0,0x0
+stacks.o.objdump.d-180-  15:	66 c7 05 04 00 00 00 	movw   $0x0,0x4
+stacks.o.objdump.d-181-  1c:	00 00 
+stacks.o.objdump.d-182-  1e:	80 fb 02             	cmp    $0x2,%bl
+stacks.o.objdump.d-183-  21:	74 47                	je     6a <call16_helper+0x6a>
+stacks.o.objdump.d-184-  23:	80 3d 02 00 00 00 00 	cmpb   $0x0,0x2
+stacks.o.objdump.d-185-  2a:	75 0b                	jne    37 <call16_helper+0x37>
+stacks.o.objdump.d:186:  2c:	e4 92                	in     $0x92,%al
+stacks.o.objdump.d-187-  2e:	a8 02                	test   $0x2,%al
+stacks.o.objdump.d-188-  30:	74 05                	je     37 <call16_helper+0x37>
+stacks.o.objdump.d-189-  32:	83 f0 02             	xor    $0x2,%eax
+stacks.o.objdump.d:190:  35:	e6 92                	out    %al,$0x92
+stacks.o.objdump.d-191-  37:	a1 10 00 00 00       	mov    0x10,%eax
+stacks.o.objdump.d-192-  3c:	66 89 44 24 02       	mov    %ax,0x2(%esp)
+stacks.o.objdump.d-193-  41:	a1 12 00 00 00       	mov    0x12,%eax
+stacks.o.objdump.d-194-  46:	89 44 24 04          	mov    %eax,0x4(%esp)
+stacks.o.objdump.d-195-  4a:	0f 01 54 24 02       	lgdtl  0x2(%esp)
+stacks.o.objdump.d-196-  4f:	8b 3d 0c 00 00 00    	mov    0xc,%edi
+stacks.o.objdump.d-197-  55:	81 e7 00 00 00 60    	and    $0x60000000,%edi
+stacks.o.objdump.d-198-  5b:	74 0d                	je     6a <call16_helper+0x6a>
+stacks.o.objdump.d-199-  5d:	0f 20 c0             	mov    %cr0,%eax
+stacks.o.objdump.d-200-  60:	25 ff ff ff 9f       	and    $0x9fffffff,%eax
+stacks.o.objdump.d-201-  65:	09 f8                	or     %edi,%eax
+stacks.o.objdump.d-202-  67:	0f 22 c0             	mov    %eax,%cr0
+stacks.o.objdump.d-203-  6a:	a0 01 00 00 00       	mov    0x1,%al
+stacks.o.objdump.d-204-  6f:	84 c0                	test   %al,%al
+stacks.o.objdump.d-205-  71:	78 04                	js     77 <call16_helper+0x77>
+stacks.o.objdump.d:206:  73:	e6 70                	out    %al,$0x70
+stacks.o.objdump.d:207:  75:	e4 71                	in     $0x71,%al
+stacks.o.objdump.d-208-  77:	89 f0                	mov    %esi,%eax
+stacks.o.objdump.d-209-  79:	ff d1                	call   *%ecx
+stacks.o.objdump.d-210-  7b:	89 c1                	mov    %eax,%ecx
+stacks.o.objdump.d-211-  7d:	80 fb 02             	cmp    $0x2,%bl
+stacks.o.objdump.d-212-  80:	74 48                	je     ca <call16_helper+0xca>
+stacks.o.objdump.d-213-  82:	0f 20 c0             	mov    %cr0,%eax
+stacks.o.objdump.d-214-  85:	a8 01                	test   $0x1,%al
+stacks.o.objdump.d-215-  87:	75 65                	jne    ee <call16_helper+0xee>
+stacks.o.objdump.d-216-  89:	a3 0c 00 00 00       	mov    %eax,0xc
+stacks.o.objdump.d-217-  8e:	c7 05 06 00 00 00 00 	movl   $0x0,0x6
+stacks.o.objdump.d-218-  95:	00 00 00 
+stacks.o.objdump.d-219-  98:	0f 01 44 24 02       	sgdtl  0x2(%esp)
+stacks.o.objdump.d-220-  9d:	66 8b 44 24 02       	mov    0x2(%esp),%ax
+stacks.o.objdump.d-221-  a2:	66 a3 10 00 00 00    	mov    %ax,0x10
+stacks.o.objdump.d-222-  a8:	8b 44 24 04          	mov    0x4(%esp),%eax
+stacks.o.objdump.d-223-  ac:	a3 12 00 00 00       	mov    %eax,0x12
+stacks.o.objdump.d:224:  b1:	e4 92                	in     $0x92,%al
+stacks.o.objdump.d-225-  b3:	88 c2                	mov    %al,%dl
+stacks.o.objdump.d-226-  b5:	83 e2 02             	and    $0x2,%edx
+stacks.o.objdump.d-227-  b8:	84 d2                	test   %dl,%dl
+stacks.o.objdump.d-228-  ba:	0f 95 c2             	setne  %dl
+stacks.o.objdump.d-229-  bd:	75 05                	jne    c4 <call16_helper+0xc4>
+stacks.o.objdump.d-230-  bf:	83 f0 02             	xor    $0x2,%eax
+stacks.o.objdump.d:231:  c2:	e6 92                	out    %al,$0x92
+stacks.o.objdump.d-232-  c4:	88 15 02 00 00 00    	mov    %dl,0x2
+stacks.o.objdump.d-233-  ca:	66 c7 05 04 00 00 00 	movw   $0x0,0x4
+stacks.o.objdump.d-234-  d1:	00 00 
+stacks.o.objdump.d:235:  d3:	e4 70                	in     $0x70,%al
+stacks.o.objdump.d-236-  d5:	88 c2                	mov    %al,%dl
+stacks.o.objdump.d-237-  d7:	84 c0                	test   %al,%al
+stacks.o.objdump.d-238-  d9:	78 07                	js     e2 <call16_helper+0xe2>
+stacks.o.objdump.d-239-  db:	83 c8 80             	or     $0xffffff80,%eax
+stacks.o.objdump.d:240:  de:	e6 70                	out    %al,$0x70
+stacks.o.objdump.d:241:  e0:	e4 71                	in     $0x71,%al
+--
+system.o.objdump.d-1-
+system.o.objdump.d-2-./system.o:     file format elf32-i386
+system.o.objdump.d-3-
+system.o.objdump.d-4-
+system.o.objdump.d-5-Disassembly of section .text.set_a20:
+system.o.objdump.d-6-
+system.o.objdump.d-7-00000000 <set_a20>:
+system.o.objdump.d-8-   0:	89 c1                	mov    %eax,%ecx
+system.o.objdump.d:9:   2:	e4 92                	in     $0x92,%al
+system.o.objdump.d-10-   4:	88 c2                	mov    %al,%dl
+system.o.objdump.d-11-   6:	d0 ea                	shr    %dl
+system.o.objdump.d-12-   8:	83 e2 01             	and    $0x1,%edx
+system.o.objdump.d-13-   b:	84 c9                	test   %cl,%cl
+system.o.objdump.d-14-   d:	0f 95 c1             	setne  %cl
+system.o.objdump.d-15-  10:	38 ca                	cmp    %cl,%dl
+system.o.objdump.d-16-  12:	74 05                	je     19 <set_a20+0x19>
+system.o.objdump.d-17-  14:	83 f0 02             	xor    $0x2,%eax
+system.o.objdump.d:18:  17:	e6 92                	out    %al,$0x92
+--
+system.o.objdump.d-101-  63:	59                   	pop    %ecx
+system.o.objdump.d-102-  64:	5b                   	pop    %ebx
+system.o.objdump.d-103-  65:	5e                   	pop    %esi
+system.o.objdump.d-104-  66:	5f                   	pop    %edi
+system.o.objdump.d-105-  67:	5d                   	pop    %ebp
+system.o.objdump.d-106-  68:	e9 fc ff ff ff       	jmp    69 <handle_15+0x69>
+system.o.objdump.d-107-  6d:	3c c2                	cmp    $0xc2,%al
+system.o.objdump.d-108-  6f:	0f 84 bc 01 00 00    	je     231 <handle_15+0x231>
+system.o.objdump.d-109-  75:	77 1f                	ja     96 <handle_15+0x96>
+system.o.objdump.d-110-  77:	3c c0                	cmp    $0xc0,%al
+system.o.objdump.d-111-  79:	0f 84 9e 01 00 00    	je     21d <handle_15+0x21d>
+system.o.objdump.d-112-  7f:	3c c1                	cmp    $0xc1,%al
+system.o.objdump.d-113-  81:	0f 85 82 02 00 00    	jne    309 <handle_15+0x309>
+system.o.objdump.d-114-  87:	66 a1 0e 04 00 00    	mov    0x40e,%ax
+system.o.objdump.d-115-  8d:	66 89 43 02          	mov    %ax,0x2(%ebx)
+system.o.objdump.d-116-  91:	e9 60 02 00 00       	jmp    2f6 <handle_15+0x2f6>
+system.o.objdump.d-117-  96:	3c e8                	cmp    $0xe8,%al
+system.o.objdump.d-118-  98:	0f 84 9f 01 00 00    	je     23d <handle_15+0x23d>
+system.o.objdump.d-119-  9e:	e9 66 02 00 00       	jmp    309 <handle_15+0x309>
+system.o.objdump.d-120-  a3:	8a 43 1c             	mov    0x1c(%ebx),%al
+system.o.objdump.d-121-  a6:	3c 02                	cmp    $0x2,%al
+system.o.objdump.d-122-  a8:	74 2c                	je     d6 <handle_15+0xd6>
+system.o.objdump.d-123-  aa:	77 08                	ja     b4 <handle_15+0xb4>
+system.o.objdump.d-124-  ac:	84 c0                	test   %al,%al
+system.o.objdump.d-125-  ae:	75 10                	jne    c0 <handle_15+0xc0>
+system.o.objdump.d-126-  b0:	31 c0                	xor    %eax,%eax
+system.o.objdump.d-127-  b2:	eb 11                	jmp    c5 <handle_15+0xc5>
+system.o.objdump.d-128-  b4:	3c 03                	cmp    $0x3,%al
+system.o.objdump.d-129-  b6:	75 2a                	jne    e2 <handle_15+0xe2>
+system.o.objdump.d-130-  b8:	66 c7 43 10 03 00    	movw   $0x3,0x10(%ebx)
+system.o.objdump.d-131-  be:	eb 0a                	jmp    ca <handle_15+0xca>
+system.o.objdump.d-132-  c0:	b8 01 00 00 00       	mov    $0x1,%eax
+system.o.objdump.d-133-  c5:	e8 fc ff ff ff       	call   c6 <handle_15+0xc6>
+system.o.objdump.d-134-  ca:	89 d8                	mov    %ebx,%eax
+system.o.objdump.d-135-  cc:	5e                   	pop    %esi
+system.o.objdump.d-136-  cd:	5b                   	pop    %ebx
+system.o.objdump.d-137-  ce:	5e                   	pop    %esi
+system.o.objdump.d-138-  cf:	5f                   	pop    %edi
+system.o.objdump.d-139-  d0:	5d                   	pop    %ebp
+system.o.objdump.d-140-  d1:	e9 fc ff ff ff       	jmp    d2 <handle_15+0xd2>
+system.o.objdump.d:141:  d6:	e4 92                	in     $0x92,%al

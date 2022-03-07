@@ -1,0 +1,728 @@
+acpi.o.objdump.d-358- 29f:	83 c0 03             	add    $0x3,%eax
+acpi.o.objdump.d-359- 2a2:	89 c2                	mov    %eax,%edx
+acpi.o.objdump.d-360- 2a4:	c1 fa 04             	sar    $0x4,%edx
+acpi.o.objdump.d-361- 2a7:	88 53 07             	mov    %dl,0x7(%ebx)
+acpi.o.objdump.d-362- 2aa:	83 e0 0f             	and    $0xf,%eax
+acpi.o.objdump.d-363- 2ad:	83 c8 40             	or     $0x40,%eax
+acpi.o.objdump.d-364- 2b0:	88 43 06             	mov    %al,0x6(%ebx)
+acpi.o.objdump.d-365- 2b3:	8d 7b 09             	lea    0x9(%ebx),%edi
+acpi.o.objdump.d-366- 2b6:	8a 44 24 10          	mov    0x10(%esp),%al
+acpi.o.objdump.d-367- 2ba:	88 43 08             	mov    %al,0x8(%ebx)
+acpi.o.objdump.d-368- 2bd:	83 c4 0c             	add    $0xc,%esp
+acpi.o.objdump.d-369- 2c0:	31 f6                	xor    %esi,%esi
+acpi.o.objdump.d-370- 2c2:	39 74 24 04          	cmp    %esi,0x4(%esp)
+acpi.o.objdump.d-371- 2c6:	7e 11                	jle    2d9 <acpi_setup+0x2d9>
+acpi.o.objdump.d-372- 2c8:	89 f0                	mov    %esi,%eax
+acpi.o.objdump.d-373- 2ca:	e8 fc ff ff ff       	call   2cb <acpi_setup+0x2cb>
+acpi.o.objdump.d-374- 2cf:	85 c0                	test   %eax,%eax
+acpi.o.objdump.d-375- 2d1:	0f 95 44 33 09       	setne  0x9(%ebx,%esi,1)
+acpi.o.objdump.d-376- 2d6:	46                   	inc    %esi
+acpi.o.objdump.d-377- 2d7:	eb e9                	jmp    2c2 <acpi_setup+0x2c2>
+acpi.o.objdump.d-378- 2d9:	8b 44 24 04          	mov    0x4(%esp),%eax
+acpi.o.objdump.d-379- 2dd:	8d 1c 07             	lea    (%edi,%eax,1),%ebx
+acpi.o.objdump.d-380- 2e0:	c6 03 10             	movb   $0x10,(%ebx)
+acpi.o.objdump.d-381- 2e3:	8d 54 07 01          	lea    0x1(%edi,%eax,1),%edx
+acpi.o.objdump.d-382- 2e7:	29 ea                	sub    %ebp,%edx
+acpi.o.objdump.d-383- 2e9:	8b 44 24 08          	mov    0x8(%esp),%eax
+acpi.o.objdump.d-384- 2ed:	29 d0                	sub    %edx,%eax
+acpi.o.objdump.d-385- 2ef:	89 c2                	mov    %eax,%edx
+acpi.o.objdump.d-386- 2f1:	c1 fa 0c             	sar    $0xc,%edx
+acpi.o.objdump.d-387- 2f4:	88 53 03             	mov    %dl,0x3(%ebx)
+acpi.o.objdump.d-388- 2f7:	89 c2                	mov    %eax,%edx
+acpi.o.objdump.d-389- 2f9:	c1 fa 04             	sar    $0x4,%edx
+acpi.o.objdump.d-390- 2fc:	88 53 02             	mov    %dl,0x2(%ebx)
+acpi.o.objdump.d-391- 2ff:	83 e0 0f             	and    $0xf,%eax
+acpi.o.objdump.d-392- 302:	83 c8 80             	or     $0xffffff80,%eax
+acpi.o.objdump.d-393- 305:	88 43 01             	mov    %al,0x1(%ebx)
+acpi.o.objdump.d-394- 308:	8d 43 08             	lea    0x8(%ebx),%eax
+acpi.o.objdump.d-395- 30b:	89 44 24 08          	mov    %eax,0x8(%esp)
+acpi.o.objdump.d-396- 30f:	c7 43 04 50 43 49 30 	movl   $0x30494350,0x4(%ebx)
+acpi.o.objdump.d-397- 316:	ba 0c ae ff ff       	mov    $0xffffae0c,%edx
+acpi.o.objdump.d:398: 31b:	ed                   	in     (%dx),%eax
+--
+biostables.o.objdump.d-348-  2d:	75 e0                	jne    f <find_resume_vector+0xf>
+biostables.o.objdump.d-349-  2f:	ff 73 0c             	push   0xc(%ebx)
+biostables.o.objdump.d-350-  32:	68 fb 00 00 00       	push   $0xfb
+biostables.o.objdump.d-351-  37:	e8 fc ff ff ff       	call   38 <find_resume_vector+0x38>
+biostables.o.objdump.d-352-  3c:	8b 43 0c             	mov    0xc(%ebx),%eax
+biostables.o.objdump.d-353-  3f:	5a                   	pop    %edx
+biostables.o.objdump.d-354-  40:	59                   	pop    %ecx
+biostables.o.objdump.d-355-  41:	5b                   	pop    %ebx
+biostables.o.objdump.d-356-  42:	c3                   	ret    
+biostables.o.objdump.d-357-
+biostables.o.objdump.d-358-Disassembly of section .text.acpi_reboot:
+biostables.o.objdump.d-359-
+biostables.o.objdump.d-360-00000000 <acpi_reboot>:
+biostables.o.objdump.d-361-   0:	80 3d 01 00 00 00 08 	cmpb   $0x8,0x1
+biostables.o.objdump.d-362-   7:	75 76                	jne    7f <acpi_reboot+0x7f>
+biostables.o.objdump.d-363-   9:	57                   	push   %edi
+biostables.o.objdump.d-364-   a:	56                   	push   %esi
+biostables.o.objdump.d-365-   b:	8b 35 04 00 00 00    	mov    0x4,%esi
+biostables.o.objdump.d-366-  11:	8b 3d 08 00 00 00    	mov    0x8,%edi
+biostables.o.objdump.d-367-  17:	0f b6 05 00 00 00 00 	movzbl 0x0,%eax
+biostables.o.objdump.d-368-  1e:	50                   	push   %eax
+biostables.o.objdump.d-369-  1f:	57                   	push   %edi
+biostables.o.objdump.d-370-  20:	56                   	push   %esi
+biostables.o.objdump.d-371-  21:	0f b6 05 00 00 00 00 	movzbl 0x0,%eax
+biostables.o.objdump.d-372-  28:	50                   	push   %eax
+biostables.o.objdump.d-373-  29:	68 0b 01 00 00       	push   $0x10b
+biostables.o.objdump.d-374-  2e:	e8 fc ff ff ff       	call   2f <acpi_reboot+0x2f>
+biostables.o.objdump.d-375-  33:	a0 00 00 00 00       	mov    0x0,%al
+biostables.o.objdump.d-376-  38:	83 c4 14             	add    $0x14,%esp
+biostables.o.objdump.d-377-  3b:	3c 01                	cmp    $0x1,%al
+biostables.o.objdump.d-378-  3d:	74 11                	je     50 <acpi_reboot+0x50>
+biostables.o.objdump.d-379-  3f:	3c 02                	cmp    $0x2,%al
+biostables.o.objdump.d-380-  41:	74 17                	je     5a <acpi_reboot+0x5a>
+biostables.o.objdump.d-381-  43:	84 c0                	test   %al,%al
+biostables.o.objdump.d-382-  45:	75 35                	jne    7c <acpi_reboot+0x7c>
+biostables.o.objdump.d-383-  47:	a0 00 00 00 00       	mov    0x0,%al
+biostables.o.objdump.d-384-  4c:	88 06                	mov    %al,(%esi)
+biostables.o.objdump.d-385-  4e:	eb 2c                	jmp    7c <acpi_reboot+0x7c>
+biostables.o.objdump.d-386-  50:	a0 00 00 00 00       	mov    0x0,%al
+biostables.o.objdump.d-387-  55:	89 f2                	mov    %esi,%edx
+biostables.o.objdump.d:388:  57:	ee                   	out    %al,(%dx)
+--
+paravirt.o.objdump.d-1-
+paravirt.o.objdump.d-2-./paravirt.o:     file format elf32-i386
+paravirt.o.objdump.d-3-
+paravirt.o.objdump.d-4-
+paravirt.o.objdump.d-5-Disassembly of section .text.__swab32_constant:
+paravirt.o.objdump.d-6-
+paravirt.o.objdump.d-7-00000000 <__swab32_constant>:
+paravirt.o.objdump.d-8-   0:	86 e0                	xchg   %ah,%al
+paravirt.o.objdump.d-9-   2:	c1 c0 10             	rol    $0x10,%eax
+paravirt.o.objdump.d-10-   5:	86 e0                	xchg   %ah,%al
+paravirt.o.objdump.d-11-   7:	c3                   	ret    
+paravirt.o.objdump.d-12-
+paravirt.o.objdump.d-13-Disassembly of section .text.cpu_to_be32:
+paravirt.o.objdump.d-14-
+paravirt.o.objdump.d-15-00000000 <be32_to_cpu>:
+paravirt.o.objdump.d-16-   0:	0f c8                	bswap  %eax
+paravirt.o.objdump.d-17-   2:	c3                   	ret    
+paravirt.o.objdump.d-18-
+paravirt.o.objdump.d-19-Disassembly of section .text.qemu_cfg_dma_transfer:
+paravirt.o.objdump.d-20-
+paravirt.o.objdump.d-21-00000000 <qemu_cfg_dma_transfer>:
+paravirt.o.objdump.d-22-   0:	56                   	push   %esi
+paravirt.o.objdump.d-23-   1:	53                   	push   %ebx
+paravirt.o.objdump.d-24-   2:	83 ec 10             	sub    $0x10,%esp
+paravirt.o.objdump.d-25-   5:	89 d6                	mov    %edx,%esi
+paravirt.o.objdump.d-26-   7:	89 ca                	mov    %ecx,%edx
+paravirt.o.objdump.d-27-   9:	31 c9                	xor    %ecx,%ecx
+paravirt.o.objdump.d-28-   b:	0f c9                	bswap  %ecx
+paravirt.o.objdump.d-29-   d:	0f c8                	bswap  %eax
+paravirt.o.objdump.d-30-   f:	89 4c 24 08          	mov    %ecx,0x8(%esp)
+paravirt.o.objdump.d-31-  13:	89 44 24 0c          	mov    %eax,0xc(%esp)
+paravirt.o.objdump.d-32-  17:	89 f0                	mov    %esi,%eax
+paravirt.o.objdump.d-33-  19:	e8 fc ff ff ff       	call   1a <qemu_cfg_dma_transfer+0x1a>
+paravirt.o.objdump.d-34-  1e:	89 44 24 04          	mov    %eax,0x4(%esp)
+paravirt.o.objdump.d-35-  22:	89 d0                	mov    %edx,%eax
+paravirt.o.objdump.d-36-  24:	e8 fc ff ff ff       	call   25 <qemu_cfg_dma_transfer+0x25>
+paravirt.o.objdump.d-37-  29:	89 04 24             	mov    %eax,(%esp)
+paravirt.o.objdump.d-38-  2c:	89 e0                	mov    %esp,%eax
+paravirt.o.objdump.d-39-  2e:	e8 fc ff ff ff       	call   2f <qemu_cfg_dma_transfer+0x2f>
+paravirt.o.objdump.d-40-  33:	ba 18 05 00 00       	mov    $0x518,%edx
+paravirt.o.objdump.d:41:  38:	ef                   	out    %eax,(%dx)
+paravirt.o.objdump.d-42-  39:	8b 04 24             	mov    (%esp),%eax
+paravirt.o.objdump.d-43-  3c:	e8 fc ff ff ff       	call   3d <qemu_cfg_dma_transfer+0x3d>
+paravirt.o.objdump.d-44-  41:	83 e0 fe             	and    $0xfffffffe,%eax
+paravirt.o.objdump.d-45-  44:	74 07                	je     4d <qemu_cfg_dma_transfer+0x4d>
+paravirt.o.objdump.d-46-  46:	e8 fc ff ff ff       	call   47 <qemu_cfg_dma_transfer+0x47>
+paravirt.o.objdump.d-47-  4b:	eb ec                	jmp    39 <qemu_cfg_dma_transfer+0x39>
+paravirt.o.objdump.d-48-  4d:	83 c4 10             	add    $0x10,%esp
+paravirt.o.objdump.d-49-  50:	5b                   	pop    %ebx
+paravirt.o.objdump.d-50-  51:	5e                   	pop    %esi
+paravirt.o.objdump.d-51-  52:	c3                   	ret    
+paravirt.o.objdump.d-52-
+paravirt.o.objdump.d-53-Disassembly of section .text.qemu_cfg_read.part.0:
+paravirt.o.objdump.d-54-
+paravirt.o.objdump.d-55-00000000 <qemu_cfg_read.part.0>:
+paravirt.o.objdump.d-56-   0:	83 3d 00 00 00 00 00 	cmpl   $0x0,0x0
+paravirt.o.objdump.d-57-   7:	74 0a                	je     13 <qemu_cfg_read.part.0+0x13>
+paravirt.o.objdump.d-58-   9:	b9 02 00 00 00       	mov    $0x2,%ecx
+paravirt.o.objdump.d-59-   e:	e9 fc ff ff ff       	jmp    f <qemu_cfg_read.part.0+0xf>
+paravirt.o.objdump.d-60-  13:	57                   	push   %edi
+paravirt.o.objdump.d-61-  14:	89 d1                	mov    %edx,%ecx
+paravirt.o.objdump.d-62-  16:	89 c7                	mov    %eax,%edi
+paravirt.o.objdump.d-63-  18:	ba 11 05 00 00       	mov    $0x511,%edx
+paravirt.o.objdump.d-64-  1d:	f3 6c                	rep insb (%dx),%es:(%edi)
+paravirt.o.objdump.d-65-  1f:	5f                   	pop    %edi
+paravirt.o.objdump.d-66-  20:	c3                   	ret    
+paravirt.o.objdump.d-67-
+paravirt.o.objdump.d-68-Disassembly of section .text.qemu_cfg_skip:
+paravirt.o.objdump.d-69-
+paravirt.o.objdump.d-70-00000000 <qemu_cfg_skip>:
+paravirt.o.objdump.d-71-   0:	89 c2                	mov    %eax,%edx
+paravirt.o.objdump.d-72-   2:	85 c0                	test   %eax,%eax
+paravirt.o.objdump.d-73-   4:	74 22                	je     28 <qemu_cfg_skip+0x28>
+paravirt.o.objdump.d-74-   6:	83 3d 00 00 00 00 00 	cmpl   $0x0,0x0
+paravirt.o.objdump.d-75-   d:	75 09                	jne    18 <qemu_cfg_skip+0x18>
+paravirt.o.objdump.d-76-   f:	89 c1                	mov    %eax,%ecx
+paravirt.o.objdump.d-77-  11:	ba 11 05 00 00       	mov    $0x511,%edx
+paravirt.o.objdump.d-78-  16:	eb 0c                	jmp    24 <qemu_cfg_skip+0x24>
+paravirt.o.objdump.d-79-  18:	b9 04 00 00 00       	mov    $0x4,%ecx
+paravirt.o.objdump.d-80-  1d:	31 c0                	xor    %eax,%eax
+paravirt.o.objdump.d-81-  1f:	e9 fc ff ff ff       	jmp    20 <qemu_cfg_skip+0x20>
+paravirt.o.objdump.d:82:  24:	ec                   	in     (%dx),%al
+--
+paravirt.o.objdump.d-121-  58:	b9 94 00 00 00       	mov    $0x94,%ecx
+paravirt.o.objdump.d-122-  5d:	31 d2                	xor    %edx,%edx
+paravirt.o.objdump.d-123-  5f:	89 d8                	mov    %ebx,%eax
+paravirt.o.objdump.d-124-  61:	e8 fc ff ff ff       	call   62 <qemu_romfile_add+0x62>
+paravirt.o.objdump.d-125-  66:	8d 43 04             	lea    0x4(%ebx),%eax
+paravirt.o.objdump.d-126-  69:	b9 80 00 00 00       	mov    $0x80,%ecx
+paravirt.o.objdump.d-127-  6e:	8b 14 24             	mov    (%esp),%edx
+paravirt.o.objdump.d-128-  71:	e8 fc ff ff ff       	call   72 <qemu_romfile_add+0x72>
+paravirt.o.objdump.d-129-  76:	89 ab 84 00 00 00    	mov    %ebp,0x84(%ebx)
+paravirt.o.objdump.d-130-  7c:	89 bb 8c 00 00 00    	mov    %edi,0x8c(%ebx)
+paravirt.o.objdump.d-131-  82:	89 b3 90 00 00 00    	mov    %esi,0x90(%ebx)
+paravirt.o.objdump.d-132-  88:	c7 83 88 00 00 00 00 	movl   $0x0,0x88(%ebx)
+paravirt.o.objdump.d-133-  8f:	00 00 00 
+paravirt.o.objdump.d-134-  92:	89 d8                	mov    %ebx,%eax
+paravirt.o.objdump.d-135-  94:	5a                   	pop    %edx
+paravirt.o.objdump.d-136-  95:	5b                   	pop    %ebx
+paravirt.o.objdump.d-137-  96:	5e                   	pop    %esi
+paravirt.o.objdump.d-138-  97:	5f                   	pop    %edi
+paravirt.o.objdump.d-139-  98:	5d                   	pop    %ebp
+paravirt.o.objdump.d-140-  99:	e9 fc ff ff ff       	jmp    9a <qemu_romfile_add+0x9a>
+paravirt.o.objdump.d-141-
+paravirt.o.objdump.d-142-Disassembly of section .text.qemu_cfg_read_entry:
+paravirt.o.objdump.d-143-
+paravirt.o.objdump.d-144-00000000 <qemu_cfg_read_entry>:
+paravirt.o.objdump.d-145-   0:	56                   	push   %esi
+paravirt.o.objdump.d-146-   1:	53                   	push   %ebx
+paravirt.o.objdump.d-147-   2:	89 c3                	mov    %eax,%ebx
+paravirt.o.objdump.d-148-   4:	89 d0                	mov    %edx,%eax
+paravirt.o.objdump.d-149-   6:	89 ce                	mov    %ecx,%esi
+paravirt.o.objdump.d-150-   8:	83 3d 00 00 00 00 00 	cmpl   $0x0,0x0
+paravirt.o.objdump.d-151-   f:	74 13                	je     24 <qemu_cfg_read_entry+0x24>
+paravirt.o.objdump.d-152-  11:	c1 e0 10             	shl    $0x10,%eax
+paravirt.o.objdump.d-153-  14:	83 c8 0a             	or     $0xa,%eax
+paravirt.o.objdump.d-154-  17:	89 c1                	mov    %eax,%ecx
+paravirt.o.objdump.d-155-  19:	89 f2                	mov    %esi,%edx
+paravirt.o.objdump.d-156-  1b:	89 d8                	mov    %ebx,%eax
+paravirt.o.objdump.d-157-  1d:	5b                   	pop    %ebx
+paravirt.o.objdump.d-158-  1e:	5e                   	pop    %esi
+paravirt.o.objdump.d-159-  1f:	e9 fc ff ff ff       	jmp    20 <qemu_cfg_read_entry+0x20>
+paravirt.o.objdump.d-160-  24:	ba 10 05 00 00       	mov    $0x510,%edx
+paravirt.o.objdump.d:161:  29:	66 ef                	out    %ax,(%dx)
+paravirt.o.objdump.d-162-  2b:	85 c9                	test   %ecx,%ecx
+paravirt.o.objdump.d-163-  2d:	74 0b                	je     3a <qemu_cfg_read_entry+0x3a>
+paravirt.o.objdump.d-164-  2f:	89 ca                	mov    %ecx,%edx
+paravirt.o.objdump.d-165-  31:	89 d8                	mov    %ebx,%eax
+paravirt.o.objdump.d-166-  33:	5b                   	pop    %ebx
+paravirt.o.objdump.d-167-  34:	5e                   	pop    %esi
+paravirt.o.objdump.d-168-  35:	e9 fc ff ff ff       	jmp    36 <qemu_cfg_read_entry+0x36>
+paravirt.o.objdump.d-169-  3a:	5b                   	pop    %ebx
+paravirt.o.objdump.d-170-  3b:	5e                   	pop    %esi
+paravirt.o.objdump.d-171-  3c:	c3                   	ret    
+paravirt.o.objdump.d-172-
+paravirt.o.objdump.d-173-Disassembly of section .text.qemu_cfg_detect:
+paravirt.o.objdump.d-174-
+paravirt.o.objdump.d-175-00000000 <qemu_cfg_detect>:
+paravirt.o.objdump.d-176-   0:	8b 0d 00 00 00 00    	mov    0x0,%ecx
+paravirt.o.objdump.d-177-   6:	85 c9                	test   %ecx,%ecx
+paravirt.o.objdump.d-178-   8:	75 72                	jne    7c <qemu_cfg_detect+0x7c>
+paravirt.o.objdump.d-179-   a:	56                   	push   %esi
+paravirt.o.objdump.d-180-   b:	53                   	push   %ebx
+paravirt.o.objdump.d-181-   c:	56                   	push   %esi
+paravirt.o.objdump.d-182-   d:	31 c0                	xor    %eax,%eax
+paravirt.o.objdump.d-183-   f:	ba 10 05 00 00       	mov    $0x510,%edx
+paravirt.o.objdump.d:184:  14:	66 ef                	out    %ax,(%dx)
+paravirt.o.objdump.d-185-  16:	31 db                	xor    %ebx,%ebx
+paravirt.o.objdump.d-186-  18:	ba 11 05 00 00       	mov    $0x511,%edx
+paravirt.o.objdump.d:187:  1d:	ec                   	in     (%dx),%al
+--
+paravirt.o.objdump.d-201-  50:	8d 44 24 04          	lea    0x4(%esp),%eax
+paravirt.o.objdump.d-202-  54:	e8 fc ff ff ff       	call   55 <qemu_cfg_detect+0x55>
+paravirt.o.objdump.d-203-  59:	5b                   	pop    %ebx
+paravirt.o.objdump.d-204-  5a:	f6 04 24 02          	testb  $0x2,(%esp)
+paravirt.o.objdump.d-205-  5e:	74 15                	je     75 <qemu_cfg_detect+0x75>
+paravirt.o.objdump.d-206-  60:	68 18 00 00 00       	push   $0x18
+paravirt.o.objdump.d-207-  65:	e8 fc ff ff ff       	call   66 <qemu_cfg_detect+0x66>
+paravirt.o.objdump.d-208-  6a:	c7 05 00 00 00 00 01 	movl   $0x1,0x0
+paravirt.o.objdump.d-209-  71:	00 00 00 
+paravirt.o.objdump.d-210-  74:	59                   	pop    %ecx
+paravirt.o.objdump.d-211-  75:	b9 01 00 00 00       	mov    $0x1,%ecx
+paravirt.o.objdump.d-212-  7a:	eb 06                	jmp    82 <qemu_cfg_detect+0x82>
+paravirt.o.objdump.d-213-  7c:	b8 01 00 00 00       	mov    $0x1,%eax
+paravirt.o.objdump.d-214-  81:	c3                   	ret    
+paravirt.o.objdump.d-215-  82:	89 c8                	mov    %ecx,%eax
+paravirt.o.objdump.d-216-  84:	5a                   	pop    %edx
+paravirt.o.objdump.d-217-  85:	5b                   	pop    %ebx
+paravirt.o.objdump.d-218-  86:	5e                   	pop    %esi
+paravirt.o.objdump.d-219-  87:	c3                   	ret    
+paravirt.o.objdump.d-220-
+paravirt.o.objdump.d-221-Disassembly of section .text.qemu_cfg_read_file:
+paravirt.o.objdump.d-222-
+paravirt.o.objdump.d-223-00000000 <qemu_cfg_read_file>:
+paravirt.o.objdump.d-224-   0:	56                   	push   %esi
+paravirt.o.objdump.d-225-   1:	53                   	push   %ebx
+paravirt.o.objdump.d-226-   2:	89 d6                	mov    %edx,%esi
+paravirt.o.objdump.d-227-   4:	8b 90 84 00 00 00    	mov    0x84(%eax),%edx
+paravirt.o.objdump.d-228-   a:	39 ca                	cmp    %ecx,%edx
+paravirt.o.objdump.d-229-   c:	77 46                	ja     54 <qemu_cfg_read_file+0x54>
+paravirt.o.objdump.d-230-   e:	89 c3                	mov    %eax,%ebx
+paravirt.o.objdump.d-231-  10:	8b 88 90 00 00 00    	mov    0x90(%eax),%ecx
+paravirt.o.objdump.d-232-  16:	8b 80 8c 00 00 00    	mov    0x8c(%eax),%eax
+paravirt.o.objdump.d-233-  1c:	85 c9                	test   %ecx,%ecx
+paravirt.o.objdump.d-234-  1e:	75 0d                	jne    2d <qemu_cfg_read_file+0x2d>
+paravirt.o.objdump.d-235-  20:	89 d1                	mov    %edx,%ecx
+paravirt.o.objdump.d-236-  22:	89 c2                	mov    %eax,%edx
+paravirt.o.objdump.d-237-  24:	89 f0                	mov    %esi,%eax
+paravirt.o.objdump.d-238-  26:	e8 fc ff ff ff       	call   27 <qemu_cfg_read_file+0x27>
+paravirt.o.objdump.d-239-  2b:	eb 1f                	jmp    4c <qemu_cfg_read_file+0x4c>
+paravirt.o.objdump.d-240-  2d:	ba 10 05 00 00       	mov    $0x510,%edx
+paravirt.o.objdump.d:241:  32:	66 ef                	out    %ax,(%dx)
+--
+paravirt.o.objdump.d-363- 13d:	5f                   	pop    %edi
+paravirt.o.objdump.d-364- 13e:	5d                   	pop    %ebp
+paravirt.o.objdump.d-365- 13f:	e9 fc ff ff ff       	jmp    140 <qemu_preinit+0x140>
+paravirt.o.objdump.d-366- 144:	e8 fc ff ff ff       	call   145 <qemu_preinit+0x145>
+paravirt.o.objdump.d-367- 149:	85 c0                	test   %eax,%eax
+paravirt.o.objdump.d-368- 14b:	0f 84 c9 01 00 00    	je     31a <qemu_preinit+0x31a>
+paravirt.o.objdump.d-369- 151:	b9 04 00 00 00       	mov    $0x4,%ecx
+paravirt.o.objdump.d-370- 156:	ba 19 00 00 00       	mov    $0x19,%edx
+paravirt.o.objdump.d-371- 15b:	89 f0                	mov    %esi,%eax
+paravirt.o.objdump.d-372- 15d:	e8 fc ff ff ff       	call   15e <qemu_preinit+0x15e>
+paravirt.o.objdump.d-373- 162:	8b 44 24 18          	mov    0x18(%esp),%eax
+paravirt.o.objdump.d-374- 166:	e8 fc ff ff ff       	call   167 <qemu_preinit+0x167>
+paravirt.o.objdump.d-375- 16b:	89 44 24 18          	mov    %eax,0x18(%esp)
+paravirt.o.objdump.d-376- 16f:	31 f6                	xor    %esi,%esi
+paravirt.o.objdump.d-377- 171:	3b 74 24 18          	cmp    0x18(%esp),%esi
+paravirt.o.objdump.d-378- 175:	73 40                	jae    1b7 <qemu_preinit+0x1b7>
+paravirt.o.objdump.d-379- 177:	ba 40 00 00 00       	mov    $0x40,%edx
+paravirt.o.objdump.d-380- 17c:	8d 44 24 30          	lea    0x30(%esp),%eax
+paravirt.o.objdump.d-381- 180:	e8 fc ff ff ff       	call   181 <qemu_preinit+0x181>
+paravirt.o.objdump.d-382- 185:	b9 09 00 00 00       	mov    $0x9,%ecx
+paravirt.o.objdump.d-383- 18a:	ba d7 00 00 00       	mov    $0xd7,%edx
+paravirt.o.objdump.d-384- 18f:	8d 44 24 38          	lea    0x38(%esp),%eax
+paravirt.o.objdump.d-385- 193:	e8 fc ff ff ff       	call   194 <qemu_preinit+0x194>
+paravirt.o.objdump.d-386- 198:	85 c0                	test   %eax,%eax
+paravirt.o.objdump.d-387- 19a:	74 03                	je     19f <qemu_preinit+0x19f>
+paravirt.o.objdump.d-388- 19c:	46                   	inc    %esi
+paravirt.o.objdump.d-389- 19d:	eb d2                	jmp    171 <qemu_preinit+0x171>
+paravirt.o.objdump.d-390- 19f:	8b 74 24 34          	mov    0x34(%esp),%esi
+paravirt.o.objdump.d-391- 1a3:	66 c1 c6 08          	rol    $0x8,%si
+paravirt.o.objdump.d-392- 1a7:	8b 44 24 30          	mov    0x30(%esp),%eax
+paravirt.o.objdump.d-393- 1ab:	e8 fc ff ff ff       	call   1ac <qemu_preinit+0x1ac>
+paravirt.o.objdump.d-394- 1b0:	89 c1                	mov    %eax,%ecx
+paravirt.o.objdump.d-395- 1b2:	66 85 f6             	test   %si,%si
+paravirt.o.objdump.d-396- 1b5:	75 10                	jne    1c7 <qemu_preinit+0x1c7>
+paravirt.o.objdump.d-397- 1b7:	68 e0 00 00 00       	push   $0xe0
+paravirt.o.objdump.d-398- 1bc:	e8 fc ff ff ff       	call   1bd <qemu_preinit+0x1bd>
+paravirt.o.objdump.d-399- 1c1:	58                   	pop    %eax
+paravirt.o.objdump.d-400- 1c2:	e9 53 01 00 00       	jmp    31a <qemu_preinit+0x31a>
+paravirt.o.objdump.d-401- 1c7:	ba 10 05 00 00       	mov    $0x510,%edx
+paravirt.o.objdump.d-402- 1cc:	89 f0                	mov    %esi,%eax
+paravirt.o.objdump.d:403: 1ce:	66 ef                	out    %ax,(%dx)
+--
+paravirt.o.objdump.d-645- 159:	e8 fc ff ff ff       	call   15a <qemu_platform_setup+0x15a>
+paravirt.o.objdump.d-646- 15e:	89 c3                	mov    %eax,%ebx
+paravirt.o.objdump.d-647- 160:	e8 fc ff ff ff       	call   161 <qemu_platform_setup+0x161>
+paravirt.o.objdump.d-648- 165:	a3 00 00 00 00       	mov    %eax,0x0
+paravirt.o.objdump.d-649- 16a:	5a                   	pop    %edx
+paravirt.o.objdump.d-650- 16b:	85 c0                	test   %eax,%eax
+paravirt.o.objdump.d-651- 16d:	74 0f                	je     17e <qemu_platform_setup+0x17e>
+paravirt.o.objdump.d-652- 16f:	e8 fc ff ff ff       	call   170 <qemu_platform_setup+0x170>
+paravirt.o.objdump.d-653- 174:	83 c4 10             	add    $0x10,%esp
+paravirt.o.objdump.d-654- 177:	5b                   	pop    %ebx
+paravirt.o.objdump.d-655- 178:	5e                   	pop    %esi
+paravirt.o.objdump.d-656- 179:	e9 fc ff ff ff       	jmp    17a <qemu_platform_setup+0x17a>
+paravirt.o.objdump.d-657- 17e:	85 db                	test   %ebx,%ebx
+paravirt.o.objdump.d-658- 180:	75 0f                	jne    191 <qemu_platform_setup+0x191>
+paravirt.o.objdump.d-659- 182:	ba 00 00 00 00       	mov    $0x0,%edx
+paravirt.o.objdump.d-660- 187:	b8 fb 00 00 00       	mov    $0xfb,%eax
+paravirt.o.objdump.d-661- 18c:	e8 fc ff ff ff       	call   18d <qemu_platform_setup+0x18d>
+paravirt.o.objdump.d-662- 191:	83 c4 10             	add    $0x10,%esp
+paravirt.o.objdump.d-663- 194:	5b                   	pop    %ebx
+paravirt.o.objdump.d-664- 195:	5e                   	pop    %esi
+paravirt.o.objdump.d-665- 196:	e9 fc ff ff ff       	jmp    197 <qemu_platform_setup+0x197>
+paravirt.o.objdump.d-666-
+paravirt.o.objdump.d-667-Disassembly of section .text.qemu_cfg_write_file_simple:
+paravirt.o.objdump.d-668-
+paravirt.o.objdump.d-669-00000000 <qemu_cfg_write_file_simple>:
+paravirt.o.objdump.d-670-   0:	53                   	push   %ebx
+paravirt.o.objdump.d-671-   1:	89 c3                	mov    %eax,%ebx
+paravirt.o.objdump.d-672-   3:	85 c9                	test   %ecx,%ecx
+paravirt.o.objdump.d-673-   5:	75 1f                	jne    26 <qemu_cfg_write_file_simple+0x26>
+paravirt.o.objdump.d-674-   7:	83 3d 00 00 00 00 00 	cmpl   $0x0,0x0
+paravirt.o.objdump.d-675-   e:	74 0a                	je     1a <qemu_cfg_write_file_simple+0x1a>
+paravirt.o.objdump.d-676-  10:	c1 e2 10             	shl    $0x10,%edx
+paravirt.o.objdump.d-677-  13:	89 d1                	mov    %edx,%ecx
+paravirt.o.objdump.d-678-  15:	83 c9 18             	or     $0x18,%ecx
+paravirt.o.objdump.d-679-  18:	eb 31                	jmp    4b <qemu_cfg_write_file_simple+0x4b>
+paravirt.o.objdump.d-680-  1a:	ba 00 00 00 00       	mov    $0x0,%edx
+paravirt.o.objdump.d-681-  1f:	b8 6f 01 00 00       	mov    $0x16f,%eax
+paravirt.o.objdump.d-682-  24:	eb 3c                	jmp    62 <qemu_cfg_write_file_simple+0x62>
+paravirt.o.objdump.d-683-  26:	89 d0                	mov    %edx,%eax
+paravirt.o.objdump.d-684-  28:	ba 10 05 00 00       	mov    $0x510,%edx
+paravirt.o.objdump.d:685:  2d:	66 ef                	out    %ax,(%dx)
+--
+pciinit.o.objdump.d-168-  43:	e9 fc ff ff ff       	jmp    44 <mch_mmconfig_setup+0x44>
+pciinit.o.objdump.d-169-
+pciinit.o.objdump.d-170-Disassembly of section .text.dummy_pci_slot_get_irq:
+pciinit.o.objdump.d-171-
+pciinit.o.objdump.d-172-00000000 <dummy_pci_slot_get_irq>:
+pciinit.o.objdump.d-173-   0:	68 04 00 00 00       	push   $0x4
+pciinit.o.objdump.d-174-   5:	e8 fc ff ff ff       	call   6 <dummy_pci_slot_get_irq+0x6>
+pciinit.o.objdump.d-175-   a:	58                   	pop    %eax
+pciinit.o.objdump.d-176-   b:	b8 ff 00 00 00       	mov    $0xff,%eax
+pciinit.o.objdump.d-177-  10:	c3                   	ret    
+pciinit.o.objdump.d-178-
+pciinit.o.objdump.d-179-Disassembly of section .text.piix_isa_bridge_setup:
+pciinit.o.objdump.d-180-
+pciinit.o.objdump.d-181-00000000 <piix_isa_bridge_setup>:
+pciinit.o.objdump.d-182-   0:	55                   	push   %ebp
+pciinit.o.objdump.d-183-   1:	57                   	push   %edi
+pciinit.o.objdump.d-184-   2:	56                   	push   %esi
+pciinit.o.objdump.d-185-   3:	53                   	push   %ebx
+pciinit.o.objdump.d-186-   4:	52                   	push   %edx
+pciinit.o.objdump.d-187-   5:	89 c6                	mov    %eax,%esi
+pciinit.o.objdump.d-188-   7:	66 c7 44 24 02 00 00 	movw   $0x0,0x2(%esp)
+pciinit.o.objdump.d-189-   e:	bb 60 00 00 00       	mov    $0x60,%ebx
+pciinit.o.objdump.d-190-  13:	0f b6 ab a0 ff ff ff 	movzbl -0x60(%ebx),%ebp
+pciinit.o.objdump.d-191-  1a:	89 e9                	mov    %ebp,%ecx
+pciinit.o.objdump.d-192-  1c:	89 ea                	mov    %ebp,%edx
+pciinit.o.objdump.d-193-  1e:	c1 fa 03             	sar    $0x3,%edx
+pciinit.o.objdump.d-194-  21:	83 e1 07             	and    $0x7,%ecx
+pciinit.o.objdump.d-195-  24:	bf 01 00 00 00       	mov    $0x1,%edi
+pciinit.o.objdump.d-196-  29:	d3 e7                	shl    %cl,%edi
+pciinit.o.objdump.d-197-  2b:	89 f9                	mov    %edi,%ecx
+pciinit.o.objdump.d-198-  2d:	08 4c 14 02          	or     %cl,0x2(%esp,%edx,1)
+pciinit.o.objdump.d-199-  31:	0f b7 06             	movzwl (%esi),%eax
+pciinit.o.objdump.d-200-  34:	89 e9                	mov    %ebp,%ecx
+pciinit.o.objdump.d-201-  36:	89 da                	mov    %ebx,%edx
+pciinit.o.objdump.d-202-  38:	e8 fc ff ff ff       	call   39 <piix_isa_bridge_setup+0x39>
+pciinit.o.objdump.d-203-  3d:	43                   	inc    %ebx
+pciinit.o.objdump.d-204-  3e:	83 fb 64             	cmp    $0x64,%ebx
+pciinit.o.objdump.d-205-  41:	75 d0                	jne    13 <piix_isa_bridge_setup+0x13>
+pciinit.o.objdump.d-206-  43:	ba d0 04 00 00       	mov    $0x4d0,%edx
+pciinit.o.objdump.d-207-  48:	8a 44 24 02          	mov    0x2(%esp),%al
+pciinit.o.objdump.d:208:  4c:	ee                   	out    %al,(%dx)
+pciinit.o.objdump.d-209-  4d:	0f b6 44 24 03       	movzbl 0x3(%esp),%eax
+pciinit.o.objdump.d-210-  52:	ba d1 04 00 00       	mov    $0x4d1,%edx
+pciinit.o.objdump.d:211:  57:	ee                   	out    %al,(%dx)
+--
+pciinit.o.objdump.d-628-   8:	e8 fc ff ff ff       	call   9 <piix4_pm_setup+0x9>
+pciinit.o.objdump.d-629-   d:	0f b7 15 00 00 00 00 	movzwl 0x0,%edx
+pciinit.o.objdump.d-630-  14:	89 d0                	mov    %edx,%eax
+pciinit.o.objdump.d-631-  16:	83 c2 04             	add    $0x4,%edx
+pciinit.o.objdump.d-632-  19:	89 15 00 00 00 00    	mov    %edx,0x0
+pciinit.o.objdump.d-633-  1f:	83 c0 08             	add    $0x8,%eax
+pciinit.o.objdump.d-634-  22:	0f b7 c0             	movzwl %ax,%eax
+pciinit.o.objdump.d-635-  25:	e9 fc ff ff ff       	jmp    26 <piix4_pm_setup+0x26>
+pciinit.o.objdump.d-636-
+pciinit.o.objdump.d-637-Disassembly of section .text.mch_isa_bridge_setup:
+pciinit.o.objdump.d-638-
+pciinit.o.objdump.d-639-00000000 <mch_isa_bridge_setup>:
+pciinit.o.objdump.d-640-   0:	57                   	push   %edi
+pciinit.o.objdump.d-641-   1:	56                   	push   %esi
+pciinit.o.objdump.d-642-   2:	53                   	push   %ebx
+pciinit.o.objdump.d-643-   3:	52                   	push   %edx
+pciinit.o.objdump.d-644-   4:	66 c7 44 24 02 00 00 	movw   $0x0,0x2(%esp)
+pciinit.o.objdump.d-645-   b:	bb 60 00 00 00       	mov    $0x60,%ebx
+pciinit.o.objdump.d-646-  10:	0f b7 30             	movzwl (%eax),%esi
+pciinit.o.objdump.d-647-  13:	0f b6 bb a0 ff ff ff 	movzbl -0x60(%ebx),%edi
+pciinit.o.objdump.d-648-  1a:	89 f9                	mov    %edi,%ecx
+pciinit.o.objdump.d-649-  1c:	89 f8                	mov    %edi,%eax
+pciinit.o.objdump.d-650-  1e:	c1 f8 03             	sar    $0x3,%eax
+pciinit.o.objdump.d-651-  21:	83 e1 07             	and    $0x7,%ecx
+pciinit.o.objdump.d-652-  24:	ba 01 00 00 00       	mov    $0x1,%edx
+pciinit.o.objdump.d-653-  29:	d3 e2                	shl    %cl,%edx
+pciinit.o.objdump.d-654-  2b:	08 54 04 02          	or     %dl,0x2(%esp,%eax,1)
+pciinit.o.objdump.d-655-  2f:	89 f9                	mov    %edi,%ecx
+pciinit.o.objdump.d-656-  31:	89 da                	mov    %ebx,%edx
+pciinit.o.objdump.d-657-  33:	89 f0                	mov    %esi,%eax
+pciinit.o.objdump.d-658-  35:	e8 fc ff ff ff       	call   36 <mch_isa_bridge_setup+0x36>
+pciinit.o.objdump.d-659-  3a:	8d 53 08             	lea    0x8(%ebx),%edx
+pciinit.o.objdump.d-660-  3d:	89 f9                	mov    %edi,%ecx
+pciinit.o.objdump.d-661-  3f:	89 f0                	mov    %esi,%eax
+pciinit.o.objdump.d-662-  41:	e8 fc ff ff ff       	call   42 <mch_isa_bridge_setup+0x42>
+pciinit.o.objdump.d-663-  46:	43                   	inc    %ebx
+pciinit.o.objdump.d-664-  47:	83 fb 64             	cmp    $0x64,%ebx
+pciinit.o.objdump.d-665-  4a:	75 c7                	jne    13 <mch_isa_bridge_setup+0x13>
+pciinit.o.objdump.d-666-  4c:	ba d0 04 00 00       	mov    $0x4d0,%edx
+pciinit.o.objdump.d-667-  51:	8a 44 24 02          	mov    0x2(%esp),%al
+pciinit.o.objdump.d:668:  55:	ee                   	out    %al,(%dx)
+pciinit.o.objdump.d-669-  56:	0f b6 44 24 03       	movzbl 0x3(%esp),%eax
+pciinit.o.objdump.d-670-  5b:	ba d1 04 00 00       	mov    $0x4d1,%edx
+pciinit.o.objdump.d:671:  60:	ee                   	out    %al,(%dx)
+--
+shadow.o.objdump.d-211-  4e:	e9 fc ff ff ff       	jmp    4f <make_bios_readonly+0x4f>
+shadow.o.objdump.d-212-  53:	c3                   	ret    
+shadow.o.objdump.d-213-
+shadow.o.objdump.d-214-Disassembly of section .text.qemu_reboot:
+shadow.o.objdump.d-215-
+shadow.o.objdump.d-216-00000000 <qemu_reboot>:
+shadow.o.objdump.d-217-   0:	f6 05 00 00 00 00 02 	testb  $0x2,0x0
+shadow.o.objdump.d-218-   7:	0f 85 81 00 00 00    	jne    8e <qemu_reboot+0x8e>
+shadow.o.objdump.d-219-   d:	57                   	push   %edi
+shadow.o.objdump.d-220-   e:	56                   	push   %esi
+shadow.o.objdump.d-221-   f:	a1 00 00 f0 ff       	mov    0xfff00000,%eax
+shadow.o.objdump.d-222-  14:	85 c0                	test   %eax,%eax
+shadow.o.objdump.d-223-  16:	74 2a                	je     42 <qemu_reboot+0x42>
+shadow.o.objdump.d-224-  18:	83 3d 00 00 00 00 03 	cmpl   $0x3,0x0
+shadow.o.objdump.d-225-  1f:	75 10                	jne    31 <qemu_reboot+0x31>
+shadow.o.objdump.d-226-  21:	68 79 00 00 00       	push   $0x79
+shadow.o.objdump.d-227-  26:	e8 fc ff ff ff       	call   27 <qemu_reboot+0x27>
+shadow.o.objdump.d-228-  2b:	e8 fc ff ff ff       	call   2c <qemu_reboot+0x2c>
+shadow.o.objdump.d-229-  30:	58                   	pop    %eax
+shadow.o.objdump.d-230-  31:	e8 fc ff ff ff       	call   32 <qemu_reboot+0x32>
+shadow.o.objdump.d-231-  36:	c7 05 00 00 00 00 03 	movl   $0x3,0x0
+shadow.o.objdump.d-232-  3d:	00 00 00 
+shadow.o.objdump.d-233-  40:	eb 3d                	jmp    7f <qemu_reboot+0x7f>
+shadow.o.objdump.d-234-  42:	e8 fc ff ff ff       	call   43 <qemu_reboot+0x43>
+shadow.o.objdump.d-235-  47:	b8 00 00 00 00       	mov    $0x0,%eax
+shadow.o.objdump.d-236-  4c:	b9 00 00 00 00       	mov    $0x0,%ecx
+shadow.o.objdump.d-237-  51:	29 c1                	sub    %eax,%ecx
+shadow.o.objdump.d-238-  53:	be 00 00 f0 ff       	mov    $0xfff00000,%esi
+shadow.o.objdump.d-239-  58:	89 c7                	mov    %eax,%edi
+shadow.o.objdump.d-240-  5a:	f3 a4                	rep movsb %ds:(%esi),%es:(%edi)
+shadow.o.objdump.d-241-  5c:	b8 04 00 00 00       	mov    $0x4,%eax
+shadow.o.objdump.d-242-  61:	b9 fc ff ff ff       	mov    $0xfffffffc,%ecx
+shadow.o.objdump.d-243-  66:	81 e9 00 00 00 00    	sub    $0x0,%ecx
+shadow.o.objdump.d-244-  6c:	be 04 00 f0 ff       	mov    $0xfff00004,%esi
+shadow.o.objdump.d-245-  71:	89 c7                	mov    %eax,%edi
+shadow.o.objdump.d-246-  73:	f3 a4                	rep movsb %ds:(%esi),%es:(%edi)
+shadow.o.objdump.d-247-  75:	c7 05 00 00 00 00 00 	movl   $0x0,0x0
+shadow.o.objdump.d-248-  7c:	00 00 00 
+shadow.o.objdump.d-249-  7f:	ba f9 0c 00 00       	mov    $0xcf9,%edx
+shadow.o.objdump.d-250-  84:	b0 02                	mov    $0x2,%al
+shadow.o.objdump.d:251:  86:	ee                   	out    %al,(%dx)
+shadow.o.objdump.d-252-  87:	b0 06                	mov    $0x6,%al
+shadow.o.objdump.d:253:  89:	ee                   	out    %al,(%dx)
+--
+smm.o.objdump.d-1-
+smm.o.objdump.d-2-./smm.o:     file format elf32-i386
+smm.o.objdump.d-3-
+smm.o.objdump.d-4-
+smm.o.objdump.d-5-Disassembly of section .text.set_a20:
+smm.o.objdump.d-6-
+smm.o.objdump.d-7-00000000 <set_a20>:
+smm.o.objdump.d-8-   0:	89 c2                	mov    %eax,%edx
+smm.o.objdump.d:9:   2:	e4 92                	in     $0x92,%al
+smm.o.objdump.d-10-   4:	88 c1                	mov    %al,%cl
+smm.o.objdump.d-11-   6:	d0 e9                	shr    %cl
+smm.o.objdump.d-12-   8:	83 e1 01             	and    $0x1,%ecx
+smm.o.objdump.d-13-   b:	83 e2 01             	and    $0x1,%edx
+smm.o.objdump.d-14-   e:	38 d1                	cmp    %dl,%cl
+smm.o.objdump.d-15-  10:	74 05                	je     17 <set_a20+0x17>
+smm.o.objdump.d-16-  12:	83 f0 02             	xor    $0x2,%eax
+smm.o.objdump.d:17:  15:	e6 92                	out    %al,$0x92
+smm.o.objdump.d-18-  17:	88 c8                	mov    %cl,%al
+smm.o.objdump.d-19-  19:	c3                   	ret    
+smm.o.objdump.d-20-
+smm.o.objdump.d-21-Disassembly of section .text.smm_save_and_copy:
+smm.o.objdump.d-22-
+smm.o.objdump.d-23-00000000 <smm_save_and_copy>:
+smm.o.objdump.d-24-   0:	57                   	push   %edi
+smm.o.objdump.d-25-   1:	56                   	push   %esi
+smm.o.objdump.d-26-   2:	b8 00 fe 0a 00       	mov    $0xafe00,%eax
+smm.o.objdump.d-27-   7:	be 00 fe 03 00       	mov    $0x3fe00,%esi
+smm.o.objdump.d-28-   c:	b9 80 00 00 00       	mov    $0x80,%ecx
+smm.o.objdump.d-29-  11:	89 c7                	mov    %eax,%edi
+smm.o.objdump.d-30-  13:	f3 a5                	rep movsl %ds:(%esi),%es:(%edi)
+smm.o.objdump.d-31-  15:	a1 00 80 03 00       	mov    0x38000,%eax
+smm.o.objdump.d-32-  1a:	8b 15 04 80 03 00    	mov    0x38004,%edx
+smm.o.objdump.d-33-  20:	a3 00 80 0a 00       	mov    %eax,0xa8000
+smm.o.objdump.d-34-  25:	89 15 04 80 0a 00    	mov    %edx,0xa8004
+smm.o.objdump.d-35-  2b:	b8 00 00 f1 ff       	mov    $0xfff10000,%eax
+smm.o.objdump.d-36-  30:	31 d2                	xor    %edx,%edx
+smm.o.objdump.d-37-  32:	0f a4 c2 18          	shld   $0x18,%eax,%edx
+smm.o.objdump.d-38-  36:	c1 e0 18             	shl    $0x18,%eax
+smm.o.objdump.d-39-  39:	0d 8c c8 ea 00       	or     $0xeac88c,%eax
+smm.o.objdump.d-40-  3e:	a3 00 80 03 00       	mov    %eax,0x38000
+smm.o.objdump.d-41-  43:	89 d0                	mov    %edx,%eax
+smm.o.objdump.d-42-  45:	0d 00 00 f0 00       	or     $0xf00000,%eax
+smm.o.objdump.d-43-  4a:	a3 04 80 03 00       	mov    %eax,0x38004
+smm.o.objdump.d-44-  4f:	5e                   	pop    %esi
+smm.o.objdump.d-45-  50:	5f                   	pop    %edi
+smm.o.objdump.d-46-  51:	c3                   	ret    
+smm.o.objdump.d-47-
+smm.o.objdump.d-48-Disassembly of section .text.smm_relocate_and_restore:
+smm.o.objdump.d-49-
+smm.o.objdump.d-50-00000000 <smm_relocate_and_restore>:
+smm.o.objdump.d-51-   0:	57                   	push   %edi
+smm.o.objdump.d-52-   1:	56                   	push   %esi
+smm.o.objdump.d-53-   2:	b0 01                	mov    $0x1,%al
+smm.o.objdump.d:54:   4:	e6 b3                	out    %al,$0xb3
+smm.o.objdump.d-55-   6:	31 c0                	xor    %eax,%eax
+smm.o.objdump.d:56:   8:	e6 b2                	out    %al,$0xb2
+smm.o.objdump.d:57:   a:	e4 b3                	in     $0xb3,%al
+smm.o.objdump.d-58-   c:	84 c0                	test   %al,%al
+smm.o.objdump.d-59-   e:	75 fa                	jne    a <smm_relocate_and_restore+0xa>
+smm.o.objdump.d-60-  10:	b8 00 fe 03 00       	mov    $0x3fe00,%eax
+smm.o.objdump.d-61-  15:	be 00 fe 0a 00       	mov    $0xafe00,%esi
+smm.o.objdump.d-62-  1a:	b9 80 00 00 00       	mov    $0x80,%ecx
+smm.o.objdump.d-63-  1f:	89 c7                	mov    %eax,%edi
+smm.o.objdump.d-64-  21:	f3 a5                	rep movsl %ds:(%esi),%es:(%edi)
+smm.o.objdump.d-65-  23:	a1 00 80 0a 00       	mov    0xa8000,%eax
+smm.o.objdump.d-66-  28:	8b 15 04 80 0a 00    	mov    0xa8004,%edx
+smm.o.objdump.d-67-  2e:	a3 00 80 03 00       	mov    %eax,0x38000
+smm.o.objdump.d-68-  33:	89 15 04 80 03 00    	mov    %edx,0x38004
+smm.o.objdump.d-69-  39:	b8 00 00 f1 ff       	mov    $0xfff10000,%eax
+smm.o.objdump.d-70-  3e:	31 d2                	xor    %edx,%edx
+smm.o.objdump.d-71-  40:	0f a4 c2 18          	shld   $0x18,%eax,%edx
+smm.o.objdump.d-72-  44:	c1 e0 18             	shl    $0x18,%eax
+smm.o.objdump.d-73-  47:	0d 8c c8 ea 00       	or     $0xeac88c,%eax
+smm.o.objdump.d-74-  4c:	a3 00 80 0a 00       	mov    %eax,0xa8000
+smm.o.objdump.d-75-  51:	89 d0                	mov    %edx,%eax
+smm.o.objdump.d-76-  53:	0d 00 00 f0 00       	or     $0xf00000,%eax
+smm.o.objdump.d-77-  58:	a3 04 80 0a 00       	mov    %eax,0xa8004
+smm.o.objdump.d-78-  5d:	0f 09                	wbinvd 
+smm.o.objdump.d-79-  5f:	5e                   	pop    %esi
+smm.o.objdump.d-80-  60:	5f                   	pop    %edi
+smm.o.objdump.d-81-  61:	c3                   	ret    
+smm.o.objdump.d-82-
+smm.o.objdump.d-83-Disassembly of section .text.runtime.src/fw/smm.c.62:
+smm.o.objdump.d-84-
+smm.o.objdump.d-85-00000000 <handle_smi>:
+smm.o.objdump.d-86-   0:	57                   	push   %edi
+smm.o.objdump.d-87-   1:	8d 7c 24 08          	lea    0x8(%esp),%edi
+smm.o.objdump.d-88-   5:	83 e4 f8             	and    $0xfffffff8,%esp
+smm.o.objdump.d-89-   8:	ff 77 fc             	push   -0x4(%edi)
+smm.o.objdump.d-90-   b:	55                   	push   %ebp
+smm.o.objdump.d-91-   c:	89 e5                	mov    %esp,%ebp
+smm.o.objdump.d-92-   e:	57                   	push   %edi
+smm.o.objdump.d-93-   f:	56                   	push   %esi
+smm.o.objdump.d-94-  10:	53                   	push   %ebx
+smm.o.objdump.d-95-  11:	83 ec 4c             	sub    $0x4c,%esp
+smm.o.objdump.d-96-  14:	89 c2                	mov    %eax,%edx
+smm.o.objdump.d:97:  16:	e4 b2                	in     $0xb2,%al
+smm.o.objdump.d-98-  18:	88 45 ac             	mov    %al,-0x54(%ebp)
+smm.o.objdump.d-99-  1b:	0f b7 d2             	movzwl %dx,%edx
+smm.o.objdump.d-100-  1e:	c1 e2 04             	shl    $0x4,%edx
+smm.o.objdump.d-101-  21:	89 d3                	mov    %edx,%ebx
+smm.o.objdump.d-102-  23:	8b b2 fc fe 00 00    	mov    0xfefc(%edx),%esi
+smm.o.objdump.d-103-  29:	81 e6 ff ff 02 00    	and    $0x2ffff,%esi
+smm.o.objdump.d-104-  2f:	52                   	push   %edx
+smm.o.objdump.d-105-  30:	0f b6 c0             	movzbl %al,%eax
+smm.o.objdump.d-106-  33:	50                   	push   %eax
+smm.o.objdump.d-107-  34:	68 00 00 00 00       	push   $0x0
+smm.o.objdump.d-108-  39:	e8 fc ff ff ff       	call   3a <handle_smi+0x3a>
+smm.o.objdump.d-109-  3e:	83 c4 0c             	add    $0xc,%esp
+smm.o.objdump.d-110-  41:	81 fb 00 00 03 00    	cmp    $0x30000,%ebx
+smm.o.objdump.d-111-  47:	75 73                	jne    bc <handle_smi+0xbc>
+smm.o.objdump.d-112-  49:	81 fe 00 00 02 00    	cmp    $0x20000,%esi
+smm.o.objdump.d-113-  4f:	75 0c                	jne    5d <handle_smi+0x5d>
+smm.o.objdump.d-114-  51:	c7 05 f8 fe 03 00 00 	movl   $0xa0000,0x3fef8
+smm.o.objdump.d-115-  58:	00 0a 00 
+smm.o.objdump.d-116-  5b:	eb 2e                	jmp    8b <handle_smi+0x8b>
+smm.o.objdump.d-117-  5d:	81 fe 64 00 02 00    	cmp    $0x20064,%esi
+smm.o.objdump.d-118-  63:	75 0c                	jne    71 <handle_smi+0x71>
+smm.o.objdump.d-119-  65:	c7 05 00 ff 03 00 00 	movl   $0xa0000,0x3ff00
+smm.o.objdump.d-120-  6c:	00 0a 00 
+smm.o.objdump.d-121-  6f:	eb 1a                	jmp    8b <handle_smi+0x8b>
+smm.o.objdump.d-122-  71:	ba 00 00 00 00       	mov    $0x0,%edx
+smm.o.objdump.d-123-  76:	b8 4f 00 00 00       	mov    $0x4f,%eax
+smm.o.objdump.d-124-  7b:	8d 65 f4             	lea    -0xc(%ebp),%esp
+smm.o.objdump.d-125-  7e:	5b                   	pop    %ebx
+smm.o.objdump.d-126-  7f:	5e                   	pop    %esi
+smm.o.objdump.d-127-  80:	5f                   	pop    %edi
+smm.o.objdump.d-128-  81:	5d                   	pop    %ebp
+smm.o.objdump.d-129-  82:	8d 67 f8             	lea    -0x8(%edi),%esp
+smm.o.objdump.d-130-  85:	5f                   	pop    %edi
+smm.o.objdump.d-131-  86:	e9 fc ff ff ff       	jmp    87 <handle_smi+0x87>
+smm.o.objdump.d-132-  8b:	31 c0                	xor    %eax,%eax
+smm.o.objdump.d:133:  8d:	e6 b3                	out    %al,$0xb3
+--
+smm.o.objdump.d-247- 260:	89 83 00 04 00 00    	mov    %eax,0x400(%ebx)
+smm.o.objdump.d-248- 266:	eb 4e                	jmp    2b6 <handle_smi+0x2b6>
+smm.o.objdump.d-249- 268:	3d 78 56 00 00       	cmp    $0x5678,%eax
+smm.o.objdump.d-250- 26d:	75 47                	jne    2b6 <handle_smi+0x2b6>
+smm.o.objdump.d-251- 26f:	8d 83 00 fe 00 00    	lea    0xfe00(%ebx),%eax
+smm.o.objdump.d-252- 275:	8d b3 00 02 00 00    	lea    0x200(%ebx),%esi
+smm.o.objdump.d-253- 27b:	b9 80 00 00 00       	mov    $0x80,%ecx
+smm.o.objdump.d-254- 280:	89 c7                	mov    %eax,%edi
+smm.o.objdump.d-255- 282:	f3 a5                	rep movsl %ds:(%esi),%es:(%edi)
+smm.o.objdump.d-256- 284:	b9 10 00 00 00       	mov    $0x10,%ecx
+smm.o.objdump.d-257- 289:	8d bb c0 ff 00 00    	lea    0xffc0(%ebx),%edi
+smm.o.objdump.d-258- 28f:	89 d6                	mov    %edx,%esi
+smm.o.objdump.d-259- 291:	f3 a5                	rep movsl %ds:(%esi),%es:(%edi)
+smm.o.objdump.d-260- 293:	83 bb 00 04 00 00 00 	cmpl   $0x0,0x400(%ebx)
+smm.o.objdump.d-261- 29a:	75 07                	jne    2a3 <handle_smi+0x2a3>
+smm.o.objdump.d-262- 29c:	31 c0                	xor    %eax,%eax
+smm.o.objdump.d-263- 29e:	e8 fc ff ff ff       	call   29f <handle_smi+0x29f>
+smm.o.objdump.d-264- 2a3:	8b 45 a8             	mov    -0x58(%ebp),%eax
+smm.o.objdump.d-265- 2a6:	89 83 78 ff 00 00    	mov    %eax,0xff78(%ebx)
+smm.o.objdump.d-266- 2ac:	c7 83 7c ff 00 00 00 	movl   $0x0,0xff7c(%ebx)
+smm.o.objdump.d-267- 2b3:	00 00 00 
+smm.o.objdump.d-268- 2b6:	8d 65 f4             	lea    -0xc(%ebp),%esp
+smm.o.objdump.d-269- 2b9:	5b                   	pop    %ebx
+smm.o.objdump.d-270- 2ba:	5e                   	pop    %esi
+smm.o.objdump.d-271- 2bb:	5f                   	pop    %edi
+smm.o.objdump.d-272- 2bc:	5d                   	pop    %ebp
+smm.o.objdump.d-273- 2bd:	8d 67 f8             	lea    -0x8(%edi),%esp
+smm.o.objdump.d-274- 2c0:	5f                   	pop    %edi
+smm.o.objdump.d-275- 2c1:	c3                   	ret    
+smm.o.objdump.d-276-
+smm.o.objdump.d-277-Disassembly of section .text.ich9_lpc_apmc_smm_setup:
+smm.o.objdump.d-278-
+smm.o.objdump.d-279-00000000 <ich9_lpc_apmc_smm_setup>:
+smm.o.objdump.d-280-   0:	57                   	push   %edi
+smm.o.objdump.d-281-   1:	56                   	push   %esi
+smm.o.objdump.d-282-   2:	53                   	push   %ebx
+smm.o.objdump.d-283-   3:	89 c6                	mov    %eax,%esi
+smm.o.objdump.d-284-   5:	89 d3                	mov    %edx,%ebx
+smm.o.objdump.d-285-   7:	66 a1 00 00 00 00    	mov    0x0,%ax
+smm.o.objdump.d-286-   d:	8d 50 30             	lea    0x30(%eax),%edx
+smm.o.objdump.d:287:  10:	ed                   	in     (%dx),%eax
+smm.o.objdump.d-288-  11:	a8 20                	test   $0x20,%al
+smm.o.objdump.d-289-  13:	75 65                	jne    7a <ich9_lpc_apmc_smm_setup+0x7a>
+smm.o.objdump.d-290-  15:	89 c7                	mov    %eax,%edi
+smm.o.objdump.d-291-  17:	0f b7 db             	movzwl %bx,%ebx
+smm.o.objdump.d-292-  1a:	b9 4a 00 00 00       	mov    $0x4a,%ecx
+smm.o.objdump.d-293-  1f:	ba 9d 00 00 00       	mov    $0x9d,%edx
+smm.o.objdump.d-294-  24:	89 d8                	mov    %ebx,%eax
+smm.o.objdump.d-295-  26:	e8 fc ff ff ff       	call   27 <ich9_lpc_apmc_smm_setup+0x27>
+smm.o.objdump.d-296-  2b:	e8 fc ff ff ff       	call   2c <ich9_lpc_apmc_smm_setup+0x2c>
+smm.o.objdump.d-297-  30:	89 f8                	mov    %edi,%eax
+smm.o.objdump.d-298-  32:	83 c8 21             	or     $0x21,%eax
+smm.o.objdump.d-299-  35:	66 8b 3d 00 00 00 00 	mov    0x0,%di
+smm.o.objdump.d-300-  3c:	8d 57 30             	lea    0x30(%edi),%edx
+smm.o.objdump.d:301:  3f:	ef                   	out    %eax,(%dx)
+--
+smm.o.objdump.d-354-  62:	5b                   	pop    %ebx
+smm.o.objdump.d-355-  63:	c3                   	ret    
+smm.o.objdump.d-356-
+smm.o.objdump.d-357-Disassembly of section .text.smm_setup:
+smm.o.objdump.d-358-
+smm.o.objdump.d-359-00000000 <smm_setup>:
+smm.o.objdump.d-360-   0:	83 3d 00 00 00 00 00 	cmpl   $0x0,0x0
+smm.o.objdump.d-361-   7:	0f 88 b1 00 00 00    	js     be <smm_setup+0xbe>
+smm.o.objdump.d-362-   d:	57                   	push   %edi
+smm.o.objdump.d-363-   e:	56                   	push   %esi
+smm.o.objdump.d-364-   f:	53                   	push   %ebx
+smm.o.objdump.d-365-  10:	68 4f 00 00 00       	push   $0x4f
+smm.o.objdump.d-366-  15:	e8 fc ff ff ff       	call   16 <smm_setup+0x16>
+smm.o.objdump.d-367-  1a:	0f b7 05 00 00 00 00 	movzwl 0x0,%eax
+smm.o.objdump.d-368-  21:	ba 02 00 00 00       	mov    $0x2,%edx
+smm.o.objdump.d-369-  26:	e8 fc ff ff ff       	call   27 <smm_setup+0x27>
+smm.o.objdump.d-370-  2b:	5a                   	pop    %edx
+smm.o.objdump.d-371-  2c:	66 3d 13 71          	cmp    $0x7113,%ax
+smm.o.objdump.d-372-  30:	75 75                	jne    a7 <smm_setup+0xa7>
+smm.o.objdump.d-373-  32:	8b 3d 00 00 00 00    	mov    0x0,%edi
+smm.o.objdump.d-374-  38:	0f b7 35 00 00 00 00 	movzwl 0x0,%esi
+smm.o.objdump.d-375-  3f:	ba 58 00 00 00       	mov    $0x58,%edx
+smm.o.objdump.d-376-  44:	89 f0                	mov    %esi,%eax
+smm.o.objdump.d-377-  46:	e8 fc ff ff ff       	call   47 <smm_setup+0x47>
+smm.o.objdump.d-378-  4b:	89 c3                	mov    %eax,%ebx
+smm.o.objdump.d-379-  4d:	0f ba e0 19          	bt     $0x19,%eax
+smm.o.objdump.d-380-  51:	72 67                	jb     ba <smm_setup+0xba>
+smm.o.objdump.d-381-  53:	0f b7 ff             	movzwl %di,%edi
+smm.o.objdump.d-382-  56:	b9 4a 00 00 00       	mov    $0x4a,%ecx
+smm.o.objdump.d-383-  5b:	ba 72 00 00 00       	mov    $0x72,%edx
+smm.o.objdump.d-384-  60:	89 f8                	mov    %edi,%eax
+smm.o.objdump.d-385-  62:	e8 fc ff ff ff       	call   63 <smm_setup+0x63>
+smm.o.objdump.d-386-  67:	e8 fc ff ff ff       	call   68 <smm_setup+0x68>
+smm.o.objdump.d-387-  6c:	81 cb 00 00 00 02    	or     $0x2000000,%ebx
+smm.o.objdump.d-388-  72:	89 d9                	mov    %ebx,%ecx
+smm.o.objdump.d-389-  74:	ba 58 00 00 00       	mov    $0x58,%edx
+smm.o.objdump.d-390-  79:	89 f0                	mov    %esi,%eax
+smm.o.objdump.d-391-  7b:	e8 fc ff ff ff       	call   7c <smm_setup+0x7c>
+smm.o.objdump.d-392-  80:	66 a1 00 00 00 00    	mov    0x0,%ax
+smm.o.objdump.d-393-  86:	8d 50 28             	lea    0x28(%eax),%edx
+smm.o.objdump.d:394:  89:	ed                   	in     (%dx),%eax
+smm.o.objdump.d-395-  8a:	83 c8 01             	or     $0x1,%eax
+smm.o.objdump.d:396:  8d:	ef                   	out    %eax,(%dx)
