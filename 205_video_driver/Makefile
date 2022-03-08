@@ -5,10 +5,9 @@ OBJ = ${C_SOURCES:.c=.o}
 
 # Change this if your cross-compiler is somewhere else
 CC = /usr/local/i386elfgcc/bin/i386-elf-gcc
-#GDB = /usr/local/i386elfgcc/bin/i386-elf-gdb
+GDB = /usr/local/i386elfgcc/bin/i386-elf-gdb
 # -g: Use debugging symbols in gcc
 CFLAGS = -g
-#CFLAGS = 
 
 # First rule is run by default
 os-image.bin: boot/bootsect.bin kernel.bin
@@ -17,8 +16,8 @@ os-image.bin: boot/bootsect.bin kernel.bin
 # '--oformat binary' deletes all symbols as a collateral, so we don't need
 # to 'strip' them manually on this case
 kernel.bin: boot/kernel_entry.o ${OBJ}
-	python3 readelf.py boot/kernel_entry.o kernel/kernel.o drivers/ports.o > foo
-#	i386-elf-ld -o $@ -Ttext 0x1000 $^ --oformat binary
+	#i386-elf-ld -o $@ -Ttext 0x1000 $^ --oformat binary
+	i386-elf-ld -o $@ $^ --oformat binary
 
 # Used for debugging purposes
 kernel.elf: boot/kernel_entry.o ${OBJ}
@@ -29,8 +28,8 @@ run: os-image.bin
 
 # Open the connection to qemu and load our kernel-object file with symbols
 debug: os-image.bin kernel.elf
-	qemu-system-i386 -S -s -fda os-image.bin &
-#	${GDB} -ex "target remote localhost:1234" -ex "symbol-file kernel.elf"
+	qemu-system-i386 -s -fda os-image.bin &
+	${GDB} -ex "target remote localhost:1234" -ex "symbol-file kernel.elf"
 
 # Generic rules for wildcards
 # To make an object, always compile from its .c
