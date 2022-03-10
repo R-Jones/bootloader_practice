@@ -1,0 +1,358 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              REL (Relocatable file)
+  Machine:                           Intel 80386
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          0 (bytes into file)
+  Start of section headers:          4020 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               52 (bytes)
+  Size of program headers:           0 (bytes)
+  Number of program headers:         0
+  Size of section headers:           40 (bytes)
+  Number of section headers:         21
+  Section header string table index: 18
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        00000000 000034 000544 00  AX  0   0  1
+  [ 2] .rel.text         REL             00000000 001958 0003d0 08     19   1  4
+  [ 3] .data             PROGBITS        00000000 000580 000080 00  WA  0   0 32
+  [ 4] .rel.data         REL             00000000 001d28 000100 08     19   3  4
+  [ 5] .bss              NOBITS          00000000 000600 000000 00  WA  0   0  1
+  [ 6] .rodata           PROGBITS        00000000 000600 000153 00   A  0   0  1
+  [ 7] .debug_info       PROGBITS        00000000 000753 000313 00      0   0  1
+  [ 8] .rel.debug_info   REL             00000000 001e28 000160 08     19   7  4
+  [ 9] .debug_abbrev     PROGBITS        00000000 000a66 00014b 00      0   0  1
+  [10] .debug_aranges    PROGBITS        00000000 000bb1 000020 00      0   0  1
+  [11] .rel.debug_a[...] REL             00000000 001f88 000010 08     19  10  4
+  [12] .debug_line       PROGBITS        00000000 000bd1 0000e6 00      0   0  1
+  [13] .rel.debug_line   REL             00000000 001f98 000008 08     19  12  4
+  [14] .debug_str        PROGBITS        00000000 000cb7 0001a5 01  MS  0   0  1
+  [15] .comment          PROGBITS        00000000 000e5c 000012 01  MS  0   0  1
+  [16] .eh_frame         PROGBITS        00000000 000e70 0000a4 00   A  0   0  4
+  [17] .rel.eh_frame     REL             00000000 001fa0 000020 08     19  16  4
+  [18] .shstrtab         STRTAB          00000000 000f14 00009f 00      0   0  1
+  [19] .symtab           SYMTAB          00000000 0012fc 0004a0 10     20  13  4
+  [20] .strtab           STRTAB          00000000 00179c 0001bb 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), p (processor specific)
+
+There are no section groups in this file.
+
+There are no program headers in this file.
+
+There is no dynamic section in this file.
+
+Relocation section '.rel.text' at offset 0x1958 contains 122 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000007  00001101 R_386_32          00000000   isr0
+00000012  00001202 R_386_PC32        00000000   set_idt_gate
+0000001a  00001301 R_386_32          00000000   isr1
+00000025  00001202 R_386_PC32        00000000   set_idt_gate
+0000002d  00001401 R_386_32          00000000   isr2
+00000038  00001202 R_386_PC32        00000000   set_idt_gate
+00000040  00001501 R_386_32          00000000   isr3
+0000004b  00001202 R_386_PC32        00000000   set_idt_gate
+00000053  00001601 R_386_32          00000000   isr4
+0000005e  00001202 R_386_PC32        00000000   set_idt_gate
+00000066  00001701 R_386_32          00000000   isr5
+00000071  00001202 R_386_PC32        00000000   set_idt_gate
+00000079  00001801 R_386_32          00000000   isr6
+00000084  00001202 R_386_PC32        00000000   set_idt_gate
+0000008c  00001901 R_386_32          00000000   isr7
+00000097  00001202 R_386_PC32        00000000   set_idt_gate
+0000009f  00001a01 R_386_32          00000000   isr8
+000000aa  00001202 R_386_PC32        00000000   set_idt_gate
+000000b2  00001b01 R_386_32          00000000   isr9
+000000bd  00001202 R_386_PC32        00000000   set_idt_gate
+000000c5  00001c01 R_386_32          00000000   isr10
+000000d0  00001202 R_386_PC32        00000000   set_idt_gate
+000000d8  00001d01 R_386_32          00000000   isr11
+000000e3  00001202 R_386_PC32        00000000   set_idt_gate
+000000eb  00001e01 R_386_32          00000000   isr12
+000000f6  00001202 R_386_PC32        00000000   set_idt_gate
+000000fe  00001f01 R_386_32          00000000   isr13
+00000109  00001202 R_386_PC32        00000000   set_idt_gate
+00000111  00002001 R_386_32          00000000   isr14
+0000011c  00001202 R_386_PC32        00000000   set_idt_gate
+00000124  00002101 R_386_32          00000000   isr15
+0000012f  00001202 R_386_PC32        00000000   set_idt_gate
+00000137  00002201 R_386_32          00000000   isr16
+00000142  00001202 R_386_PC32        00000000   set_idt_gate
+0000014a  00002301 R_386_32          00000000   isr17
+00000155  00001202 R_386_PC32        00000000   set_idt_gate
+0000015d  00002401 R_386_32          00000000   isr18
+00000168  00001202 R_386_PC32        00000000   set_idt_gate
+00000170  00002501 R_386_32          00000000   isr19
+0000017b  00001202 R_386_PC32        00000000   set_idt_gate
+00000183  00002601 R_386_32          00000000   isr20
+0000018e  00001202 R_386_PC32        00000000   set_idt_gate
+00000196  00002701 R_386_32          00000000   isr21
+000001a1  00001202 R_386_PC32        00000000   set_idt_gate
+000001a9  00002801 R_386_32          00000000   isr22
+000001b4  00001202 R_386_PC32        00000000   set_idt_gate
+000001bc  00002901 R_386_32          00000000   isr23
+000001c7  00001202 R_386_PC32        00000000   set_idt_gate
+000001cf  00002a01 R_386_32          00000000   isr24
+000001da  00001202 R_386_PC32        00000000   set_idt_gate
+000001e2  00002b01 R_386_32          00000000   isr25
+000001ed  00001202 R_386_PC32        00000000   set_idt_gate
+000001f5  00002c01 R_386_32          00000000   isr26
+00000200  00001202 R_386_PC32        00000000   set_idt_gate
+00000208  00002d01 R_386_32          00000000   isr27
+00000213  00001202 R_386_PC32        00000000   set_idt_gate
+0000021b  00002e01 R_386_32          00000000   isr28
+00000226  00001202 R_386_PC32        00000000   set_idt_gate
+0000022e  00002f01 R_386_32          00000000   isr29
+00000239  00001202 R_386_PC32        00000000   set_idt_gate
+00000241  00003001 R_386_32          00000000   isr30
+0000024c  00001202 R_386_PC32        00000000   set_idt_gate
+00000254  00003101 R_386_32          00000000   isr31
+0000025f  00001202 R_386_PC32        00000000   set_idt_gate
+0000026e  00003202 R_386_PC32        00000000   port_byte_out
+00000280  00003202 R_386_PC32        00000000   port_byte_out
+0000028f  00003202 R_386_PC32        00000000   port_byte_out
+000002a1  00003202 R_386_PC32        00000000   port_byte_out
+000002b0  00003202 R_386_PC32        00000000   port_byte_out
+000002c2  00003202 R_386_PC32        00000000   port_byte_out
+000002d1  00003202 R_386_PC32        00000000   port_byte_out
+000002e3  00003202 R_386_PC32        00000000   port_byte_out
+000002f2  00003202 R_386_PC32        00000000   port_byte_out
+00000304  00003202 R_386_PC32        00000000   port_byte_out
+0000030c  00003301 R_386_32          00000000   irq0
+00000317  00001202 R_386_PC32        00000000   set_idt_gate
+0000031f  00003401 R_386_32          00000000   irq1
+0000032a  00001202 R_386_PC32        00000000   set_idt_gate
+00000332  00003501 R_386_32          00000000   irq2
+0000033d  00001202 R_386_PC32        00000000   set_idt_gate
+00000345  00003601 R_386_32          00000000   irq3
+00000350  00001202 R_386_PC32        00000000   set_idt_gate
+00000358  00003701 R_386_32          00000000   irq4
+00000363  00001202 R_386_PC32        00000000   set_idt_gate
+0000036b  00003801 R_386_32          00000000   irq5
+00000376  00001202 R_386_PC32        00000000   set_idt_gate
+0000037e  00003901 R_386_32          00000000   irq6
+00000389  00001202 R_386_PC32        00000000   set_idt_gate
+00000391  00003a01 R_386_32          00000000   irq7
+0000039c  00001202 R_386_PC32        00000000   set_idt_gate
+000003a4  00003b01 R_386_32          00000000   irq8
+000003af  00001202 R_386_PC32        00000000   set_idt_gate
+000003b7  00003c01 R_386_32          00000000   irq9
+000003c2  00001202 R_386_PC32        00000000   set_idt_gate
+000003ca  00003d01 R_386_32          00000000   irq10
+000003d5  00001202 R_386_PC32        00000000   set_idt_gate
+000003dd  00003e01 R_386_32          00000000   irq11
+000003e8  00001202 R_386_PC32        00000000   set_idt_gate
+000003f0  00003f01 R_386_32          00000000   irq12
+000003fb  00001202 R_386_PC32        00000000   set_idt_gate
+00000403  00004001 R_386_32          00000000   irq13
+0000040e  00001202 R_386_PC32        00000000   set_idt_gate
+00000416  00004101 R_386_32          00000000   irq14
+00000421  00001202 R_386_PC32        00000000   set_idt_gate
+00000429  00004201 R_386_32          00000000   irq15
+00000434  00001202 R_386_PC32        00000000   set_idt_gate
+0000043c  00004302 R_386_PC32        00000000   set_idt
+0000044c  00000501 R_386_32          00000000   .rodata
+00000451  00004602 R_386_PC32        00000000   kprint
+00000466  00004702 R_386_PC32        00000000   int_to_ascii
+00000475  00004602 R_386_PC32        00000000   kprint
+00000480  00000501 R_386_32          00000000   .rodata
+00000485  00004602 R_386_PC32        00000000   kprint
+00000492  00004401 R_386_32          00000000   exception_messages
+0000049b  00004602 R_386_PC32        00000000   kprint
+000004a6  00000501 R_386_32          00000000   .rodata
+000004ab  00004602 R_386_PC32        00000000   kprint
+000004ca  00000f01 R_386_32          00000020   interrupt_handlers
+000004ec  00003202 R_386_PC32        00000000   port_byte_out
+000004fb  00003202 R_386_PC32        00000000   port_byte_out
+00000508  00000f01 R_386_32          00000020   interrupt_handlers
+00000516  00000f01 R_386_32          00000020   interrupt_handlers
+
+Relocation section '.rel.data' at offset 0x1d28 contains 32 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000000  00000501 R_386_32          00000000   .rodata
+00000004  00000501 R_386_32          00000000   .rodata
+00000008  00000501 R_386_32          00000000   .rodata
+0000000c  00000501 R_386_32          00000000   .rodata
+00000010  00000501 R_386_32          00000000   .rodata
+00000014  00000501 R_386_32          00000000   .rodata
+00000018  00000501 R_386_32          00000000   .rodata
+0000001c  00000501 R_386_32          00000000   .rodata
+00000020  00000501 R_386_32          00000000   .rodata
+00000024  00000501 R_386_32          00000000   .rodata
+00000028  00000501 R_386_32          00000000   .rodata
+0000002c  00000501 R_386_32          00000000   .rodata
+00000030  00000501 R_386_32          00000000   .rodata
+00000034  00000501 R_386_32          00000000   .rodata
+00000038  00000501 R_386_32          00000000   .rodata
+0000003c  00000501 R_386_32          00000000   .rodata
+00000040  00000501 R_386_32          00000000   .rodata
+00000044  00000501 R_386_32          00000000   .rodata
+00000048  00000501 R_386_32          00000000   .rodata
+0000004c  00000501 R_386_32          00000000   .rodata
+00000050  00000501 R_386_32          00000000   .rodata
+00000054  00000501 R_386_32          00000000   .rodata
+00000058  00000501 R_386_32          00000000   .rodata
+0000005c  00000501 R_386_32          00000000   .rodata
+00000060  00000501 R_386_32          00000000   .rodata
+00000064  00000501 R_386_32          00000000   .rodata
+00000068  00000501 R_386_32          00000000   .rodata
+0000006c  00000501 R_386_32          00000000   .rodata
+00000070  00000501 R_386_32          00000000   .rodata
+00000074  00000501 R_386_32          00000000   .rodata
+00000078  00000501 R_386_32          00000000   .rodata
+0000007c  00000501 R_386_32          00000000   .rodata
+
+Relocation section '.rel.debug_info' at offset 0x1e28 contains 44 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000006  00000701 R_386_32          00000000   .debug_abbrev
+0000000c  00000a01 R_386_32          00000000   .debug_str
+00000011  00000a01 R_386_32          00000000   .debug_str
+00000015  00000a01 R_386_32          00000000   .debug_str
+00000019  00000201 R_386_32          00000000   .text
+00000021  00000901 R_386_32          00000000   .debug_line
+00000033  00000a01 R_386_32          00000000   .debug_str
+0000004c  00000a01 R_386_32          00000000   .debug_str
+00000053  00000a01 R_386_32          00000000   .debug_str
+00000064  00000a01 R_386_32          00000000   .debug_str
+0000006b  00000a01 R_386_32          00000000   .debug_str
+000000e3  00000a01 R_386_32          00000000   .debug_str
+000000ef  00000a01 R_386_32          00000000   .debug_str
+00000112  00000a01 R_386_32          00000000   .debug_str
+0000011e  00000a01 R_386_32          00000000   .debug_str
+00000136  00000a01 R_386_32          00000000   .debug_str
+00000141  00000a01 R_386_32          00000000   .debug_str
+00000165  00000a01 R_386_32          00000000   .debug_str
+0000017d  00000a01 R_386_32          00000000   .debug_str
+00000189  00000a01 R_386_32          00000000   .debug_str
+00000195  00000a01 R_386_32          00000000   .debug_str
+000001a2  00000a01 R_386_32          00000000   .debug_str
+000001b5  00000a01 R_386_32          00000000   .debug_str
+000001c1  00000a01 R_386_32          00000000   .debug_str
+000001ce  00000a01 R_386_32          00000000   .debug_str
+000001d9  00000a01 R_386_32          00000000   .debug_str
+000001df  00000201 R_386_32          00000000   .text
+000001ea  00000a01 R_386_32          00000000   .debug_str
+000001f0  00000201 R_386_32          00000000   .text
+0000022a  00000a01 R_386_32          00000000   .debug_str
+0000022f  00000a01 R_386_32          00000000   .debug_str
+00000235  00000201 R_386_32          00000000   .text
+00000250  00000a01 R_386_32          00000000   .debug_str
+0000025f  00000a01 R_386_32          00000000   .debug_str
+00000265  00000201 R_386_32          00000000   .text
+00000280  00000201 R_386_32          00000000   .text
+00000289  00000a01 R_386_32          00000000   .debug_str
+000002b5  00000d01 R_386_32          00000020   idt
+000002ba  00000a01 R_386_32          00000000   .debug_str
+000002c6  00000e01 R_386_32          00000004   idt_reg
+000002db  00000a01 R_386_32          00000000   .debug_str
+000002e7  00000f01 R_386_32          00000020   interrupt_handlers
+00000302  00000a01 R_386_32          00000000   .debug_str
+0000030e  00004401 R_386_32          00000000   exception_messages
+
+Relocation section '.rel.debug_aranges' at offset 0x1f88 contains 2 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000006  00000601 R_386_32          00000000   .debug_info
+00000010  00000201 R_386_32          00000000   .text
+
+Relocation section '.rel.debug_line' at offset 0x1f98 contains 1 entry:
+ Offset     Info    Type            Sym.Value  Sym. Name
+0000004a  00000201 R_386_32          00000000   .text
+
+Relocation section '.rel.eh_frame' at offset 0x1fa0 contains 4 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000020  00000202 R_386_PC32        00000000   .text
+00000040  00000202 R_386_PC32        00000000   .text
+00000060  00000202 R_386_PC32        00000000   .text
+00000080  00000202 R_386_PC32        00000000   .text
+No processor specific unwind information to decode
+
+Symbol table '.symtab' contains 74 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 FILE    LOCAL  DEFAULT  ABS isr.c
+     2: 00000000     0 SECTION LOCAL  DEFAULT    1 .text
+     3: 00000000     0 SECTION LOCAL  DEFAULT    3 .data
+     4: 00000000     0 SECTION LOCAL  DEFAULT    5 .bss
+     5: 00000000     0 SECTION LOCAL  DEFAULT    6 .rodata
+     6: 00000000     0 SECTION LOCAL  DEFAULT    7 .debug_info
+     7: 00000000     0 SECTION LOCAL  DEFAULT    9 .debug_abbrev
+     8: 00000000     0 SECTION LOCAL  DEFAULT   10 .debug_aranges
+     9: 00000000     0 SECTION LOCAL  DEFAULT   12 .debug_line
+    10: 00000000     0 SECTION LOCAL  DEFAULT   14 .debug_str
+    11: 00000000     0 SECTION LOCAL  DEFAULT   16 .eh_frame
+    12: 00000000     0 SECTION LOCAL  DEFAULT   15 .comment
+    13: 00000020  2048 OBJECT  GLOBAL DEFAULT  COM idt
+    14: 00000004     6 OBJECT  GLOBAL DEFAULT  COM idt_reg
+    15: 00000020  1024 OBJECT  GLOBAL DEFAULT  COM interrupt_handlers
+    16: 00000000  1090 FUNC    GLOBAL DEFAULT    1 isr_install
+    17: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr0
+    18: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND set_idt_gate
+    19: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr1
+    20: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr2
+    21: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr3
+    22: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr4
+    23: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr5
+    24: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr6
+    25: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr7
+    26: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr8
+    27: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr9
+    28: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr10
+    29: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr11
+    30: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr12
+    31: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr13
+    32: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr14
+    33: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr15
+    34: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr16
+    35: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr17
+    36: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr18
+    37: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr19
+    38: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr20
+    39: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr21
+    40: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr22
+    41: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr23
+    42: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr24
+    43: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr25
+    44: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr26
+    45: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr27
+    46: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr28
+    47: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr29
+    48: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr30
+    49: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr31
+    50: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND port_byte_out
+    51: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq0
+    52: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq1
+    53: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq2
+    54: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq3
+    55: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq4
+    56: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq5
+    57: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq6
+    58: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq7
+    59: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq8
+    60: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq9
+    61: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq10
+    62: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq11
+    63: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq12
+    64: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq13
+    65: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq14
+    66: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq15
+    67: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND set_idt
+    68: 00000000   128 OBJECT  GLOBAL DEFAULT    3 exception_messages
+    69: 00000442   114 FUNC    GLOBAL DEFAULT    1 isr_handler
+    70: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND kprint
+    71: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND int_to_ascii
+    72: 000004b4    28 FUNC    GLOBAL DEFAULT    1 register_interru[...]
+    73: 000004d0   116 FUNC    GLOBAL DEFAULT    1 irq_handler
+
+No version information found in this file.

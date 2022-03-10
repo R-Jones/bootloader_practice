@@ -1,0 +1,41 @@
+
+idt.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <set_idt_gate>:
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	8b 45 0c             	mov    0xc(%ebp),%eax
+   6:	8b 55 08             	mov    0x8(%ebp),%edx
+   9:	66 89 04 d5 00 00 00 	mov    %ax,0x0(,%edx,8)
+  10:	00 
+  11:	8b 45 08             	mov    0x8(%ebp),%eax
+  14:	66 c7 04 c5 02 00 00 	movw   $0x8,0x2(,%eax,8)
+  1b:	00 08 00 
+  1e:	8b 45 08             	mov    0x8(%ebp),%eax
+  21:	c6 04 c5 04 00 00 00 	movb   $0x0,0x4(,%eax,8)
+  28:	00 
+  29:	8b 45 08             	mov    0x8(%ebp),%eax
+  2c:	c6 04 c5 05 00 00 00 	movb   $0x8e,0x5(,%eax,8)
+  33:	8e 
+  34:	8b 45 0c             	mov    0xc(%ebp),%eax
+  37:	c1 e8 10             	shr    $0x10,%eax
+  3a:	8b 55 08             	mov    0x8(%ebp),%edx
+  3d:	66 89 04 d5 06 00 00 	mov    %ax,0x6(,%edx,8)
+  44:	00 
+  45:	5d                   	pop    %ebp
+  46:	c3                   	ret    
+
+00000047 <set_idt>:
+  47:	55                   	push   %ebp
+  48:	89 e5                	mov    %esp,%ebp
+  4a:	b8 00 00 00 00       	mov    $0x0,%eax
+  4f:	a3 02 00 00 00       	mov    %eax,0x2
+  54:	66 c7 05 00 00 00 00 	movw   $0x7ff,0x0
+  5b:	ff 07 
+  5d:	b8 00 00 00 00       	mov    $0x0,%eax
+  62:	0f 01 18             	lidtl  (%eax)
+  65:	5d                   	pop    %ebp
+  66:	c3                   	ret    

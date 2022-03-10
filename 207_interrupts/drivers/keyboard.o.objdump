@@ -1,0 +1,102 @@
+
+keyboard.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <keyboard_callback>:
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	83 ec 18             	sub    $0x18,%esp
+   6:	83 ec 0c             	sub    $0xc,%esp
+   9:	6a 60                	push   $0x60
+   b:	e8 fc ff ff ff       	call   c <keyboard_callback+0xc>
+  10:	83 c4 10             	add    $0x10,%esp
+  13:	88 45 f7             	mov    %al,-0x9(%ebp)
+  16:	0f b6 45 f7          	movzbl -0x9(%ebp),%eax
+  1a:	83 ec 08             	sub    $0x8,%esp
+  1d:	ff 75 f0             	push   -0x10(%ebp)
+  20:	50                   	push   %eax
+  21:	e8 fc ff ff ff       	call   22 <keyboard_callback+0x22>
+  26:	83 c4 10             	add    $0x10,%esp
+  29:	83 ec 0c             	sub    $0xc,%esp
+  2c:	68 00 00 00 00       	push   $0x0
+  31:	e8 fc ff ff ff       	call   32 <keyboard_callback+0x32>
+  36:	83 c4 10             	add    $0x10,%esp
+  39:	83 ec 0c             	sub    $0xc,%esp
+  3c:	ff 75 f0             	push   -0x10(%ebp)
+  3f:	e8 fc ff ff ff       	call   40 <keyboard_callback+0x40>
+  44:	83 c4 10             	add    $0x10,%esp
+  47:	83 ec 0c             	sub    $0xc,%esp
+  4a:	68 14 00 00 00       	push   $0x14
+  4f:	e8 fc ff ff ff       	call   50 <keyboard_callback+0x50>
+  54:	83 c4 10             	add    $0x10,%esp
+  57:	0f b6 45 f7          	movzbl -0x9(%ebp),%eax
+  5b:	83 ec 0c             	sub    $0xc,%esp
+  5e:	50                   	push   %eax
+  5f:	e8 fc ff ff ff       	call   60 <keyboard_callback+0x60>
+  64:	83 c4 10             	add    $0x10,%esp
+  67:	83 ec 0c             	sub    $0xc,%esp
+  6a:	68 17 00 00 00       	push   $0x17
+  6f:	e8 fc ff ff ff       	call   70 <keyboard_callback+0x70>
+  74:	83 c4 10             	add    $0x10,%esp
+  77:	c9                   	leave  
+  78:	c3                   	ret    
+
+00000079 <init_keyboard>:
+  79:	55                   	push   %ebp
+  7a:	89 e5                	mov    %esp,%ebp
+  7c:	83 ec 08             	sub    $0x8,%esp
+  7f:	83 ec 08             	sub    $0x8,%esp
+  82:	68 00 00 00 00       	push   $0x0
+  87:	6a 21                	push   $0x21
+  89:	e8 fc ff ff ff       	call   8a <init_keyboard+0x11>
+  8e:	83 c4 10             	add    $0x10,%esp
+  91:	c9                   	leave  
+  92:	c3                   	ret    
+
+00000093 <print_letter>:
+  93:	55                   	push   %ebp
+  94:	89 e5                	mov    %esp,%ebp
+  96:	57                   	push   %edi
+  97:	56                   	push   %esi
+  98:	53                   	push   %ebx
+  99:	81 ec 0c 01 00 00    	sub    $0x10c,%esp
+  9f:	8b 45 08             	mov    0x8(%ebp),%eax
+  a2:	88 85 f4 fe ff ff    	mov    %al,-0x10c(%ebp)
+  a8:	8d 85 00 ff ff ff    	lea    -0x100(%ebp),%eax
+  ae:	bb e0 00 00 00       	mov    $0xe0,%ebx
+  b3:	ba 3a 00 00 00       	mov    $0x3a,%edx
+  b8:	89 c7                	mov    %eax,%edi
+  ba:	89 de                	mov    %ebx,%esi
+  bc:	89 d1                	mov    %edx,%ecx
+  be:	f3 a5                	rep movsl %ds:(%esi),%es:(%edi)
+  c0:	80 bd f4 fe ff ff 39 	cmpb   $0x39,-0x10c(%ebp)
+  c7:	77 1c                	ja     e5 <print_letter+0x52>
+  c9:	0f b6 85 f4 fe ff ff 	movzbl -0x10c(%ebp),%eax
+  d0:	8b 84 85 00 ff ff ff 	mov    -0x100(%ebp,%eax,4),%eax
+  d7:	83 ec 0c             	sub    $0xc,%esp
+  da:	50                   	push   %eax
+  db:	e8 fc ff ff ff       	call   dc <print_letter+0x49>
+  e0:	83 c4 10             	add    $0x10,%esp
+  e3:	eb 38                	jmp    11d <print_letter+0x8a>
+  e5:	80 bd f4 fe ff ff b9 	cmpb   $0xb9,-0x10c(%ebp)
+  ec:	77 1f                	ja     10d <print_letter+0x7a>
+  ee:	0f b6 85 f4 fe ff ff 	movzbl -0x10c(%ebp),%eax
+  f5:	83 c0 80             	add    $0xffffff80,%eax
+  f8:	8b 84 85 00 ff ff ff 	mov    -0x100(%ebp,%eax,4),%eax
+  ff:	83 ec 0c             	sub    $0xc,%esp
+ 102:	50                   	push   %eax
+ 103:	e8 fc ff ff ff       	call   104 <print_letter+0x71>
+ 108:	83 c4 10             	add    $0x10,%esp
+ 10b:	eb 10                	jmp    11d <print_letter+0x8a>
+ 10d:	83 ec 0c             	sub    $0xc,%esp
+ 110:	68 19 00 00 00       	push   $0x19
+ 115:	e8 fc ff ff ff       	call   116 <print_letter+0x83>
+ 11a:	83 c4 10             	add    $0x10,%esp
+ 11d:	8d 65 f4             	lea    -0xc(%ebp),%esp
+ 120:	5b                   	pop    %ebx
+ 121:	5e                   	pop    %esi
+ 122:	5f                   	pop    %edi
+ 123:	5d                   	pop    %ebp
+ 124:	c3                   	ret    

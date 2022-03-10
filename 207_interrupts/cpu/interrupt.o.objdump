@@ -1,0 +1,327 @@
+
+interrupt.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <isr_common_stub>:
+   0:	60                   	pusha  
+   1:	66 8c d8             	mov    %ds,%ax
+   4:	50                   	push   %eax
+   5:	66 b8 10 00          	mov    $0x10,%ax
+   9:	8e d8                	mov    %eax,%ds
+   b:	8e c0                	mov    %eax,%es
+   d:	8e e0                	mov    %eax,%fs
+   f:	8e e8                	mov    %eax,%gs
+  11:	e8 fc ff ff ff       	call   12 <isr_common_stub+0x12>
+  16:	58                   	pop    %eax
+  17:	8e d8                	mov    %eax,%ds
+  19:	8e c0                	mov    %eax,%es
+  1b:	8e e0                	mov    %eax,%fs
+  1d:	8e e8                	mov    %eax,%gs
+  1f:	61                   	popa   
+  20:	83 c4 08             	add    $0x8,%esp
+  23:	fb                   	sti    
+  24:	cf                   	iret   
+
+00000025 <irq_common_stub>:
+  25:	60                   	pusha  
+  26:	66 8c d8             	mov    %ds,%ax
+  29:	50                   	push   %eax
+  2a:	66 b8 10 00          	mov    $0x10,%ax
+  2e:	8e d8                	mov    %eax,%ds
+  30:	8e c0                	mov    %eax,%es
+  32:	8e e0                	mov    %eax,%fs
+  34:	8e e8                	mov    %eax,%gs
+  36:	e8 fc ff ff ff       	call   37 <irq_common_stub+0x12>
+  3b:	5b                   	pop    %ebx
+  3c:	8e db                	mov    %ebx,%ds
+  3e:	8e c3                	mov    %ebx,%es
+  40:	8e e3                	mov    %ebx,%fs
+  42:	8e eb                	mov    %ebx,%gs
+  44:	61                   	popa   
+  45:	83 c4 08             	add    $0x8,%esp
+  48:	fb                   	sti    
+  49:	cf                   	iret   
+
+0000004a <isr0>:
+  4a:	fa                   	cli    
+  4b:	6a 00                	push   $0x0
+  4d:	6a 00                	push   $0x0
+  4f:	eb af                	jmp    0 <isr_common_stub>
+
+00000051 <isr1>:
+  51:	fa                   	cli    
+  52:	6a 00                	push   $0x0
+  54:	6a 01                	push   $0x1
+  56:	eb a8                	jmp    0 <isr_common_stub>
+
+00000058 <isr2>:
+  58:	fa                   	cli    
+  59:	6a 00                	push   $0x0
+  5b:	6a 02                	push   $0x2
+  5d:	eb a1                	jmp    0 <isr_common_stub>
+
+0000005f <isr3>:
+  5f:	fa                   	cli    
+  60:	6a 00                	push   $0x0
+  62:	6a 03                	push   $0x3
+  64:	eb 9a                	jmp    0 <isr_common_stub>
+
+00000066 <isr4>:
+  66:	fa                   	cli    
+  67:	6a 00                	push   $0x0
+  69:	6a 03                	push   $0x3
+  6b:	eb 93                	jmp    0 <isr_common_stub>
+
+0000006d <isr5>:
+  6d:	fa                   	cli    
+  6e:	6a 00                	push   $0x0
+  70:	6a 05                	push   $0x5
+  72:	eb 8c                	jmp    0 <isr_common_stub>
+
+00000074 <isr6>:
+  74:	fa                   	cli    
+  75:	6a 00                	push   $0x0
+  77:	6a 06                	push   $0x6
+  79:	eb 85                	jmp    0 <isr_common_stub>
+
+0000007b <isr7>:
+  7b:	fa                   	cli    
+  7c:	6a 00                	push   $0x0
+  7e:	6a 07                	push   $0x7
+  80:	e9 7b ff ff ff       	jmp    0 <isr_common_stub>
+
+00000085 <isr8>:
+  85:	fa                   	cli    
+  86:	6a 08                	push   $0x8
+  88:	e9 73 ff ff ff       	jmp    0 <isr_common_stub>
+
+0000008d <isr9>:
+  8d:	fa                   	cli    
+  8e:	6a 00                	push   $0x0
+  90:	6a 09                	push   $0x9
+  92:	e9 69 ff ff ff       	jmp    0 <isr_common_stub>
+
+00000097 <isr10>:
+  97:	fa                   	cli    
+  98:	6a 0a                	push   $0xa
+  9a:	e9 61 ff ff ff       	jmp    0 <isr_common_stub>
+
+0000009f <isr11>:
+  9f:	fa                   	cli    
+  a0:	6a 0b                	push   $0xb
+  a2:	e9 59 ff ff ff       	jmp    0 <isr_common_stub>
+
+000000a7 <isr12>:
+  a7:	fa                   	cli    
+  a8:	6a 0c                	push   $0xc
+  aa:	e9 51 ff ff ff       	jmp    0 <isr_common_stub>
+
+000000af <isr13>:
+  af:	fa                   	cli    
+  b0:	6a 0d                	push   $0xd
+  b2:	e9 49 ff ff ff       	jmp    0 <isr_common_stub>
+
+000000b7 <isr14>:
+  b7:	fa                   	cli    
+  b8:	6a 0e                	push   $0xe
+  ba:	e9 41 ff ff ff       	jmp    0 <isr_common_stub>
+
+000000bf <isr15>:
+  bf:	fa                   	cli    
+  c0:	6a 00                	push   $0x0
+  c2:	6a 0f                	push   $0xf
+  c4:	e9 37 ff ff ff       	jmp    0 <isr_common_stub>
+
+000000c9 <isr16>:
+  c9:	fa                   	cli    
+  ca:	6a 00                	push   $0x0
+  cc:	6a 10                	push   $0x10
+  ce:	e9 2d ff ff ff       	jmp    0 <isr_common_stub>
+
+000000d3 <isr17>:
+  d3:	fa                   	cli    
+  d4:	6a 00                	push   $0x0
+  d6:	6a 11                	push   $0x11
+  d8:	e9 23 ff ff ff       	jmp    0 <isr_common_stub>
+
+000000dd <isr18>:
+  dd:	fa                   	cli    
+  de:	6a 00                	push   $0x0
+  e0:	6a 12                	push   $0x12
+  e2:	e9 19 ff ff ff       	jmp    0 <isr_common_stub>
+
+000000e7 <isr19>:
+  e7:	fa                   	cli    
+  e8:	6a 00                	push   $0x0
+  ea:	6a 13                	push   $0x13
+  ec:	e9 0f ff ff ff       	jmp    0 <isr_common_stub>
+
+000000f1 <isr20>:
+  f1:	fa                   	cli    
+  f2:	6a 00                	push   $0x0
+  f4:	6a 14                	push   $0x14
+  f6:	e9 05 ff ff ff       	jmp    0 <isr_common_stub>
+
+000000fb <isr21>:
+  fb:	fa                   	cli    
+  fc:	6a 00                	push   $0x0
+  fe:	6a 15                	push   $0x15
+ 100:	e9 fb fe ff ff       	jmp    0 <isr_common_stub>
+
+00000105 <isr22>:
+ 105:	fa                   	cli    
+ 106:	6a 00                	push   $0x0
+ 108:	6a 16                	push   $0x16
+ 10a:	e9 f1 fe ff ff       	jmp    0 <isr_common_stub>
+
+0000010f <isr23>:
+ 10f:	fa                   	cli    
+ 110:	6a 00                	push   $0x0
+ 112:	6a 17                	push   $0x17
+ 114:	e9 e7 fe ff ff       	jmp    0 <isr_common_stub>
+
+00000119 <isr24>:
+ 119:	fa                   	cli    
+ 11a:	6a 00                	push   $0x0
+ 11c:	6a 18                	push   $0x18
+ 11e:	e9 dd fe ff ff       	jmp    0 <isr_common_stub>
+
+00000123 <isr25>:
+ 123:	fa                   	cli    
+ 124:	6a 00                	push   $0x0
+ 126:	6a 19                	push   $0x19
+ 128:	e9 d3 fe ff ff       	jmp    0 <isr_common_stub>
+
+0000012d <isr26>:
+ 12d:	fa                   	cli    
+ 12e:	6a 00                	push   $0x0
+ 130:	6a 1a                	push   $0x1a
+ 132:	e9 c9 fe ff ff       	jmp    0 <isr_common_stub>
+
+00000137 <isr27>:
+ 137:	fa                   	cli    
+ 138:	6a 00                	push   $0x0
+ 13a:	6a 1b                	push   $0x1b
+ 13c:	e9 bf fe ff ff       	jmp    0 <isr_common_stub>
+
+00000141 <isr28>:
+ 141:	fa                   	cli    
+ 142:	6a 00                	push   $0x0
+ 144:	6a 1c                	push   $0x1c
+ 146:	e9 b5 fe ff ff       	jmp    0 <isr_common_stub>
+
+0000014b <isr29>:
+ 14b:	fa                   	cli    
+ 14c:	6a 00                	push   $0x0
+ 14e:	6a 1d                	push   $0x1d
+ 150:	e9 ab fe ff ff       	jmp    0 <isr_common_stub>
+
+00000155 <isr30>:
+ 155:	fa                   	cli    
+ 156:	6a 00                	push   $0x0
+ 158:	6a 1e                	push   $0x1e
+ 15a:	e9 a1 fe ff ff       	jmp    0 <isr_common_stub>
+
+0000015f <isr31>:
+ 15f:	fa                   	cli    
+ 160:	6a 00                	push   $0x0
+ 162:	6a 1f                	push   $0x1f
+ 164:	e9 97 fe ff ff       	jmp    0 <isr_common_stub>
+
+00000169 <irq0>:
+ 169:	fa                   	cli    
+ 16a:	6a 00                	push   $0x0
+ 16c:	6a 20                	push   $0x20
+ 16e:	e9 b2 fe ff ff       	jmp    25 <irq_common_stub>
+
+00000173 <irq1>:
+ 173:	fa                   	cli    
+ 174:	6a 01                	push   $0x1
+ 176:	6a 21                	push   $0x21
+ 178:	e9 a8 fe ff ff       	jmp    25 <irq_common_stub>
+
+0000017d <irq2>:
+ 17d:	fa                   	cli    
+ 17e:	6a 02                	push   $0x2
+ 180:	6a 22                	push   $0x22
+ 182:	e9 9e fe ff ff       	jmp    25 <irq_common_stub>
+
+00000187 <irq3>:
+ 187:	fa                   	cli    
+ 188:	6a 03                	push   $0x3
+ 18a:	6a 23                	push   $0x23
+ 18c:	e9 94 fe ff ff       	jmp    25 <irq_common_stub>
+
+00000191 <irq4>:
+ 191:	fa                   	cli    
+ 192:	6a 04                	push   $0x4
+ 194:	6a 24                	push   $0x24
+ 196:	e9 8a fe ff ff       	jmp    25 <irq_common_stub>
+
+0000019b <irq5>:
+ 19b:	fa                   	cli    
+ 19c:	6a 05                	push   $0x5
+ 19e:	6a 25                	push   $0x25
+ 1a0:	e9 80 fe ff ff       	jmp    25 <irq_common_stub>
+
+000001a5 <irq6>:
+ 1a5:	fa                   	cli    
+ 1a6:	6a 06                	push   $0x6
+ 1a8:	6a 26                	push   $0x26
+ 1aa:	e9 76 fe ff ff       	jmp    25 <irq_common_stub>
+
+000001af <irq7>:
+ 1af:	fa                   	cli    
+ 1b0:	6a 07                	push   $0x7
+ 1b2:	6a 27                	push   $0x27
+ 1b4:	e9 6c fe ff ff       	jmp    25 <irq_common_stub>
+
+000001b9 <irq8>:
+ 1b9:	fa                   	cli    
+ 1ba:	6a 08                	push   $0x8
+ 1bc:	6a 28                	push   $0x28
+ 1be:	e9 62 fe ff ff       	jmp    25 <irq_common_stub>
+
+000001c3 <irq9>:
+ 1c3:	fa                   	cli    
+ 1c4:	6a 09                	push   $0x9
+ 1c6:	6a 29                	push   $0x29
+ 1c8:	e9 58 fe ff ff       	jmp    25 <irq_common_stub>
+
+000001cd <irq10>:
+ 1cd:	fa                   	cli    
+ 1ce:	6a 0a                	push   $0xa
+ 1d0:	6a 2a                	push   $0x2a
+ 1d2:	e9 4e fe ff ff       	jmp    25 <irq_common_stub>
+
+000001d7 <irq11>:
+ 1d7:	fa                   	cli    
+ 1d8:	6a 0b                	push   $0xb
+ 1da:	6a 2b                	push   $0x2b
+ 1dc:	e9 44 fe ff ff       	jmp    25 <irq_common_stub>
+
+000001e1 <irq12>:
+ 1e1:	fa                   	cli    
+ 1e2:	6a 0c                	push   $0xc
+ 1e4:	6a 2c                	push   $0x2c
+ 1e6:	e9 3a fe ff ff       	jmp    25 <irq_common_stub>
+
+000001eb <irq13>:
+ 1eb:	fa                   	cli    
+ 1ec:	6a 0d                	push   $0xd
+ 1ee:	6a 2d                	push   $0x2d
+ 1f0:	e9 30 fe ff ff       	jmp    25 <irq_common_stub>
+
+000001f5 <irq14>:
+ 1f5:	fa                   	cli    
+ 1f6:	6a 0e                	push   $0xe
+ 1f8:	6a 2e                	push   $0x2e
+ 1fa:	e9 26 fe ff ff       	jmp    25 <irq_common_stub>
+
+000001ff <irq15>:
+ 1ff:	fa                   	cli    
+ 200:	6a 0f                	push   $0xf
+ 202:	6a 2f                	push   $0x2f
+ 204:	e9 1c fe ff ff       	jmp    25 <irq_common_stub>

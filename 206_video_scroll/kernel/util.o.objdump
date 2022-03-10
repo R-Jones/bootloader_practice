@@ -1,0 +1,79 @@
+
+util.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <memory_copy>:
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	83 ec 10             	sub    $0x10,%esp
+   6:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+   d:	eb 17                	jmp    26 <memory_copy+0x26>
+   f:	8b 55 fc             	mov    -0x4(%ebp),%edx
+  12:	8b 45 0c             	mov    0xc(%ebp),%eax
+  15:	01 c2                	add    %eax,%edx
+  17:	8b 4d fc             	mov    -0x4(%ebp),%ecx
+  1a:	8b 45 08             	mov    0x8(%ebp),%eax
+  1d:	01 c8                	add    %ecx,%eax
+  1f:	8a 00                	mov    (%eax),%al
+  21:	88 02                	mov    %al,(%edx)
+  23:	ff 45 fc             	incl   -0x4(%ebp)
+  26:	8b 45 fc             	mov    -0x4(%ebp),%eax
+  29:	3b 45 10             	cmp    0x10(%ebp),%eax
+  2c:	7c e1                	jl     f <memory_copy+0xf>
+  2e:	c9                   	leave  
+  2f:	c3                   	ret    
+
+00000030 <int_to_ascii>:
+  30:	55                   	push   %ebp
+  31:	89 e5                	mov    %esp,%ebp
+  33:	53                   	push   %ebx
+  34:	83 ec 10             	sub    $0x10,%esp
+  37:	8b 45 08             	mov    0x8(%ebp),%eax
+  3a:	89 45 f4             	mov    %eax,-0xc(%ebp)
+  3d:	83 7d f4 00          	cmpl   $0x0,-0xc(%ebp)
+  41:	79 03                	jns    46 <int_to_ascii+0x16>
+  43:	f7 5d 08             	negl   0x8(%ebp)
+  46:	c7 45 f8 00 00 00 00 	movl   $0x0,-0x8(%ebp)
+  4d:	8b 45 f8             	mov    -0x8(%ebp),%eax
+  50:	8d 50 01             	lea    0x1(%eax),%edx
+  53:	89 55 f8             	mov    %edx,-0x8(%ebp)
+  56:	89 c2                	mov    %eax,%edx
+  58:	8b 45 0c             	mov    0xc(%ebp),%eax
+  5b:	8d 0c 02             	lea    (%edx,%eax,1),%ecx
+  5e:	8b 45 08             	mov    0x8(%ebp),%eax
+  61:	bb 0a 00 00 00       	mov    $0xa,%ebx
+  66:	99                   	cltd   
+  67:	f7 fb                	idiv   %ebx
+  69:	89 d0                	mov    %edx,%eax
+  6b:	83 c0 30             	add    $0x30,%eax
+  6e:	88 01                	mov    %al,(%ecx)
+  70:	8b 4d 08             	mov    0x8(%ebp),%ecx
+  73:	b8 67 66 66 66       	mov    $0x66666667,%eax
+  78:	f7 e9                	imul   %ecx
+  7a:	c1 fa 02             	sar    $0x2,%edx
+  7d:	89 c8                	mov    %ecx,%eax
+  7f:	c1 f8 1f             	sar    $0x1f,%eax
+  82:	29 c2                	sub    %eax,%edx
+  84:	89 d0                	mov    %edx,%eax
+  86:	89 45 08             	mov    %eax,0x8(%ebp)
+  89:	83 7d 08 00          	cmpl   $0x0,0x8(%ebp)
+  8d:	7f be                	jg     4d <int_to_ascii+0x1d>
+  8f:	83 7d f4 00          	cmpl   $0x0,-0xc(%ebp)
+  93:	79 13                	jns    a8 <int_to_ascii+0x78>
+  95:	8b 45 f8             	mov    -0x8(%ebp),%eax
+  98:	8d 50 01             	lea    0x1(%eax),%edx
+  9b:	89 55 f8             	mov    %edx,-0x8(%ebp)
+  9e:	89 c2                	mov    %eax,%edx
+  a0:	8b 45 0c             	mov    0xc(%ebp),%eax
+  a3:	01 d0                	add    %edx,%eax
+  a5:	c6 00 2d             	movb   $0x2d,(%eax)
+  a8:	8b 55 f8             	mov    -0x8(%ebp),%edx
+  ab:	8b 45 0c             	mov    0xc(%ebp),%eax
+  ae:	01 d0                	add    %edx,%eax
+  b0:	c6 00 00             	movb   $0x0,(%eax)
+  b3:	83 c4 10             	add    $0x10,%esp
+  b6:	5b                   	pop    %ebx
+  b7:	5d                   	pop    %ebp
+  b8:	c3                   	ret    

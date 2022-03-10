@@ -1,0 +1,447 @@
+
+isr.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <isr_install>:
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	83 ec 08             	sub    $0x8,%esp
+   6:	b8 00 00 00 00       	mov    $0x0,%eax
+   b:	83 ec 08             	sub    $0x8,%esp
+   e:	50                   	push   %eax
+   f:	6a 00                	push   $0x0
+  11:	e8 fc ff ff ff       	call   12 <isr_install+0x12>
+  16:	83 c4 10             	add    $0x10,%esp
+  19:	b8 00 00 00 00       	mov    $0x0,%eax
+  1e:	83 ec 08             	sub    $0x8,%esp
+  21:	50                   	push   %eax
+  22:	6a 01                	push   $0x1
+  24:	e8 fc ff ff ff       	call   25 <isr_install+0x25>
+  29:	83 c4 10             	add    $0x10,%esp
+  2c:	b8 00 00 00 00       	mov    $0x0,%eax
+  31:	83 ec 08             	sub    $0x8,%esp
+  34:	50                   	push   %eax
+  35:	6a 02                	push   $0x2
+  37:	e8 fc ff ff ff       	call   38 <isr_install+0x38>
+  3c:	83 c4 10             	add    $0x10,%esp
+  3f:	b8 00 00 00 00       	mov    $0x0,%eax
+  44:	83 ec 08             	sub    $0x8,%esp
+  47:	50                   	push   %eax
+  48:	6a 03                	push   $0x3
+  4a:	e8 fc ff ff ff       	call   4b <isr_install+0x4b>
+  4f:	83 c4 10             	add    $0x10,%esp
+  52:	b8 00 00 00 00       	mov    $0x0,%eax
+  57:	83 ec 08             	sub    $0x8,%esp
+  5a:	50                   	push   %eax
+  5b:	6a 04                	push   $0x4
+  5d:	e8 fc ff ff ff       	call   5e <isr_install+0x5e>
+  62:	83 c4 10             	add    $0x10,%esp
+  65:	b8 00 00 00 00       	mov    $0x0,%eax
+  6a:	83 ec 08             	sub    $0x8,%esp
+  6d:	50                   	push   %eax
+  6e:	6a 05                	push   $0x5
+  70:	e8 fc ff ff ff       	call   71 <isr_install+0x71>
+  75:	83 c4 10             	add    $0x10,%esp
+  78:	b8 00 00 00 00       	mov    $0x0,%eax
+  7d:	83 ec 08             	sub    $0x8,%esp
+  80:	50                   	push   %eax
+  81:	6a 06                	push   $0x6
+  83:	e8 fc ff ff ff       	call   84 <isr_install+0x84>
+  88:	83 c4 10             	add    $0x10,%esp
+  8b:	b8 00 00 00 00       	mov    $0x0,%eax
+  90:	83 ec 08             	sub    $0x8,%esp
+  93:	50                   	push   %eax
+  94:	6a 07                	push   $0x7
+  96:	e8 fc ff ff ff       	call   97 <isr_install+0x97>
+  9b:	83 c4 10             	add    $0x10,%esp
+  9e:	b8 00 00 00 00       	mov    $0x0,%eax
+  a3:	83 ec 08             	sub    $0x8,%esp
+  a6:	50                   	push   %eax
+  a7:	6a 08                	push   $0x8
+  a9:	e8 fc ff ff ff       	call   aa <isr_install+0xaa>
+  ae:	83 c4 10             	add    $0x10,%esp
+  b1:	b8 00 00 00 00       	mov    $0x0,%eax
+  b6:	83 ec 08             	sub    $0x8,%esp
+  b9:	50                   	push   %eax
+  ba:	6a 09                	push   $0x9
+  bc:	e8 fc ff ff ff       	call   bd <isr_install+0xbd>
+  c1:	83 c4 10             	add    $0x10,%esp
+  c4:	b8 00 00 00 00       	mov    $0x0,%eax
+  c9:	83 ec 08             	sub    $0x8,%esp
+  cc:	50                   	push   %eax
+  cd:	6a 0a                	push   $0xa
+  cf:	e8 fc ff ff ff       	call   d0 <isr_install+0xd0>
+  d4:	83 c4 10             	add    $0x10,%esp
+  d7:	b8 00 00 00 00       	mov    $0x0,%eax
+  dc:	83 ec 08             	sub    $0x8,%esp
+  df:	50                   	push   %eax
+  e0:	6a 0b                	push   $0xb
+  e2:	e8 fc ff ff ff       	call   e3 <isr_install+0xe3>
+  e7:	83 c4 10             	add    $0x10,%esp
+  ea:	b8 00 00 00 00       	mov    $0x0,%eax
+  ef:	83 ec 08             	sub    $0x8,%esp
+  f2:	50                   	push   %eax
+  f3:	6a 0c                	push   $0xc
+  f5:	e8 fc ff ff ff       	call   f6 <isr_install+0xf6>
+  fa:	83 c4 10             	add    $0x10,%esp
+  fd:	b8 00 00 00 00       	mov    $0x0,%eax
+ 102:	83 ec 08             	sub    $0x8,%esp
+ 105:	50                   	push   %eax
+ 106:	6a 0d                	push   $0xd
+ 108:	e8 fc ff ff ff       	call   109 <isr_install+0x109>
+ 10d:	83 c4 10             	add    $0x10,%esp
+ 110:	b8 00 00 00 00       	mov    $0x0,%eax
+ 115:	83 ec 08             	sub    $0x8,%esp
+ 118:	50                   	push   %eax
+ 119:	6a 0e                	push   $0xe
+ 11b:	e8 fc ff ff ff       	call   11c <isr_install+0x11c>
+ 120:	83 c4 10             	add    $0x10,%esp
+ 123:	b8 00 00 00 00       	mov    $0x0,%eax
+ 128:	83 ec 08             	sub    $0x8,%esp
+ 12b:	50                   	push   %eax
+ 12c:	6a 0f                	push   $0xf
+ 12e:	e8 fc ff ff ff       	call   12f <isr_install+0x12f>
+ 133:	83 c4 10             	add    $0x10,%esp
+ 136:	b8 00 00 00 00       	mov    $0x0,%eax
+ 13b:	83 ec 08             	sub    $0x8,%esp
+ 13e:	50                   	push   %eax
+ 13f:	6a 10                	push   $0x10
+ 141:	e8 fc ff ff ff       	call   142 <isr_install+0x142>
+ 146:	83 c4 10             	add    $0x10,%esp
+ 149:	b8 00 00 00 00       	mov    $0x0,%eax
+ 14e:	83 ec 08             	sub    $0x8,%esp
+ 151:	50                   	push   %eax
+ 152:	6a 11                	push   $0x11
+ 154:	e8 fc ff ff ff       	call   155 <isr_install+0x155>
+ 159:	83 c4 10             	add    $0x10,%esp
+ 15c:	b8 00 00 00 00       	mov    $0x0,%eax
+ 161:	83 ec 08             	sub    $0x8,%esp
+ 164:	50                   	push   %eax
+ 165:	6a 12                	push   $0x12
+ 167:	e8 fc ff ff ff       	call   168 <isr_install+0x168>
+ 16c:	83 c4 10             	add    $0x10,%esp
+ 16f:	b8 00 00 00 00       	mov    $0x0,%eax
+ 174:	83 ec 08             	sub    $0x8,%esp
+ 177:	50                   	push   %eax
+ 178:	6a 13                	push   $0x13
+ 17a:	e8 fc ff ff ff       	call   17b <isr_install+0x17b>
+ 17f:	83 c4 10             	add    $0x10,%esp
+ 182:	b8 00 00 00 00       	mov    $0x0,%eax
+ 187:	83 ec 08             	sub    $0x8,%esp
+ 18a:	50                   	push   %eax
+ 18b:	6a 14                	push   $0x14
+ 18d:	e8 fc ff ff ff       	call   18e <isr_install+0x18e>
+ 192:	83 c4 10             	add    $0x10,%esp
+ 195:	b8 00 00 00 00       	mov    $0x0,%eax
+ 19a:	83 ec 08             	sub    $0x8,%esp
+ 19d:	50                   	push   %eax
+ 19e:	6a 15                	push   $0x15
+ 1a0:	e8 fc ff ff ff       	call   1a1 <isr_install+0x1a1>
+ 1a5:	83 c4 10             	add    $0x10,%esp
+ 1a8:	b8 00 00 00 00       	mov    $0x0,%eax
+ 1ad:	83 ec 08             	sub    $0x8,%esp
+ 1b0:	50                   	push   %eax
+ 1b1:	6a 16                	push   $0x16
+ 1b3:	e8 fc ff ff ff       	call   1b4 <isr_install+0x1b4>
+ 1b8:	83 c4 10             	add    $0x10,%esp
+ 1bb:	b8 00 00 00 00       	mov    $0x0,%eax
+ 1c0:	83 ec 08             	sub    $0x8,%esp
+ 1c3:	50                   	push   %eax
+ 1c4:	6a 17                	push   $0x17
+ 1c6:	e8 fc ff ff ff       	call   1c7 <isr_install+0x1c7>
+ 1cb:	83 c4 10             	add    $0x10,%esp
+ 1ce:	b8 00 00 00 00       	mov    $0x0,%eax
+ 1d3:	83 ec 08             	sub    $0x8,%esp
+ 1d6:	50                   	push   %eax
+ 1d7:	6a 18                	push   $0x18
+ 1d9:	e8 fc ff ff ff       	call   1da <isr_install+0x1da>
+ 1de:	83 c4 10             	add    $0x10,%esp
+ 1e1:	b8 00 00 00 00       	mov    $0x0,%eax
+ 1e6:	83 ec 08             	sub    $0x8,%esp
+ 1e9:	50                   	push   %eax
+ 1ea:	6a 19                	push   $0x19
+ 1ec:	e8 fc ff ff ff       	call   1ed <isr_install+0x1ed>
+ 1f1:	83 c4 10             	add    $0x10,%esp
+ 1f4:	b8 00 00 00 00       	mov    $0x0,%eax
+ 1f9:	83 ec 08             	sub    $0x8,%esp
+ 1fc:	50                   	push   %eax
+ 1fd:	6a 1a                	push   $0x1a
+ 1ff:	e8 fc ff ff ff       	call   200 <isr_install+0x200>
+ 204:	83 c4 10             	add    $0x10,%esp
+ 207:	b8 00 00 00 00       	mov    $0x0,%eax
+ 20c:	83 ec 08             	sub    $0x8,%esp
+ 20f:	50                   	push   %eax
+ 210:	6a 1b                	push   $0x1b
+ 212:	e8 fc ff ff ff       	call   213 <isr_install+0x213>
+ 217:	83 c4 10             	add    $0x10,%esp
+ 21a:	b8 00 00 00 00       	mov    $0x0,%eax
+ 21f:	83 ec 08             	sub    $0x8,%esp
+ 222:	50                   	push   %eax
+ 223:	6a 1c                	push   $0x1c
+ 225:	e8 fc ff ff ff       	call   226 <isr_install+0x226>
+ 22a:	83 c4 10             	add    $0x10,%esp
+ 22d:	b8 00 00 00 00       	mov    $0x0,%eax
+ 232:	83 ec 08             	sub    $0x8,%esp
+ 235:	50                   	push   %eax
+ 236:	6a 1d                	push   $0x1d
+ 238:	e8 fc ff ff ff       	call   239 <isr_install+0x239>
+ 23d:	83 c4 10             	add    $0x10,%esp
+ 240:	b8 00 00 00 00       	mov    $0x0,%eax
+ 245:	83 ec 08             	sub    $0x8,%esp
+ 248:	50                   	push   %eax
+ 249:	6a 1e                	push   $0x1e
+ 24b:	e8 fc ff ff ff       	call   24c <isr_install+0x24c>
+ 250:	83 c4 10             	add    $0x10,%esp
+ 253:	b8 00 00 00 00       	mov    $0x0,%eax
+ 258:	83 ec 08             	sub    $0x8,%esp
+ 25b:	50                   	push   %eax
+ 25c:	6a 1f                	push   $0x1f
+ 25e:	e8 fc ff ff ff       	call   25f <isr_install+0x25f>
+ 263:	83 c4 10             	add    $0x10,%esp
+ 266:	83 ec 08             	sub    $0x8,%esp
+ 269:	6a 11                	push   $0x11
+ 26b:	6a 20                	push   $0x20
+ 26d:	e8 fc ff ff ff       	call   26e <isr_install+0x26e>
+ 272:	83 c4 10             	add    $0x10,%esp
+ 275:	83 ec 08             	sub    $0x8,%esp
+ 278:	6a 11                	push   $0x11
+ 27a:	68 a0 00 00 00       	push   $0xa0
+ 27f:	e8 fc ff ff ff       	call   280 <isr_install+0x280>
+ 284:	83 c4 10             	add    $0x10,%esp
+ 287:	83 ec 08             	sub    $0x8,%esp
+ 28a:	6a 20                	push   $0x20
+ 28c:	6a 21                	push   $0x21
+ 28e:	e8 fc ff ff ff       	call   28f <isr_install+0x28f>
+ 293:	83 c4 10             	add    $0x10,%esp
+ 296:	83 ec 08             	sub    $0x8,%esp
+ 299:	6a 28                	push   $0x28
+ 29b:	68 a1 00 00 00       	push   $0xa1
+ 2a0:	e8 fc ff ff ff       	call   2a1 <isr_install+0x2a1>
+ 2a5:	83 c4 10             	add    $0x10,%esp
+ 2a8:	83 ec 08             	sub    $0x8,%esp
+ 2ab:	6a 04                	push   $0x4
+ 2ad:	6a 21                	push   $0x21
+ 2af:	e8 fc ff ff ff       	call   2b0 <isr_install+0x2b0>
+ 2b4:	83 c4 10             	add    $0x10,%esp
+ 2b7:	83 ec 08             	sub    $0x8,%esp
+ 2ba:	6a 02                	push   $0x2
+ 2bc:	68 a1 00 00 00       	push   $0xa1
+ 2c1:	e8 fc ff ff ff       	call   2c2 <isr_install+0x2c2>
+ 2c6:	83 c4 10             	add    $0x10,%esp
+ 2c9:	83 ec 08             	sub    $0x8,%esp
+ 2cc:	6a 01                	push   $0x1
+ 2ce:	6a 21                	push   $0x21
+ 2d0:	e8 fc ff ff ff       	call   2d1 <isr_install+0x2d1>
+ 2d5:	83 c4 10             	add    $0x10,%esp
+ 2d8:	83 ec 08             	sub    $0x8,%esp
+ 2db:	6a 01                	push   $0x1
+ 2dd:	68 a1 00 00 00       	push   $0xa1
+ 2e2:	e8 fc ff ff ff       	call   2e3 <isr_install+0x2e3>
+ 2e7:	83 c4 10             	add    $0x10,%esp
+ 2ea:	83 ec 08             	sub    $0x8,%esp
+ 2ed:	6a 00                	push   $0x0
+ 2ef:	6a 21                	push   $0x21
+ 2f1:	e8 fc ff ff ff       	call   2f2 <isr_install+0x2f2>
+ 2f6:	83 c4 10             	add    $0x10,%esp
+ 2f9:	83 ec 08             	sub    $0x8,%esp
+ 2fc:	6a 00                	push   $0x0
+ 2fe:	68 a1 00 00 00       	push   $0xa1
+ 303:	e8 fc ff ff ff       	call   304 <isr_install+0x304>
+ 308:	83 c4 10             	add    $0x10,%esp
+ 30b:	b8 00 00 00 00       	mov    $0x0,%eax
+ 310:	83 ec 08             	sub    $0x8,%esp
+ 313:	50                   	push   %eax
+ 314:	6a 20                	push   $0x20
+ 316:	e8 fc ff ff ff       	call   317 <isr_install+0x317>
+ 31b:	83 c4 10             	add    $0x10,%esp
+ 31e:	b8 00 00 00 00       	mov    $0x0,%eax
+ 323:	83 ec 08             	sub    $0x8,%esp
+ 326:	50                   	push   %eax
+ 327:	6a 21                	push   $0x21
+ 329:	e8 fc ff ff ff       	call   32a <isr_install+0x32a>
+ 32e:	83 c4 10             	add    $0x10,%esp
+ 331:	b8 00 00 00 00       	mov    $0x0,%eax
+ 336:	83 ec 08             	sub    $0x8,%esp
+ 339:	50                   	push   %eax
+ 33a:	6a 22                	push   $0x22
+ 33c:	e8 fc ff ff ff       	call   33d <isr_install+0x33d>
+ 341:	83 c4 10             	add    $0x10,%esp
+ 344:	b8 00 00 00 00       	mov    $0x0,%eax
+ 349:	83 ec 08             	sub    $0x8,%esp
+ 34c:	50                   	push   %eax
+ 34d:	6a 23                	push   $0x23
+ 34f:	e8 fc ff ff ff       	call   350 <isr_install+0x350>
+ 354:	83 c4 10             	add    $0x10,%esp
+ 357:	b8 00 00 00 00       	mov    $0x0,%eax
+ 35c:	83 ec 08             	sub    $0x8,%esp
+ 35f:	50                   	push   %eax
+ 360:	6a 24                	push   $0x24
+ 362:	e8 fc ff ff ff       	call   363 <isr_install+0x363>
+ 367:	83 c4 10             	add    $0x10,%esp
+ 36a:	b8 00 00 00 00       	mov    $0x0,%eax
+ 36f:	83 ec 08             	sub    $0x8,%esp
+ 372:	50                   	push   %eax
+ 373:	6a 25                	push   $0x25
+ 375:	e8 fc ff ff ff       	call   376 <isr_install+0x376>
+ 37a:	83 c4 10             	add    $0x10,%esp
+ 37d:	b8 00 00 00 00       	mov    $0x0,%eax
+ 382:	83 ec 08             	sub    $0x8,%esp
+ 385:	50                   	push   %eax
+ 386:	6a 26                	push   $0x26
+ 388:	e8 fc ff ff ff       	call   389 <isr_install+0x389>
+ 38d:	83 c4 10             	add    $0x10,%esp
+ 390:	b8 00 00 00 00       	mov    $0x0,%eax
+ 395:	83 ec 08             	sub    $0x8,%esp
+ 398:	50                   	push   %eax
+ 399:	6a 27                	push   $0x27
+ 39b:	e8 fc ff ff ff       	call   39c <isr_install+0x39c>
+ 3a0:	83 c4 10             	add    $0x10,%esp
+ 3a3:	b8 00 00 00 00       	mov    $0x0,%eax
+ 3a8:	83 ec 08             	sub    $0x8,%esp
+ 3ab:	50                   	push   %eax
+ 3ac:	6a 28                	push   $0x28
+ 3ae:	e8 fc ff ff ff       	call   3af <isr_install+0x3af>
+ 3b3:	83 c4 10             	add    $0x10,%esp
+ 3b6:	b8 00 00 00 00       	mov    $0x0,%eax
+ 3bb:	83 ec 08             	sub    $0x8,%esp
+ 3be:	50                   	push   %eax
+ 3bf:	6a 29                	push   $0x29
+ 3c1:	e8 fc ff ff ff       	call   3c2 <isr_install+0x3c2>
+ 3c6:	83 c4 10             	add    $0x10,%esp
+ 3c9:	b8 00 00 00 00       	mov    $0x0,%eax
+ 3ce:	83 ec 08             	sub    $0x8,%esp
+ 3d1:	50                   	push   %eax
+ 3d2:	6a 2a                	push   $0x2a
+ 3d4:	e8 fc ff ff ff       	call   3d5 <isr_install+0x3d5>
+ 3d9:	83 c4 10             	add    $0x10,%esp
+ 3dc:	b8 00 00 00 00       	mov    $0x0,%eax
+ 3e1:	83 ec 08             	sub    $0x8,%esp
+ 3e4:	50                   	push   %eax
+ 3e5:	6a 2b                	push   $0x2b
+ 3e7:	e8 fc ff ff ff       	call   3e8 <isr_install+0x3e8>
+ 3ec:	83 c4 10             	add    $0x10,%esp
+ 3ef:	b8 00 00 00 00       	mov    $0x0,%eax
+ 3f4:	83 ec 08             	sub    $0x8,%esp
+ 3f7:	50                   	push   %eax
+ 3f8:	6a 2c                	push   $0x2c
+ 3fa:	e8 fc ff ff ff       	call   3fb <isr_install+0x3fb>
+ 3ff:	83 c4 10             	add    $0x10,%esp
+ 402:	b8 00 00 00 00       	mov    $0x0,%eax
+ 407:	83 ec 08             	sub    $0x8,%esp
+ 40a:	50                   	push   %eax
+ 40b:	6a 2d                	push   $0x2d
+ 40d:	e8 fc ff ff ff       	call   40e <isr_install+0x40e>
+ 412:	83 c4 10             	add    $0x10,%esp
+ 415:	b8 00 00 00 00       	mov    $0x0,%eax
+ 41a:	83 ec 08             	sub    $0x8,%esp
+ 41d:	50                   	push   %eax
+ 41e:	6a 2e                	push   $0x2e
+ 420:	e8 fc ff ff ff       	call   421 <isr_install+0x421>
+ 425:	83 c4 10             	add    $0x10,%esp
+ 428:	b8 00 00 00 00       	mov    $0x0,%eax
+ 42d:	83 ec 08             	sub    $0x8,%esp
+ 430:	50                   	push   %eax
+ 431:	6a 2f                	push   $0x2f
+ 433:	e8 fc ff ff ff       	call   434 <isr_install+0x434>
+ 438:	83 c4 10             	add    $0x10,%esp
+ 43b:	e8 fc ff ff ff       	call   43c <isr_install+0x43c>
+ 440:	c9                   	leave  
+ 441:	c3                   	ret    
+
+00000442 <isr_handler>:
+ 442:	55                   	push   %ebp
+ 443:	89 e5                	mov    %esp,%ebp
+ 445:	83 ec 18             	sub    $0x18,%esp
+ 448:	83 ec 0c             	sub    $0xc,%esp
+ 44b:	68 3c 01 00 00       	push   $0x13c
+ 450:	e8 fc ff ff ff       	call   451 <isr_handler+0xf>
+ 455:	83 c4 10             	add    $0x10,%esp
+ 458:	8b 45 2c             	mov    0x2c(%ebp),%eax
+ 45b:	89 c2                	mov    %eax,%edx
+ 45d:	83 ec 08             	sub    $0x8,%esp
+ 460:	8d 45 f5             	lea    -0xb(%ebp),%eax
+ 463:	50                   	push   %eax
+ 464:	52                   	push   %edx
+ 465:	e8 fc ff ff ff       	call   466 <isr_handler+0x24>
+ 46a:	83 c4 10             	add    $0x10,%esp
+ 46d:	83 ec 0c             	sub    $0xc,%esp
+ 470:	8d 45 f5             	lea    -0xb(%ebp),%eax
+ 473:	50                   	push   %eax
+ 474:	e8 fc ff ff ff       	call   475 <isr_handler+0x33>
+ 479:	83 c4 10             	add    $0x10,%esp
+ 47c:	83 ec 0c             	sub    $0xc,%esp
+ 47f:	68 51 01 00 00       	push   $0x151
+ 484:	e8 fc ff ff ff       	call   485 <isr_handler+0x43>
+ 489:	83 c4 10             	add    $0x10,%esp
+ 48c:	8b 45 2c             	mov    0x2c(%ebp),%eax
+ 48f:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax
+ 496:	83 ec 0c             	sub    $0xc,%esp
+ 499:	50                   	push   %eax
+ 49a:	e8 fc ff ff ff       	call   49b <isr_handler+0x59>
+ 49f:	83 c4 10             	add    $0x10,%esp
+ 4a2:	83 ec 0c             	sub    $0xc,%esp
+ 4a5:	68 51 01 00 00       	push   $0x151
+ 4aa:	e8 fc ff ff ff       	call   4ab <isr_handler+0x69>
+ 4af:	83 c4 10             	add    $0x10,%esp
+ 4b2:	c9                   	leave  
+ 4b3:	c3                   	ret    
+
+000004b4 <register_interrupt_handler>:
+ 4b4:	55                   	push   %ebp
+ 4b5:	89 e5                	mov    %esp,%ebp
+ 4b7:	83 ec 04             	sub    $0x4,%esp
+ 4ba:	8b 45 08             	mov    0x8(%ebp),%eax
+ 4bd:	88 45 fc             	mov    %al,-0x4(%ebp)
+ 4c0:	0f b6 45 fc          	movzbl -0x4(%ebp),%eax
+ 4c4:	8b 55 0c             	mov    0xc(%ebp),%edx
+ 4c7:	89 14 85 00 00 00 00 	mov    %edx,0x0(,%eax,4)
+ 4ce:	c9                   	leave  
+ 4cf:	c3                   	ret    
+
+000004d0 <irq_handler>:
+ 4d0:	55                   	push   %ebp
+ 4d1:	89 e5                	mov    %esp,%ebp
+ 4d3:	57                   	push   %edi
+ 4d4:	56                   	push   %esi
+ 4d5:	53                   	push   %ebx
+ 4d6:	83 ec 1c             	sub    $0x1c,%esp
+ 4d9:	8b 45 2c             	mov    0x2c(%ebp),%eax
+ 4dc:	83 f8 27             	cmp    $0x27,%eax
+ 4df:	76 12                	jbe    4f3 <irq_handler+0x23>
+ 4e1:	83 ec 08             	sub    $0x8,%esp
+ 4e4:	6a 20                	push   $0x20
+ 4e6:	68 a0 00 00 00       	push   $0xa0
+ 4eb:	e8 fc ff ff ff       	call   4ec <irq_handler+0x1c>
+ 4f0:	83 c4 10             	add    $0x10,%esp
+ 4f3:	83 ec 08             	sub    $0x8,%esp
+ 4f6:	6a 20                	push   $0x20
+ 4f8:	6a 20                	push   $0x20
+ 4fa:	e8 fc ff ff ff       	call   4fb <irq_handler+0x2b>
+ 4ff:	83 c4 10             	add    $0x10,%esp
+ 502:	8b 45 2c             	mov    0x2c(%ebp),%eax
+ 505:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax
+ 50c:	85 c0                	test   %eax,%eax
+ 50e:	74 2c                	je     53c <irq_handler+0x6c>
+ 510:	8b 45 2c             	mov    0x2c(%ebp),%eax
+ 513:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax
+ 51a:	89 45 e4             	mov    %eax,-0x1c(%ebp)
+ 51d:	83 ec 40             	sub    $0x40,%esp
+ 520:	89 e0                	mov    %esp,%eax
+ 522:	89 c2                	mov    %eax,%edx
+ 524:	8d 5d 08             	lea    0x8(%ebp),%ebx
+ 527:	b8 10 00 00 00       	mov    $0x10,%eax
+ 52c:	89 d7                	mov    %edx,%edi
+ 52e:	89 de                	mov    %ebx,%esi
+ 530:	89 c1                	mov    %eax,%ecx
+ 532:	f3 a5                	rep movsl %ds:(%esi),%es:(%edi)
+ 534:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+ 537:	ff d0                	call   *%eax
+ 539:	83 c4 40             	add    $0x40,%esp
+ 53c:	8d 65 f4             	lea    -0xc(%ebp),%esp
+ 53f:	5b                   	pop    %ebx
+ 540:	5e                   	pop    %esi
+ 541:	5f                   	pop    %edi
+ 542:	5d                   	pop    %ebp
+ 543:	c3                   	ret    
