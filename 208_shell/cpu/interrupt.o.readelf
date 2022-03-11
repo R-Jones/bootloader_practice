@@ -1,0 +1,106 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              REL (Relocatable file)
+  Machine:                           Intel 80386
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          0 (bytes into file)
+  Start of section headers:          64 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               52 (bytes)
+  Size of program headers:           0 (bytes)
+  Number of program headers:         0
+  Size of section headers:           40 (bytes)
+  Number of section headers:         6
+  Section header string table index: 2
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        00000000 000130 000209 00  AX  0   0 16
+  [ 2] .shstrtab         STRTAB          00000000 000340 00002b 00      0   0  1
+  [ 3] .symtab           SYMTAB          00000000 000370 000370 10      4   5  4
+  [ 4] .strtab           STRTAB          00000000 0006e0 000157 00      0   0  1
+  [ 5] .rel.text         REL             00000000 000840 000010 08      3   1  4
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), p (processor specific)
+
+There are no section groups in this file.
+
+There are no program headers in this file.
+
+There is no dynamic section in this file.
+
+Relocation section '.rel.text' at offset 0x840 contains 2 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000012  00000502 R_386_PC32        00000000   isr_handler
+00000037  00000602 R_386_PC32        00000000   irq_handler
+No processor specific unwind information to decode
+
+Symbol table '.symtab' contains 55 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 FILE    LOCAL  DEFAULT  ABS cpu/interrupt.asm
+     2: 00000000     0 SECTION LOCAL  DEFAULT    1 .text
+     3: 00000000     0 NOTYPE  LOCAL  DEFAULT    1 isr_common_stub
+     4: 00000025     0 NOTYPE  LOCAL  DEFAULT    1 irq_common_stub
+     5: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND isr_handler
+     6: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND irq_handler
+     7: 0000004a     0 NOTYPE  GLOBAL DEFAULT    1 isr0
+     8: 00000051     0 NOTYPE  GLOBAL DEFAULT    1 isr1
+     9: 00000058     0 NOTYPE  GLOBAL DEFAULT    1 isr2
+    10: 0000005f     0 NOTYPE  GLOBAL DEFAULT    1 isr3
+    11: 00000066     0 NOTYPE  GLOBAL DEFAULT    1 isr4
+    12: 0000006d     0 NOTYPE  GLOBAL DEFAULT    1 isr5
+    13: 00000074     0 NOTYPE  GLOBAL DEFAULT    1 isr6
+    14: 0000007b     0 NOTYPE  GLOBAL DEFAULT    1 isr7
+    15: 00000085     0 NOTYPE  GLOBAL DEFAULT    1 isr8
+    16: 0000008d     0 NOTYPE  GLOBAL DEFAULT    1 isr9
+    17: 00000097     0 NOTYPE  GLOBAL DEFAULT    1 isr10
+    18: 0000009f     0 NOTYPE  GLOBAL DEFAULT    1 isr11
+    19: 000000a7     0 NOTYPE  GLOBAL DEFAULT    1 isr12
+    20: 000000af     0 NOTYPE  GLOBAL DEFAULT    1 isr13
+    21: 000000b7     0 NOTYPE  GLOBAL DEFAULT    1 isr14
+    22: 000000bf     0 NOTYPE  GLOBAL DEFAULT    1 isr15
+    23: 000000c9     0 NOTYPE  GLOBAL DEFAULT    1 isr16
+    24: 000000d3     0 NOTYPE  GLOBAL DEFAULT    1 isr17
+    25: 000000dd     0 NOTYPE  GLOBAL DEFAULT    1 isr18
+    26: 000000e7     0 NOTYPE  GLOBAL DEFAULT    1 isr19
+    27: 000000f1     0 NOTYPE  GLOBAL DEFAULT    1 isr20
+    28: 000000fb     0 NOTYPE  GLOBAL DEFAULT    1 isr21
+    29: 00000105     0 NOTYPE  GLOBAL DEFAULT    1 isr22
+    30: 0000010f     0 NOTYPE  GLOBAL DEFAULT    1 isr23
+    31: 00000119     0 NOTYPE  GLOBAL DEFAULT    1 isr24
+    32: 00000123     0 NOTYPE  GLOBAL DEFAULT    1 isr25
+    33: 0000012d     0 NOTYPE  GLOBAL DEFAULT    1 isr26
+    34: 00000137     0 NOTYPE  GLOBAL DEFAULT    1 isr27
+    35: 00000141     0 NOTYPE  GLOBAL DEFAULT    1 isr28
+    36: 0000014b     0 NOTYPE  GLOBAL DEFAULT    1 isr29
+    37: 00000155     0 NOTYPE  GLOBAL DEFAULT    1 isr30
+    38: 0000015f     0 NOTYPE  GLOBAL DEFAULT    1 isr31
+    39: 00000169     0 NOTYPE  GLOBAL DEFAULT    1 irq0
+    40: 00000173     0 NOTYPE  GLOBAL DEFAULT    1 irq1
+    41: 0000017d     0 NOTYPE  GLOBAL DEFAULT    1 irq2
+    42: 00000187     0 NOTYPE  GLOBAL DEFAULT    1 irq3
+    43: 00000191     0 NOTYPE  GLOBAL DEFAULT    1 irq4
+    44: 0000019b     0 NOTYPE  GLOBAL DEFAULT    1 irq5
+    45: 000001a5     0 NOTYPE  GLOBAL DEFAULT    1 irq6
+    46: 000001af     0 NOTYPE  GLOBAL DEFAULT    1 irq7
+    47: 000001b9     0 NOTYPE  GLOBAL DEFAULT    1 irq8
+    48: 000001c3     0 NOTYPE  GLOBAL DEFAULT    1 irq9
+    49: 000001cd     0 NOTYPE  GLOBAL DEFAULT    1 irq10
+    50: 000001d7     0 NOTYPE  GLOBAL DEFAULT    1 irq11
+    51: 000001e1     0 NOTYPE  GLOBAL DEFAULT    1 irq12
+    52: 000001eb     0 NOTYPE  GLOBAL DEFAULT    1 irq13
+    53: 000001f5     0 NOTYPE  GLOBAL DEFAULT    1 irq14
+    54: 000001ff     0 NOTYPE  GLOBAL DEFAULT    1 irq15
+
+No version information found in this file.

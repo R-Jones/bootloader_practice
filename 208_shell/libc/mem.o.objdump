@@ -1,0 +1,46 @@
+
+mem.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <memory_copy>:
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	83 ec 10             	sub    $0x10,%esp
+   6:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+   d:	eb 17                	jmp    26 <memory_copy+0x26>
+   f:	8b 55 fc             	mov    -0x4(%ebp),%edx
+  12:	8b 45 0c             	mov    0xc(%ebp),%eax
+  15:	01 c2                	add    %eax,%edx
+  17:	8b 4d fc             	mov    -0x4(%ebp),%ecx
+  1a:	8b 45 08             	mov    0x8(%ebp),%eax
+  1d:	01 c8                	add    %ecx,%eax
+  1f:	8a 00                	mov    (%eax),%al
+  21:	88 02                	mov    %al,(%edx)
+  23:	ff 45 fc             	incl   -0x4(%ebp)
+  26:	8b 45 fc             	mov    -0x4(%ebp),%eax
+  29:	3b 45 10             	cmp    0x10(%ebp),%eax
+  2c:	7c e1                	jl     f <memory_copy+0xf>
+  2e:	c9                   	leave  
+  2f:	c3                   	ret    
+
+00000030 <memory_set>:
+  30:	55                   	push   %ebp
+  31:	89 e5                	mov    %esp,%ebp
+  33:	83 ec 14             	sub    $0x14,%esp
+  36:	8b 45 0c             	mov    0xc(%ebp),%eax
+  39:	88 45 ec             	mov    %al,-0x14(%ebp)
+  3c:	8b 45 08             	mov    0x8(%ebp),%eax
+  3f:	89 45 fc             	mov    %eax,-0x4(%ebp)
+  42:	eb 11                	jmp    55 <memory_set+0x25>
+  44:	8b 45 fc             	mov    -0x4(%ebp),%eax
+  47:	8d 50 01             	lea    0x1(%eax),%edx
+  4a:	89 55 fc             	mov    %edx,-0x4(%ebp)
+  4d:	8a 55 ec             	mov    -0x14(%ebp),%dl
+  50:	88 10                	mov    %dl,(%eax)
+  52:	ff 4d 10             	decl   0x10(%ebp)
+  55:	83 7d 10 00          	cmpl   $0x0,0x10(%ebp)
+  59:	75 e9                	jne    44 <memory_set+0x14>
+  5b:	c9                   	leave  
+  5c:	c3                   	ret    

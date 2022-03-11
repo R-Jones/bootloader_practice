@@ -1,0 +1,69 @@
+
+keyboard.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <keyboard_callback>:
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	83 ec 18             	sub    $0x18,%esp
+   6:	83 ec 0c             	sub    $0xc,%esp
+   9:	6a 60                	push   $0x60
+   b:	e8 fc ff ff ff       	call   c <keyboard_callback+0xc>
+  10:	83 c4 10             	add    $0x10,%esp
+  13:	88 45 f7             	mov    %al,-0x9(%ebp)
+  16:	80 7d f7 39          	cmpb   $0x39,-0x9(%ebp)
+  1a:	76 05                	jbe    21 <keyboard_callback+0x21>
+  1c:	e9 87 00 00 00       	jmp    a8 <keyboard_callback+0xa8>
+  21:	80 7d f7 0e          	cmpb   $0xe,-0x9(%ebp)
+  25:	75 17                	jne    3e <keyboard_callback+0x3e>
+  27:	83 ec 0c             	sub    $0xc,%esp
+  2a:	68 00 00 00 00       	push   $0x0
+  2f:	e8 fc ff ff ff       	call   30 <keyboard_callback+0x30>
+  34:	83 c4 10             	add    $0x10,%esp
+  37:	e8 fc ff ff ff       	call   38 <keyboard_callback+0x38>
+  3c:	eb 6a                	jmp    a8 <keyboard_callback+0xa8>
+  3e:	80 7d f7 1c          	cmpb   $0x1c,-0x9(%ebp)
+  42:	75 29                	jne    6d <keyboard_callback+0x6d>
+  44:	83 ec 0c             	sub    $0xc,%esp
+  47:	68 f9 00 00 00       	push   $0xf9
+  4c:	e8 fc ff ff ff       	call   4d <keyboard_callback+0x4d>
+  51:	83 c4 10             	add    $0x10,%esp
+  54:	83 ec 0c             	sub    $0xc,%esp
+  57:	68 00 00 00 00       	push   $0x0
+  5c:	e8 fc ff ff ff       	call   5d <keyboard_callback+0x5d>
+  61:	83 c4 10             	add    $0x10,%esp
+  64:	c6 05 00 00 00 00 00 	movb   $0x0,0x0
+  6b:	eb 3b                	jmp    a8 <keyboard_callback+0xa8>
+  6d:	0f b6 45 f7          	movzbl -0x9(%ebp),%eax
+  71:	8a 80 00 00 00 00    	mov    0x0(%eax),%al
+  77:	88 45 f6             	mov    %al,-0xa(%ebp)
+  7a:	8a 45 f6             	mov    -0xa(%ebp),%al
+  7d:	88 45 f4             	mov    %al,-0xc(%ebp)
+  80:	c6 45 f5 00          	movb   $0x0,-0xb(%ebp)
+  84:	0f be 45 f6          	movsbl -0xa(%ebp),%eax
+  88:	83 ec 08             	sub    $0x8,%esp
+  8b:	50                   	push   %eax
+  8c:	68 00 00 00 00       	push   $0x0
+  91:	e8 fc ff ff ff       	call   92 <keyboard_callback+0x92>
+  96:	83 c4 10             	add    $0x10,%esp
+  99:	83 ec 0c             	sub    $0xc,%esp
+  9c:	8d 45 f4             	lea    -0xc(%ebp),%eax
+  9f:	50                   	push   %eax
+  a0:	e8 fc ff ff ff       	call   a1 <keyboard_callback+0xa1>
+  a5:	83 c4 10             	add    $0x10,%esp
+  a8:	c9                   	leave  
+  a9:	c3                   	ret    
+
+000000aa <init_keyboard>:
+  aa:	55                   	push   %ebp
+  ab:	89 e5                	mov    %esp,%ebp
+  ad:	83 ec 08             	sub    $0x8,%esp
+  b0:	83 ec 08             	sub    $0x8,%esp
+  b3:	68 00 00 00 00       	push   $0x0
+  b8:	6a 21                	push   $0x21
+  ba:	e8 fc ff ff ff       	call   bb <init_keyboard+0x11>
+  bf:	83 c4 10             	add    $0x10,%esp
+  c2:	c9                   	leave  
+  c3:	c3                   	ret    
