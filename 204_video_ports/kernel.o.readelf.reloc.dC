@@ -1,0 +1,63 @@
+
+kernel/kernel.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	8d 4c 24 04          	lea    0x4(%esp),%ecx
+   4:	83 e4 f0             	and    $0xfffffff0,%esp
+   7:	ff 71 fc             	push   -0x4(%ecx)
+   a:	55                   	push   %ebp
+   b:	89 e5                	mov    %esp,%ebp
+   d:	51                   	push   %ecx
+   e:	83 ec 24             	sub    $0x24,%esp
+  11:	83 ec 08             	sub    $0x8,%esp
+  14:	6a 0e                	push   $0xe
+  16:	68 d4 03 00 00       	push   $0x3d4
+  1b:	e8 fc ff ff ff       	call   1c <main+0x1c>
+			1c: R_386_PC32	port_byte_out
+  20:	83 c4 10             	add    $0x10,%esp
+  23:	83 ec 0c             	sub    $0xc,%esp
+  26:	68 d5 03 00 00       	push   $0x3d5
+  2b:	e8 fc ff ff ff       	call   2c <main+0x2c>
+			2c: R_386_PC32	port_byte_in
+  30:	83 c4 10             	add    $0x10,%esp
+  33:	0f b6 c0             	movzbl %al,%eax
+  36:	89 45 f4             	mov    %eax,-0xc(%ebp)
+  39:	83 ec 08             	sub    $0x8,%esp
+  3c:	6a 0f                	push   $0xf
+  3e:	68 d4 03 00 00       	push   $0x3d4
+  43:	e8 fc ff ff ff       	call   44 <main+0x44>
+			44: R_386_PC32	port_byte_out
+  48:	83 c4 10             	add    $0x10,%esp
+  4b:	83 ec 0c             	sub    $0xc,%esp
+  4e:	68 d5 03 00 00       	push   $0x3d5
+  53:	e8 fc ff ff ff       	call   54 <main+0x54>
+			54: R_386_PC32	port_byte_in
+  58:	83 c4 10             	add    $0x10,%esp
+  5b:	0f b6 c0             	movzbl %al,%eax
+  5e:	89 45 f0             	mov    %eax,-0x10(%ebp)
+  61:	8b 45 f4             	mov    -0xc(%ebp),%eax
+  64:	c1 e0 08             	shl    $0x8,%eax
+  67:	89 c2                	mov    %eax,%edx
+  69:	8b 45 f0             	mov    -0x10(%ebp),%eax
+  6c:	01 d0                	add    %edx,%eax
+  6e:	89 45 ec             	mov    %eax,-0x14(%ebp)
+  71:	8b 45 ec             	mov    -0x14(%ebp),%eax
+  74:	01 c0                	add    %eax,%eax
+  76:	89 45 e8             	mov    %eax,-0x18(%ebp)
+  79:	c7 45 e4 00 80 0b 00 	movl   $0xb8000,-0x1c(%ebp)
+  80:	8b 55 e8             	mov    -0x18(%ebp),%edx
+  83:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+  86:	01 d0                	add    %edx,%eax
+  88:	c6 00 59             	movb   $0x59,(%eax)
+  8b:	8b 45 e8             	mov    -0x18(%ebp),%eax
+  8e:	8d 50 01             	lea    0x1(%eax),%edx
+  91:	8b 45 e4             	mov    -0x1c(%ebp),%eax
+  94:	01 d0                	add    %edx,%eax
+  96:	c6 00 0e             	movb   $0xe,(%eax)
+  99:	8b 4d fc             	mov    -0x4(%ebp),%ecx
+  9c:	c9                   	leave  
+  9d:	8d 61 fc             	lea    -0x4(%ecx),%esp
+  a0:	c3                   	ret    

@@ -1,0 +1,3486 @@
+00000000  E8070E0000        call 0xe0c
+00000005  EBFE              jmp short 0x5
+00000007  55                push ebp
+00000008  89E5              mov ebp,esp
+0000000A  8B450C            mov eax,[ebp+0xc]
+0000000D  8B5508            mov edx,[ebp+0x8]
+00000010  668904D580300000  mov [edx*8+0x3080],ax
+00000018  8B4508            mov eax,[ebp+0x8]
+0000001B  66C704C582300000  mov word [eax*8+0x3082],0x8
+         -0800
+00000025  8B4508            mov eax,[ebp+0x8]
+00000028  C604C58430000000  mov byte [eax*8+0x3084],0x0
+00000030  8B4508            mov eax,[ebp+0x8]
+00000033  C604C5853000008E  mov byte [eax*8+0x3085],0x8e
+0000003B  8B450C            mov eax,[ebp+0xc]
+0000003E  C1E810            shr eax,byte 0x10
+00000041  8B5508            mov edx,[ebp+0x8]
+00000044  668904D586300000  mov [edx*8+0x3086],ax
+0000004C  5D                pop ebp
+0000004D  C3                ret
+0000004E  55                push ebp
+0000004F  89E5              mov ebp,esp
+00000051  B880300000        mov eax,0x3080
+00000056  A3A2380000        mov [0x38a2],eax
+0000005B  66C705A0380000FF  mov word [dword 0x38a0],0x7ff
+         -07
+00000064  B8A0380000        mov eax,0x38a0
+00000069  0F0118            lidt [eax]
+0000006C  5D                pop ebp
+0000006D  C3                ret
+0000006E  60                pusha
+0000006F  668CD8            mov ax,ds
+00000072  50                push eax
+00000073  66B81000          mov ax,0x10
+00000077  8ED8              mov ds,eax
+00000079  8EC0              mov es,eax
+0000007B  8EE0              mov fs,eax
+0000007D  8EE8              mov gs,eax
+0000007F  E835060000        call 0x6b9
+00000084  58                pop eax
+00000085  8ED8              mov ds,eax
+00000087  8EC0              mov es,eax
+00000089  8EE0              mov fs,eax
+0000008B  8EE8              mov gs,eax
+0000008D  61                popa
+0000008E  83C408            add esp,byte +0x8
+00000091  FB                sti
+00000092  CF                iret
+00000093  60                pusha
+00000094  668CD8            mov ax,ds
+00000097  50                push eax
+00000098  66B81000          mov ax,0x10
+0000009C  8ED8              mov ds,eax
+0000009E  8EC0              mov es,eax
+000000A0  8EE0              mov fs,eax
+000000A2  8EE8              mov gs,eax
+000000A4  E89E060000        call 0x747
+000000A9  5B                pop ebx
+000000AA  8EDB              mov ds,ebx
+000000AC  8EC3              mov es,ebx
+000000AE  8EE3              mov fs,ebx
+000000B0  8EEB              mov gs,ebx
+000000B2  61                popa
+000000B3  83C408            add esp,byte +0x8
+000000B6  FB                sti
+000000B7  CF                iret
+000000B8  FA                cli
+000000B9  6A00              push byte +0x0
+000000BB  6A00              push byte +0x0
+000000BD  EBAF              jmp short 0x6e
+000000BF  FA                cli
+000000C0  6A00              push byte +0x0
+000000C2  6A01              push byte +0x1
+000000C4  EBA8              jmp short 0x6e
+000000C6  FA                cli
+000000C7  6A00              push byte +0x0
+000000C9  6A02              push byte +0x2
+000000CB  EBA1              jmp short 0x6e
+000000CD  FA                cli
+000000CE  6A00              push byte +0x0
+000000D0  6A03              push byte +0x3
+000000D2  EB9A              jmp short 0x6e
+000000D4  FA                cli
+000000D5  6A00              push byte +0x0
+000000D7  6A03              push byte +0x3
+000000D9  EB93              jmp short 0x6e
+000000DB  FA                cli
+000000DC  6A00              push byte +0x0
+000000DE  6A05              push byte +0x5
+000000E0  EB8C              jmp short 0x6e
+000000E2  FA                cli
+000000E3  6A00              push byte +0x0
+000000E5  6A06              push byte +0x6
+000000E7  EB85              jmp short 0x6e
+000000E9  FA                cli
+000000EA  6A00              push byte +0x0
+000000EC  6A07              push byte +0x7
+000000EE  E97BFFFFFF        jmp 0x6e
+000000F3  FA                cli
+000000F4  6A08              push byte +0x8
+000000F6  E973FFFFFF        jmp 0x6e
+000000FB  FA                cli
+000000FC  6A00              push byte +0x0
+000000FE  6A09              push byte +0x9
+00000100  E969FFFFFF        jmp 0x6e
+00000105  FA                cli
+00000106  6A0A              push byte +0xa
+00000108  E961FFFFFF        jmp 0x6e
+0000010D  FA                cli
+0000010E  6A0B              push byte +0xb
+00000110  E959FFFFFF        jmp 0x6e
+00000115  FA                cli
+00000116  6A0C              push byte +0xc
+00000118  E951FFFFFF        jmp 0x6e
+0000011D  FA                cli
+0000011E  6A0D              push byte +0xd
+00000120  E949FFFFFF        jmp 0x6e
+00000125  FA                cli
+00000126  6A0E              push byte +0xe
+00000128  E941FFFFFF        jmp 0x6e
+0000012D  FA                cli
+0000012E  6A00              push byte +0x0
+00000130  6A0F              push byte +0xf
+00000132  E937FFFFFF        jmp 0x6e
+00000137  FA                cli
+00000138  6A00              push byte +0x0
+0000013A  6A10              push byte +0x10
+0000013C  E92DFFFFFF        jmp 0x6e
+00000141  FA                cli
+00000142  6A00              push byte +0x0
+00000144  6A11              push byte +0x11
+00000146  E923FFFFFF        jmp 0x6e
+0000014B  FA                cli
+0000014C  6A00              push byte +0x0
+0000014E  6A12              push byte +0x12
+00000150  E919FFFFFF        jmp 0x6e
+00000155  FA                cli
+00000156  6A00              push byte +0x0
+00000158  6A13              push byte +0x13
+0000015A  E90FFFFFFF        jmp 0x6e
+0000015F  FA                cli
+00000160  6A00              push byte +0x0
+00000162  6A14              push byte +0x14
+00000164  E905FFFFFF        jmp 0x6e
+00000169  FA                cli
+0000016A  6A00              push byte +0x0
+0000016C  6A15              push byte +0x15
+0000016E  E9FBFEFFFF        jmp 0x6e
+00000173  FA                cli
+00000174  6A00              push byte +0x0
+00000176  6A16              push byte +0x16
+00000178  E9F1FEFFFF        jmp 0x6e
+0000017D  FA                cli
+0000017E  6A00              push byte +0x0
+00000180  6A17              push byte +0x17
+00000182  E9E7FEFFFF        jmp 0x6e
+00000187  FA                cli
+00000188  6A00              push byte +0x0
+0000018A  6A18              push byte +0x18
+0000018C  E9DDFEFFFF        jmp 0x6e
+00000191  FA                cli
+00000192  6A00              push byte +0x0
+00000194  6A19              push byte +0x19
+00000196  E9D3FEFFFF        jmp 0x6e
+0000019B  FA                cli
+0000019C  6A00              push byte +0x0
+0000019E  6A1A              push byte +0x1a
+000001A0  E9C9FEFFFF        jmp 0x6e
+000001A5  FA                cli
+000001A6  6A00              push byte +0x0
+000001A8  6A1B              push byte +0x1b
+000001AA  E9BFFEFFFF        jmp 0x6e
+000001AF  FA                cli
+000001B0  6A00              push byte +0x0
+000001B2  6A1C              push byte +0x1c
+000001B4  E9B5FEFFFF        jmp 0x6e
+000001B9  FA                cli
+000001BA  6A00              push byte +0x0
+000001BC  6A1D              push byte +0x1d
+000001BE  E9ABFEFFFF        jmp 0x6e
+000001C3  FA                cli
+000001C4  6A00              push byte +0x0
+000001C6  6A1E              push byte +0x1e
+000001C8  E9A1FEFFFF        jmp 0x6e
+000001CD  FA                cli
+000001CE  6A00              push byte +0x0
+000001D0  6A1F              push byte +0x1f
+000001D2  E997FEFFFF        jmp 0x6e
+000001D7  FA                cli
+000001D8  6A00              push byte +0x0
+000001DA  6A20              push byte +0x20
+000001DC  E9B2FEFFFF        jmp 0x93
+000001E1  FA                cli
+000001E2  6A01              push byte +0x1
+000001E4  6A21              push byte +0x21
+000001E6  E9A8FEFFFF        jmp 0x93
+000001EB  FA                cli
+000001EC  6A02              push byte +0x2
+000001EE  6A22              push byte +0x22
+000001F0  E99EFEFFFF        jmp 0x93
+000001F5  FA                cli
+000001F6  6A03              push byte +0x3
+000001F8  6A23              push byte +0x23
+000001FA  E994FEFFFF        jmp 0x93
+000001FF  FA                cli
+00000200  6A04              push byte +0x4
+00000202  6A24              push byte +0x24
+00000204  E98AFEFFFF        jmp 0x93
+00000209  FA                cli
+0000020A  6A05              push byte +0x5
+0000020C  6A25              push byte +0x25
+0000020E  E980FEFFFF        jmp 0x93
+00000213  FA                cli
+00000214  6A06              push byte +0x6
+00000216  6A26              push byte +0x26
+00000218  E976FEFFFF        jmp 0x93
+0000021D  FA                cli
+0000021E  6A07              push byte +0x7
+00000220  6A27              push byte +0x27
+00000222  E96CFEFFFF        jmp 0x93
+00000227  FA                cli
+00000228  6A08              push byte +0x8
+0000022A  6A28              push byte +0x28
+0000022C  E962FEFFFF        jmp 0x93
+00000231  FA                cli
+00000232  6A09              push byte +0x9
+00000234  6A29              push byte +0x29
+00000236  E958FEFFFF        jmp 0x93
+0000023B  FA                cli
+0000023C  6A0A              push byte +0xa
+0000023E  6A2A              push byte +0x2a
+00000240  E94EFEFFFF        jmp 0x93
+00000245  FA                cli
+00000246  6A0B              push byte +0xb
+00000248  6A2B              push byte +0x2b
+0000024A  E944FEFFFF        jmp 0x93
+0000024F  FA                cli
+00000250  6A0C              push byte +0xc
+00000252  6A2C              push byte +0x2c
+00000254  E93AFEFFFF        jmp 0x93
+00000259  FA                cli
+0000025A  6A0D              push byte +0xd
+0000025C  6A2D              push byte +0x2d
+0000025E  E930FEFFFF        jmp 0x93
+00000263  FA                cli
+00000264  6A0E              push byte +0xe
+00000266  6A2E              push byte +0x2e
+00000268  E926FEFFFF        jmp 0x93
+0000026D  FA                cli
+0000026E  6A0F              push byte +0xf
+00000270  6A2F              push byte +0x2f
+00000272  E91CFEFFFF        jmp 0x93
+00000277  55                push ebp
+00000278  89E5              mov ebp,esp
+0000027A  83EC08            sub esp,byte +0x8
+0000027D  B8B8100000        mov eax,0x10b8
+00000282  83EC08            sub esp,byte +0x8
+00000285  50                push eax
+00000286  6A00              push byte +0x0
+00000288  E87AFDFFFF        call 0x7
+0000028D  83C410            add esp,byte +0x10
+00000290  B8BF100000        mov eax,0x10bf
+00000295  83EC08            sub esp,byte +0x8
+00000298  50                push eax
+00000299  6A01              push byte +0x1
+0000029B  E867FDFFFF        call 0x7
+000002A0  83C410            add esp,byte +0x10
+000002A3  B8C6100000        mov eax,0x10c6
+000002A8  83EC08            sub esp,byte +0x8
+000002AB  50                push eax
+000002AC  6A02              push byte +0x2
+000002AE  E854FDFFFF        call 0x7
+000002B3  83C410            add esp,byte +0x10
+000002B6  B8CD100000        mov eax,0x10cd
+000002BB  83EC08            sub esp,byte +0x8
+000002BE  50                push eax
+000002BF  6A03              push byte +0x3
+000002C1  E841FDFFFF        call 0x7
+000002C6  83C410            add esp,byte +0x10
+000002C9  B8D4100000        mov eax,0x10d4
+000002CE  83EC08            sub esp,byte +0x8
+000002D1  50                push eax
+000002D2  6A04              push byte +0x4
+000002D4  E82EFDFFFF        call 0x7
+000002D9  83C410            add esp,byte +0x10
+000002DC  B8DB100000        mov eax,0x10db
+000002E1  83EC08            sub esp,byte +0x8
+000002E4  50                push eax
+000002E5  6A05              push byte +0x5
+000002E7  E81BFDFFFF        call 0x7
+000002EC  83C410            add esp,byte +0x10
+000002EF  B8E2100000        mov eax,0x10e2
+000002F4  83EC08            sub esp,byte +0x8
+000002F7  50                push eax
+000002F8  6A06              push byte +0x6
+000002FA  E808FDFFFF        call 0x7
+000002FF  83C410            add esp,byte +0x10
+00000302  B8E9100000        mov eax,0x10e9
+00000307  83EC08            sub esp,byte +0x8
+0000030A  50                push eax
+0000030B  6A07              push byte +0x7
+0000030D  E8F5FCFFFF        call 0x7
+00000312  83C410            add esp,byte +0x10
+00000315  B8F3100000        mov eax,0x10f3
+0000031A  83EC08            sub esp,byte +0x8
+0000031D  50                push eax
+0000031E  6A08              push byte +0x8
+00000320  E8E2FCFFFF        call 0x7
+00000325  83C410            add esp,byte +0x10
+00000328  B8FB100000        mov eax,0x10fb
+0000032D  83EC08            sub esp,byte +0x8
+00000330  50                push eax
+00000331  6A09              push byte +0x9
+00000333  E8CFFCFFFF        call 0x7
+00000338  83C410            add esp,byte +0x10
+0000033B  B805110000        mov eax,0x1105
+00000340  83EC08            sub esp,byte +0x8
+00000343  50                push eax
+00000344  6A0A              push byte +0xa
+00000346  E8BCFCFFFF        call 0x7
+0000034B  83C410            add esp,byte +0x10
+0000034E  B80D110000        mov eax,0x110d
+00000353  83EC08            sub esp,byte +0x8
+00000356  50                push eax
+00000357  6A0B              push byte +0xb
+00000359  E8A9FCFFFF        call 0x7
+0000035E  83C410            add esp,byte +0x10
+00000361  B815110000        mov eax,0x1115
+00000366  83EC08            sub esp,byte +0x8
+00000369  50                push eax
+0000036A  6A0C              push byte +0xc
+0000036C  E896FCFFFF        call 0x7
+00000371  83C410            add esp,byte +0x10
+00000374  B81D110000        mov eax,0x111d
+00000379  83EC08            sub esp,byte +0x8
+0000037C  50                push eax
+0000037D  6A0D              push byte +0xd
+0000037F  E883FCFFFF        call 0x7
+00000384  83C410            add esp,byte +0x10
+00000387  B825110000        mov eax,0x1125
+0000038C  83EC08            sub esp,byte +0x8
+0000038F  50                push eax
+00000390  6A0E              push byte +0xe
+00000392  E870FCFFFF        call 0x7
+00000397  83C410            add esp,byte +0x10
+0000039A  B82D110000        mov eax,0x112d
+0000039F  83EC08            sub esp,byte +0x8
+000003A2  50                push eax
+000003A3  6A0F              push byte +0xf
+000003A5  E85DFCFFFF        call 0x7
+000003AA  83C410            add esp,byte +0x10
+000003AD  B837110000        mov eax,0x1137
+000003B2  83EC08            sub esp,byte +0x8
+000003B5  50                push eax
+000003B6  6A10              push byte +0x10
+000003B8  E84AFCFFFF        call 0x7
+000003BD  83C410            add esp,byte +0x10
+000003C0  B841110000        mov eax,0x1141
+000003C5  83EC08            sub esp,byte +0x8
+000003C8  50                push eax
+000003C9  6A11              push byte +0x11
+000003CB  E837FCFFFF        call 0x7
+000003D0  83C410            add esp,byte +0x10
+000003D3  B84B110000        mov eax,0x114b
+000003D8  83EC08            sub esp,byte +0x8
+000003DB  50                push eax
+000003DC  6A12              push byte +0x12
+000003DE  E824FCFFFF        call 0x7
+000003E3  83C410            add esp,byte +0x10
+000003E6  B855110000        mov eax,0x1155
+000003EB  83EC08            sub esp,byte +0x8
+000003EE  50                push eax
+000003EF  6A13              push byte +0x13
+000003F1  E811FCFFFF        call 0x7
+000003F6  83C410            add esp,byte +0x10
+000003F9  B85F110000        mov eax,0x115f
+000003FE  83EC08            sub esp,byte +0x8
+00000401  50                push eax
+00000402  6A14              push byte +0x14
+00000404  E8FEFBFFFF        call 0x7
+00000409  83C410            add esp,byte +0x10
+0000040C  B869110000        mov eax,0x1169
+00000411  83EC08            sub esp,byte +0x8
+00000414  50                push eax
+00000415  6A15              push byte +0x15
+00000417  E8EBFBFFFF        call 0x7
+0000041C  83C410            add esp,byte +0x10
+0000041F  B873110000        mov eax,0x1173
+00000424  83EC08            sub esp,byte +0x8
+00000427  50                push eax
+00000428  6A16              push byte +0x16
+0000042A  E8D8FBFFFF        call 0x7
+0000042F  83C410            add esp,byte +0x10
+00000432  B87D110000        mov eax,0x117d
+00000437  83EC08            sub esp,byte +0x8
+0000043A  50                push eax
+0000043B  6A17              push byte +0x17
+0000043D  E8C5FBFFFF        call 0x7
+00000442  83C410            add esp,byte +0x10
+00000445  B887110000        mov eax,0x1187
+0000044A  83EC08            sub esp,byte +0x8
+0000044D  50                push eax
+0000044E  6A18              push byte +0x18
+00000450  E8B2FBFFFF        call 0x7
+00000455  83C410            add esp,byte +0x10
+00000458  B891110000        mov eax,0x1191
+0000045D  83EC08            sub esp,byte +0x8
+00000460  50                push eax
+00000461  6A19              push byte +0x19
+00000463  E89FFBFFFF        call 0x7
+00000468  83C410            add esp,byte +0x10
+0000046B  B89B110000        mov eax,0x119b
+00000470  83EC08            sub esp,byte +0x8
+00000473  50                push eax
+00000474  6A1A              push byte +0x1a
+00000476  E88CFBFFFF        call 0x7
+0000047B  83C410            add esp,byte +0x10
+0000047E  B8A5110000        mov eax,0x11a5
+00000483  83EC08            sub esp,byte +0x8
+00000486  50                push eax
+00000487  6A1B              push byte +0x1b
+00000489  E879FBFFFF        call 0x7
+0000048E  83C410            add esp,byte +0x10
+00000491  B8AF110000        mov eax,0x11af
+00000496  83EC08            sub esp,byte +0x8
+00000499  50                push eax
+0000049A  6A1C              push byte +0x1c
+0000049C  E866FBFFFF        call 0x7
+000004A1  83C410            add esp,byte +0x10
+000004A4  B8B9110000        mov eax,0x11b9
+000004A9  83EC08            sub esp,byte +0x8
+000004AC  50                push eax
+000004AD  6A1D              push byte +0x1d
+000004AF  E853FBFFFF        call 0x7
+000004B4  83C410            add esp,byte +0x10
+000004B7  B8C3110000        mov eax,0x11c3
+000004BC  83EC08            sub esp,byte +0x8
+000004BF  50                push eax
+000004C0  6A1E              push byte +0x1e
+000004C2  E840FBFFFF        call 0x7
+000004C7  83C410            add esp,byte +0x10
+000004CA  B8CD110000        mov eax,0x11cd
+000004CF  83EC08            sub esp,byte +0x8
+000004D2  50                push eax
+000004D3  6A1F              push byte +0x1f
+000004D5  E82DFBFFFF        call 0x7
+000004DA  83C410            add esp,byte +0x10
+000004DD  83EC08            sub esp,byte +0x8
+000004E0  6A11              push byte +0x11
+000004E2  6A20              push byte +0x20
+000004E4  E8E0040000        call 0x9c9
+000004E9  83C410            add esp,byte +0x10
+000004EC  83EC08            sub esp,byte +0x8
+000004EF  6A11              push byte +0x11
+000004F1  68A0000000        push dword 0xa0
+000004F6  E8CE040000        call 0x9c9
+000004FB  83C410            add esp,byte +0x10
+000004FE  83EC08            sub esp,byte +0x8
+00000501  6A20              push byte +0x20
+00000503  6A21              push byte +0x21
+00000505  E8BF040000        call 0x9c9
+0000050A  83C410            add esp,byte +0x10
+0000050D  83EC08            sub esp,byte +0x8
+00000510  6A28              push byte +0x28
+00000512  68A1000000        push dword 0xa1
+00000517  E8AD040000        call 0x9c9
+0000051C  83C410            add esp,byte +0x10
+0000051F  83EC08            sub esp,byte +0x8
+00000522  6A04              push byte +0x4
+00000524  6A21              push byte +0x21
+00000526  E89E040000        call 0x9c9
+0000052B  83C410            add esp,byte +0x10
+0000052E  83EC08            sub esp,byte +0x8
+00000531  6A02              push byte +0x2
+00000533  68A1000000        push dword 0xa1
+00000538  E88C040000        call 0x9c9
+0000053D  83C410            add esp,byte +0x10
+00000540  83EC08            sub esp,byte +0x8
+00000543  6A01              push byte +0x1
+00000545  6A21              push byte +0x21
+00000547  E87D040000        call 0x9c9
+0000054C  83C410            add esp,byte +0x10
+0000054F  83EC08            sub esp,byte +0x8
+00000552  6A01              push byte +0x1
+00000554  68A1000000        push dword 0xa1
+00000559  E86B040000        call 0x9c9
+0000055E  83C410            add esp,byte +0x10
+00000561  83EC08            sub esp,byte +0x8
+00000564  6A00              push byte +0x0
+00000566  6A21              push byte +0x21
+00000568  E85C040000        call 0x9c9
+0000056D  83C410            add esp,byte +0x10
+00000570  83EC08            sub esp,byte +0x8
+00000573  6A00              push byte +0x0
+00000575  68A1000000        push dword 0xa1
+0000057A  E84A040000        call 0x9c9
+0000057F  83C410            add esp,byte +0x10
+00000582  B8D7110000        mov eax,0x11d7
+00000587  83EC08            sub esp,byte +0x8
+0000058A  50                push eax
+0000058B  6A20              push byte +0x20
+0000058D  E875FAFFFF        call 0x7
+00000592  83C410            add esp,byte +0x10
+00000595  B8E1110000        mov eax,0x11e1
+0000059A  83EC08            sub esp,byte +0x8
+0000059D  50                push eax
+0000059E  6A21              push byte +0x21
+000005A0  E862FAFFFF        call 0x7
+000005A5  83C410            add esp,byte +0x10
+000005A8  B8EB110000        mov eax,0x11eb
+000005AD  83EC08            sub esp,byte +0x8
+000005B0  50                push eax
+000005B1  6A22              push byte +0x22
+000005B3  E84FFAFFFF        call 0x7
+000005B8  83C410            add esp,byte +0x10
+000005BB  B8F5110000        mov eax,0x11f5
+000005C0  83EC08            sub esp,byte +0x8
+000005C3  50                push eax
+000005C4  6A23              push byte +0x23
+000005C6  E83CFAFFFF        call 0x7
+000005CB  83C410            add esp,byte +0x10
+000005CE  B8FF110000        mov eax,0x11ff
+000005D3  83EC08            sub esp,byte +0x8
+000005D6  50                push eax
+000005D7  6A24              push byte +0x24
+000005D9  E829FAFFFF        call 0x7
+000005DE  83C410            add esp,byte +0x10
+000005E1  B809120000        mov eax,0x1209
+000005E6  83EC08            sub esp,byte +0x8
+000005E9  50                push eax
+000005EA  6A25              push byte +0x25
+000005EC  E816FAFFFF        call 0x7
+000005F1  83C410            add esp,byte +0x10
+000005F4  B813120000        mov eax,0x1213
+000005F9  83EC08            sub esp,byte +0x8
+000005FC  50                push eax
+000005FD  6A26              push byte +0x26
+000005FF  E803FAFFFF        call 0x7
+00000604  83C410            add esp,byte +0x10
+00000607  B81D120000        mov eax,0x121d
+0000060C  83EC08            sub esp,byte +0x8
+0000060F  50                push eax
+00000610  6A27              push byte +0x27
+00000612  E8F0F9FFFF        call 0x7
+00000617  83C410            add esp,byte +0x10
+0000061A  B827120000        mov eax,0x1227
+0000061F  83EC08            sub esp,byte +0x8
+00000622  50                push eax
+00000623  6A28              push byte +0x28
+00000625  E8DDF9FFFF        call 0x7
+0000062A  83C410            add esp,byte +0x10
+0000062D  B831120000        mov eax,0x1231
+00000632  83EC08            sub esp,byte +0x8
+00000635  50                push eax
+00000636  6A29              push byte +0x29
+00000638  E8CAF9FFFF        call 0x7
+0000063D  83C410            add esp,byte +0x10
+00000640  B83B120000        mov eax,0x123b
+00000645  83EC08            sub esp,byte +0x8
+00000648  50                push eax
+00000649  6A2A              push byte +0x2a
+0000064B  E8B7F9FFFF        call 0x7
+00000650  83C410            add esp,byte +0x10
+00000653  B845120000        mov eax,0x1245
+00000658  83EC08            sub esp,byte +0x8
+0000065B  50                push eax
+0000065C  6A2B              push byte +0x2b
+0000065E  E8A4F9FFFF        call 0x7
+00000663  83C410            add esp,byte +0x10
+00000666  B84F120000        mov eax,0x124f
+0000066B  83EC08            sub esp,byte +0x8
+0000066E  50                push eax
+0000066F  6A2C              push byte +0x2c
+00000671  E891F9FFFF        call 0x7
+00000676  83C410            add esp,byte +0x10
+00000679  B859120000        mov eax,0x1259
+0000067E  83EC08            sub esp,byte +0x8
+00000681  50                push eax
+00000682  6A2D              push byte +0x2d
+00000684  E87EF9FFFF        call 0x7
+00000689  83C410            add esp,byte +0x10
+0000068C  B863120000        mov eax,0x1263
+00000691  83EC08            sub esp,byte +0x8
+00000694  50                push eax
+00000695  6A2E              push byte +0x2e
+00000697  E86BF9FFFF        call 0x7
+0000069C  83C410            add esp,byte +0x10
+0000069F  B86D120000        mov eax,0x126d
+000006A4  83EC08            sub esp,byte +0x8
+000006A7  50                push eax
+000006A8  6A2F              push byte +0x2f
+000006AA  E858F9FFFF        call 0x7
+000006AF  83C410            add esp,byte +0x10
+000006B2  E897F9FFFF        call 0x4e
+000006B7  C9                leave
+000006B8  C3                ret
+000006B9  55                push ebp
+000006BA  89E5              mov ebp,esp
+000006BC  83EC18            sub esp,byte +0x18
+000006BF  83EC0C            sub esp,byte +0xc
+000006C2  68F3200000        push dword 0x20f3
+000006C7  E80B040000        call 0xad7
+000006CC  83C410            add esp,byte +0x10
+000006CF  8B452C            mov eax,[ebp+0x2c]
+000006D2  89C2              mov edx,eax
+000006D4  83EC08            sub esp,byte +0x8
+000006D7  8D45F5            lea eax,[ebp-0xb]
+000006DA  50                push eax
+000006DB  52                push edx
+000006DC  E8B9070000        call 0xe9a
+000006E1  83C410            add esp,byte +0x10
+000006E4  83EC0C            sub esp,byte +0xc
+000006E7  8D45F5            lea eax,[ebp-0xb]
+000006EA  50                push eax
+000006EB  E8E7030000        call 0xad7
+000006F0  83C410            add esp,byte +0x10
+000006F3  83EC0C            sub esp,byte +0xc
+000006F6  6808210000        push dword 0x2108
+000006FB  E8D7030000        call 0xad7
+00000700  83C410            add esp,byte +0x10
+00000703  8B452C            mov eax,[ebp+0x2c]
+00000706  8B048500300000    mov eax,[eax*4+0x3000]
+0000070D  83EC0C            sub esp,byte +0xc
+00000710  50                push eax
+00000711  E8C1030000        call 0xad7
+00000716  83C410            add esp,byte +0x10
+00000719  83EC0C            sub esp,byte +0xc
+0000071C  6808210000        push dword 0x2108
+00000721  E8B1030000        call 0xad7
+00000726  83C410            add esp,byte +0x10
+00000729  C9                leave
+0000072A  C3                ret
+0000072B  55                push ebp
+0000072C  89E5              mov ebp,esp
+0000072E  83EC04            sub esp,byte +0x4
+00000731  8B4508            mov eax,[ebp+0x8]
+00000734  8845FC            mov [ebp-0x4],al
+00000737  0FB645FC          movzx eax,byte [ebp-0x4]
+0000073B  8B550C            mov edx,[ebp+0xc]
+0000073E  891485AA380000    mov [eax*4+0x38aa],edx
+00000745  C9                leave
+00000746  C3                ret
+00000747  55                push ebp
+00000748  89E5              mov ebp,esp
+0000074A  57                push edi
+0000074B  56                push esi
+0000074C  53                push ebx
+0000074D  83EC1C            sub esp,byte +0x1c
+00000750  8B452C            mov eax,[ebp+0x2c]
+00000753  83F827            cmp eax,byte +0x27
+00000756  7612              jna 0x76a
+00000758  83EC08            sub esp,byte +0x8
+0000075B  6A20              push byte +0x20
+0000075D  68A0000000        push dword 0xa0
+00000762  E862020000        call 0x9c9
+00000767  83C410            add esp,byte +0x10
+0000076A  83EC08            sub esp,byte +0x8
+0000076D  6A20              push byte +0x20
+0000076F  6A20              push byte +0x20
+00000771  E853020000        call 0x9c9
+00000776  83C410            add esp,byte +0x10
+00000779  8B452C            mov eax,[ebp+0x2c]
+0000077C  8B0485AA380000    mov eax,[eax*4+0x38aa]
+00000783  85C0              test eax,eax
+00000785  742C              jz 0x7b3
+00000787  8B452C            mov eax,[ebp+0x2c]
+0000078A  8B0485AA380000    mov eax,[eax*4+0x38aa]
+00000791  8945E4            mov [ebp-0x1c],eax
+00000794  83EC40            sub esp,byte +0x40
+00000797  89E0              mov eax,esp
+00000799  89C2              mov edx,eax
+0000079B  8D5D08            lea ebx,[ebp+0x8]
+0000079E  B810000000        mov eax,0x10
+000007A3  89D7              mov edi,edx
+000007A5  89DE              mov esi,ebx
+000007A7  89C1              mov ecx,eax
+000007A9  F3A5              rep movsd
+000007AB  8B45E4            mov eax,[ebp-0x1c]
+000007AE  FFD0              call eax
+000007B0  83C440            add esp,byte +0x40
+000007B3  8D65F4            lea esp,[ebp-0xc]
+000007B6  5B                pop ebx
+000007B7  5E                pop esi
+000007B8  5F                pop edi
+000007B9  5D                pop ebp
+000007BA  C3                ret
+000007BB  55                push ebp
+000007BC  89E5              mov ebp,esp
+000007BE  81EC08010000      sub esp,0x108
+000007C4  A180300000        mov eax,[0x3080]
+000007C9  40                inc eax
+000007CA  A380300000        mov [0x3080],eax
+000007CF  83EC0C            sub esp,byte +0xc
+000007D2  680A210000        push dword 0x210a
+000007D7  E8FB020000        call 0xad7
+000007DC  83C410            add esp,byte +0x10
+000007DF  A180300000        mov eax,[0x3080]
+000007E4  89C2              mov edx,eax
+000007E6  83EC08            sub esp,byte +0x8
+000007E9  8D85F8FEFFFF      lea eax,[ebp-0x108]
+000007EF  50                push eax
+000007F0  52                push edx
+000007F1  E8A4060000        call 0xe9a
+000007F6  83C410            add esp,byte +0x10
+000007F9  83EC0C            sub esp,byte +0xc
+000007FC  8D85F8FEFFFF      lea eax,[ebp-0x108]
+00000802  50                push eax
+00000803  E8CF020000        call 0xad7
+00000808  83C410            add esp,byte +0x10
+0000080B  83EC0C            sub esp,byte +0xc
+0000080E  6811210000        push dword 0x2111
+00000813  E8BF020000        call 0xad7
+00000818  83C410            add esp,byte +0x10
+0000081B  C9                leave
+0000081C  C3                ret
+0000081D  55                push ebp
+0000081E  89E5              mov ebp,esp
+00000820  83EC18            sub esp,byte +0x18
+00000823  83EC08            sub esp,byte +0x8
+00000826  68BB170000        push dword 0x17bb
+0000082B  6A20              push byte +0x20
+0000082D  E8F9FEFFFF        call 0x72b
+00000832  83C410            add esp,byte +0x10
+00000835  B8DC341200        mov eax,0x1234dc
+0000083A  BA00000000        mov edx,0x0
+0000083F  F77508            div dword [ebp+0x8]
+00000842  8945F4            mov [ebp-0xc],eax
+00000845  8B45F4            mov eax,[ebp-0xc]
+00000848  8845F3            mov [ebp-0xd],al
+0000084B  8B45F4            mov eax,[ebp-0xc]
+0000084E  C1E808            shr eax,byte 0x8
+00000851  8845F2            mov [ebp-0xe],al
+00000854  83EC08            sub esp,byte +0x8
+00000857  6A36              push byte +0x36
+00000859  6A43              push byte +0x43
+0000085B  E869010000        call 0x9c9
+00000860  83C410            add esp,byte +0x10
+00000863  0FB645F3          movzx eax,byte [ebp-0xd]
+00000867  83EC08            sub esp,byte +0x8
+0000086A  50                push eax
+0000086B  6A40              push byte +0x40
+0000086D  E857010000        call 0x9c9
+00000872  83C410            add esp,byte +0x10
+00000875  0FB645F2          movzx eax,byte [ebp-0xe]
+00000879  83EC08            sub esp,byte +0x8
+0000087C  50                push eax
+0000087D  6A40              push byte +0x40
+0000087F  E845010000        call 0x9c9
+00000884  83C410            add esp,byte +0x10
+00000887  C9                leave
+00000888  C3                ret
+00000889  55                push ebp
+0000088A  89E5              mov ebp,esp
+0000088C  83EC18            sub esp,byte +0x18
+0000088F  83EC0C            sub esp,byte +0xc
+00000892  6A60              push byte +0x60
+00000894  E815010000        call 0x9ae
+00000899  83C410            add esp,byte +0x10
+0000089C  8845F7            mov [ebp-0x9],al
+0000089F  0FB645F7          movzx eax,byte [ebp-0x9]
+000008A3  83EC08            sub esp,byte +0x8
+000008A6  FF75F0            push dword [ebp-0x10]
+000008A9  50                push eax
+000008AA  E8EB050000        call 0xe9a
+000008AF  83C410            add esp,byte +0x10
+000008B2  83EC0C            sub esp,byte +0xc
+000008B5  6813210000        push dword 0x2113
+000008BA  E818020000        call 0xad7
+000008BF  83C410            add esp,byte +0x10
+000008C2  83EC0C            sub esp,byte +0xc
+000008C5  FF75F0            push dword [ebp-0x10]
+000008C8  E80A020000        call 0xad7
+000008CD  83C410            add esp,byte +0x10
+000008D0  83EC0C            sub esp,byte +0xc
+000008D3  6827210000        push dword 0x2127
+000008D8  E8FA010000        call 0xad7
+000008DD  83C410            add esp,byte +0x10
+000008E0  0FB645F7          movzx eax,byte [ebp-0x9]
+000008E4  83EC0C            sub esp,byte +0xc
+000008E7  50                push eax
+000008E8  E82F000000        call 0x91c
+000008ED  83C410            add esp,byte +0x10
+000008F0  83EC0C            sub esp,byte +0xc
+000008F3  682A210000        push dword 0x212a
+000008F8  E8DA010000        call 0xad7
+000008FD  83C410            add esp,byte +0x10
+00000900  C9                leave
+00000901  C3                ret
+00000902  55                push ebp
+00000903  89E5              mov ebp,esp
+00000905  83EC08            sub esp,byte +0x8
+00000908  83EC08            sub esp,byte +0x8
+0000090B  6889180000        push dword 0x1889
+00000910  6A21              push byte +0x21
+00000912  E814FEFFFF        call 0x72b
+00000917  83C410            add esp,byte +0x10
+0000091A  C9                leave
+0000091B  C3                ret
+0000091C  55                push ebp
+0000091D  89E5              mov ebp,esp
+0000091F  57                push edi
+00000920  56                push esi
+00000921  53                push ebx
+00000922  81EC0C010000      sub esp,0x10c
+00000928  8B4508            mov eax,[ebp+0x8]
+0000092B  8885F4FEFFFF      mov [ebp-0x10c],al
+00000931  8D8500FFFFFF      lea eax,[ebp-0x100]
+00000937  BBF3210000        mov ebx,0x21f3
+0000093C  BA3A000000        mov edx,0x3a
+00000941  89C7              mov edi,eax
+00000943  89DE              mov esi,ebx
+00000945  89D1              mov ecx,edx
+00000947  F3A5              rep movsd
+00000949  80BDF4FEFFFF39    cmp byte [ebp-0x10c],0x39
+00000950  771C              ja 0x96e
+00000952  0FB685F4FEFFFF    movzx eax,byte [ebp-0x10c]
+00000959  8B848500FFFFFF    mov eax,[ebp+eax*4-0x100]
+00000960  83EC0C            sub esp,byte +0xc
+00000963  50                push eax
+00000964  E86E010000        call 0xad7
+00000969  83C410            add esp,byte +0x10
+0000096C  EB38              jmp short 0x9a6
+0000096E  80BDF4FEFFFFB9    cmp byte [ebp-0x10c],0xb9
+00000975  771F              ja 0x996
+00000977  0FB685F4FEFFFF    movzx eax,byte [ebp-0x10c]
+0000097E  83C080            add eax,byte -0x80
+00000981  8B848500FFFFFF    mov eax,[ebp+eax*4-0x100]
+00000988  83EC0C            sub esp,byte +0xc
+0000098B  50                push eax
+0000098C  E846010000        call 0xad7
+00000991  83C410            add esp,byte +0x10
+00000994  EB10              jmp short 0x9a6
+00000996  83EC0C            sub esp,byte +0xc
+00000999  682C210000        push dword 0x212c
+0000099E  E834010000        call 0xad7
+000009A3  83C410            add esp,byte +0x10
+000009A6  8D65F4            lea esp,[ebp-0xc]
+000009A9  5B                pop ebx
+000009AA  5E                pop esi
+000009AB  5F                pop edi
+000009AC  5D                pop ebp
+000009AD  C3                ret
+000009AE  55                push ebp
+000009AF  89E5              mov ebp,esp
+000009B1  83EC14            sub esp,byte +0x14
+000009B4  8B4508            mov eax,[ebp+0x8]
+000009B7  668945EC          mov [ebp-0x14],ax
+000009BB  8B45EC            mov eax,[ebp-0x14]
+000009BE  89C2              mov edx,eax
+000009C0  EC                in al,dx
+000009C1  8845FF            mov [ebp-0x1],al
+000009C4  8A45FF            mov al,[ebp-0x1]
+000009C7  C9                leave
+000009C8  C3                ret
+000009C9  55                push ebp
+000009CA  89E5              mov ebp,esp
+000009CC  83EC08            sub esp,byte +0x8
+000009CF  8B4508            mov eax,[ebp+0x8]
+000009D2  8B550C            mov edx,[ebp+0xc]
+000009D5  668945FC          mov [ebp-0x4],ax
+000009D9  8855F8            mov [ebp-0x8],dl
+000009DC  8A45F8            mov al,[ebp-0x8]
+000009DF  8B55FC            mov edx,[ebp-0x4]
+000009E2  EE                out dx,al
+000009E3  C9                leave
+000009E4  C3                ret
+000009E5  55                push ebp
+000009E6  89E5              mov ebp,esp
+000009E8  83EC14            sub esp,byte +0x14
+000009EB  8B4508            mov eax,[ebp+0x8]
+000009EE  668945EC          mov [ebp-0x14],ax
+000009F2  8B45EC            mov eax,[ebp-0x14]
+000009F5  89C2              mov edx,eax
+000009F7  66ED              in ax,dx
+000009F9  668945FE          mov [ebp-0x2],ax
+000009FD  668B45FE          mov ax,[ebp-0x2]
+00000A01  C9                leave
+00000A02  C3                ret
+00000A03  55                push ebp
+00000A04  89E5              mov ebp,esp
+00000A06  83EC08            sub esp,byte +0x8
+00000A09  8B5508            mov edx,[ebp+0x8]
+00000A0C  8B450C            mov eax,[ebp+0xc]
+00000A0F  668955FC          mov [ebp-0x4],dx
+00000A13  668945F8          mov [ebp-0x8],ax
+00000A17  8B45F8            mov eax,[ebp-0x8]
+00000A1A  8B55FC            mov edx,[ebp-0x4]
+00000A1D  66EF              out dx,ax
+00000A1F  C9                leave
+00000A20  C3                ret
+00000A21  55                push ebp
+00000A22  89E5              mov ebp,esp
+00000A24  83EC18            sub esp,byte +0x18
+00000A27  837D0C00          cmp dword [ebp+0xc],byte +0x0
+00000A2B  781C              js 0xa49
+00000A2D  837D1000          cmp dword [ebp+0x10],byte +0x0
+00000A31  7816              js 0xa49
+00000A33  83EC08            sub esp,byte +0x8
+00000A36  FF7510            push dword [ebp+0x10]
+00000A39  FF750C            push dword [ebp+0xc]
+00000A3C  E867030000        call 0xda8
+00000A41  83C410            add esp,byte +0x10
+00000A44  8945F0            mov [ebp-0x10],eax
+00000A47  EB2A              jmp short 0xa73
+00000A49  E82A020000        call 0xc78
+00000A4E  8945F0            mov [ebp-0x10],eax
+00000A51  83EC0C            sub esp,byte +0xc
+00000A54  FF75F0            push dword [ebp-0x10]
+00000A57  E867030000        call 0xdc3
+00000A5C  83C410            add esp,byte +0x10
+00000A5F  894510            mov [ebp+0x10],eax
+00000A62  83EC0C            sub esp,byte +0xc
+00000A65  FF75F0            push dword [ebp-0x10]
+00000A68  E871030000        call 0xdde
+00000A6D  83C410            add esp,byte +0x10
+00000A70  89450C            mov [ebp+0xc],eax
+00000A73  C745F400000000    mov dword [ebp-0xc],0x0
+00000A7A  EB4B              jmp short 0xac7
+00000A7C  8B45F4            mov eax,[ebp-0xc]
+00000A7F  8D5001            lea edx,[eax+0x1]
+00000A82  8955F4            mov [ebp-0xc],edx
+00000A85  89C2              mov edx,eax
+00000A87  8B4508            mov eax,[ebp+0x8]
+00000A8A  01D0              add eax,edx
+00000A8C  8A00              mov al,[eax]
+00000A8E  0FBEC0            movsx eax,al
+00000A91  6A0F              push byte +0xf
+00000A93  FF7510            push dword [ebp+0x10]
+00000A96  FF750C            push dword [ebp+0xc]
+00000A99  50                push eax
+00000A9A  E852000000        call 0xaf1
+00000A9F  83C410            add esp,byte +0x10
+00000AA2  8945F0            mov [ebp-0x10],eax
+00000AA5  83EC0C            sub esp,byte +0xc
+00000AA8  FF75F0            push dword [ebp-0x10]
+00000AAB  E813030000        call 0xdc3
+00000AB0  83C410            add esp,byte +0x10
+00000AB3  894510            mov [ebp+0x10],eax
+00000AB6  83EC0C            sub esp,byte +0xc
+00000AB9  FF75F0            push dword [ebp-0x10]
+00000ABC  E81D030000        call 0xdde
+00000AC1  83C410            add esp,byte +0x10
+00000AC4  89450C            mov [ebp+0xc],eax
+00000AC7  8B55F4            mov edx,[ebp-0xc]
+00000ACA  8B4508            mov eax,[ebp+0x8]
+00000ACD  01D0              add eax,edx
+00000ACF  8A00              mov al,[eax]
+00000AD1  84C0              test al,al
+00000AD3  75A7              jnz 0xa7c
+00000AD5  C9                leave
+00000AD6  C3                ret
+00000AD7  55                push ebp
+00000AD8  89E5              mov ebp,esp
+00000ADA  83EC08            sub esp,byte +0x8
+00000ADD  83EC04            sub esp,byte +0x4
+00000AE0  6AFF              push byte -0x1
+00000AE2  6AFF              push byte -0x1
+00000AE4  FF7508            push dword [ebp+0x8]
+00000AE7  E835FFFFFF        call 0xa21
+00000AEC  83C410            add esp,byte +0x10
+00000AEF  C9                leave
+00000AF0  C3                ret
+00000AF1  55                push ebp
+00000AF2  89E5              mov ebp,esp
+00000AF4  53                push ebx
+00000AF5  83EC24            sub esp,byte +0x24
+00000AF8  8B5508            mov edx,[ebp+0x8]
+00000AFB  8B4514            mov eax,[ebp+0x14]
+00000AFE  8855E4            mov [ebp-0x1c],dl
+00000B01  8845E0            mov [ebp-0x20],al
+00000B04  C745EC00800B00    mov dword [ebp-0x14],0xb8000
+00000B0B  807DE000          cmp byte [ebp-0x20],0x0
+00000B0F  7504              jnz 0xb15
+00000B11  C645E00F          mov byte [ebp-0x20],0xf
+00000B15  837D0C4F          cmp dword [ebp+0xc],byte +0x4f
+00000B19  7F06              jg 0xb21
+00000B1B  837D1018          cmp dword [ebp+0x10],byte +0x18
+00000B1F  7E2C              jng 0xb4d
+00000B21  8B45EC            mov eax,[ebp-0x14]
+00000B24  059E0F0000        add eax,0xf9e
+00000B29  C60045            mov byte [eax],0x45
+00000B2C  8B45EC            mov eax,[ebp-0x14]
+00000B2F  059F0F0000        add eax,0xf9f
+00000B34  C600F4            mov byte [eax],0xf4
+00000B37  83EC08            sub esp,byte +0x8
+00000B3A  FF7510            push dword [ebp+0x10]
+00000B3D  FF750C            push dword [ebp+0xc]
+00000B40  E863020000        call 0xda8
+00000B45  83C410            add esp,byte +0x10
+00000B48  E926010000        jmp 0xc73
+00000B4D  837D0C00          cmp dword [ebp+0xc],byte +0x0
+00000B51  781C              js 0xb6f
+00000B53  837D1000          cmp dword [ebp+0x10],byte +0x0
+00000B57  7816              js 0xb6f
+00000B59  83EC08            sub esp,byte +0x8
+00000B5C  FF7510            push dword [ebp+0x10]
+00000B5F  FF750C            push dword [ebp+0xc]
+00000B62  E841020000        call 0xda8
+00000B67  83C410            add esp,byte +0x10
+00000B6A  8945F4            mov [ebp-0xc],eax
+00000B6D  EB08              jmp short 0xb77
+00000B6F  E804010000        call 0xc78
+00000B74  8945F4            mov [ebp-0xc],eax
+00000B77  807DE40A          cmp byte [ebp-0x1c],0xa
+00000B7B  7528              jnz 0xba5
+00000B7D  83EC0C            sub esp,byte +0xc
+00000B80  FF75F4            push dword [ebp-0xc]
+00000B83  E83B020000        call 0xdc3
+00000B88  83C410            add esp,byte +0x10
+00000B8B  894510            mov [ebp+0x10],eax
+00000B8E  8B4510            mov eax,[ebp+0x10]
+00000B91  40                inc eax
+00000B92  83EC08            sub esp,byte +0x8
+00000B95  50                push eax
+00000B96  6A00              push byte +0x0
+00000B98  E80B020000        call 0xda8
+00000B9D  83C410            add esp,byte +0x10
+00000BA0  8945F4            mov [ebp-0xc],eax
+00000BA3  EB21              jmp short 0xbc6
+00000BA5  8B55F4            mov edx,[ebp-0xc]
+00000BA8  8B45EC            mov eax,[ebp-0x14]
+00000BAB  01C2              add edx,eax
+00000BAD  8A45E4            mov al,[ebp-0x1c]
+00000BB0  8802              mov [edx],al
+00000BB2  8B45F4            mov eax,[ebp-0xc]
+00000BB5  8D5001            lea edx,[eax+0x1]
+00000BB8  8B45EC            mov eax,[ebp-0x14]
+00000BBB  01C2              add edx,eax
+00000BBD  8A45E0            mov al,[ebp-0x20]
+00000BC0  8802              mov [edx],al
+00000BC2  8345F402          add dword [ebp-0xc],byte +0x2
+00000BC6  817DF49F0F0000    cmp dword [ebp-0xc],0xf9f
+00000BCD  0F8E8F000000      jng near 0xc62
+00000BD3  C745F001000000    mov dword [ebp-0x10],0x1
+00000BDA  EB42              jmp short 0xc1e
+00000BDC  8B45F0            mov eax,[ebp-0x10]
+00000BDF  48                dec eax
+00000BE0  83EC08            sub esp,byte +0x8
+00000BE3  50                push eax
+00000BE4  6A00              push byte +0x0
+00000BE6  E8BD010000        call 0xda8
+00000BEB  83C410            add esp,byte +0x10
+00000BEE  8D9800800B00      lea ebx,[eax+0xb8000]
+00000BF4  83EC08            sub esp,byte +0x8
+00000BF7  FF75F0            push dword [ebp-0x10]
+00000BFA  6A00              push byte +0x0
+00000BFC  E8A7010000        call 0xda8
+00000C01  83C410            add esp,byte +0x10
+00000C04  0500800B00        add eax,0xb8000
+00000C09  83EC04            sub esp,byte +0x4
+00000C0C  68A0000000        push dword 0xa0
+00000C11  53                push ebx
+00000C12  50                push eax
+00000C13  E825020000        call 0xe3d
+00000C18  83C410            add esp,byte +0x10
+00000C1B  FF45F0            inc dword [ebp-0x10]
+00000C1E  837DF018          cmp dword [ebp-0x10],byte +0x18
+00000C22  7EB8              jng 0xbdc
+00000C24  83EC08            sub esp,byte +0x8
+00000C27  6A18              push byte +0x18
+00000C29  6A00              push byte +0x0
+00000C2B  E878010000        call 0xda8
+00000C30  83C410            add esp,byte +0x10
+00000C33  0500800B00        add eax,0xb8000
+00000C38  8945E8            mov [ebp-0x18],eax
+00000C3B  C745F000000000    mov dword [ebp-0x10],0x0
+00000C42  EB0E              jmp short 0xc52
+00000C44  8B55F0            mov edx,[ebp-0x10]
+00000C47  8B45E8            mov eax,[ebp-0x18]
+00000C4A  01D0              add eax,edx
+00000C4C  C60000            mov byte [eax],0x0
+00000C4F  FF45F0            inc dword [ebp-0x10]
+00000C52  817DF09F000000    cmp dword [ebp-0x10],0x9f
+00000C59  7EE9              jng 0xc44
+00000C5B  816DF4A0000000    sub dword [ebp-0xc],0xa0
+00000C62  83EC0C            sub esp,byte +0xc
+00000C65  FF75F4            push dword [ebp-0xc]
+00000C68  E86B000000        call 0xcd8
+00000C6D  83C410            add esp,byte +0x10
+00000C70  8B45F4            mov eax,[ebp-0xc]
+00000C73  8B5DFC            mov ebx,[ebp-0x4]
+00000C76  C9                leave
+00000C77  C3                ret
+00000C78  55                push ebp
+00000C79  89E5              mov ebp,esp
+00000C7B  83EC18            sub esp,byte +0x18
+00000C7E  83EC08            sub esp,byte +0x8
+00000C81  6A0E              push byte +0xe
+00000C83  68D4030000        push dword 0x3d4
+00000C88  E83CFDFFFF        call 0x9c9
+00000C8D  83C410            add esp,byte +0x10
+00000C90  83EC0C            sub esp,byte +0xc
+00000C93  68D5030000        push dword 0x3d5
+00000C98  E811FDFFFF        call 0x9ae
+00000C9D  83C410            add esp,byte +0x10
+00000CA0  0FB6C0            movzx eax,al
+00000CA3  C1E008            shl eax,byte 0x8
+00000CA6  8945F4            mov [ebp-0xc],eax
+00000CA9  83EC08            sub esp,byte +0x8
+00000CAC  6A0F              push byte +0xf
+00000CAE  68D4030000        push dword 0x3d4
+00000CB3  E811FDFFFF        call 0x9c9
+00000CB8  83C410            add esp,byte +0x10
+00000CBB  83EC0C            sub esp,byte +0xc
+00000CBE  68D5030000        push dword 0x3d5
+00000CC3  E8E6FCFFFF        call 0x9ae
+00000CC8  83C410            add esp,byte +0x10
+00000CCB  0FB6C0            movzx eax,al
+00000CCE  0145F4            add [ebp-0xc],eax
+00000CD1  8B45F4            mov eax,[ebp-0xc]
+00000CD4  01C0              add eax,eax
+00000CD6  C9                leave
+00000CD7  C3                ret
+00000CD8  55                push ebp
+00000CD9  89E5              mov ebp,esp
+00000CDB  83EC08            sub esp,byte +0x8
+00000CDE  8B4508            mov eax,[ebp+0x8]
+00000CE1  89C2              mov edx,eax
+00000CE3  C1EA1F            shr edx,byte 0x1f
+00000CE6  01D0              add eax,edx
+00000CE8  D1F8              sar eax,1
+00000CEA  894508            mov [ebp+0x8],eax
+00000CED  83EC08            sub esp,byte +0x8
+00000CF0  6A0E              push byte +0xe
+00000CF2  68D4030000        push dword 0x3d4
+00000CF7  E8CDFCFFFF        call 0x9c9
+00000CFC  83C410            add esp,byte +0x10
+00000CFF  8B4508            mov eax,[ebp+0x8]
+00000D02  C1F808            sar eax,byte 0x8
+00000D05  0FB6C0            movzx eax,al
+00000D08  83EC08            sub esp,byte +0x8
+00000D0B  50                push eax
+00000D0C  68D5030000        push dword 0x3d5
+00000D11  E8B3FCFFFF        call 0x9c9
+00000D16  83C410            add esp,byte +0x10
+00000D19  83EC08            sub esp,byte +0x8
+00000D1C  6A0F              push byte +0xf
+00000D1E  68D4030000        push dword 0x3d4
+00000D23  E8A1FCFFFF        call 0x9c9
+00000D28  83C410            add esp,byte +0x10
+00000D2B  8B4508            mov eax,[ebp+0x8]
+00000D2E  0FB6C0            movzx eax,al
+00000D31  83EC08            sub esp,byte +0x8
+00000D34  50                push eax
+00000D35  68D5030000        push dword 0x3d5
+00000D3A  E88AFCFFFF        call 0x9c9
+00000D3F  83C410            add esp,byte +0x10
+00000D42  C9                leave
+00000D43  C3                ret
+00000D44  55                push ebp
+00000D45  89E5              mov ebp,esp
+00000D47  83EC18            sub esp,byte +0x18
+00000D4A  C745F0D0070000    mov dword [ebp-0x10],0x7d0
+00000D51  C745EC00800B00    mov dword [ebp-0x14],0xb8000
+00000D58  C745F400000000    mov dword [ebp-0xc],0x0
+00000D5F  EB22              jmp short 0xd83
+00000D61  8B45F4            mov eax,[ebp-0xc]
+00000D64  01C0              add eax,eax
+00000D66  89C2              mov edx,eax
+00000D68  8B45EC            mov eax,[ebp-0x14]
+00000D6B  01D0              add eax,edx
+00000D6D  C60020            mov byte [eax],0x20
+00000D70  8B45F4            mov eax,[ebp-0xc]
+00000D73  01C0              add eax,eax
+00000D75  8D5001            lea edx,[eax+0x1]
+00000D78  8B45EC            mov eax,[ebp-0x14]
+00000D7B  01D0              add eax,edx
+00000D7D  C6000F            mov byte [eax],0xf
+00000D80  FF45F4            inc dword [ebp-0xc]
+00000D83  8B45F4            mov eax,[ebp-0xc]
+00000D86  3B45F0            cmp eax,[ebp-0x10]
+00000D89  7CD6              jl 0xd61
+00000D8B  83EC08            sub esp,byte +0x8
+00000D8E  6A00              push byte +0x0
+00000D90  6A00              push byte +0x0
+00000D92  E811000000        call 0xda8
+00000D97  83C410            add esp,byte +0x10
+00000D9A  83EC0C            sub esp,byte +0xc
+00000D9D  50                push eax
+00000D9E  E835FFFFFF        call 0xcd8
+00000DA3  83C410            add esp,byte +0x10
+00000DA6  C9                leave
+00000DA7  C3                ret
+00000DA8  55                push ebp
+00000DA9  89E5              mov ebp,esp
+00000DAB  8B550C            mov edx,[ebp+0xc]
+00000DAE  89D0              mov eax,edx
+00000DB0  C1E002            shl eax,byte 0x2
+00000DB3  01D0              add eax,edx
+00000DB5  C1E004            shl eax,byte 0x4
+00000DB8  89C2              mov edx,eax
+00000DBA  8B4508            mov eax,[ebp+0x8]
+00000DBD  01D0              add eax,edx
+00000DBF  01C0              add eax,eax
+00000DC1  5D                pop ebp
+00000DC2  C3                ret
+00000DC3  55                push ebp
+00000DC4  89E5              mov ebp,esp
+00000DC6  8B4D08            mov ecx,[ebp+0x8]
+00000DC9  B867666666        mov eax,0x66666667
+00000DCE  F7E9              imul ecx
+00000DD0  C1FA06            sar edx,byte 0x6
+00000DD3  89C8              mov eax,ecx
+00000DD5  C1F81F            sar eax,byte 0x1f
+00000DD8  29C2              sub edx,eax
+00000DDA  89D0              mov eax,edx
+00000DDC  5D                pop ebp
+00000DDD  C3                ret
+00000DDE  55                push ebp
+00000DDF  89E5              mov ebp,esp
+00000DE1  FF7508            push dword [ebp+0x8]
+00000DE4  E8DAFFFFFF        call 0xdc3
+00000DE9  83C404            add esp,byte +0x4
+00000DEC  89C2              mov edx,eax
+00000DEE  89D0              mov eax,edx
+00000DF0  C1E002            shl eax,byte 0x2
+00000DF3  01D0              add eax,edx
+00000DF5  C1E005            shl eax,byte 0x5
+00000DF8  F7D8              neg eax
+00000DFA  89C2              mov edx,eax
+00000DFC  8B4508            mov eax,[ebp+0x8]
+00000DFF  01D0              add eax,edx
+00000E01  89C2              mov edx,eax
+00000E03  C1EA1F            shr edx,byte 0x1f
+00000E06  01D0              add eax,edx
+00000E08  D1F8              sar eax,1
+00000E0A  C9                leave
+00000E0B  C3                ret
+00000E0C  8D4C2404          lea ecx,[esp+0x4]
+00000E10  83E4F0            and esp,byte -0x10
+00000E13  FF71FC            push dword [ecx-0x4]
+00000E16  55                push ebp
+00000E17  89E5              mov ebp,esp
+00000E19  51                push ecx
+00000E1A  83EC04            sub esp,byte +0x4
+00000E1D  E855F4FFFF        call 0x277
+00000E22  FB                sti
+00000E23  83EC0C            sub esp,byte +0xc
+00000E26  6A32              push byte +0x32
+00000E28  E8F0F9FFFF        call 0x81d
+00000E2D  83C410            add esp,byte +0x10
+00000E30  E8CDFAFFFF        call 0x902
+00000E35  8B4DFC            mov ecx,[ebp-0x4]
+00000E38  C9                leave
+00000E39  8D61FC            lea esp,[ecx-0x4]
+00000E3C  C3                ret
+00000E3D  55                push ebp
+00000E3E  89E5              mov ebp,esp
+00000E40  83EC10            sub esp,byte +0x10
+00000E43  C745FC00000000    mov dword [ebp-0x4],0x0
+00000E4A  EB17              jmp short 0xe63
+00000E4C  8B55FC            mov edx,[ebp-0x4]
+00000E4F  8B450C            mov eax,[ebp+0xc]
+00000E52  01C2              add edx,eax
+00000E54  8B4DFC            mov ecx,[ebp-0x4]
+00000E57  8B4508            mov eax,[ebp+0x8]
+00000E5A  01C8              add eax,ecx
+00000E5C  8A00              mov al,[eax]
+00000E5E  8802              mov [edx],al
+00000E60  FF45FC            inc dword [ebp-0x4]
+00000E63  8B45FC            mov eax,[ebp-0x4]
+00000E66  3B4510            cmp eax,[ebp+0x10]
+00000E69  7CE1              jl 0xe4c
+00000E6B  C9                leave
+00000E6C  C3                ret
+00000E6D  55                push ebp
+00000E6E  89E5              mov ebp,esp
+00000E70  83EC14            sub esp,byte +0x14
+00000E73  8B450C            mov eax,[ebp+0xc]
+00000E76  8845EC            mov [ebp-0x14],al
+00000E79  8B4508            mov eax,[ebp+0x8]
+00000E7C  8945FC            mov [ebp-0x4],eax
+00000E7F  EB11              jmp short 0xe92
+00000E81  8B45FC            mov eax,[ebp-0x4]
+00000E84  8D5001            lea edx,[eax+0x1]
+00000E87  8955FC            mov [ebp-0x4],edx
+00000E8A  8A55EC            mov dl,[ebp-0x14]
+00000E8D  8810              mov [eax],dl
+00000E8F  FF4D10            dec dword [ebp+0x10]
+00000E92  837D1000          cmp dword [ebp+0x10],byte +0x0
+00000E96  75E9              jnz 0xe81
+00000E98  C9                leave
+00000E99  C3                ret
+00000E9A  55                push ebp
+00000E9B  89E5              mov ebp,esp
+00000E9D  53                push ebx
+00000E9E  83EC14            sub esp,byte +0x14
+00000EA1  8B4508            mov eax,[ebp+0x8]
+00000EA4  8945F0            mov [ebp-0x10],eax
+00000EA7  837DF000          cmp dword [ebp-0x10],byte +0x0
+00000EAB  7903              jns 0xeb0
+00000EAD  F75D08            neg dword [ebp+0x8]
+00000EB0  C745F400000000    mov dword [ebp-0xc],0x0
+00000EB7  8B45F4            mov eax,[ebp-0xc]
+00000EBA  8D5001            lea edx,[eax+0x1]
+00000EBD  8955F4            mov [ebp-0xc],edx
+00000EC0  89C2              mov edx,eax
+00000EC2  8B450C            mov eax,[ebp+0xc]
+00000EC5  8D0C02            lea ecx,[edx+eax]
+00000EC8  8B4508            mov eax,[ebp+0x8]
+00000ECB  BB0A000000        mov ebx,0xa
+00000ED0  99                cdq
+00000ED1  F7FB              idiv ebx
+00000ED3  89D0              mov eax,edx
+00000ED5  83C030            add eax,byte +0x30
+00000ED8  8801              mov [ecx],al
+00000EDA  8B4D08            mov ecx,[ebp+0x8]
+00000EDD  B867666666        mov eax,0x66666667
+00000EE2  F7E9              imul ecx
+00000EE4  C1FA02            sar edx,byte 0x2
+00000EE7  89C8              mov eax,ecx
+00000EE9  C1F81F            sar eax,byte 0x1f
+00000EEC  29C2              sub edx,eax
+00000EEE  89D0              mov eax,edx
+00000EF0  894508            mov [ebp+0x8],eax
+00000EF3  837D0800          cmp dword [ebp+0x8],byte +0x0
+00000EF7  7FBE              jg 0xeb7
+00000EF9  837DF000          cmp dword [ebp-0x10],byte +0x0
+00000EFD  7913              jns 0xf12
+00000EFF  8B45F4            mov eax,[ebp-0xc]
+00000F02  8D5001            lea edx,[eax+0x1]
+00000F05  8955F4            mov [ebp-0xc],edx
+00000F08  89C2              mov edx,eax
+00000F0A  8B450C            mov eax,[ebp+0xc]
+00000F0D  01D0              add eax,edx
+00000F0F  C6002D            mov byte [eax],0x2d
+00000F12  8B55F4            mov edx,[ebp-0xc]
+00000F15  8B450C            mov eax,[ebp+0xc]
+00000F18  01D0              add eax,edx
+00000F1A  C60000            mov byte [eax],0x0
+00000F1D  83EC0C            sub esp,byte +0xc
+00000F20  FF750C            push dword [ebp+0xc]
+00000F23  E808000000        call 0xf30
+00000F28  83C410            add esp,byte +0x10
+00000F2B  8B5DFC            mov ebx,[ebp-0x4]
+00000F2E  C9                leave
+00000F2F  C3                ret
+00000F30  55                push ebp
+00000F31  89E5              mov ebp,esp
+00000F33  83EC18            sub esp,byte +0x18
+00000F36  C745F400000000    mov dword [ebp-0xc],0x0
+00000F3D  83EC0C            sub esp,byte +0xc
+00000F40  FF7508            push dword [ebp+0x8]
+00000F43  E84A000000        call 0xf92
+00000F48  83C410            add esp,byte +0x10
+00000F4B  48                dec eax
+00000F4C  8945F0            mov [ebp-0x10],eax
+00000F4F  EB37              jmp short 0xf88
+00000F51  8B55F4            mov edx,[ebp-0xc]
+00000F54  8B4508            mov eax,[ebp+0x8]
+00000F57  01D0              add eax,edx
+00000F59  8A00              mov al,[eax]
+00000F5B  0FBEC0            movsx eax,al
+00000F5E  8945EC            mov [ebp-0x14],eax
+00000F61  8B55F4            mov edx,[ebp-0xc]
+00000F64  8B4508            mov eax,[ebp+0x8]
+00000F67  01C2              add edx,eax
+00000F69  8B4DF0            mov ecx,[ebp-0x10]
+00000F6C  8B4508            mov eax,[ebp+0x8]
+00000F6F  01C8              add eax,ecx
+00000F71  8A00              mov al,[eax]
+00000F73  8802              mov [edx],al
+00000F75  8B55F0            mov edx,[ebp-0x10]
+00000F78  8B4508            mov eax,[ebp+0x8]
+00000F7B  01D0              add eax,edx
+00000F7D  8B55EC            mov edx,[ebp-0x14]
+00000F80  8810              mov [eax],dl
+00000F82  FF45F4            inc dword [ebp-0xc]
+00000F85  FF4DF0            dec dword [ebp-0x10]
+00000F88  8B45F4            mov eax,[ebp-0xc]
+00000F8B  3B45F0            cmp eax,[ebp-0x10]
+00000F8E  7CC1              jl 0xf51
+00000F90  C9                leave
+00000F91  C3                ret
+00000F92  55                push ebp
+00000F93  89E5              mov ebp,esp
+00000F95  83EC10            sub esp,byte +0x10
+00000F98  C745FC00000000    mov dword [ebp-0x4],0x0
+00000F9F  EB03              jmp short 0xfa4
+00000FA1  FF45FC            inc dword [ebp-0x4]
+00000FA4  8B55FC            mov edx,[ebp-0x4]
+00000FA7  8B4508            mov eax,[ebp+0x8]
+00000FAA  01D0              add eax,edx
+00000FAC  8A00              mov al,[eax]
+00000FAE  84C0              test al,al
+00000FB0  75EF              jnz 0xfa1
+00000FB2  8B45FC            mov eax,[ebp-0x4]
+00000FB5  C9                leave
+00000FB6  C3                ret
+00000FB7  44                inc esp
+00000FB8  69766973696F6E    imul esi,[esi+0x69],dword 0x6e6f6973
+00000FBF  204279            and [edx+0x79],al
+00000FC2  205A65            and [edx+0x65],bl
+00000FC5  726F              jc 0x1036
+00000FC7  00446562          add [ebp+0x62],al
+00000FCB  7567              jnz 0x1034
+00000FCD  004E6F            add [esi+0x6f],cl
+00000FD0  6E                outsb
+00000FD1  204D61            and [ebp+0x61],cl
+00000FD4  736B              jnc 0x1041
+00000FD6  61                popa
+00000FD7  626C6520          bound ebp,[ebp+0x20]
+00000FDB  49                dec ecx
+00000FDC  6E                outsb
+00000FDD  7465              jz 0x1044
+00000FDF  7272              jc 0x1053
+00000FE1  7570              jnz 0x1053
+00000FE3  7400              jz 0xfe5
+00000FE5  42                inc edx
+00000FE6  7265              jc 0x104d
+00000FE8  61                popa
+00000FE9  6B706F69          imul esi,[eax+0x6f],byte +0x69
+00000FED  6E                outsb
+00000FEE  7400              jz 0xff0
+00000FF0  49                dec ecx
+00000FF1  6E                outsb
+00000FF2  746F              jz 0x1063
+00000FF4  20446574          and [ebp+0x74],al
+00000FF8  6563746564        arpl [gs:ebp+0x64],si
+00000FFD  204F76            and [edi+0x76],cl
+00001000  657266            gs jc 0x1069
+00001003  6C                insb
+00001004  6F                outsd
+00001005  7700              ja 0x1007
+00001007  4F                dec edi
+00001008  7574              jnz 0x107e
+0000100A  206F66            and [edi+0x66],ch
+0000100D  20426F            and [edx+0x6f],al
+00001010  756E              jnz 0x1080
+00001012  647300            fs jnc 0x1015
+00001015  49                dec ecx
+00001016  6E                outsb
+00001017  7661              jna 0x107a
+00001019  6C                insb
+0000101A  6964204F70636F64  imul esp,[eax+0x4f],dword 0x646f6370
+00001022  65004E6F          add [gs:esi+0x6f],cl
+00001026  20436F            and [ebx+0x6f],al
+00001029  7072              jo 0x109d
+0000102B  6F                outsd
+0000102C  636573            arpl [ebp+0x73],sp
+0000102F  736F              jnc 0x10a0
+00001031  7200              jc 0x1033
+00001033  44                inc esp
+00001034  6F                outsd
+00001035  7562              jnz 0x1099
+00001037  6C                insb
+00001038  65204661          and [gs:esi+0x61],al
+0000103C  756C              jnz 0x10aa
+0000103E  7400              jz 0x1040
+00001040  43                inc ebx
+00001041  6F                outsd
+00001042  7072              jo 0x10b6
+00001044  6F                outsd
+00001045  636573            arpl [ebp+0x73],sp
+00001048  736F              jnc 0x10b9
+0000104A  7220              jc 0x106c
+0000104C  53                push ebx
+0000104D  65676D            gs a16 insd
+00001050  656E              gs outsb
+00001052  7420              jz 0x1074
+00001054  4F                dec edi
+00001055  7665              jna 0x10bc
+00001057  7272              jc 0x10cb
+00001059  756E              jnz 0x10c9
+0000105B  004261            add [edx+0x61],al
+0000105E  6420545353        and [fs:ebx+edx*2+0x53],dl
+00001063  005365            add [ebx+0x65],dl
+00001066  676D              a16 insd
+00001068  656E              gs outsb
+0000106A  7420              jz 0x108c
+0000106C  4E                dec esi
+0000106D  6F                outsd
+0000106E  7420              jz 0x1090
+00001070  50                push eax
+00001071  7265              jc 0x10d8
+00001073  7365              jnc 0x10da
+00001075  6E                outsb
+00001076  7400              jz 0x1078
+00001078  53                push ebx
+00001079  7461              jz 0x10dc
+0000107B  636B20            arpl [ebx+0x20],bp
+0000107E  46                inc esi
+0000107F  61                popa
+00001080  756C              jnz 0x10ee
+00001082  7400              jz 0x1084
+00001084  47                inc edi
+00001085  656E              gs outsb
+00001087  657261            gs jc 0x10eb
+0000108A  6C                insb
+0000108B  205072            and [eax+0x72],dl
+0000108E  6F                outsd
+0000108F  7465              jz 0x10f6
+00001091  6374696F          arpl [ecx+ebp*2+0x6f],si
+00001095  6E                outsb
+00001096  204661            and [esi+0x61],al
+00001099  756C              jnz 0x1107
+0000109B  7400              jz 0x109d
+0000109D  50                push eax
+0000109E  61                popa
+0000109F  6765204661        and [gs:bp+0x61],al
+000010A4  756C              jnz 0x1112
+000010A6  7400              jz 0x10a8
+000010A8  55                push ebp
+000010A9  6E                outsb
+000010AA  6B6E6F77          imul ebp,[esi+0x6f],byte +0x77
+000010AE  6E                outsb
+000010AF  20496E            and [ecx+0x6e],cl
+000010B2  7465              jz 0x1119
+000010B4  7272              jc 0x1128
+000010B6  7570              jnz 0x1128
+000010B8  7400              jz 0x10ba
+000010BA  43                inc ebx
+000010BB  6F                outsd
+000010BC  7072              jo 0x1130
+000010BE  6F                outsd
+000010BF  636573            arpl [ebp+0x73],sp
+000010C2  736F              jnc 0x1133
+000010C4  7220              jc 0x10e6
+000010C6  46                inc esi
+000010C7  61                popa
+000010C8  756C              jnz 0x1136
+000010CA  7400              jz 0x10cc
+000010CC  41                inc ecx
+000010CD  6C                insb
+000010CE  69676E6D656E74    imul esp,[edi+0x6e],dword 0x746e656d
+000010D5  204368            and [ebx+0x68],al
+000010D8  65636B00          arpl [gs:ebx+0x0],bp
+000010DC  4D                dec ebp
+000010DD  61                popa
+000010DE  636869            arpl [eax+0x69],bp
+000010E1  6E                outsb
+000010E2  65204368          and [gs:ebx+0x68],al
+000010E6  65636B00          arpl [gs:ebx+0x0],bp
+000010EA  52                push edx
+000010EB  657365            gs jnc 0x1153
+000010EE  7276              jc 0x1166
+000010F0  6564007265        add [fs:edx+0x65],dh
+000010F5  636569            arpl [ebp+0x69],sp
+000010F8  7665              jna 0x115f
+000010FA  6420696E          and [fs:ecx+0x6e],ch
+000010FE  7465              jz 0x1165
+00001100  7272              jc 0x1174
+00001102  7570              jnz 0x1174
+00001104  743A              jz 0x1140
+00001106  2000              and [eax],al
+00001108  0A00              or al,[eax]
+0000110A  54                push esp
+0000110B  69636B3A20000A    imul esp,[ebx+0x6b],dword 0xa00203a
+00001112  004B65            add [ebx+0x65],cl
+00001115  7962              jns 0x1179
+00001117  6F                outsd
+00001118  61                popa
+00001119  7264              jc 0x117f
+0000111B  207363            and [ebx+0x63],dh
+0000111E  61                popa
+0000111F  6E                outsb
+00001120  636F64            arpl [edi+0x64],bp
+00001123  653A20            cmp ah,[gs:eax]
+00001126  002C20            add [eax],ch
+00001129  000A              add [edx],cl
+0000112B  00556E            add [ebp+0x6e],dl
+0000112E  6B6E6F77          imul ebp,[esi+0x6f],byte +0x77
+00001132  6E                outsb
+00001133  206B65            and [ebx+0x65],ch
+00001136  7920              jns 0x1158
+00001138  7570              jnz 0x11aa
+0000113A  004552            add [ebp+0x52],al
+0000113D  52                push edx
+0000113E  4F                dec edi
+0000113F  52                push edx
+00001140  004553            add [ebp+0x53],al
+00001143  43                inc ebx
+00001144  0031              add [ecx],dh
+00001146  0032              add [edx],dh
+00001148  0033              add [ebx],dh
+0000114A  003400            add [eax+eax],dh
+0000114D  3500360037        xor eax,0x37003600
+00001152  0038              add [eax],bh
+00001154  0039              add [ecx],bh
+00001156  0030              add [eax],dh
+00001158  002D002B0042      add [dword 0x42002b00],ch
+0000115E  61                popa
+0000115F  636B73            arpl [ebx+0x73],bp
+00001162  7061              jo 0x11c5
+00001164  636500            arpl [ebp+0x0],sp
+00001167  54                push esp
+00001168  61                popa
+00001169  6200              bound eax,[eax]
+0000116B  51                push ecx
+0000116C  005700            add [edi+0x0],dl
+0000116F  45                inc ebp
+00001170  005200            add [edx+0x0],dl
+00001173  54                push esp
+00001174  005900            add [ecx+0x0],bl
+00001177  55                push ebp
+00001178  004900            add [ecx+0x0],cl
+0000117B  4F                dec edi
+0000117C  005000            add [eax+0x0],dl
+0000117F  5B                pop ebx
+00001180  005D00            add [ebp+0x0],bl
+00001183  45                inc ebp
+00001184  6E                outsb
+00001185  7465              jz 0x11ec
+00001187  7200              jc 0x1189
+00001189  4C                dec esp
+0000118A  43                inc ebx
+0000118B  7472              jz 0x11ff
+0000118D  6C                insb
+0000118E  004100            add [ecx+0x0],al
+00001191  53                push ebx
+00001192  00440046          add [eax+eax+0x46],al
+00001196  004700            add [edi+0x0],al
+00001199  48                dec eax
+0000119A  004A00            add [edx+0x0],cl
+0000119D  4B                dec ebx
+0000119E  004C003B          add [eax+eax+0x3b],cl
+000011A2  0027              add [edi],ah
+000011A4  006000            add [eax+0x0],ah
+000011A7  4C                dec esp
+000011A8  53                push ebx
+000011A9  6869667400        push dword 0x746669
+000011AE  5C                pop esp
+000011AF  005A00            add [edx+0x0],bl
+000011B2  58                pop eax
+000011B3  004300            add [ebx+0x0],al
+000011B6  56                push esi
+000011B7  004200            add [edx+0x0],al
+000011BA  4E                dec esi
+000011BB  004D00            add [ebp+0x0],cl
+000011BE  2C00              sub al,0x0
+000011C0  2E002F            add [cs:edi],ch
+000011C3  005273            add [edx+0x73],dl
+000011C6  6869667400        push dword 0x746669
+000011CB  4B                dec ebx
+000011CC  657970            gs jns 0x123f
+000011CF  61                popa
+000011D0  64202A            and [fs:edx],ch
+000011D3  004C416C          add [ecx+eax*2+0x6c],cl
+000011D7  7400              jz 0x11d9
+000011D9  53                push ebx
+000011DA  7063              jo 0x123f
+000011DC  0000              add [eax],al
+000011DE  0000              add [eax],al
+000011E0  0000              add [eax],al
+000011E2  0000              add [eax],al
+000011E4  0000              add [eax],al
+000011E6  0000              add [eax],al
+000011E8  0000              add [eax],al
+000011EA  0000              add [eax],al
+000011EC  0000              add [eax],al
+000011EE  0000              add [eax],al
+000011F0  0000              add [eax],al
+000011F2  003B              add [ebx],bh
+000011F4  2100              and [eax],eax
+000011F6  004121            add [ecx+0x21],al
+000011F9  0000              add [eax],al
+000011FB  45                inc ebp
+000011FC  2100              and [eax],eax
+000011FE  004721            add [edi+0x21],al
+00001201  0000              add [eax],al
+00001203  49                dec ecx
+00001204  2100              and [eax],eax
+00001206  004B21            add [ebx+0x21],cl
+00001209  0000              add [eax],al
+0000120B  4D                dec ebp
+0000120C  2100              and [eax],eax
+0000120E  004F21            add [edi+0x21],cl
+00001211  0000              add [eax],al
+00001213  51                push ecx
+00001214  2100              and [eax],eax
+00001216  005321            add [ebx+0x21],dl
+00001219  0000              add [eax],al
+0000121B  55                push ebp
+0000121C  2100              and [eax],eax
+0000121E  005721            add [edi+0x21],dl
+00001221  0000              add [eax],al
+00001223  59                pop ecx
+00001224  2100              and [eax],eax
+00001226  005B21            add [ebx+0x21],bl
+00001229  0000              add [eax],al
+0000122B  5D                pop ebp
+0000122C  2100              and [eax],eax
+0000122E  006721            add [edi+0x21],ah
+00001231  0000              add [eax],al
+00001233  6B2100            imul esp,[ecx],byte +0x0
+00001236  006D21            add [ebp+0x21],ch
+00001239  0000              add [eax],al
+0000123B  6F                outsd
+0000123C  2100              and [eax],eax
+0000123E  007121            add [ecx+0x21],dh
+00001241  0000              add [eax],al
+00001243  7321              jnc 0x1266
+00001245  0000              add [eax],al
+00001247  7521              jnz 0x126a
+00001249  0000              add [eax],al
+0000124B  7721              ja 0x126e
+0000124D  0000              add [eax],al
+0000124F  7921              jns 0x1272
+00001251  0000              add [eax],al
+00001253  7B21              jpo 0x1276
+00001255  0000              add [eax],al
+00001257  7D21              jnl 0x127a
+00001259  0000              add [eax],al
+0000125B  7F21              jg 0x127e
+0000125D  0000              add [eax],al
+0000125F  812100008321      and dword [ecx],0x21830000
+00001265  0000              add [eax],al
+00001267  8921              mov [ecx],esp
+00001269  0000              add [eax],al
+0000126B  8F                db 0x8f
+0000126C  2100              and [eax],eax
+0000126E  009121000093      add [ecx-0x6cffffdf],dl
+00001274  2100              and [eax],eax
+00001276  009521000097      add [ebp-0x68ffffdf],dl
+0000127C  2100              and [eax],eax
+0000127E  00992100009B      add [ecx-0x64ffffdf],bl
+00001284  2100              and [eax],eax
+00001286  009D2100009F      add [ebp-0x60ffffdf],bl
+0000128C  2100              and [eax],eax
+0000128E  00A1210000A3      add [ecx-0x5cffffdf],ah
+00001294  2100              and [eax],eax
+00001296  00A5210000A7      add [ebp-0x58ffffdf],ah
+0000129C  2100              and [eax],eax
+0000129E  00AE210000B0      add [esi-0x4fffffdf],ch
+000012A4  2100              and [eax],eax
+000012A6  00B2210000B4      add [edx-0x4bffffdf],dh
+000012AC  2100              and [eax],eax
+000012AE  00B6210000B8      add [esi-0x47ffffdf],dh
+000012B4  2100              and [eax],eax
+000012B6  00BA210000BC      add [edx-0x43ffffdf],bh
+000012BC  2100              and [eax],eax
+000012BE  00BE210000C0      add [esi-0x3fffffdf],bh
+000012C4  2100              and [eax],eax
+000012C6  00C2              add dl,al
+000012C8  2100              and [eax],eax
+000012CA  00C4              add ah,al
+000012CC  2100              and [eax],eax
+000012CE  00CB              add bl,cl
+000012D0  2100              and [eax],eax
+000012D2  00D4              add ah,dl
+000012D4  2100              and [eax],eax
+000012D6  00D9              add cl,bl
+000012D8  2100              and [eax],eax
+000012DA  0000              add [eax],al
+000012DC  0000              add [eax],al
+000012DE  0000              add [eax],al
+000012E0  0000              add [eax],al
+000012E2  0000              add [eax],al
+000012E4  0000              add [eax],al
+000012E6  0000              add [eax],al
+000012E8  0000              add [eax],al
+000012EA  0000              add [eax],al
+000012EC  0000              add [eax],al
+000012EE  0000              add [eax],al
+000012F0  0000              add [eax],al
+000012F2  0000              add [eax],al
+000012F4  0000              add [eax],al
+000012F6  0000              add [eax],al
+000012F8  0000              add [eax],al
+000012FA  0000              add [eax],al
+000012FC  0000              add [eax],al
+000012FE  0000              add [eax],al
+00001300  0000              add [eax],al
+00001302  0000              add [eax],al
+00001304  0000              add [eax],al
+00001306  0000              add [eax],al
+00001308  0000              add [eax],al
+0000130A  0000              add [eax],al
+0000130C  0000              add [eax],al
+0000130E  0000              add [eax],al
+00001310  0000              add [eax],al
+00001312  0000              add [eax],al
+00001314  0000              add [eax],al
+00001316  0000              add [eax],al
+00001318  0000              add [eax],al
+0000131A  0000              add [eax],al
+0000131C  0000              add [eax],al
+0000131E  0000              add [eax],al
+00001320  0000              add [eax],al
+00001322  0000              add [eax],al
+00001324  0000              add [eax],al
+00001326  0000              add [eax],al
+00001328  0000              add [eax],al
+0000132A  0000              add [eax],al
+0000132C  0000              add [eax],al
+0000132E  0000              add [eax],al
+00001330  0000              add [eax],al
+00001332  0000              add [eax],al
+00001334  0000              add [eax],al
+00001336  0000              add [eax],al
+00001338  0000              add [eax],al
+0000133A  0000              add [eax],al
+0000133C  0000              add [eax],al
+0000133E  0000              add [eax],al
+00001340  0000              add [eax],al
+00001342  0000              add [eax],al
+00001344  0000              add [eax],al
+00001346  0000              add [eax],al
+00001348  0000              add [eax],al
+0000134A  0000              add [eax],al
+0000134C  0000              add [eax],al
+0000134E  0000              add [eax],al
+00001350  0000              add [eax],al
+00001352  0000              add [eax],al
+00001354  0000              add [eax],al
+00001356  0000              add [eax],al
+00001358  0000              add [eax],al
+0000135A  0000              add [eax],al
+0000135C  0000              add [eax],al
+0000135E  0000              add [eax],al
+00001360  0000              add [eax],al
+00001362  0000              add [eax],al
+00001364  0000              add [eax],al
+00001366  0000              add [eax],al
+00001368  0000              add [eax],al
+0000136A  0000              add [eax],al
+0000136C  0000              add [eax],al
+0000136E  0000              add [eax],al
+00001370  0000              add [eax],al
+00001372  0000              add [eax],al
+00001374  0000              add [eax],al
+00001376  0000              add [eax],al
+00001378  0000              add [eax],al
+0000137A  0000              add [eax],al
+0000137C  0000              add [eax],al
+0000137E  0000              add [eax],al
+00001380  0000              add [eax],al
+00001382  0000              add [eax],al
+00001384  0000              add [eax],al
+00001386  0000              add [eax],al
+00001388  0000              add [eax],al
+0000138A  0000              add [eax],al
+0000138C  0000              add [eax],al
+0000138E  0000              add [eax],al
+00001390  0000              add [eax],al
+00001392  0000              add [eax],al
+00001394  0000              add [eax],al
+00001396  0000              add [eax],al
+00001398  0000              add [eax],al
+0000139A  0000              add [eax],al
+0000139C  0000              add [eax],al
+0000139E  0000              add [eax],al
+000013A0  0000              add [eax],al
+000013A2  0000              add [eax],al
+000013A4  0000              add [eax],al
+000013A6  0000              add [eax],al
+000013A8  0000              add [eax],al
+000013AA  0000              add [eax],al
+000013AC  0000              add [eax],al
+000013AE  0000              add [eax],al
+000013B0  0000              add [eax],al
+000013B2  0000              add [eax],al
+000013B4  0000              add [eax],al
+000013B6  0000              add [eax],al
+000013B8  0000              add [eax],al
+000013BA  0000              add [eax],al
+000013BC  0000              add [eax],al
+000013BE  0000              add [eax],al
+000013C0  0000              add [eax],al
+000013C2  0000              add [eax],al
+000013C4  0000              add [eax],al
+000013C6  0000              add [eax],al
+000013C8  0000              add [eax],al
+000013CA  0000              add [eax],al
+000013CC  0000              add [eax],al
+000013CE  0000              add [eax],al
+000013D0  0000              add [eax],al
+000013D2  0000              add [eax],al
+000013D4  0000              add [eax],al
+000013D6  0000              add [eax],al
+000013D8  0000              add [eax],al
+000013DA  0000              add [eax],al
+000013DC  0000              add [eax],al
+000013DE  0000              add [eax],al
+000013E0  0000              add [eax],al
+000013E2  0000              add [eax],al
+000013E4  0000              add [eax],al
+000013E6  0000              add [eax],al
+000013E8  0000              add [eax],al
+000013EA  0000              add [eax],al
+000013EC  0000              add [eax],al
+000013EE  0000              add [eax],al
+000013F0  0000              add [eax],al
+000013F2  0000              add [eax],al
+000013F4  0000              add [eax],al
+000013F6  0000              add [eax],al
+000013F8  0000              add [eax],al
+000013FA  0000              add [eax],al
+000013FC  0000              add [eax],al
+000013FE  0000              add [eax],al
+00001400  0000              add [eax],al
+00001402  0000              add [eax],al
+00001404  0000              add [eax],al
+00001406  0000              add [eax],al
+00001408  0000              add [eax],al
+0000140A  0000              add [eax],al
+0000140C  0000              add [eax],al
+0000140E  0000              add [eax],al
+00001410  0000              add [eax],al
+00001412  0000              add [eax],al
+00001414  0000              add [eax],al
+00001416  0000              add [eax],al
+00001418  0000              add [eax],al
+0000141A  0000              add [eax],al
+0000141C  0000              add [eax],al
+0000141E  0000              add [eax],al
+00001420  0000              add [eax],al
+00001422  0000              add [eax],al
+00001424  0000              add [eax],al
+00001426  0000              add [eax],al
+00001428  0000              add [eax],al
+0000142A  0000              add [eax],al
+0000142C  0000              add [eax],al
+0000142E  0000              add [eax],al
+00001430  0000              add [eax],al
+00001432  0000              add [eax],al
+00001434  0000              add [eax],al
+00001436  0000              add [eax],al
+00001438  0000              add [eax],al
+0000143A  0000              add [eax],al
+0000143C  0000              add [eax],al
+0000143E  0000              add [eax],al
+00001440  0000              add [eax],al
+00001442  0000              add [eax],al
+00001444  0000              add [eax],al
+00001446  0000              add [eax],al
+00001448  0000              add [eax],al
+0000144A  0000              add [eax],al
+0000144C  0000              add [eax],al
+0000144E  0000              add [eax],al
+00001450  0000              add [eax],al
+00001452  0000              add [eax],al
+00001454  0000              add [eax],al
+00001456  0000              add [eax],al
+00001458  0000              add [eax],al
+0000145A  0000              add [eax],al
+0000145C  0000              add [eax],al
+0000145E  0000              add [eax],al
+00001460  0000              add [eax],al
+00001462  0000              add [eax],al
+00001464  0000              add [eax],al
+00001466  0000              add [eax],al
+00001468  0000              add [eax],al
+0000146A  0000              add [eax],al
+0000146C  0000              add [eax],al
+0000146E  0000              add [eax],al
+00001470  0000              add [eax],al
+00001472  0000              add [eax],al
+00001474  0000              add [eax],al
+00001476  0000              add [eax],al
+00001478  0000              add [eax],al
+0000147A  0000              add [eax],al
+0000147C  0000              add [eax],al
+0000147E  0000              add [eax],al
+00001480  0000              add [eax],al
+00001482  0000              add [eax],al
+00001484  0000              add [eax],al
+00001486  0000              add [eax],al
+00001488  0000              add [eax],al
+0000148A  0000              add [eax],al
+0000148C  0000              add [eax],al
+0000148E  0000              add [eax],al
+00001490  0000              add [eax],al
+00001492  0000              add [eax],al
+00001494  0000              add [eax],al
+00001496  0000              add [eax],al
+00001498  0000              add [eax],al
+0000149A  0000              add [eax],al
+0000149C  0000              add [eax],al
+0000149E  0000              add [eax],al
+000014A0  0000              add [eax],al
+000014A2  0000              add [eax],al
+000014A4  0000              add [eax],al
+000014A6  0000              add [eax],al
+000014A8  0000              add [eax],al
+000014AA  0000              add [eax],al
+000014AC  0000              add [eax],al
+000014AE  0000              add [eax],al
+000014B0  0000              add [eax],al
+000014B2  0000              add [eax],al
+000014B4  0000              add [eax],al
+000014B6  0000              add [eax],al
+000014B8  0000              add [eax],al
+000014BA  0000              add [eax],al
+000014BC  0000              add [eax],al
+000014BE  0000              add [eax],al
+000014C0  0000              add [eax],al
+000014C2  0000              add [eax],al
+000014C4  0000              add [eax],al
+000014C6  0000              add [eax],al
+000014C8  0000              add [eax],al
+000014CA  0000              add [eax],al
+000014CC  0000              add [eax],al
+000014CE  0000              add [eax],al
+000014D0  0000              add [eax],al
+000014D2  0000              add [eax],al
+000014D4  0000              add [eax],al
+000014D6  0000              add [eax],al
+000014D8  0000              add [eax],al
+000014DA  0000              add [eax],al
+000014DC  0000              add [eax],al
+000014DE  0000              add [eax],al
+000014E0  0000              add [eax],al
+000014E2  0000              add [eax],al
+000014E4  0000              add [eax],al
+000014E6  0000              add [eax],al
+000014E8  0000              add [eax],al
+000014EA  0000              add [eax],al
+000014EC  0000              add [eax],al
+000014EE  0000              add [eax],al
+000014F0  0000              add [eax],al
+000014F2  0000              add [eax],al
+000014F4  0000              add [eax],al
+000014F6  0000              add [eax],al
+000014F8  0000              add [eax],al
+000014FA  0000              add [eax],al
+000014FC  0000              add [eax],al
+000014FE  0000              add [eax],al
+00001500  0000              add [eax],al
+00001502  0000              add [eax],al
+00001504  0000              add [eax],al
+00001506  0000              add [eax],al
+00001508  0000              add [eax],al
+0000150A  0000              add [eax],al
+0000150C  0000              add [eax],al
+0000150E  0000              add [eax],al
+00001510  0000              add [eax],al
+00001512  0000              add [eax],al
+00001514  0000              add [eax],al
+00001516  0000              add [eax],al
+00001518  0000              add [eax],al
+0000151A  0000              add [eax],al
+0000151C  0000              add [eax],al
+0000151E  0000              add [eax],al
+00001520  0000              add [eax],al
+00001522  0000              add [eax],al
+00001524  0000              add [eax],al
+00001526  0000              add [eax],al
+00001528  0000              add [eax],al
+0000152A  0000              add [eax],al
+0000152C  0000              add [eax],al
+0000152E  0000              add [eax],al
+00001530  0000              add [eax],al
+00001532  0000              add [eax],al
+00001534  0000              add [eax],al
+00001536  0000              add [eax],al
+00001538  0000              add [eax],al
+0000153A  0000              add [eax],al
+0000153C  0000              add [eax],al
+0000153E  0000              add [eax],al
+00001540  0000              add [eax],al
+00001542  0000              add [eax],al
+00001544  0000              add [eax],al
+00001546  0000              add [eax],al
+00001548  0000              add [eax],al
+0000154A  0000              add [eax],al
+0000154C  0000              add [eax],al
+0000154E  0000              add [eax],al
+00001550  0000              add [eax],al
+00001552  0000              add [eax],al
+00001554  0000              add [eax],al
+00001556  0000              add [eax],al
+00001558  0000              add [eax],al
+0000155A  0000              add [eax],al
+0000155C  0000              add [eax],al
+0000155E  0000              add [eax],al
+00001560  0000              add [eax],al
+00001562  0000              add [eax],al
+00001564  0000              add [eax],al
+00001566  0000              add [eax],al
+00001568  0000              add [eax],al
+0000156A  0000              add [eax],al
+0000156C  0000              add [eax],al
+0000156E  0000              add [eax],al
+00001570  0000              add [eax],al
+00001572  0000              add [eax],al
+00001574  0000              add [eax],al
+00001576  0000              add [eax],al
+00001578  0000              add [eax],al
+0000157A  0000              add [eax],al
+0000157C  0000              add [eax],al
+0000157E  0000              add [eax],al
+00001580  0000              add [eax],al
+00001582  0000              add [eax],al
+00001584  0000              add [eax],al
+00001586  0000              add [eax],al
+00001588  0000              add [eax],al
+0000158A  0000              add [eax],al
+0000158C  0000              add [eax],al
+0000158E  0000              add [eax],al
+00001590  0000              add [eax],al
+00001592  0000              add [eax],al
+00001594  0000              add [eax],al
+00001596  0000              add [eax],al
+00001598  0000              add [eax],al
+0000159A  0000              add [eax],al
+0000159C  0000              add [eax],al
+0000159E  0000              add [eax],al
+000015A0  0000              add [eax],al
+000015A2  0000              add [eax],al
+000015A4  0000              add [eax],al
+000015A6  0000              add [eax],al
+000015A8  0000              add [eax],al
+000015AA  0000              add [eax],al
+000015AC  0000              add [eax],al
+000015AE  0000              add [eax],al
+000015B0  0000              add [eax],al
+000015B2  0000              add [eax],al
+000015B4  0000              add [eax],al
+000015B6  0000              add [eax],al
+000015B8  0000              add [eax],al
+000015BA  0000              add [eax],al
+000015BC  0000              add [eax],al
+000015BE  0000              add [eax],al
+000015C0  0000              add [eax],al
+000015C2  0000              add [eax],al
+000015C4  0000              add [eax],al
+000015C6  0000              add [eax],al
+000015C8  0000              add [eax],al
+000015CA  0000              add [eax],al
+000015CC  0000              add [eax],al
+000015CE  0000              add [eax],al
+000015D0  0000              add [eax],al
+000015D2  0000              add [eax],al
+000015D4  0000              add [eax],al
+000015D6  0000              add [eax],al
+000015D8  0000              add [eax],al
+000015DA  0000              add [eax],al
+000015DC  0000              add [eax],al
+000015DE  0000              add [eax],al
+000015E0  0000              add [eax],al
+000015E2  0000              add [eax],al
+000015E4  0000              add [eax],al
+000015E6  0000              add [eax],al
+000015E8  0000              add [eax],al
+000015EA  0000              add [eax],al
+000015EC  0000              add [eax],al
+000015EE  0000              add [eax],al
+000015F0  0000              add [eax],al
+000015F2  0000              add [eax],al
+000015F4  0000              add [eax],al
+000015F6  0000              add [eax],al
+000015F8  0000              add [eax],al
+000015FA  0000              add [eax],al
+000015FC  0000              add [eax],al
+000015FE  0000              add [eax],al
+00001600  0000              add [eax],al
+00001602  0000              add [eax],al
+00001604  0000              add [eax],al
+00001606  0000              add [eax],al
+00001608  0000              add [eax],al
+0000160A  0000              add [eax],al
+0000160C  0000              add [eax],al
+0000160E  0000              add [eax],al
+00001610  0000              add [eax],al
+00001612  0000              add [eax],al
+00001614  0000              add [eax],al
+00001616  0000              add [eax],al
+00001618  0000              add [eax],al
+0000161A  0000              add [eax],al
+0000161C  0000              add [eax],al
+0000161E  0000              add [eax],al
+00001620  0000              add [eax],al
+00001622  0000              add [eax],al
+00001624  0000              add [eax],al
+00001626  0000              add [eax],al
+00001628  0000              add [eax],al
+0000162A  0000              add [eax],al
+0000162C  0000              add [eax],al
+0000162E  0000              add [eax],al
+00001630  0000              add [eax],al
+00001632  0000              add [eax],al
+00001634  0000              add [eax],al
+00001636  0000              add [eax],al
+00001638  0000              add [eax],al
+0000163A  0000              add [eax],al
+0000163C  0000              add [eax],al
+0000163E  0000              add [eax],al
+00001640  0000              add [eax],al
+00001642  0000              add [eax],al
+00001644  0000              add [eax],al
+00001646  0000              add [eax],al
+00001648  0000              add [eax],al
+0000164A  0000              add [eax],al
+0000164C  0000              add [eax],al
+0000164E  0000              add [eax],al
+00001650  0000              add [eax],al
+00001652  0000              add [eax],al
+00001654  0000              add [eax],al
+00001656  0000              add [eax],al
+00001658  0000              add [eax],al
+0000165A  0000              add [eax],al
+0000165C  0000              add [eax],al
+0000165E  0000              add [eax],al
+00001660  0000              add [eax],al
+00001662  0000              add [eax],al
+00001664  0000              add [eax],al
+00001666  0000              add [eax],al
+00001668  0000              add [eax],al
+0000166A  0000              add [eax],al
+0000166C  0000              add [eax],al
+0000166E  0000              add [eax],al
+00001670  0000              add [eax],al
+00001672  0000              add [eax],al
+00001674  0000              add [eax],al
+00001676  0000              add [eax],al
+00001678  0000              add [eax],al
+0000167A  0000              add [eax],al
+0000167C  0000              add [eax],al
+0000167E  0000              add [eax],al
+00001680  0000              add [eax],al
+00001682  0000              add [eax],al
+00001684  0000              add [eax],al
+00001686  0000              add [eax],al
+00001688  0000              add [eax],al
+0000168A  0000              add [eax],al
+0000168C  0000              add [eax],al
+0000168E  0000              add [eax],al
+00001690  0000              add [eax],al
+00001692  0000              add [eax],al
+00001694  0000              add [eax],al
+00001696  0000              add [eax],al
+00001698  0000              add [eax],al
+0000169A  0000              add [eax],al
+0000169C  0000              add [eax],al
+0000169E  0000              add [eax],al
+000016A0  0000              add [eax],al
+000016A2  0000              add [eax],al
+000016A4  0000              add [eax],al
+000016A6  0000              add [eax],al
+000016A8  0000              add [eax],al
+000016AA  0000              add [eax],al
+000016AC  0000              add [eax],al
+000016AE  0000              add [eax],al
+000016B0  0000              add [eax],al
+000016B2  0000              add [eax],al
+000016B4  0000              add [eax],al
+000016B6  0000              add [eax],al
+000016B8  0000              add [eax],al
+000016BA  0000              add [eax],al
+000016BC  0000              add [eax],al
+000016BE  0000              add [eax],al
+000016C0  0000              add [eax],al
+000016C2  0000              add [eax],al
+000016C4  0000              add [eax],al
+000016C6  0000              add [eax],al
+000016C8  0000              add [eax],al
+000016CA  0000              add [eax],al
+000016CC  0000              add [eax],al
+000016CE  0000              add [eax],al
+000016D0  0000              add [eax],al
+000016D2  0000              add [eax],al
+000016D4  0000              add [eax],al
+000016D6  0000              add [eax],al
+000016D8  0000              add [eax],al
+000016DA  0000              add [eax],al
+000016DC  0000              add [eax],al
+000016DE  0000              add [eax],al
+000016E0  0000              add [eax],al
+000016E2  0000              add [eax],al
+000016E4  0000              add [eax],al
+000016E6  0000              add [eax],al
+000016E8  0000              add [eax],al
+000016EA  0000              add [eax],al
+000016EC  0000              add [eax],al
+000016EE  0000              add [eax],al
+000016F0  0000              add [eax],al
+000016F2  0000              add [eax],al
+000016F4  0000              add [eax],al
+000016F6  0000              add [eax],al
+000016F8  0000              add [eax],al
+000016FA  0000              add [eax],al
+000016FC  0000              add [eax],al
+000016FE  0000              add [eax],al
+00001700  0000              add [eax],al
+00001702  0000              add [eax],al
+00001704  0000              add [eax],al
+00001706  0000              add [eax],al
+00001708  0000              add [eax],al
+0000170A  0000              add [eax],al
+0000170C  0000              add [eax],al
+0000170E  0000              add [eax],al
+00001710  0000              add [eax],al
+00001712  0000              add [eax],al
+00001714  0000              add [eax],al
+00001716  0000              add [eax],al
+00001718  0000              add [eax],al
+0000171A  0000              add [eax],al
+0000171C  0000              add [eax],al
+0000171E  0000              add [eax],al
+00001720  0000              add [eax],al
+00001722  0000              add [eax],al
+00001724  0000              add [eax],al
+00001726  0000              add [eax],al
+00001728  0000              add [eax],al
+0000172A  0000              add [eax],al
+0000172C  0000              add [eax],al
+0000172E  0000              add [eax],al
+00001730  0000              add [eax],al
+00001732  0000              add [eax],al
+00001734  0000              add [eax],al
+00001736  0000              add [eax],al
+00001738  0000              add [eax],al
+0000173A  0000              add [eax],al
+0000173C  0000              add [eax],al
+0000173E  0000              add [eax],al
+00001740  0000              add [eax],al
+00001742  0000              add [eax],al
+00001744  0000              add [eax],al
+00001746  0000              add [eax],al
+00001748  0000              add [eax],al
+0000174A  0000              add [eax],al
+0000174C  0000              add [eax],al
+0000174E  0000              add [eax],al
+00001750  0000              add [eax],al
+00001752  0000              add [eax],al
+00001754  0000              add [eax],al
+00001756  0000              add [eax],al
+00001758  0000              add [eax],al
+0000175A  0000              add [eax],al
+0000175C  0000              add [eax],al
+0000175E  0000              add [eax],al
+00001760  0000              add [eax],al
+00001762  0000              add [eax],al
+00001764  0000              add [eax],al
+00001766  0000              add [eax],al
+00001768  0000              add [eax],al
+0000176A  0000              add [eax],al
+0000176C  0000              add [eax],al
+0000176E  0000              add [eax],al
+00001770  0000              add [eax],al
+00001772  0000              add [eax],al
+00001774  0000              add [eax],al
+00001776  0000              add [eax],al
+00001778  0000              add [eax],al
+0000177A  0000              add [eax],al
+0000177C  0000              add [eax],al
+0000177E  0000              add [eax],al
+00001780  0000              add [eax],al
+00001782  0000              add [eax],al
+00001784  0000              add [eax],al
+00001786  0000              add [eax],al
+00001788  0000              add [eax],al
+0000178A  0000              add [eax],al
+0000178C  0000              add [eax],al
+0000178E  0000              add [eax],al
+00001790  0000              add [eax],al
+00001792  0000              add [eax],al
+00001794  0000              add [eax],al
+00001796  0000              add [eax],al
+00001798  0000              add [eax],al
+0000179A  0000              add [eax],al
+0000179C  0000              add [eax],al
+0000179E  0000              add [eax],al
+000017A0  0000              add [eax],al
+000017A2  0000              add [eax],al
+000017A4  0000              add [eax],al
+000017A6  0000              add [eax],al
+000017A8  0000              add [eax],al
+000017AA  0000              add [eax],al
+000017AC  0000              add [eax],al
+000017AE  0000              add [eax],al
+000017B0  0000              add [eax],al
+000017B2  0000              add [eax],al
+000017B4  0000              add [eax],al
+000017B6  0000              add [eax],al
+000017B8  0000              add [eax],al
+000017BA  0000              add [eax],al
+000017BC  0000              add [eax],al
+000017BE  0000              add [eax],al
+000017C0  0000              add [eax],al
+000017C2  0000              add [eax],al
+000017C4  0000              add [eax],al
+000017C6  0000              add [eax],al
+000017C8  0000              add [eax],al
+000017CA  0000              add [eax],al
+000017CC  0000              add [eax],al
+000017CE  0000              add [eax],al
+000017D0  0000              add [eax],al
+000017D2  0000              add [eax],al
+000017D4  0000              add [eax],al
+000017D6  0000              add [eax],al
+000017D8  0000              add [eax],al
+000017DA  0000              add [eax],al
+000017DC  0000              add [eax],al
+000017DE  0000              add [eax],al
+000017E0  0000              add [eax],al
+000017E2  0000              add [eax],al
+000017E4  0000              add [eax],al
+000017E6  0000              add [eax],al
+000017E8  0000              add [eax],al
+000017EA  0000              add [eax],al
+000017EC  0000              add [eax],al
+000017EE  0000              add [eax],al
+000017F0  0000              add [eax],al
+000017F2  0000              add [eax],al
+000017F4  0000              add [eax],al
+000017F6  0000              add [eax],al
+000017F8  0000              add [eax],al
+000017FA  0000              add [eax],al
+000017FC  0000              add [eax],al
+000017FE  0000              add [eax],al
+00001800  0000              add [eax],al
+00001802  0000              add [eax],al
+00001804  0000              add [eax],al
+00001806  0000              add [eax],al
+00001808  0000              add [eax],al
+0000180A  0000              add [eax],al
+0000180C  0000              add [eax],al
+0000180E  0000              add [eax],al
+00001810  0000              add [eax],al
+00001812  0000              add [eax],al
+00001814  0000              add [eax],al
+00001816  0000              add [eax],al
+00001818  0000              add [eax],al
+0000181A  0000              add [eax],al
+0000181C  0000              add [eax],al
+0000181E  0000              add [eax],al
+00001820  0000              add [eax],al
+00001822  0000              add [eax],al
+00001824  0000              add [eax],al
+00001826  0000              add [eax],al
+00001828  0000              add [eax],al
+0000182A  0000              add [eax],al
+0000182C  0000              add [eax],al
+0000182E  0000              add [eax],al
+00001830  0000              add [eax],al
+00001832  0000              add [eax],al
+00001834  0000              add [eax],al
+00001836  0000              add [eax],al
+00001838  0000              add [eax],al
+0000183A  0000              add [eax],al
+0000183C  0000              add [eax],al
+0000183E  0000              add [eax],al
+00001840  0000              add [eax],al
+00001842  0000              add [eax],al
+00001844  0000              add [eax],al
+00001846  0000              add [eax],al
+00001848  0000              add [eax],al
+0000184A  0000              add [eax],al
+0000184C  0000              add [eax],al
+0000184E  0000              add [eax],al
+00001850  0000              add [eax],al
+00001852  0000              add [eax],al
+00001854  0000              add [eax],al
+00001856  0000              add [eax],al
+00001858  0000              add [eax],al
+0000185A  0000              add [eax],al
+0000185C  0000              add [eax],al
+0000185E  0000              add [eax],al
+00001860  0000              add [eax],al
+00001862  0000              add [eax],al
+00001864  0000              add [eax],al
+00001866  0000              add [eax],al
+00001868  0000              add [eax],al
+0000186A  0000              add [eax],al
+0000186C  0000              add [eax],al
+0000186E  0000              add [eax],al
+00001870  0000              add [eax],al
+00001872  0000              add [eax],al
+00001874  0000              add [eax],al
+00001876  0000              add [eax],al
+00001878  0000              add [eax],al
+0000187A  0000              add [eax],al
+0000187C  0000              add [eax],al
+0000187E  0000              add [eax],al
+00001880  0000              add [eax],al
+00001882  0000              add [eax],al
+00001884  0000              add [eax],al
+00001886  0000              add [eax],al
+00001888  0000              add [eax],al
+0000188A  0000              add [eax],al
+0000188C  0000              add [eax],al
+0000188E  0000              add [eax],al
+00001890  0000              add [eax],al
+00001892  0000              add [eax],al
+00001894  0000              add [eax],al
+00001896  0000              add [eax],al
+00001898  0000              add [eax],al
+0000189A  0000              add [eax],al
+0000189C  0000              add [eax],al
+0000189E  0000              add [eax],al
+000018A0  0000              add [eax],al
+000018A2  0000              add [eax],al
+000018A4  0000              add [eax],al
+000018A6  0000              add [eax],al
+000018A8  0000              add [eax],al
+000018AA  0000              add [eax],al
+000018AC  0000              add [eax],al
+000018AE  0000              add [eax],al
+000018B0  0000              add [eax],al
+000018B2  0000              add [eax],al
+000018B4  0000              add [eax],al
+000018B6  0000              add [eax],al
+000018B8  0000              add [eax],al
+000018BA  0000              add [eax],al
+000018BC  0000              add [eax],al
+000018BE  0000              add [eax],al
+000018C0  0000              add [eax],al
+000018C2  0000              add [eax],al
+000018C4  0000              add [eax],al
+000018C6  0000              add [eax],al
+000018C8  0000              add [eax],al
+000018CA  0000              add [eax],al
+000018CC  0000              add [eax],al
+000018CE  0000              add [eax],al
+000018D0  0000              add [eax],al
+000018D2  0000              add [eax],al
+000018D4  0000              add [eax],al
+000018D6  0000              add [eax],al
+000018D8  0000              add [eax],al
+000018DA  0000              add [eax],al
+000018DC  0000              add [eax],al
+000018DE  0000              add [eax],al
+000018E0  0000              add [eax],al
+000018E2  0000              add [eax],al
+000018E4  0000              add [eax],al
+000018E6  0000              add [eax],al
+000018E8  0000              add [eax],al
+000018EA  0000              add [eax],al
+000018EC  0000              add [eax],al
+000018EE  0000              add [eax],al
+000018F0  0000              add [eax],al
+000018F2  0000              add [eax],al
+000018F4  0000              add [eax],al
+000018F6  0000              add [eax],al
+000018F8  0000              add [eax],al
+000018FA  0000              add [eax],al
+000018FC  0000              add [eax],al
+000018FE  0000              add [eax],al
+00001900  0000              add [eax],al
+00001902  0000              add [eax],al
+00001904  0000              add [eax],al
+00001906  0000              add [eax],al
+00001908  0000              add [eax],al
+0000190A  0000              add [eax],al
+0000190C  0000              add [eax],al
+0000190E  0000              add [eax],al
+00001910  0000              add [eax],al
+00001912  0000              add [eax],al
+00001914  0000              add [eax],al
+00001916  0000              add [eax],al
+00001918  0000              add [eax],al
+0000191A  0000              add [eax],al
+0000191C  0000              add [eax],al
+0000191E  0000              add [eax],al
+00001920  0000              add [eax],al
+00001922  0000              add [eax],al
+00001924  0000              add [eax],al
+00001926  0000              add [eax],al
+00001928  0000              add [eax],al
+0000192A  0000              add [eax],al
+0000192C  0000              add [eax],al
+0000192E  0000              add [eax],al
+00001930  0000              add [eax],al
+00001932  0000              add [eax],al
+00001934  0000              add [eax],al
+00001936  0000              add [eax],al
+00001938  0000              add [eax],al
+0000193A  0000              add [eax],al
+0000193C  0000              add [eax],al
+0000193E  0000              add [eax],al
+00001940  0000              add [eax],al
+00001942  0000              add [eax],al
+00001944  0000              add [eax],al
+00001946  0000              add [eax],al
+00001948  0000              add [eax],al
+0000194A  0000              add [eax],al
+0000194C  0000              add [eax],al
+0000194E  0000              add [eax],al
+00001950  0000              add [eax],al
+00001952  0000              add [eax],al
+00001954  0000              add [eax],al
+00001956  0000              add [eax],al
+00001958  0000              add [eax],al
+0000195A  0000              add [eax],al
+0000195C  0000              add [eax],al
+0000195E  0000              add [eax],al
+00001960  0000              add [eax],al
+00001962  0000              add [eax],al
+00001964  0000              add [eax],al
+00001966  0000              add [eax],al
+00001968  0000              add [eax],al
+0000196A  0000              add [eax],al
+0000196C  0000              add [eax],al
+0000196E  0000              add [eax],al
+00001970  0000              add [eax],al
+00001972  0000              add [eax],al
+00001974  0000              add [eax],al
+00001976  0000              add [eax],al
+00001978  0000              add [eax],al
+0000197A  0000              add [eax],al
+0000197C  0000              add [eax],al
+0000197E  0000              add [eax],al
+00001980  0000              add [eax],al
+00001982  0000              add [eax],al
+00001984  0000              add [eax],al
+00001986  0000              add [eax],al
+00001988  0000              add [eax],al
+0000198A  0000              add [eax],al
+0000198C  0000              add [eax],al
+0000198E  0000              add [eax],al
+00001990  0000              add [eax],al
+00001992  0000              add [eax],al
+00001994  0000              add [eax],al
+00001996  0000              add [eax],al
+00001998  0000              add [eax],al
+0000199A  0000              add [eax],al
+0000199C  0000              add [eax],al
+0000199E  0000              add [eax],al
+000019A0  0000              add [eax],al
+000019A2  0000              add [eax],al
+000019A4  0000              add [eax],al
+000019A6  0000              add [eax],al
+000019A8  0000              add [eax],al
+000019AA  0000              add [eax],al
+000019AC  0000              add [eax],al
+000019AE  0000              add [eax],al
+000019B0  0000              add [eax],al
+000019B2  0000              add [eax],al
+000019B4  0000              add [eax],al
+000019B6  0000              add [eax],al
+000019B8  0000              add [eax],al
+000019BA  0000              add [eax],al
+000019BC  0000              add [eax],al
+000019BE  0000              add [eax],al
+000019C0  0000              add [eax],al
+000019C2  0000              add [eax],al
+000019C4  0000              add [eax],al
+000019C6  0000              add [eax],al
+000019C8  0000              add [eax],al
+000019CA  0000              add [eax],al
+000019CC  0000              add [eax],al
+000019CE  0000              add [eax],al
+000019D0  0000              add [eax],al
+000019D2  0000              add [eax],al
+000019D4  0000              add [eax],al
+000019D6  0000              add [eax],al
+000019D8  0000              add [eax],al
+000019DA  0000              add [eax],al
+000019DC  0000              add [eax],al
+000019DE  0000              add [eax],al
+000019E0  0000              add [eax],al
+000019E2  0000              add [eax],al
+000019E4  0000              add [eax],al
+000019E6  0000              add [eax],al
+000019E8  0000              add [eax],al
+000019EA  0000              add [eax],al
+000019EC  0000              add [eax],al
+000019EE  0000              add [eax],al
+000019F0  0000              add [eax],al
+000019F2  0000              add [eax],al
+000019F4  0000              add [eax],al
+000019F6  0000              add [eax],al
+000019F8  0000              add [eax],al
+000019FA  0000              add [eax],al
+000019FC  0000              add [eax],al
+000019FE  0000              add [eax],al
+00001A00  0000              add [eax],al
+00001A02  0000              add [eax],al
+00001A04  0000              add [eax],al
+00001A06  0000              add [eax],al
+00001A08  0000              add [eax],al
+00001A0A  0000              add [eax],al
+00001A0C  0000              add [eax],al
+00001A0E  0000              add [eax],al
+00001A10  0000              add [eax],al
+00001A12  0000              add [eax],al
+00001A14  0000              add [eax],al
+00001A16  0000              add [eax],al
+00001A18  0000              add [eax],al
+00001A1A  0000              add [eax],al
+00001A1C  0000              add [eax],al
+00001A1E  0000              add [eax],al
+00001A20  0000              add [eax],al
+00001A22  0000              add [eax],al
+00001A24  0000              add [eax],al
+00001A26  0000              add [eax],al
+00001A28  0000              add [eax],al
+00001A2A  0000              add [eax],al
+00001A2C  0000              add [eax],al
+00001A2E  0000              add [eax],al
+00001A30  0000              add [eax],al
+00001A32  0000              add [eax],al
+00001A34  0000              add [eax],al
+00001A36  0000              add [eax],al
+00001A38  0000              add [eax],al
+00001A3A  0000              add [eax],al
+00001A3C  0000              add [eax],al
+00001A3E  0000              add [eax],al
+00001A40  0000              add [eax],al
+00001A42  0000              add [eax],al
+00001A44  0000              add [eax],al
+00001A46  0000              add [eax],al
+00001A48  0000              add [eax],al
+00001A4A  0000              add [eax],al
+00001A4C  0000              add [eax],al
+00001A4E  0000              add [eax],al
+00001A50  0000              add [eax],al
+00001A52  0000              add [eax],al
+00001A54  0000              add [eax],al
+00001A56  0000              add [eax],al
+00001A58  0000              add [eax],al
+00001A5A  0000              add [eax],al
+00001A5C  0000              add [eax],al
+00001A5E  0000              add [eax],al
+00001A60  0000              add [eax],al
+00001A62  0000              add [eax],al
+00001A64  0000              add [eax],al
+00001A66  0000              add [eax],al
+00001A68  0000              add [eax],al
+00001A6A  0000              add [eax],al
+00001A6C  0000              add [eax],al
+00001A6E  0000              add [eax],al
+00001A70  0000              add [eax],al
+00001A72  0000              add [eax],al
+00001A74  0000              add [eax],al
+00001A76  0000              add [eax],al
+00001A78  0000              add [eax],al
+00001A7A  0000              add [eax],al
+00001A7C  0000              add [eax],al
+00001A7E  0000              add [eax],al
+00001A80  0000              add [eax],al
+00001A82  0000              add [eax],al
+00001A84  0000              add [eax],al
+00001A86  0000              add [eax],al
+00001A88  0000              add [eax],al
+00001A8A  0000              add [eax],al
+00001A8C  0000              add [eax],al
+00001A8E  0000              add [eax],al
+00001A90  0000              add [eax],al
+00001A92  0000              add [eax],al
+00001A94  0000              add [eax],al
+00001A96  0000              add [eax],al
+00001A98  0000              add [eax],al
+00001A9A  0000              add [eax],al
+00001A9C  0000              add [eax],al
+00001A9E  0000              add [eax],al
+00001AA0  0000              add [eax],al
+00001AA2  0000              add [eax],al
+00001AA4  0000              add [eax],al
+00001AA6  0000              add [eax],al
+00001AA8  0000              add [eax],al
+00001AAA  0000              add [eax],al
+00001AAC  0000              add [eax],al
+00001AAE  0000              add [eax],al
+00001AB0  0000              add [eax],al
+00001AB2  0000              add [eax],al
+00001AB4  0000              add [eax],al
+00001AB6  0000              add [eax],al
+00001AB8  0000              add [eax],al
+00001ABA  0000              add [eax],al
+00001ABC  0000              add [eax],al
+00001ABE  0000              add [eax],al
+00001AC0  0000              add [eax],al
+00001AC2  0000              add [eax],al
+00001AC4  0000              add [eax],al
+00001AC6  0000              add [eax],al
+00001AC8  0000              add [eax],al
+00001ACA  0000              add [eax],al
+00001ACC  0000              add [eax],al
+00001ACE  0000              add [eax],al
+00001AD0  0000              add [eax],al
+00001AD2  0000              add [eax],al
+00001AD4  0000              add [eax],al
+00001AD6  0000              add [eax],al
+00001AD8  0000              add [eax],al
+00001ADA  0000              add [eax],al
+00001ADC  0000              add [eax],al
+00001ADE  0000              add [eax],al
+00001AE0  0000              add [eax],al
+00001AE2  0000              add [eax],al
+00001AE4  0000              add [eax],al
+00001AE6  0000              add [eax],al
+00001AE8  0000              add [eax],al
+00001AEA  0000              add [eax],al
+00001AEC  0000              add [eax],al
+00001AEE  0000              add [eax],al
+00001AF0  0000              add [eax],al
+00001AF2  0000              add [eax],al
+00001AF4  0000              add [eax],al
+00001AF6  0000              add [eax],al
+00001AF8  0000              add [eax],al
+00001AFA  0000              add [eax],al
+00001AFC  0000              add [eax],al
+00001AFE  0000              add [eax],al
+00001B00  0000              add [eax],al
+00001B02  0000              add [eax],al
+00001B04  0000              add [eax],al
+00001B06  0000              add [eax],al
+00001B08  0000              add [eax],al
+00001B0A  0000              add [eax],al
+00001B0C  0000              add [eax],al
+00001B0E  0000              add [eax],al
+00001B10  0000              add [eax],al
+00001B12  0000              add [eax],al
+00001B14  0000              add [eax],al
+00001B16  0000              add [eax],al
+00001B18  0000              add [eax],al
+00001B1A  0000              add [eax],al
+00001B1C  0000              add [eax],al
+00001B1E  0000              add [eax],al
+00001B20  0000              add [eax],al
+00001B22  0000              add [eax],al
+00001B24  0000              add [eax],al
+00001B26  0000              add [eax],al
+00001B28  0000              add [eax],al
+00001B2A  0000              add [eax],al
+00001B2C  0000              add [eax],al
+00001B2E  0000              add [eax],al
+00001B30  0000              add [eax],al
+00001B32  0000              add [eax],al
+00001B34  0000              add [eax],al
+00001B36  0000              add [eax],al
+00001B38  0000              add [eax],al
+00001B3A  0000              add [eax],al
+00001B3C  0000              add [eax],al
+00001B3E  0000              add [eax],al
+00001B40  0000              add [eax],al
+00001B42  0000              add [eax],al
+00001B44  0000              add [eax],al
+00001B46  0000              add [eax],al
+00001B48  0000              add [eax],al
+00001B4A  0000              add [eax],al
+00001B4C  0000              add [eax],al
+00001B4E  0000              add [eax],al
+00001B50  0000              add [eax],al
+00001B52  0000              add [eax],al
+00001B54  0000              add [eax],al
+00001B56  0000              add [eax],al
+00001B58  0000              add [eax],al
+00001B5A  0000              add [eax],al
+00001B5C  0000              add [eax],al
+00001B5E  0000              add [eax],al
+00001B60  0000              add [eax],al
+00001B62  0000              add [eax],al
+00001B64  0000              add [eax],al
+00001B66  0000              add [eax],al
+00001B68  0000              add [eax],al
+00001B6A  0000              add [eax],al
+00001B6C  0000              add [eax],al
+00001B6E  0000              add [eax],al
+00001B70  0000              add [eax],al
+00001B72  0000              add [eax],al
+00001B74  0000              add [eax],al
+00001B76  0000              add [eax],al
+00001B78  0000              add [eax],al
+00001B7A  0000              add [eax],al
+00001B7C  0000              add [eax],al
+00001B7E  0000              add [eax],al
+00001B80  0000              add [eax],al
+00001B82  0000              add [eax],al
+00001B84  0000              add [eax],al
+00001B86  0000              add [eax],al
+00001B88  0000              add [eax],al
+00001B8A  0000              add [eax],al
+00001B8C  0000              add [eax],al
+00001B8E  0000              add [eax],al
+00001B90  0000              add [eax],al
+00001B92  0000              add [eax],al
+00001B94  0000              add [eax],al
+00001B96  0000              add [eax],al
+00001B98  0000              add [eax],al
+00001B9A  0000              add [eax],al
+00001B9C  0000              add [eax],al
+00001B9E  0000              add [eax],al
+00001BA0  0000              add [eax],al
+00001BA2  0000              add [eax],al
+00001BA4  0000              add [eax],al
+00001BA6  0000              add [eax],al
+00001BA8  0000              add [eax],al
+00001BAA  0000              add [eax],al
+00001BAC  0000              add [eax],al
+00001BAE  0000              add [eax],al
+00001BB0  0000              add [eax],al
+00001BB2  0000              add [eax],al
+00001BB4  0000              add [eax],al
+00001BB6  0000              add [eax],al
+00001BB8  0000              add [eax],al
+00001BBA  0000              add [eax],al
+00001BBC  0000              add [eax],al
+00001BBE  0000              add [eax],al
+00001BC0  0000              add [eax],al
+00001BC2  0000              add [eax],al
+00001BC4  0000              add [eax],al
+00001BC6  0000              add [eax],al
+00001BC8  0000              add [eax],al
+00001BCA  0000              add [eax],al
+00001BCC  0000              add [eax],al
+00001BCE  0000              add [eax],al
+00001BD0  0000              add [eax],al
+00001BD2  0000              add [eax],al
+00001BD4  0000              add [eax],al
+00001BD6  0000              add [eax],al
+00001BD8  0000              add [eax],al
+00001BDA  0000              add [eax],al
+00001BDC  0000              add [eax],al
+00001BDE  0000              add [eax],al
+00001BE0  0000              add [eax],al
+00001BE2  0000              add [eax],al
+00001BE4  0000              add [eax],al
+00001BE6  0000              add [eax],al
+00001BE8  0000              add [eax],al
+00001BEA  0000              add [eax],al
+00001BEC  0000              add [eax],al
+00001BEE  0000              add [eax],al
+00001BF0  0000              add [eax],al
+00001BF2  0000              add [eax],al
+00001BF4  0000              add [eax],al
+00001BF6  0000              add [eax],al
+00001BF8  0000              add [eax],al
+00001BFA  0000              add [eax],al
+00001BFC  0000              add [eax],al
+00001BFE  0000              add [eax],al
+00001C00  0000              add [eax],al
+00001C02  0000              add [eax],al
+00001C04  0000              add [eax],al
+00001C06  0000              add [eax],al
+00001C08  0000              add [eax],al
+00001C0A  0000              add [eax],al
+00001C0C  0000              add [eax],al
+00001C0E  0000              add [eax],al
+00001C10  0000              add [eax],al
+00001C12  0000              add [eax],al
+00001C14  0000              add [eax],al
+00001C16  0000              add [eax],al
+00001C18  0000              add [eax],al
+00001C1A  0000              add [eax],al
+00001C1C  0000              add [eax],al
+00001C1E  0000              add [eax],al
+00001C20  0000              add [eax],al
+00001C22  0000              add [eax],al
+00001C24  0000              add [eax],al
+00001C26  0000              add [eax],al
+00001C28  0000              add [eax],al
+00001C2A  0000              add [eax],al
+00001C2C  0000              add [eax],al
+00001C2E  0000              add [eax],al
+00001C30  0000              add [eax],al
+00001C32  0000              add [eax],al
+00001C34  0000              add [eax],al
+00001C36  0000              add [eax],al
+00001C38  0000              add [eax],al
+00001C3A  0000              add [eax],al
+00001C3C  0000              add [eax],al
+00001C3E  0000              add [eax],al
+00001C40  0000              add [eax],al
+00001C42  0000              add [eax],al
+00001C44  0000              add [eax],al
+00001C46  0000              add [eax],al
+00001C48  0000              add [eax],al
+00001C4A  0000              add [eax],al
+00001C4C  0000              add [eax],al
+00001C4E  0000              add [eax],al
+00001C50  0000              add [eax],al
+00001C52  0000              add [eax],al
+00001C54  0000              add [eax],al
+00001C56  0000              add [eax],al
+00001C58  0000              add [eax],al
+00001C5A  0000              add [eax],al
+00001C5C  0000              add [eax],al
+00001C5E  0000              add [eax],al
+00001C60  0000              add [eax],al
+00001C62  0000              add [eax],al
+00001C64  0000              add [eax],al
+00001C66  0000              add [eax],al
+00001C68  0000              add [eax],al
+00001C6A  0000              add [eax],al
+00001C6C  0000              add [eax],al
+00001C6E  0000              add [eax],al
+00001C70  0000              add [eax],al
+00001C72  0000              add [eax],al
+00001C74  0000              add [eax],al
+00001C76  0000              add [eax],al
+00001C78  0000              add [eax],al
+00001C7A  0000              add [eax],al
+00001C7C  0000              add [eax],al
+00001C7E  0000              add [eax],al
+00001C80  0000              add [eax],al
+00001C82  0000              add [eax],al
+00001C84  0000              add [eax],al
+00001C86  0000              add [eax],al
+00001C88  0000              add [eax],al
+00001C8A  0000              add [eax],al
+00001C8C  0000              add [eax],al
+00001C8E  0000              add [eax],al
+00001C90  0000              add [eax],al
+00001C92  0000              add [eax],al
+00001C94  0000              add [eax],al
+00001C96  0000              add [eax],al
+00001C98  0000              add [eax],al
+00001C9A  0000              add [eax],al
+00001C9C  0000              add [eax],al
+00001C9E  0000              add [eax],al
+00001CA0  0000              add [eax],al
+00001CA2  0000              add [eax],al
+00001CA4  0000              add [eax],al
+00001CA6  0000              add [eax],al
+00001CA8  0000              add [eax],al
+00001CAA  0000              add [eax],al
+00001CAC  0000              add [eax],al
+00001CAE  0000              add [eax],al
+00001CB0  0000              add [eax],al
+00001CB2  0000              add [eax],al
+00001CB4  0000              add [eax],al
+00001CB6  0000              add [eax],al
+00001CB8  0000              add [eax],al
+00001CBA  0000              add [eax],al
+00001CBC  0000              add [eax],al
+00001CBE  0000              add [eax],al
+00001CC0  0000              add [eax],al
+00001CC2  0000              add [eax],al
+00001CC4  0000              add [eax],al
+00001CC6  0000              add [eax],al
+00001CC8  0000              add [eax],al
+00001CCA  0000              add [eax],al
+00001CCC  0000              add [eax],al
+00001CCE  0000              add [eax],al
+00001CD0  0000              add [eax],al
+00001CD2  0000              add [eax],al
+00001CD4  0000              add [eax],al
+00001CD6  0000              add [eax],al
+00001CD8  0000              add [eax],al
+00001CDA  0000              add [eax],al
+00001CDC  0000              add [eax],al
+00001CDE  0000              add [eax],al
+00001CE0  0000              add [eax],al
+00001CE2  0000              add [eax],al
+00001CE4  0000              add [eax],al
+00001CE6  0000              add [eax],al
+00001CE8  0000              add [eax],al
+00001CEA  0000              add [eax],al
+00001CEC  0000              add [eax],al
+00001CEE  0000              add [eax],al
+00001CF0  0000              add [eax],al
+00001CF2  0000              add [eax],al
+00001CF4  0000              add [eax],al
+00001CF6  0000              add [eax],al
+00001CF8  0000              add [eax],al
+00001CFA  0000              add [eax],al
+00001CFC  0000              add [eax],al
+00001CFE  0000              add [eax],al
+00001D00  0000              add [eax],al
+00001D02  0000              add [eax],al
+00001D04  0000              add [eax],al
+00001D06  0000              add [eax],al
+00001D08  0000              add [eax],al
+00001D0A  0000              add [eax],al
+00001D0C  0000              add [eax],al
+00001D0E  0000              add [eax],al
+00001D10  0000              add [eax],al
+00001D12  0000              add [eax],al
+00001D14  0000              add [eax],al
+00001D16  0000              add [eax],al
+00001D18  0000              add [eax],al
+00001D1A  0000              add [eax],al
+00001D1C  0000              add [eax],al
+00001D1E  0000              add [eax],al
+00001D20  0000              add [eax],al
+00001D22  0000              add [eax],al
+00001D24  0000              add [eax],al
+00001D26  0000              add [eax],al
+00001D28  0000              add [eax],al
+00001D2A  0000              add [eax],al
+00001D2C  0000              add [eax],al
+00001D2E  0000              add [eax],al
+00001D30  0000              add [eax],al
+00001D32  0000              add [eax],al
+00001D34  0000              add [eax],al
+00001D36  0000              add [eax],al
+00001D38  0000              add [eax],al
+00001D3A  0000              add [eax],al
+00001D3C  0000              add [eax],al
+00001D3E  0000              add [eax],al
+00001D40  0000              add [eax],al
+00001D42  0000              add [eax],al
+00001D44  0000              add [eax],al
+00001D46  0000              add [eax],al
+00001D48  0000              add [eax],al
+00001D4A  0000              add [eax],al
+00001D4C  0000              add [eax],al
+00001D4E  0000              add [eax],al
+00001D50  0000              add [eax],al
+00001D52  0000              add [eax],al
+00001D54  0000              add [eax],al
+00001D56  0000              add [eax],al
+00001D58  0000              add [eax],al
+00001D5A  0000              add [eax],al
+00001D5C  0000              add [eax],al
+00001D5E  0000              add [eax],al
+00001D60  0000              add [eax],al
+00001D62  0000              add [eax],al
+00001D64  0000              add [eax],al
+00001D66  0000              add [eax],al
+00001D68  0000              add [eax],al
+00001D6A  0000              add [eax],al
+00001D6C  0000              add [eax],al
+00001D6E  0000              add [eax],al
+00001D70  0000              add [eax],al
+00001D72  0000              add [eax],al
+00001D74  0000              add [eax],al
+00001D76  0000              add [eax],al
+00001D78  0000              add [eax],al
+00001D7A  0000              add [eax],al
+00001D7C  0000              add [eax],al
+00001D7E  0000              add [eax],al
+00001D80  0000              add [eax],al
+00001D82  0000              add [eax],al
+00001D84  0000              add [eax],al
+00001D86  0000              add [eax],al
+00001D88  0000              add [eax],al
+00001D8A  0000              add [eax],al
+00001D8C  0000              add [eax],al
+00001D8E  0000              add [eax],al
+00001D90  0000              add [eax],al
+00001D92  0000              add [eax],al
+00001D94  0000              add [eax],al
+00001D96  0000              add [eax],al
+00001D98  0000              add [eax],al
+00001D9A  0000              add [eax],al
+00001D9C  0000              add [eax],al
+00001D9E  0000              add [eax],al
+00001DA0  0000              add [eax],al
+00001DA2  0000              add [eax],al
+00001DA4  0000              add [eax],al
+00001DA6  0000              add [eax],al
+00001DA8  0000              add [eax],al
+00001DAA  0000              add [eax],al
+00001DAC  0000              add [eax],al
+00001DAE  0000              add [eax],al
+00001DB0  0000              add [eax],al
+00001DB2  0000              add [eax],al
+00001DB4  0000              add [eax],al
+00001DB6  0000              add [eax],al
+00001DB8  0000              add [eax],al
+00001DBA  0000              add [eax],al
+00001DBC  0000              add [eax],al
+00001DBE  0000              add [eax],al
+00001DC0  0000              add [eax],al
+00001DC2  0000              add [eax],al
+00001DC4  0000              add [eax],al
+00001DC6  0000              add [eax],al
+00001DC8  0000              add [eax],al
+00001DCA  0000              add [eax],al
+00001DCC  0000              add [eax],al
+00001DCE  0000              add [eax],al
+00001DD0  0000              add [eax],al
+00001DD2  0000              add [eax],al
+00001DD4  0000              add [eax],al
+00001DD6  0000              add [eax],al
+00001DD8  0000              add [eax],al
+00001DDA  0000              add [eax],al
+00001DDC  0000              add [eax],al
+00001DDE  0000              add [eax],al
+00001DE0  0000              add [eax],al
+00001DE2  0000              add [eax],al
+00001DE4  0000              add [eax],al
+00001DE6  0000              add [eax],al
+00001DE8  0000              add [eax],al
+00001DEA  0000              add [eax],al
+00001DEC  0000              add [eax],al
+00001DEE  0000              add [eax],al
+00001DF0  0000              add [eax],al
+00001DF2  0000              add [eax],al
+00001DF4  0000              add [eax],al
+00001DF6  0000              add [eax],al
+00001DF8  0000              add [eax],al
+00001DFA  0000              add [eax],al
+00001DFC  0000              add [eax],al
+00001DFE  0000              add [eax],al
+00001E00  0000              add [eax],al
+00001E02  0000              add [eax],al
+00001E04  0000              add [eax],al
+00001E06  0000              add [eax],al
+00001E08  0000              add [eax],al
+00001E0A  0000              add [eax],al
+00001E0C  0000              add [eax],al
+00001E0E  0000              add [eax],al
+00001E10  0000              add [eax],al
+00001E12  0000              add [eax],al
+00001E14  0000              add [eax],al
+00001E16  0000              add [eax],al
+00001E18  0000              add [eax],al
+00001E1A  0000              add [eax],al
+00001E1C  0000              add [eax],al
+00001E1E  0000              add [eax],al
+00001E20  0000              add [eax],al
+00001E22  0000              add [eax],al
+00001E24  0000              add [eax],al
+00001E26  0000              add [eax],al
+00001E28  0000              add [eax],al
+00001E2A  0000              add [eax],al
+00001E2C  0000              add [eax],al
+00001E2E  0000              add [eax],al
+00001E30  0000              add [eax],al
+00001E32  0000              add [eax],al
+00001E34  0000              add [eax],al
+00001E36  0000              add [eax],al
+00001E38  0000              add [eax],al
+00001E3A  0000              add [eax],al
+00001E3C  0000              add [eax],al
+00001E3E  0000              add [eax],al
+00001E40  0000              add [eax],al
+00001E42  0000              add [eax],al
+00001E44  0000              add [eax],al
+00001E46  0000              add [eax],al
+00001E48  0000              add [eax],al
+00001E4A  0000              add [eax],al
+00001E4C  0000              add [eax],al
+00001E4E  0000              add [eax],al
+00001E50  0000              add [eax],al
+00001E52  0000              add [eax],al
+00001E54  0000              add [eax],al
+00001E56  0000              add [eax],al
+00001E58  0000              add [eax],al
+00001E5A  0000              add [eax],al
+00001E5C  0000              add [eax],al
+00001E5E  0000              add [eax],al
+00001E60  0000              add [eax],al
+00001E62  0000              add [eax],al
+00001E64  0000              add [eax],al
+00001E66  0000              add [eax],al
+00001E68  0000              add [eax],al
+00001E6A  0000              add [eax],al
+00001E6C  0000              add [eax],al
+00001E6E  0000              add [eax],al
+00001E70  0000              add [eax],al
+00001E72  0000              add [eax],al
+00001E74  0000              add [eax],al
+00001E76  0000              add [eax],al
+00001E78  0000              add [eax],al
+00001E7A  0000              add [eax],al
+00001E7C  0000              add [eax],al
+00001E7E  0000              add [eax],al
+00001E80  0000              add [eax],al
+00001E82  0000              add [eax],al
+00001E84  0000              add [eax],al
+00001E86  0000              add [eax],al
+00001E88  0000              add [eax],al
+00001E8A  0000              add [eax],al
+00001E8C  0000              add [eax],al
+00001E8E  0000              add [eax],al
+00001E90  0000              add [eax],al
+00001E92  0000              add [eax],al
+00001E94  0000              add [eax],al
+00001E96  0000              add [eax],al
+00001E98  0000              add [eax],al
+00001E9A  0000              add [eax],al
+00001E9C  0000              add [eax],al
+00001E9E  0000              add [eax],al
+00001EA0  0000              add [eax],al
+00001EA2  0000              add [eax],al
+00001EA4  0000              add [eax],al
+00001EA6  0000              add [eax],al
+00001EA8  0000              add [eax],al
+00001EAA  0000              add [eax],al
+00001EAC  0000              add [eax],al
+00001EAE  0000              add [eax],al
+00001EB0  0000              add [eax],al
+00001EB2  0000              add [eax],al
+00001EB4  0000              add [eax],al
+00001EB6  0000              add [eax],al
+00001EB8  0000              add [eax],al
+00001EBA  0000              add [eax],al
+00001EBC  0000              add [eax],al
+00001EBE  0000              add [eax],al
+00001EC0  0000              add [eax],al
+00001EC2  0000              add [eax],al
+00001EC4  0000              add [eax],al
+00001EC6  0000              add [eax],al
+00001EC8  0000              add [eax],al
+00001ECA  0000              add [eax],al
+00001ECC  0000              add [eax],al
+00001ECE  0000              add [eax],al
+00001ED0  0000              add [eax],al
+00001ED2  0000              add [eax],al
+00001ED4  0000              add [eax],al
+00001ED6  0000              add [eax],al
+00001ED8  0000              add [eax],al
+00001EDA  0000              add [eax],al
+00001EDC  0000              add [eax],al
+00001EDE  0000              add [eax],al
+00001EE0  0000              add [eax],al
+00001EE2  0000              add [eax],al
+00001EE4  0000              add [eax],al
+00001EE6  0000              add [eax],al
+00001EE8  0000              add [eax],al
+00001EEA  0000              add [eax],al
+00001EEC  0000              add [eax],al
+00001EEE  0000              add [eax],al
+00001EF0  0000              add [eax],al
+00001EF2  0000              add [eax],al
+00001EF4  0000              add [eax],al
+00001EF6  0000              add [eax],al
+00001EF8  0000              add [eax],al
+00001EFA  0000              add [eax],al
+00001EFC  0000              add [eax],al
+00001EFE  0000              add [eax],al
+00001F00  0000              add [eax],al
+00001F02  0000              add [eax],al
+00001F04  0000              add [eax],al
+00001F06  0000              add [eax],al
+00001F08  0000              add [eax],al
+00001F0A  0000              add [eax],al
+00001F0C  0000              add [eax],al
+00001F0E  0000              add [eax],al
+00001F10  0000              add [eax],al
+00001F12  0000              add [eax],al
+00001F14  0000              add [eax],al
+00001F16  0000              add [eax],al
+00001F18  0000              add [eax],al
+00001F1A  0000              add [eax],al
+00001F1C  0000              add [eax],al
+00001F1E  0000              add [eax],al
+00001F20  0000              add [eax],al
+00001F22  0000              add [eax],al
+00001F24  0000              add [eax],al
+00001F26  0000              add [eax],al
+00001F28  0000              add [eax],al
+00001F2A  0000              add [eax],al
+00001F2C  0000              add [eax],al
+00001F2E  0000              add [eax],al
+00001F30  0000              add [eax],al
+00001F32  0000              add [eax],al
+00001F34  0000              add [eax],al
+00001F36  0000              add [eax],al
+00001F38  0000              add [eax],al
+00001F3A  0000              add [eax],al
+00001F3C  0000              add [eax],al
+00001F3E  0000              add [eax],al
+00001F40  0000              add [eax],al
+00001F42  0000              add [eax],al
+00001F44  0000              add [eax],al
+00001F46  0000              add [eax],al
+00001F48  0000              add [eax],al
+00001F4A  0000              add [eax],al
+00001F4C  0000              add [eax],al
+00001F4E  0000              add [eax],al
+00001F50  0000              add [eax],al
+00001F52  0000              add [eax],al
+00001F54  0000              add [eax],al
+00001F56  0000              add [eax],al
+00001F58  0000              add [eax],al
+00001F5A  0000              add [eax],al
+00001F5C  0000              add [eax],al
+00001F5E  0000              add [eax],al
+00001F60  0000              add [eax],al
+00001F62  0000              add [eax],al
+00001F64  0000              add [eax],al
+00001F66  0000              add [eax],al
+00001F68  0000              add [eax],al
+00001F6A  0000              add [eax],al
+00001F6C  0000              add [eax],al
+00001F6E  0000              add [eax],al
+00001F70  0000              add [eax],al
+00001F72  0000              add [eax],al
+00001F74  0000              add [eax],al
+00001F76  0000              add [eax],al
+00001F78  0000              add [eax],al
+00001F7A  0000              add [eax],al
+00001F7C  0000              add [eax],al
+00001F7E  0000              add [eax],al
+00001F80  0000              add [eax],al
+00001F82  0000              add [eax],al
+00001F84  0000              add [eax],al
+00001F86  0000              add [eax],al
+00001F88  0000              add [eax],al
+00001F8A  0000              add [eax],al
+00001F8C  0000              add [eax],al
+00001F8E  0000              add [eax],al
+00001F90  0000              add [eax],al
+00001F92  0000              add [eax],al
+00001F94  0000              add [eax],al
+00001F96  0000              add [eax],al
+00001F98  0000              add [eax],al
+00001F9A  0000              add [eax],al
+00001F9C  0000              add [eax],al
+00001F9E  0000              add [eax],al
+00001FA0  0000              add [eax],al
+00001FA2  0000              add [eax],al
+00001FA4  0000              add [eax],al
+00001FA6  0000              add [eax],al
+00001FA8  0000              add [eax],al
+00001FAA  0000              add [eax],al
+00001FAC  0000              add [eax],al
+00001FAE  0000              add [eax],al
+00001FB0  0000              add [eax],al
+00001FB2  0000              add [eax],al
+00001FB4  0000              add [eax],al
+00001FB6  0000              add [eax],al
+00001FB8  0000              add [eax],al
+00001FBA  0000              add [eax],al
+00001FBC  0000              add [eax],al
+00001FBE  0000              add [eax],al
+00001FC0  0000              add [eax],al
+00001FC2  0000              add [eax],al
+00001FC4  0000              add [eax],al
+00001FC6  0000              add [eax],al
+00001FC8  0000              add [eax],al
+00001FCA  0000              add [eax],al
+00001FCC  0000              add [eax],al
+00001FCE  0000              add [eax],al
+00001FD0  0000              add [eax],al
+00001FD2  0000              add [eax],al
+00001FD4  0000              add [eax],al
+00001FD6  0000              add [eax],al
+00001FD8  0000              add [eax],al
+00001FDA  0000              add [eax],al
+00001FDC  0000              add [eax],al
+00001FDE  0000              add [eax],al
+00001FE0  0000              add [eax],al
+00001FE2  0000              add [eax],al
+00001FE4  0000              add [eax],al
+00001FE6  0000              add [eax],al
+00001FE8  0000              add [eax],al
+00001FEA  0000              add [eax],al
+00001FEC  0000              add [eax],al
+00001FEE  0000              add [eax],al
+00001FF0  0000              add [eax],al
+00001FF2  0000              add [eax],al
+00001FF4  0000              add [eax],al
+00001FF6  0000              add [eax],al
+00001FF8  0000              add [eax],al
+00001FFA  0000              add [eax],al
+00001FFC  0000              add [eax],al
+00001FFE  0000              add [eax],al
+00002000  B71F              mov bh,0x1f
+00002002  0000              add [eax],al
+00002004  C81F0000          enter 0x1f,0x0
+00002008  CE                into
+00002009  1F                pop ds
+0000200A  0000              add [eax],al
+0000200C  E51F              in eax,0x1f
+0000200E  0000              add [eax],al
+00002010  F01F              lock pop ds
+00002012  0000              add [eax],al
+00002014  07                pop es
+00002015  2000              and [eax],al
+00002017  001520000024      add [dword 0x24000020],dl
+0000201D  2000              and [eax],al
+0000201F  0033              add [ebx],dh
+00002021  2000              and [eax],al
+00002023  004020            add [eax+0x20],al
+00002026  0000              add [eax],al
+00002028  5C                pop esp
+00002029  2000              and [eax],al
+0000202B  00642000          add [eax+0x0],ah
+0000202F  007820            add [eax+0x20],bh
+00002032  0000              add [eax],al
+00002034  8420              test [eax],ah
+00002036  0000              add [eax],al
+00002038  9D                popf
+00002039  2000              and [eax],al
+0000203B  00A8200000BA      add [eax-0x45ffffe0],ch
+00002041  2000              and [eax],al
+00002043  00CC              add ah,cl
+00002045  2000              and [eax],al
+00002047  00DC              add ah,bl
+00002049  2000              and [eax],al
+0000204B  00EA              add dl,ch
+0000204D  2000              and [eax],al
+0000204F  00EA              add dl,ch
+00002051  2000              and [eax],al
+00002053  00EA              add dl,ch
+00002055  2000              and [eax],al
+00002057  00EA              add dl,ch
+00002059  2000              and [eax],al
+0000205B  00EA              add dl,ch
+0000205D  2000              and [eax],al
+0000205F  00EA              add dl,ch
+00002061  2000              and [eax],al
+00002063  00EA              add dl,ch
+00002065  2000              and [eax],al
+00002067  00EA              add dl,ch
+00002069  2000              and [eax],al
+0000206B  00EA              add dl,ch
+0000206D  2000              and [eax],al
+0000206F  00EA              add dl,ch
+00002071  2000              and [eax],al
+00002073  00EA              add dl,ch
+00002075  2000              and [eax],al
+00002077  00EA              add dl,ch
+00002079  2000              and [eax],al
+0000207B  00EA              add dl,ch
+0000207D  2000              and [eax],al
+0000207F  00                db 0x00

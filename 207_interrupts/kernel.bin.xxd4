@@ -146,7 +146,6 @@
 00000910: f81f 29c2 89d0 5dc3 5589 e5ff 7508 e8da  ..)...].U...u...
 00000920: ffff ff83 c404 89c2 89d0 c1e0 0201 d0c1  ................
 00000930: e005 f7d8 89c2 8b45 0801 d089 c2c1 ea1f  .......E........
----<idt.o:set_idt_gate(946)---
 00000940: 01d0 d1f8 c9c3 5589 e58b 450c 8b55 0866  ......U...E..U.f
 00000950: 8904 d5a0 3000 008b 4508 66c7 04c5 a230  ....0...E.f....0
 00000960: 0000 0800 8b45 08c6 04c5 a430 0000 008b  .....E.....0....
@@ -251,18 +250,6 @@
 00000f90: 43e8 6df5 ffff 83c4 100f b645 f383 ec08  C.m........E....
 00000fa0: 506a 40e8 5bf5 ffff 83c4 100f b645 f283  Pj@.[........E..
 00000fb0: ec08 506a 40e8 49f5 ffff 83c4 10c9 c300  ..Pj@.I.........
--------------------------------------------------------------------
----.rodata. What's curious about this is that it is 1fc0 in the elf and
-0fc0 here here in the bin. Why? Because the Ttext pads the .text to 1000
-in the elf(because you have headers and stuff). I think the 
-1000 align/padding means that you round up to the nearest 1000. In the bin,
-there's no header, so .text is the first thing in the file. Thus, the closest
-"1000" is just 0, and hence no padding, and this jumps up to 0fc0.
--------------------------------------------------------------------
------
----<keyboard.c: Hrm...so this seems to be set up by .rel.rodata, 
-with no other identifier for these. They don't appear in the symtab>---
----random strings from keyboard.c---
 00000fc0: 4b65 7962 6f61 7264 2073 6361 6e63 6f64  Keyboard scancod
 00000fd0: 653a 2000 2c20 000a 0055 6e6b 6e6f 776e  e: ., ...Unknown
 00000fe0: 206b 6579 2075 7000 4552 524f 5200 4553   key up.ERROR.ES
@@ -279,10 +266,6 @@ with no other identifier for these. They don't appear in the symtab>---
 00001090: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 000010a0: e81f 0000 ee1f 0000 f21f 0000 f41f 0000  ................
 000010b0: f61f 0000 f81f 0000 fa1f 0000 fc1f 0000  ................
----cmap pointers, but yeah...these addresses are confusing---
----Actually, it makes sense if you subtract 1000 from them---
----0020 -> 2000 -> 1000, 5420 -> 2054 -> 1054---
----But...why that 1000 subtraction(or addition)?---
 000010c0: fe1f 0000 0020 0000 0220 0000 0420 0000  ..... ... ... ..
 000010d0: 0620 0000 0820 0000 0a20 0000 1420 0000  . ... ... ... ..
 000010e0: 1820 0000 1a20 0000 1c20 0000 1e20 0000  . ... ... ... ..
@@ -295,7 +278,6 @@ with no other identifier for these. They don't appear in the symtab>---
 00001150: 5d20 0000 5f20 0000 6120 0000 6320 0000  ] .._ ..a ..c ..
 00001160: 6520 0000 6720 0000 6920 0000 6b20 0000  e ..g ..i ..k ..
 00001170: 6d20 0000 6f20 0000 7120 0000 7820 0000  m ..o ..q ..x ..
----exception_messages from isr.c---
 00001180: 8120 0000 8620 0000 4469 7669 7369 6f6e  . ... ..Division
 00001190: 2042 7920 5a65 726f 0044 6562 7567 004e   By Zero.Debug.N
 000011a0: 6f6e 204d 6173 6b61 626c 6520 496e 7465  on Maskable Inte
@@ -315,12 +297,9 @@ with no other identifier for these. They don't appear in the symtab>---
 00001280: 2049 6e74 6572 7275 7074 0043 6f70 726f   Interrupt.Copro
 00001290: 6365 7373 6f72 2046 6175 6c74 0041 6c69  cessor Fault.Ali
 000012a0: 676e 6d65 6e74 2043 6865 636b 004d 6163  gnment Check.Mac
----The 22bb from exception_messages somehow points correctly to Reserved(12bb)---
----Somehow there's 1000 being added to the 12bb(or subtracted from 22bb)---
-000012b0: 6869 6e65 2043 6865 636b 0052 6573 6572  hine Check.Reser 
+000012b0: 6869 6e65 2043 6865 636b 0052 6573 6572  hine Check.Reser
 000012c0: 7665 6400 7265 6365 6976 6564 2069 6e74  ved.received int
 000012d0: 6572 7275 7074 3a20 000a 0054 6963 6b3a  errupt: ...Tick:
----.eh_frame---
 000012e0: 2000 0a00 1400 0000 0000 0000 017a 5200   ............zR.
 000012f0: 017c 0801 1b0c 0404 8801 0000 2800 0000  .|..........(...
 00001300: 1c00 0000 03ed ffff 3100 0000 0044 0c01  ........1....D..
@@ -396,7 +375,6 @@ with no other identifier for these. They don't appear in the symtab>---
 00001760: 0041 0e08 8502 420d 0502 5ec5 0c04 0400  .A....B...^.....
 00001770: 1c00 0000 3c00 0000 dbf7 ffff 6c00 0000  ....<.......l...
 00001780: 0041 0e08 8502 420d 0502 68c5 0c04 0400  .A....B...h.....
----end eh_frame---
 00001790: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 000017a0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 000017b0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
@@ -532,8 +510,6 @@ with no other identifier for these. They don't appear in the symtab>---
 00001fd0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 00001fe0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 00001ff0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
----.data, so we're in RW land now, the data segment---
----exception_messages. Pointers to .rodata above---
 00002000: 8821 0000 9921 0000 9f21 0000 b621 0000  .!...!...!...!..
 00002010: c121 0000 d821 0000 e621 0000 f521 0000  .!...!...!...!..
 00002020: 0422 0000 1122 0000 2d22 0000 3522 0000  ."..."..-"..5"..
@@ -542,4 +518,3 @@ with no other identifier for these. They don't appear in the symtab>---
 00002050: bb22 0000 bb22 0000 bb22 0000 bb22 0000  ."..."..."..."..
 00002060: bb22 0000 bb22 0000 bb22 0000 bb22 0000  ."..."..."..."..
 00002070: bb22 0000 bb22 0000 bb22 0000 bb22 0000  ."..."..."..."..
----end exception_messages---

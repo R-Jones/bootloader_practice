@@ -1578,7 +1578,7 @@
 000010BA  0000              add [eax],al
 000010BC  0000              add [eax],al
 000010BE  0000              add [eax],al
----Begin constant data---
+---Begin .rodata---
 000010C0  54                push esp
 000010C1  7970              jns 0x1133
 000010C3  6520736F          and [gs:ebx+0x6f],dh
@@ -1919,7 +1919,7 @@
 0000138A  2000              and [eax],al
 0000138C  0A00              or al,[eax]
 0000138E  0000              add [eax],al
----End constant data---
+---End .rodata---
 ---Begin EH_Frame---
 00001390  1400              adc al,0x0
 00001392  0000              add [eax],al
@@ -3408,6 +3408,7 @@
 00001FFA  0000              add [eax],al
 00001FFC  0000              add [eax],al
 00001FFE  0000              add [eax],al
+---It seems this is data section, sc_name---
 00002000  40                inc eax
 00002001  2100              and [eax],eax
 00002003  004621            add [esi+0x21],al
